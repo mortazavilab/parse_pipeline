@@ -3,7 +3,7 @@ from sm_utils import *
 
 # variables to change (again these could go in
 # a future analysis spec)
-config_tsv = 'configs/test.tsv'
+config_tsv = 'configs/test_2.tsv'
 configfile: 'configs/config.yml'
 
 # read in config / analysis spec
