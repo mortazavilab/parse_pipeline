@@ -1,0 +1,16 @@
+ref:
+  bc1_map: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1_RT_replace.txt
+  barcodes: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1r2r3.txt
+  t2g: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.t2g
+  ind: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.idx
+  c1: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c1
+  c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
+
+raw:
+  fastq: fastq/{plate}_{subpool}_{sample}_{lane}_{read}_001.fastq.gz
+
+kallisto:
+  cgb: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: kallisto/{plate}_{subpool}/cells_x_genes.genes.names.txt
+  cgg: kallisto/{plate}_{subpool}/cells_x_genes.genes.txt
+  cgn: kallisto/{plate}_{subpool}/cells_x_genes.nucleus.mtx
