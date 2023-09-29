@@ -3,7 +3,7 @@ import pandas as pd
 p = os.path.dirname(os.getcwd())
 sys.path.append(p)
 
-from utils import *
+# from utils import *
 from sm_utils import *
 
 
@@ -107,8 +107,6 @@ rule make_subpool_adata:
     resources:
         mem_gb = 128,
         threads = 4
-    conda:
-        "hpc3sc"
     output:
         h5ad = config['kallisto']['adata']
     run:
