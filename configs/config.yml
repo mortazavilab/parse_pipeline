@@ -14,9 +14,9 @@ raw:
 
 kallisto:
   cgb: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
-  cggn: kallisto/{plate}_{subpool}/cells_x_genes.genes.names.txt
-  cgg: kallisto/{plate}_{subpool}/cells_x_genes.genes.txt
-  cgn: kallisto/{plate}_{subpool}/cells_x_genes.nucleus.mtx
+  cggn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  cgn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
   adata: kallisto/{plate}_{subpool}/raw_adata.h5ad
 
 scrublet:

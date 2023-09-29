@@ -114,7 +114,7 @@ rule make_subpool_adata:
                          input.cggn,
                          input.cgg,
                          input.cgn,
-                         params=min_counts,
+                         params.min_counts,
                          output.ofile)
 
 # rule scrublet:
