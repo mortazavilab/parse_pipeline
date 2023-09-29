@@ -7,9 +7,9 @@ ref:
   c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
 
 raw:
-  # fastq: fastq/{plate}_{subpool}_{sample}_{lane}_{read}_001.fastq.gz
-  r1_fastq: fastq/{plate}_{subpool}_{sample}_{lane}_R1_001.fastq.gz
-  r2_fastq: fastq/{plate}_{subpool}_{sample}_{lane}_R2_001.fastq.gz
+  # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
+  r1_fastq: fastq/{plate}_{subpool}_{lane}_R1_001.fastq.gz
+  r2_fastq: fastq/{plate}_{subpool}_{lane}_R2_001.fastq.gz
 
 
 kallisto:
@@ -17,3 +17,6 @@ kallisto:
   cggn: kallisto/{plate}_{subpool}/cells_x_genes.genes.names.txt
   cgg: kallisto/{plate}_{subpool}/cells_x_genes.genes.txt
   cgn: kallisto/{plate}_{subpool}/cells_x_genes.nucleus.mtx
+  adata: kallisto/{plate}_{subpool}/raw_adata.h5ad
+
+scrublet:

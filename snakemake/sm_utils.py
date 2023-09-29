@@ -12,7 +12,6 @@ def get_df_info(wc, df, col):
     temp = df.copy(deep=True)
     temp = temp.loc[(temp.plate==wc.plate)&\
                     (temp.subpool==wc.subpool)&\
-                    (temp['sample']==wc.sample)&\
                     (temp.lane==wc['lane'])]
     assert len(temp.index) == 1
     return temp[col].values[0]
@@ -40,7 +39,6 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
             entry = 'r2_fastq'
         return expand(expand(config['raw'][entry],
                         zip,
-                        sample=temp['sample'].tolist(),
                         lane=temp['lane'].tolist(),
                         allow_missing=True),
                         plate=wc.plate,
@@ -49,14 +47,12 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
     elif how == 'str':
         r1s = expand(expand(config['raw']['r1_fastq'],
                         zip,
-                        sample=temp['sample'].tolist(),
                         lane=temp['lane'].tolist(),
                         allow_missing=True),
                         plate=wc.plate,
                         subpool=wc.subpool)
         r2s = expand(expand(config['raw']['r2_fastq'],
                         zip,
-                        sample=temp['sample'].tolist(),
                         lane=temp['lane'].tolist(),
                         allow_missing=True),
                         plate=wc.plate,

@@ -1,5 +1,11 @@
 import pandas as pd
+
+p = os.path.dirname(os.getcwd())
+sys.path.append(p)
+
+from utils import *
 from sm_utils import *
+
 
 # variables to change (again these could go in
 # a future analysis spec)
@@ -8,31 +14,15 @@ configfile: 'configs/config.yml'
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
-read_types = ['R1', 'R2']
 
 wildcard_constraints:
     plate='|'.join([re.escape(x) for x in df.plate.tolist()]),
     subpool='|'.join([re.escape(x) for x in df.subpool.tolist()]),
-    sample='|'.join([re.escape(x) for x in df['sample'].tolist()]),
-    lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
-    read='|'.join([re.escape(x) for x in read_types]),
-
+    lane='|'.join([re.escape(x) for x in df.lane.tolist()])
 
 rule all:
     input:
-        # expand(config['raw']['r1_fastq'],
-        #            zip,
-        #            plate=df.plate.tolist(),
-        #            subpool=df.subpool.tolist(),
-        #            sample=df['sample'].tolist(),
-        #            lane=df.lane.tolist()),
-        # expand(config['raw']['r2_fastq'],
-        #           zip,
-        #           plate=df.plate.tolist(),
-        #           subpool=df.subpool.tolist(),
-        #           sample=df['sample'].tolist(),
-        #           lane=df.lane.tolist()),
-        expand(config['kallisto']['cgn'],
+        expand(config['kallisto']['adata'],
                zip,
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
@@ -99,9 +89,36 @@ rule kallisto:
         	-g {params.t2g} \
         	-x SPLIT-SEQ \
         	-i {params.ind} \
-        	-t 24 \
+        	-t {resources.threads} \
         	-o {params.odir} \
         	-c1 {params.c1} \
         	-c2 {params.c2} \
         	{params.fastq_str}
         """
+
+rule make_subpool_adata:
+    input:
+        cgb = config['kallisto']['cgb'],
+        cggn = config['kallisto']['cggn'],
+        cgg = config['kallisto']['cgg'],
+        cgn = config['kallisto']['cgn']
+    params:
+        min_counts = 500
+    resources:
+        mem_gb = 128,
+        threads = 4
+    output:
+        h5ad = config['kallisto']['adata']
+    run:
+        make_first_adata(input.cgb,
+                         input.cggn,
+                         input.cgg,
+                         input.cgn,
+                         params=min_counts,
+                         output.ofile)
+
+# rule scrublet:
+#     input:
+#     params:
+#     resources:
+#     output:
