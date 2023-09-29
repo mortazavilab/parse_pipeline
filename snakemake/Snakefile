@@ -8,23 +8,34 @@ configfile: 'configs/config.yml'
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
+read_types = ['R1', 'R2']
+
+wildcard_constraints:
+    plate='|'.join([re.escape(x) for x in df.plate.tolist()]),
+    subpool='|'.join([re.escape(x) for x in df.subpool.tolist()]),
+    sample='|'.join([re.escape(x) for x in df['sample'].tolist()]),
+    lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
+    read='|'.join([re.escape(x) for x in read_types]),
+
 
 rule all:
     input:
+        # expand(config['raw']['r1_fastq'],
+        #            zip,
+        #            plate=df.plate.tolist(),
+        #            subpool=df.subpool.tolist(),
+        #            sample=df['sample'].tolist(),
+        #            lane=df.lane.tolist()),
+        # expand(config['raw']['r2_fastq'],
+        #           zip,
+        #           plate=df.plate.tolist(),
+        #           subpool=df.subpool.tolist(),
+        #           sample=df['sample'].tolist(),
+        #           lane=df.lane.tolist()),
         expand(config['kallisto']['cgn'],
                zip,
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
-
-def get_df_info(wc, df, col):
-    temp = df.copy(deep=True)
-    temp = temp.loc[(temp.plate==wc.plate)&\
-                    (temp.subpool==wc.subpool)&\
-                    (temp['sample']==wc.sample)&\
-                    (temp.lane==wc.lane)&\
-                    (temp.read==wc.read)]
-    assert len(temp.index) == 0
-    return temp[col].values[0]
 
 rule symlink_fastq_r1:
     params:
@@ -33,7 +44,7 @@ rule symlink_fastq_r1:
         mem_gb = 4,
         threads = 1
     output:
-        fastq = config['raw']['fastq']
+        fastq = config['raw']['r1_fastq']
     shell:
         """
         ln -s {params.fastq} {output.fastq}
@@ -46,60 +57,16 @@ rule symlink_fastq_r2:
         mem_gb = 4,
         threads = 1
     output:
-        fastq = config['raw']['fastq']
+        fastq = config['raw']['r2_fastq']
     shell:
         """
         ln -s {params.fastq} {output.fastq}
         """
 
-def get_subpool_fastqs(wc, df, how, read=None):
-    """
-    Get list of fastqs from the same subpool. Can
-    either return as a Python list of strings or a
-    formatted string list read to pass to a shell cmd.
-
-    Parameters:
-        how (str): {'str', 'list'}. 'list' will return
-            Python list of str var. 'str' will return
-            Python string
-    """
-    temp = df.copy(deep=True)
-    temp = temp.loc[(temp.plate==wc.plate)&\
-                    (temp.subpool==wc.subpool)]
-
-    if how == 'list':
-        return expand(config['raw']['fastq'],
-                        zip,
-                        plate=wc.plate,
-                        subpool=wc.subpool,
-                        sample=temp['sample'].tolist(),
-                        lane=temp['lane'].tolist(),
-                        read=read)
-
-    elif how == 'str':
-        r1s = expand(config['raw']['fastq'],
-                        zip,
-                        plate=wc.plate,
-                        subpool=wc.subpool,
-                        sample=temp['sample'].tolist(),
-                        lane=temp['lane'].tolist(),
-                        read='R1')
-        r2s = r1s = expand(config['raw']['fastq'],
-                        zip,
-                        plate=wc.plate,
-                        subpool=wc.subpool,
-                        sample=temp['sample'].tolist(),
-                        lane=temp['lane'].tolist(),
-                        read='R2')
-        fastq_str = ''
-        for r1, r2 in zip(r1s, r2s):
-            fastq_str+=f' {r1} {r2}'
-        return fastq_str
-
 rule kallisto:
     input:
-        r1_fastq = lambda wc:get_subpool_fastqs(wc, df, how='list', read='R1'),
-        r2_fastq = lambda wc:get_subpool_fastqs(wc, df, how='list', read='R2')
+        r1_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R1'),
+        r2_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2')
     conda:
         "hpc3sc"
     params:
@@ -109,7 +76,7 @@ rule kallisto:
         ind = config['ref']['ind'],
         c1 = config['ref']['c1'],
         c2 = config['ref']['c2'],
-        fastq_str = lambda wc:get_subpool_fastqs(wc, df, how='str'),
+        fastq_str = lambda wc:get_subpool_fastqs(wc, df, config, how='str'),
         odir = config['kallisto']['cgb'].split('counts_unfiltered_modified/')[0]
     resources:
         mem_gb = 250,
