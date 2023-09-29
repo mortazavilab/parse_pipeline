@@ -107,6 +107,8 @@ rule make_subpool_adata:
     resources:
         mem_gb = 128,
         threads = 4
+    conda:
+        "hpc3sc"
     output:
         h5ad = config['kallisto']['adata']
     run:
