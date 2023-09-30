@@ -108,7 +108,7 @@ rule make_subpool_adata:
     output:
         adata = config['filter']['adata']
     run:
-        make_first_adata(input.adata
+        make_first_adata(input.adata,
                          params.min_counts,
                          output.adata)
 
