@@ -17,6 +17,9 @@ kallisto:
   cggn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
   cgg: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
   cgn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
-  adata: kallisto/{plate}_{subpool}/raw_adata.h5ad
+  adata: kallisto/{plate}_{subpool}/counts_unfiltered_modified/adata.h5ad
+
+filter:
+  adata: filter/{plate}_{subpool}/raw_adata.h5ad
 
 scrublet:

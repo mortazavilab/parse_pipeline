@@ -98,24 +98,19 @@ rule kallisto:
 
 rule make_subpool_adata:
     input:
-        cgb = config['kallisto']['cgb'],
-        cggn = config['kallisto']['cggn'],
-        cgg = config['kallisto']['cgg'],
-        cgn = config['kallisto']['cgn']
+        adata = config['kallisto']['adata'],
+        cgg = config['kallisto']['cgg']
     params:
         min_counts = 500
     resources:
         mem_gb = 128,
         threads = 4
     output:
-        h5ad = config['kallisto']['adata']
+        adata = config['filter']['adata']
     run:
-        make_first_adata(input.cgb,
-                         input.cggn,
-                         input.cgg,
-                         input.cgn,
+        make_first_adata(input.adata
                          params.min_counts,
-                         output.ofile)
+                         output.adata)
 
 # rule scrublet:
 #     input:

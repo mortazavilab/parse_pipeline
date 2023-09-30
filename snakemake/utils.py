@@ -11,22 +11,24 @@ def get_bc2(text):
 def get_bc3(text):
     return text[:8]
 
-def make_first_adata(cgb, cggn, cgg, cgn, min_counts, ofile):
-    obs = pd.read_csv(cgb, sep="\t", header = None)
-    obs.columns = ['bc']
+def make_first_adata(adata, cgg, min_counts, ofile):
+    """
+    Add gene names to the kallisto output.
+    Filter
+    """
+    adata = sc.read(adata)
+    adata.obs.reset_index(inplace=True)
+    adata.obs.columns = ['bc']
 
-    obs['bc1_sequence'] = obs['bc'].apply(get_bc1)
-    obs['bc2_sequence'] = obs['bc'].apply(get_bc2)
-    obs['bc3_sequence'] = obs['bc'].apply(get_bc3)
+    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
+    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
+    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
 
-    var = pd.read_csv(cgg, sep="\t", header = None)
-    var.columns = ['gene_id']
-    names = pd.read_csv(cggn, sep="\t", header = None)
-    names.columns = ['gene_name']
-    var['gene_name'] = names['gene_name']
+    adata.var.reset_index(inplace=True)
+    adata.var.columns = ['gene_name']
+    names = pd.read_csv(cgg, sep="\t", header = None)
+    names.columns = ['gene_id']
+    adata.var['gene_id'] = names['gene_id']
 
-    adata = sc.read_mtx(cgn)
-    X = adata.X
-    adata = anndata.AnnData(X=X, obs=obs, var=var)
-    sc.pp.filter_cells(adata, min_counts = min_counts, inplace=True) # filter by 500 UMIs
+    sc.pp.filter_cells(adata, min_counts = min_counts, inplace=True)
     adata.write(ofile)
