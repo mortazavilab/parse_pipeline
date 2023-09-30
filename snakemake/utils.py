@@ -11,10 +11,16 @@ def get_bc2(text):
 def get_bc3(text):
     return text[:8]
 
-def make_first_adata(adata, cgg, min_counts, ofile):
+def make_subpool_adata(adata,
+                     cgg,
+                     subpool,
+                     bc_df,
+                     sample_df,
+                     min_counts,
+                     ofile):
     """
     Add gene names to the kallisto output.
-    Filter
+    Very initial filtering on min_counts.
     """
     adata = sc.read(adata)
     adata.obs.reset_index(inplace=True)
@@ -30,5 +36,18 @@ def make_first_adata(adata, cgg, min_counts, ofile):
     names.columns = ['gene_id']
     adata.var['gene_id'] = names['gene_id']
 
+    adata.obs.subpool = wildcards.subpool
+
     sc.pp.filter_cells(adata, min_counts = min_counts, inplace=True)
+
+    # merge in bc metadata
+    temp = bc_df.copy(deep=True)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence'}, axis=1)
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
+
+    # merge in w/ sample-level metadata
+    temp = sample_df.copy(deep=True)
+    temp = temp.loc[(sample_df.plate==wildcards.plate)]
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
+
     adata.write(ofile)
