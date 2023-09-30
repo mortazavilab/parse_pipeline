@@ -22,7 +22,7 @@ wildcard_constraints:
 
 rule all:
     input:
-        expand(config['kallisto']['adata'],
+        expand(config['filter']['adata'],
                zip,
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
