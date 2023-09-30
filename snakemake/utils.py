@@ -42,7 +42,8 @@ def make_subpool_adata(adata,
 
     # merge in bc metadata
     temp = bc_df.copy(deep=True)
-    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence'}, axis=1)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
+                                             'well': 'bc1_well'}, axis=1)
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
 
     # merge in w/ sample-level metadata
