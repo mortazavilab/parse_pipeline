@@ -13,7 +13,7 @@ def get_bc3(text):
 
 def make_subpool_adata(adata,
                      cgg,
-                     subpool,
+                     wildcards,
                      bc_df,
                      sample_df,
                      min_counts,
