@@ -51,5 +51,6 @@ def make_subpool_adata(adata,
     temp = temp.loc[(sample_df.plate==wildcards.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
+    adata.obs.fillna('NA', inplace=True)
 
     adata.write(ofile)

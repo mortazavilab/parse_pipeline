@@ -9,7 +9,7 @@ snakemake \
 
  ```bash
  snakemake \
-  -s Snakefile \
+  -s snakemake/Snakefile \
   -j 100 \
   --latency-wait 120 \
   --use-conda \
