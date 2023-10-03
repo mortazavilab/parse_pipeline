@@ -36,7 +36,7 @@ def make_subpool_adata(adata,
     names.columns = ['gene_id']
     adata.var['gene_id'] = names['gene_id']
 
-    adata.obs.subpool = wildcards.subpool
+    adata.obs['subpool'] = wildcards.subpool
 
     sc.pp.filter_cells(adata, min_counts = min_counts, inplace=True)
 
@@ -51,6 +51,10 @@ def make_subpool_adata(adata,
     temp = temp.loc[(sample_df.plate==wildcards.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
-    adata.obs.fillna('NA', inplace=True)
+
+    # make all object columns string columns
+    for c in adata.obs.columns:
+        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
+            adata.obs[c] = adata.obs[c].fillna('NA')
 
     adata.write(ofile)
