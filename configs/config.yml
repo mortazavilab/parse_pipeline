@@ -1,8 +1,16 @@
 ref:
   bc1_map: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1_RT_replace.txt
   barcodes: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1r2r3.txt
-  t2g: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.t2g
-  ind: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.idx
+
+  annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz
+  annot: ref/gencode.vM32.gtf.gz
+  fa_link: https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
+  fa: ref/mm39.fa.gz
+
+  kallisto:
+    t2g: ref/kallisto/c57bl6j.t2g
+    ind: ref/kallisto/c57bl6j.idx
+    fa: ref/kallisto/c57bl6j.fa
   c1: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c1
   c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
 
@@ -23,3 +31,4 @@ filter:
   sample_adata: filter/{plate}_{sample}/adata.h5ad
 
 scrublet:
+  # should do on the subpool level

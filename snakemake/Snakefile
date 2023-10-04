@@ -34,6 +34,55 @@ rule all:
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
 
+###############################
+### Ref download and generation
+###############################
+
+rule dl:
+   resources:
+       mem_gb = 4,
+       threads = 1
+   shell:
+       "wget -O {output.out} {params.link}"
+
+use rule dl as dl_annot with:
+    params:
+        link = config['ref']['annot_link']
+    output:
+        out = config['ref']['annot']
+
+use rule dl as dl_annot with:
+    params:
+        link = config['ref']['fa_link']
+    output:
+        out = config['ref']['fa']
+
+rule kallisto_ind:
+    input:
+        annot = config['ref']['annot'],
+        fa = config['ref']['fa']
+    conda:
+        "hpc3sc"
+    resources:
+        mem_gb = 16,
+        threads = 8
+    output:
+        t2g = config['ref']['kallisto']['t2g'],
+        ind = config['ref']['kallisto']['ind'],
+        fa = config['ref']['kallisto']['fa']
+    shell:
+        """
+        kb ref \
+            -i {output.ind} \
+            -g {output.t2g} \
+            -f1 {output.fa} \
+            {input.fa} \
+            {input.annot}
+        """
+
+
+##################################
+
 rule symlink_fastq_r1:
     params:
         fastq = lambda wc:get_df_info(wc, df, 'fastq')
@@ -69,8 +118,8 @@ rule kallisto:
     params:
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
-        t2g = config['ref']['t2g'],
-        ind = config['ref']['ind'],
+        t2g = config['ref']['kallisto']['t2g'],
+        ind = config['ref']['kallisto']['ind'],
         c1 = config['ref']['c1'],
         c2 = config['ref']['c2'],
         fastq_str = lambda wc:get_subpool_fastqs(wc, df, config, how='str'),
