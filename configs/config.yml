@@ -28,7 +28,8 @@ kallisto:
 
 filter:
   adata: filter/{plate}_{subpool}/raw_adata.h5ad
-  sample_adata: filter/{plate}_{sample}/adata.h5ad
 
 scrublet:
-  # should do on the subpool level
+  # TODO sample will be combo of {tissue}_{genotype}_{sex}_{rep}
+  adata: scrublet/{plate}_{sample}_{subpool}/adata.h5ad
+  # {plate}_{tissue}_{genotype}_{sex}_{rep}

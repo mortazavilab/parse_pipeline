@@ -100,3 +100,31 @@ def get_bc1_matches(kit, chemistry):
     bc_df = bc1_dt.merge(bc1_randhex, on='well')
 
     return bc_df
+
+def get_bcs(bc, kit, chemistry):
+    """
+    Parameters:
+        bc (int): {1,2,3}
+    """
+    pkg_path = os.path.dirname(os.path.dirname(__file__))
+    bc_round_set = get_bc_round_set(kit, chemistry)
+
+    bc_name = f'bc{bc}'
+
+    # determine file to use
+    for entry in bc_round_set:
+        if entry[0] == bc_name:
+            ver = entry[1]
+
+    fname = pkg_path+'/barcodes/bc_data_{}.csv'.format(ver)
+    df = pd.read_csv(fname)
+    df.loc[df.well.duplicated(keep=False)].sort_values(by='well')
+
+    if bc == 2 or bc == 3:
+        assert len(df['type'].unique().tolist()) == 1
+
+    drop_cols = ['bci', 'uid', 'type']
+    df.drop(drop_cols, axis=1, inplace=True)
+    df.rename({'sequence': bc_name}, axis=1, inplace=True)
+
+    return df
