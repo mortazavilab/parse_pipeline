@@ -95,16 +95,16 @@ def run_scrublet(infile,
     adata = sc.read(infile)
 
     # if number of cells is very low, don't call doublets, fill in
-    if adata_this_sample.X.shape[0] <= n_pcs:
-        adata_this_sample.obs["doublet_scores"] = 0
+    if adata.X.shape[0] <= n_pcs:
+        adata.obs["doublet_scores"] = 0
 
     # number of cells has to be more than number of PCs
-    elif adata_this_sample.X.shape[0] > 30:
-        scrub = scr.Scrublet(adata_this_sample.X)
+    elif adata.X.shape[0] > 30:
+        scrub = scr.Scrublet(adata.X)
         doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=min_counts,
                                                                   min_cells=min_cells,
                                                                   min_gene_variability_pctl=min_gene_variability_pctl,
                                                                   n_prin_comps=n_pcs)
-        adata_this_sample.obs["doublet_scores"] = doublet_scores
+        adata.obs["doublet_scores"] = doublet_scores
 
     adata.write(ofile)
