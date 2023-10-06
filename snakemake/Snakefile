@@ -57,7 +57,7 @@ use rule dl as dl_annot with:
     output:
         out = config['ref']['annot']
 
-use rule dl as dl_annot with:
+use rule dl as dl_fa with:
     params:
         link = config['ref']['fa_link']
     output:
@@ -191,7 +191,7 @@ rule scrublet_make_adata:
         mem_gb = 32,
         threads = 2
     output:
-        adata = config['filter']['adata']
+        adata = config['scrublet']['adata']
     run:
         make_subpool_sample_adata(input.adata,
                                   wildcards,
