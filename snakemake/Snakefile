@@ -28,6 +28,7 @@ wildcard_constraints:
     subpool='|'.join([re.escape(x) for x in df.subpool.tolist()]),
     lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
+    tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
 
 def get_sample_subpool_files(df, sample_df, cfg_entry):
     plates = df.plate.unique().tolist()

@@ -1,4 +1,5 @@
 ref:
+  # TODO - what's going on here
   bc1_map: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1_RT_replace.txt
   barcodes: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1r2r3.txt
 
@@ -33,3 +34,6 @@ scrublet:
   # TODO sample will be combo of {tissue}_{genotype}_{sex}_{age}_{mouse_id}
   adata: scrublet/{plate}_{sample}_{subpool}/adata.h5ad
   scrub_adata: scrublet/{plate}_{sample}_{subpool}/scrubbed_adata.h5ad
+
+tissue:
+  adata: ./{tissue}/adata.h5ad

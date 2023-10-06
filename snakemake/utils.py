@@ -72,6 +72,15 @@ def make_subpool_adata(adata,
         if pd.api.types.is_object_dtype(adata.obs[c].dtype):
             adata.obs[c] = adata.obs[c].fillna('NA')
 
+    # create new index for each cell
+    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
+        adata.obs['bc2_well']+'_'+\
+        adata.obs['bc3_well']+'_'+\
+        adata.obs['subpool']+'_'+\
+        adata.obs['plate']
+    adata.obs.reset_index(drop=True)
+    adata.set_index('cellID', inplace=True)
+
     adata.write(ofile)
 
 def make_subpool_sample_adata(infile, wc, ofile):
@@ -96,7 +105,7 @@ def run_scrublet(infile,
 
     # if number of cells is very low, don't call doublets, fill in
     if adata.X.shape[0] <= n_pcs:
-        adata.obs["doublet_scores"] = 0
+        adata.obs['doublet_scores'] = 0
 
     # number of cells has to be more than number of PCs
     elif adata.X.shape[0] > 30:
@@ -105,6 +114,17 @@ def run_scrublet(infile,
                                                                   min_cells=min_cells,
                                                                   min_gene_variability_pctl=min_gene_variability_pctl,
                                                                   n_prin_comps=n_pcs)
-        adata.obs["doublet_scores"] = doublet_scores
+        adata.obs['doublet_scores'] = doublet_scores
 
+    adata.write(ofile)
+
+def concat_adatas(adatas, ofile):
+    for i, f in enumerate(adatas):
+        if i == 0:
+            adata = sc.read(f)
+        else:
+            a = sc.read(f)
+            adata = adata.concatenate(a,
+                        join='outer',
+                        index_unique=None)
     adata.write(ofile)
