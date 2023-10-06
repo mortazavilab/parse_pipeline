@@ -123,6 +123,7 @@ def run_scrublet(infile,
     adata.write(ofile)
 
 def concat_adatas(adatas, ofile):
+    import pdb; pdb.set_trace()
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read(f)
