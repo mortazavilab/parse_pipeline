@@ -26,19 +26,32 @@ sample_df = pd.read_csv(sample_csv)
 wildcard_constraints:
     plate='|'.join([re.escape(x) for x in df.plate.tolist()]),
     subpool='|'.join([re.escape(x) for x in df.subpool.tolist()]),
-    lane='|'.join([re.escape(x) for x in df.lane.tolist()])
+    lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
+    sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
+
+def get_sample_subpool_files(df, sample_df, cfg_entry):
+    plates = df.plate.unique().tolist()
+    subpools = df.subpool.unique().tolist()
+
+    # get samples from the sample_df that
+    # correspond to this experiment
+    temp = sample_df.copy(deep=True)
+    temp = temp.loc[temp.plate.isin(plates)]
+    samples = temp.Mouse_Tissue_ID.unique().tolist()
+
+    adatas = expand(cfg_entry,
+           plate=plates,
+           sample=samples,
+           subpool=subpools)
+    return adatas
 
 rule all:
     input:
+        get_sample_subpool_files(df, sample_df, config['scrublet']['scrub_adata'])
         # expand(config['filter']['adata'],
         #        zip,
         #        plate=df.plate.tolist(),
-        #        sample=df.Mouse_Tissue_ID.tolist(),
         #        subpool=df.subpool.tolist())
-        expand(config['filter']['adata'],
-               zip,
-               plate=df.plate.tolist(),
-               subpool=df.subpool.tolist())
 
 ###############################
 ### Ref download and generation
@@ -191,15 +204,30 @@ rule scrublet_make_adata:
         mem_gb = 32,
         threads = 2
     output:
-        adata = config['scrublet']['adata']
+        adata = temporary(config['scrublet']['adata'])
     run:
         make_subpool_sample_adata(input.adata,
                                   wildcards,
                                   output.adata)
 
 
-# rule scrublet:
-#     input:
-#     params:
-#     resources:
-#     output:
+rule scrublet:
+    input:
+        adata = config['scrublet']['adata']
+    params:
+        n_pcs = 30,
+        min_counts = 1,
+        min_cells = 1,
+        min_gene_variability_pctl = 85
+    resources:
+        mem_gb = 256,
+        threads = 8
+    output:
+        adata = config['scrublet']['scrub_adata']
+    run:
+        run_scrublet(input.adata,
+                     params.n_pcs,
+                     params.min_counts,
+                     params.min_cells,
+                     params.min_gene_variability_pctl,
+                     output.adata)

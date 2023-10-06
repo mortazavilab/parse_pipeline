@@ -1,6 +1,8 @@
 import pandas as pd
 import anndata
 import scanpy as sc
+import scrublet as scr
+
 from bc_utils import *
 
 def get_bc1(text):
@@ -51,16 +53,17 @@ def make_subpool_adata(adata,
 
     # merge in other bc information
     for bc in [2,3]:
+        bc_name = f'bc{bc}'
         seq_col = f'bc{bc}_sequence'
         well_col = f'bc{bc}_well'
         bc_df = get_bcs(bc, kit, chemistry)
         bc_df.rename({'well': well_col,
-                      'sequence': seq_col}, axis=1, inplace=True)
+                      bc_name: seq_col}, axis=1, inplace=True)
         adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
 
     # merge in w/ sample-level metadata
     temp = sample_df.copy(deep=True)
-    temp = temp.loc[(sample_df.plate==wildcards.plate)]
+    temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
 
@@ -80,5 +83,28 @@ def make_subpool_sample_adata(infile, wc, ofile):
     inds += adata.obs.loc[adata.obs['Mouse_Tissue_ID']==wc.sample].index.tolist()
 
     adata = adata[inds, :].copy()
+
+    adata.write(ofile)
+
+def run_scrublet(infile,
+                 n_pcs,
+                 min_counts,
+                 min_cells,
+                 min_gene_variability_pctl,
+                 ofile):
+    adata = sc.read(infile)
+
+    # if number of cells is very low, don't call doublets, fill in
+    if adata_this_sample.X.shape[0] <= n_pcs:
+        adata_this_sample.obs["doublet_scores"] = 0
+
+    # number of cells has to be more than number of PCs
+    elif adata_this_sample.X.shape[0] > 30:
+        scrub = scr.Scrublet(adata_this_sample.X)
+        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=min_counts,
+                                                                  min_cells=min_cells,
+                                                                  min_gene_variability_pctl=min_gene_variability_pctl,
+                                                                  n_prin_comps=n_pcs)
+        adata_this_sample.obs["doublet_scores"] = doublet_scores
 
     adata.write(ofile)
