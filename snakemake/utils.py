@@ -79,7 +79,7 @@ def make_subpool_adata(adata,
         adata.obs['subpool']+'_'+\
         adata.obs['plate']
     adata.obs.reset_index(drop=True)
-    adata.set_index('cellID', inplace=True)
+    adata.obs.set_index('cellID', inplace=True)
 
     adata.write(ofile)
 
