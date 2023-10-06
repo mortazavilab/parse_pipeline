@@ -79,6 +79,10 @@ def make_subpool_adata(adata,
         adata.obs['subpool']+'_'+\
         adata.obs['plate']
     adata.obs.reset_index(drop=True)
+
+    # make sure these are unique
+    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
+
     adata.obs.set_index('cellID', inplace=True)
 
     adata.write(ofile)
