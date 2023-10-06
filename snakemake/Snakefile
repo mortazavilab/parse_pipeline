@@ -30,6 +30,11 @@ wildcard_constraints:
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
 
+def get_subset_tissues(df, sample_df):
+    temp = df.merge(sample_df, on='plate', how='inner')
+    tissues = temp.Tissue.unique().tolist()
+    return tissues
+
 def get_sample_subpool_files(df, sample_df, cfg_entry):
     plates = df.plate.unique().tolist()
     subpools = df.subpool.unique().tolist()
@@ -48,7 +53,9 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
 
 rule all:
     input:
-        get_sample_subpool_files(df, sample_df, config['scrublet']['scrub_adata'])
+        # get_sample_subpool_files(df, sample_df, config['scrublet']['scrub_adata'])
+        expand(config['tissue']['adata'],
+               tissue=get_subset_tissues(df, sample_df))
         # expand(config['filter']['adata'],
         #        zip,
         #        plate=df.plate.tolist(),
@@ -232,3 +239,42 @@ rule scrublet:
                      params.min_cells,
                      params.min_gene_variability_pctl,
                      output.adata)
+
+
+####################
+### Combine adatas
+###################
+
+def get_tissue_adatas(df, sample_df, wc, cfg_entry):
+
+    # limit to input tissue
+    temp_sample = sample_df.copy(deep=True)
+    temp_sample = temp_sample.loc[temp_sample.Tissue==wc.tissue]
+
+    # merge this stuff in with the fastq df
+    fastq_df = df.copy(deep=True)
+    temp = fastq_df.merge(sample_df, on='plate', how='inner')
+
+    # get the plate / subpool / sample info for this tissue
+    plates = temp.plate.tolist()
+    subpools = temp.subpool.tolist()
+    samples = temp.Mouse_Tissue_ID.tolist()
+
+    files = expand(cfg_entry,
+           zip,
+           plate=plates,
+           sample=samples,
+           subpool=subpools)
+
+    return files
+
+rule tissue_concat_adatas:
+    input:
+        adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
+    resources:
+        mem_gb = 256,
+        threads = 2
+    output:
+        adata = config['tissue']['adata']
+    run:
+        concat_adata(input.adatas, output.adata)
