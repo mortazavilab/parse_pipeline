@@ -128,12 +128,17 @@ def concat_adatas(adatas, ofile):
             adata = sc.read(f)
         else:
             temp = sc.read(f)
+
+            temp.reset_index(inplace=True)
+            if '017_B6J_10M_20' in temp.cellID.tolist():
+                import pdb; pdb.set_trace()
+            temp.set_index('cellID', inplace=True)
             adata = adata.concatenate(temp,
                         join='outer',
                         index_unique=None)
             adata.obs.reset_index(inplace=True)
-            if len(adata.obs.index) != len(adata.obs.cellID.unique().tolist()):
-                import pdb; pdb.set_trace()
+            # if len(adata.obs.index) != len(adata.obs.cellID.unique().tolist()):
+            #     import pdb; pdb.set_trace()
             adata.obs.set_index('cellID', inplace=True)
 
     adata.write(ofile)
