@@ -54,12 +54,13 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
 rule all:
     input:
         # get_sample_subpool_files(df, sample_df, config['scrublet']['scrub_adata'])
-        expand(config['tissue']['adata'],
-               tissue=get_subset_tissues(df, sample_df))
-        # expand(config['filter']['adata'],
-        #        zip,
-        #        plate=df.plate.tolist(),
-        #        subpool=df.subpool.tolist())
+        # expand(config['tissue']['adata'],
+        #        tissue=get_subset_tissues(df, sample_df))
+        expand(config['filter']['adata'],
+               zip,
+               plate=df.plate.tolist(),
+               subpool=df.subpool.tolist())
+
 
 ###############################
 ### Ref download and generation
