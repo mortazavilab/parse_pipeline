@@ -262,9 +262,9 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
 
     files = expand(cfg_entry,
            zip,
-           plate=plates[:3],
-           sample=samples[:3],
-           subpool=subpools[:3])
+           plate=plates,
+           sample=samples,
+           subpool=subpools)
 
     return files
 

@@ -123,13 +123,17 @@ def run_scrublet(infile,
     adata.write(ofile)
 
 def concat_adatas(adatas, ofile):
-    import pdb; pdb.set_trace()
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read(f)
         else:
-            a = sc.read(f)
-            adata = adata.concatenate(a,
+            temp = sc.read(f)
+            adata = adata.concatenate(temp,
                         join='outer',
                         index_unique=None)
+            adata.obs.reset_index(inplace=True)
+            if len(adata.obs.index) != len(adata.obs.cellID.unique().tolist()):
+                import pdb; pdb.set_trace()
+            adata.obs.set_index('cellID', inplace=True)
+
     adata.write(ofile)
