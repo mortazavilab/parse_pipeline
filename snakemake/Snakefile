@@ -12,7 +12,7 @@ configfile: 'configs/config.yml'
 
 # variables to change (again these could go in
 # a future analysis spec)
-config_tsv = 'configs/test_2.tsv'
+config_tsv = 'configs/test_3.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
