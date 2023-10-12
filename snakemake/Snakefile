@@ -267,6 +267,7 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
            plate=plates,
            sample=samples,
            subpool=subpools)
+    files = list(set(files))
 
     return files
 
