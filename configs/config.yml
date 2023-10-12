@@ -12,8 +12,8 @@ ref:
     t2g: ref/kallisto/c57bl6j.t2g
     ind: ref/kallisto/c57bl6j.idx
     fa: ref/kallisto/c57bl6j.fa
-  c1: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c1
-  c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
+    c1: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c1
+    c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
 
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz

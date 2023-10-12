@@ -7,13 +7,12 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
-
 configfile: 'configs/config.yml'
 
 # variables to change (again these could go in
 # a future analysis spec)
-# config_tsv = 'configs/test_2.tsv'
-config_tsv = 'configs/test_3.tsv'
+config_tsv = 'configs/test_2.tsv'
+# config_tsv = 'configs/test_3.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
@@ -140,16 +139,17 @@ rule symlink_fastq_r2:
 rule kallisto:
     input:
         r1_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R1'),
-        r2_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2')
+        r2_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
+        t2g = config['ref']['kallisto']['t2g'],
+        ind = config['ref']['kallisto']['ind']
     conda:
         "hpc3sc"
     params:
+        # TODO bc1 map, barcodes, c1, c2 should be output from tsth
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
-        t2g = config['ref']['kallisto']['t2g'],
-        ind = config['ref']['kallisto']['ind'],
-        c1 = config['ref']['c1'],
-        c2 = config['ref']['c2'],
+        c1 = config['ref']['kallisto']['c1'],
+        c2 = config['ref']['kallisto']['c2'],
         fastq_str = lambda wc:get_subpool_fastqs(wc, df, config, how='str'),
         odir = config['kallisto']['cgb'].split('counts_unfiltered_modified/')[0]
     resources:
@@ -207,7 +207,7 @@ rule make_subpool_adata:
 ####################
 ###### Scrublet ####
 ####################
-rule scrublet_make_adata:
+rule make_subpool_sample_adata:
     input:
         adata = config['filter']['adata']
     resources:
@@ -270,7 +270,7 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
 
     return files
 
-rule tissue_concat_adatas:
+rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:

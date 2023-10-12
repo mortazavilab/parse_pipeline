@@ -158,7 +158,8 @@ rule kallisto:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
-        config['kallisto']['cgn']
+        config['kallisto']['cgn'],
+        config['kallisto']['adata']
     shell:
         """
         kb count \
