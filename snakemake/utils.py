@@ -129,8 +129,8 @@ def concat_adatas(adatas, ofile):
         else:
             temp = sc.read(f)
 
-            temp.reset_index(inplace=True)
-            if '017_B6J_10M_20' in temp.cellID.tolist():
+            temp.obs.reset_index(inplace=True)
+            if '017_B6J_10M_20' in temp.obs.cellID.tolist():
                 import pdb; pdb.set_trace()
             temp.set_index('cellID', inplace=True)
             adata = adata.concatenate(temp,
