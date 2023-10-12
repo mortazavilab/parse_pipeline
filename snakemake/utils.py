@@ -132,7 +132,7 @@ def concat_adatas(adatas, ofile):
             temp.obs.reset_index(inplace=True)
             if '017_B6J_10M_20' in temp.obs.cellID.tolist():
                 import pdb; pdb.set_trace()
-            temp.set_index('cellID', inplace=True)
+            temp.obs.set_index('cellID', inplace=True)
             adata = adata.concatenate(temp,
                         join='outer',
                         index_unique=None)
