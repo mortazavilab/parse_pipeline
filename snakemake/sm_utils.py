@@ -13,6 +13,7 @@ def get_df_info(wc, df, col):
     temp = temp.loc[(temp.plate==wc.plate)&\
                     (temp.subpool==wc.subpool)&\
                     (temp.lane==wc['lane'])]
+    import pdb; pdb.set_trace()
     assert len(temp.index) == 1
     return temp[col].values[0]
 
