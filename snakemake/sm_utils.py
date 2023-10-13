@@ -22,11 +22,17 @@ def parse_sample_df(fname):
     df = pd.read_csv(fname)
 
     # add multiplexed genotypes if relevant
-    g_cols = ['Multiplexed_Genotype_1', 'Multiplexed_Genotype_2']
+    g_cols = ['mult_genotype_1', 'mult_genotype_2']
     df[g_cols] = df.Genotype.str.split('/', expand=True)
 
     # adjust single-genotype wells
     df.loc[df.well_type=='Single', g_cols] = np.nan
+
+    # add a multiplexed genotype column
+    inds = df.loc[df.well_type=='Multiplexed'].index
+    df['mult_genotype'] = np.nan
+    df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]]+'_'+\
+                                   df.loc[inds, g_cols[1]]
 
     # checks
     for g in g_cols:

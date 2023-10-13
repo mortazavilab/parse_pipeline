@@ -25,12 +25,24 @@ df = parse_config(config_tsv)
 bc_df = get_bc1_matches(kit, chemistry)
 sample_df = parse_sample_df(sample_csv)
 
+mult_genotype_1s = sample_df.loc[sample_df.mult_genotype_1.notnull(), 'mult_genotype_1'].unique().tolist()
+mult_genotype_2s = sample_df.loc[sample_df.mult_genotype_2.notnull(), 'mult_genotype_2'].unique().tolist()
+
 wildcard_constraints:
     plate='|'.join([re.escape(x) for x in df.plate.tolist()]),
     subpool='|'.join([re.escape(x) for x in df.subpool.tolist()]),
     lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
+    mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
+    mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
+
+# functions to get relevant wildcard values for given inputs
+def get_subset_mult_genotypes(df, sample_df, col):
+    temp = df.merge(sample_df, on='plate', how='inner')
+    temp = temp.loc[temp.mult_genotype.notnull()]
+    entries = temp[col].tolist()
+    return entries
 
 def get_subset_tissues(df, sample_df):
     temp = df.merge(sample_df, on='plate', how='inner')
@@ -57,7 +69,13 @@ rule all:
     input:
         # get_sample_subpool_files(df, sample_df, config['scrublet']['scrub_adata'])
         expand(config['tissue']['adata'],
-               tissue=get_subset_tissues(df, sample_df))
+               tissue=get_subset_tissues(df, sample_df)),
+        expand(config['klue']['filt_adata'],
+               zip,
+               plate=get_subset_mult_genotypes(df, sample_df, 'plate'),
+               subpool=get_subset_mult_genotypes(df, sample_df, 'subpool'),
+               mult_genotype_1=get_subset_mult_genotypes(df, sample_df, 'mult_genotype_1'),
+               mult_genotype_2=get_subset_mult_genotypes(df, sample_df, 'mult_genotype_2'))
         # expand(config['filter']['adata'],
         #        zip,
         #        plate=df.plate.tolist(),
@@ -137,7 +155,9 @@ rule symlink_fastq_r2:
         """
         ln -s {params.fastq} {output.fastq}
         """
-
+###############################
+###################### Kallisto
+###############################
 rule kallisto:
     input:
         r1_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R1'),
@@ -183,19 +203,12 @@ rule kallisto:
         	{params.fastq_str}
         """
 
-rule make_subpool_adata:
-    input:
-        adata = config['kallisto']['adata'],
-        cgg = config['kallisto']['cgg']
-    params:
-        min_counts = first_min_counts
+rule make_filt_metadata_adata:
     resources:
         mem_gb = 128,
         threads = 4
-    output:
-        adata = config['filter']['adata']
     run:
-        make_subpool_adata(input.adata,
+        add_meta_filter(input.adata,
                          input.cgg,
                          wildcards,
                          bc_df,
@@ -204,6 +217,36 @@ rule make_subpool_adata:
                          sample_df,
                          params.min_counts,
                          output.adata)
+
+use rule make_filt_metadata_adata as make_subpool_genotype_filter_adata with:
+    input:
+        adata = config['klue']['adata'],
+        cgg = config['klue']['cgg']
+    params:
+        min_counts = first_min_counts
+    output:
+        adata = config['klue']['filt_adata']
+
+use rule make_filt_metadata_adata as make_subpool_filter_adata with:
+    input:
+        adata = config['kallisto']['adata'],
+        cgg = config['kallisto']['cgg']
+    params:
+        min_counts = first_min_counts
+    output:
+        adata = config['filter']['adata']
+
+####################
+####### Klue #######
+####################
+
+# # concatenate all the adatas output from a klue run on a single
+# # genotype pair
+# rule klue_make_subpool_genotype_adata:
+#     input:
+#     output:
+
+
 
 
 ####################

@@ -1,7 +1,7 @@
 import pandas as pd
 import anndata
 import scanpy as sc
-import scrublet as scr
+# import scrublet as scr
 
 from bc_utils import *
 
@@ -14,7 +14,7 @@ def get_bc2(text):
 def get_bc3(text):
     return text[:8]
 
-def make_subpool_adata(adata,
+def add_meta_filter(adata,
                      cgg,
                      wc,
                      bc_df,
