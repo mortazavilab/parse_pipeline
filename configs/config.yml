@@ -20,20 +20,29 @@ raw:
   r1_fastq: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz
   r2_fastq: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
 
+# TODO - make other output directories (ie the ones not in counts_unfiltered_modified)
+# temporary?
 kallisto:
-  cgb: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
-  cggn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
-  cgg: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
-  cgn: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
-  adata: kallisto/{plate}_{subpool}/counts_unfiltered_modified/adata.h5ad
+  cgb: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  cgn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
+  adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
+
+klue:
+  cgb: klue/{plate}/{subpool}/{mult_genotype}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: klue/{plate}/{subpool}/{mult_genotype}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: klue/{plate}/{subpool}/{mult_genotype}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  cgn: klue/{plate}/{subpool/{mult_genotype}}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
+  adata: klue/{plate}/{subpool}/{mult_genotype}/counts_unfiltered_modified/adata.h5ad
 
 filter:
-  adata: filter/{plate}_{subpool}/raw_adata.h5ad
+  adata: filter/{plate}/{subpool}/raw_adata.h5ad
 
 scrublet:
   # TODO sample will be combo of {tissue}_{genotype}_{sex}_{age}_{mouse_id}
-  adata: scrublet/{plate}_{sample}_{subpool}/adata.h5ad
-  scrub_adata: scrublet/{plate}_{sample}_{subpool}/scrubbed_adata.h5ad
+  adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
+  scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
 
 tissue:
   adata: ./{tissue}/adata.h5ad

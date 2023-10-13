@@ -29,7 +29,7 @@ for pair in pairs:
         #    adf['pred_genotype'] = adf.apply(lambda row: "129S1J" if row[0] > row[1] else "CASTJ", axis=1)
 
         alldf.append(adf)
-    
+
     concat_df = pd.concat(alldf, ignore_index=True)
 
     concat_df.to_csv('../igvf_' + igvf + '/' + pair + '/'  + pair+ '_concat.csv')
