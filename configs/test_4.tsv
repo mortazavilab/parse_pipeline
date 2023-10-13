@@ -1,17 +1,17 @@
-fastq	subpool	plate	lane
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R1_001.fastq.gz	Sublibrary_2	igvf_010	L001
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R1_001.fastq.gz	Sublibrary_2	igvf_010	L002
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R1_001.fastq.gz	Sublibrary_2	igvf_010	L003
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L004_R1_001.fastq.gz	Sublibrary_2	igvf_010	L004
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L001_R1_001.fastq.gz	Sublibrary_3	igvf_010	L001
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L002_R1_001.fastq.gz	Sublibrary_3	igvf_010	L002
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L003_R1_001.fastq.gz	Sublibrary_3	igvf_010	L003
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L004_R1_001.fastq.gz	Sublibrary_3	igvf_010	L004
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L001_R1_001.fastq.gz	Sublibrary_2	igvf_010	L001
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L002_R1_001.fastq.gz	Sublibrary_2	igvf_010	L002
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L003_R1_001.fastq.gz	Sublibrary_2	igvf_010	L003
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L004_R1_001.fastq.gz	Sublibrary_2	igvf_010	L004
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L001_R1_001.fastq.gz	Sublibrary_3	igvf_010	L001
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L002_R1_001.fastq.gz	Sublibrary_3	igvf_010	L002
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L003_R1_001.fastq.gz	Sublibrary_3	igvf_010	L003
-/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L004_R1_001.fastq.gz	Sublibrary_3	igvf_010	L004
+fastq	subpool	plate	lane	nova_run
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R1_001.fastq.gz	Sublibrary_2	igvf_010	L001	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R1_001.fastq.gz	Sublibrary_2	igvf_010	L002	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R1_001.fastq.gz	Sublibrary_2	igvf_010	L003	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L004_R1_001.fastq.gz	Sublibrary_2	igvf_010	L004	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L001_R1_001.fastq.gz	Sublibrary_3	igvf_010	L001	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L002_R1_001.fastq.gz	Sublibrary_3	igvf_010	L002	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L003_R1_001.fastq.gz	Sublibrary_3	igvf_010	L003	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L004_R1_001.fastq.gz	Sublibrary_3	igvf_010	L004	1
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L001_R1_001.fastq.gz	Sublibrary_2	igvf_010	L001	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L002_R1_001.fastq.gz	Sublibrary_2	igvf_010	L002	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L003_R1_001.fastq.gz	Sublibrary_2	igvf_010	L003	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L004_R1_001.fastq.gz	Sublibrary_2	igvf_010	L004	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L001_R1_001.fastq.gz	Sublibrary_3	igvf_010	L001	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L002_R1_001.fastq.gz	Sublibrary_3	igvf_010	L002	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L003_R1_001.fastq.gz	Sublibrary_3	igvf_010	L003	2
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L004_R1_001.fastq.gz	Sublibrary_3	igvf_010	L004	2

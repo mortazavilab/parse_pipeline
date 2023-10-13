@@ -17,8 +17,8 @@ ref:
 
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
-  r1_fastq: fastq/{plate}_{subpool}_{lane}_R1_001.fastq.gz
-  r2_fastq: fastq/{plate}_{subpool}_{lane}_R2_001.fastq.gz
+  r1_fastq: fastq/{plate}_{subpool}_{nova_run}_{lane}_R1_001.fastq.gz
+  r2_fastq: fastq/{plate}_{subpool}_{nova_run}_{lane}_R2_001.fastq.gz
 
 kallisto:
   cgb: kallisto/{plate}_{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
