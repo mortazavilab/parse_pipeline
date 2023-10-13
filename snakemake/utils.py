@@ -106,8 +106,6 @@ def add_meta_filter(adata,
     # make sure these are unique
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
 
-    adata.obs.set_index('cellID', inplace=True)
-
     # remove non-multiplexed cells if from klue
     if klue:
         inds = adata.obs.loc[adata.well_type=='Multiplexed'].index
@@ -115,6 +113,8 @@ def add_meta_filter(adata,
         # TODO
         adata = rename_klue_genotype_cols(adata)
 
+
+    adata.obs.set_index('cellID', inplace=True)
     adata.write(ofile)
 
 def make_subpool_sample_adata(infile, wc, ofile):
