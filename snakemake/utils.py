@@ -14,12 +14,35 @@ def get_bc2(text):
 def get_bc3(text):
     return text[:8]
 
+# TODO hopefully won't need this at some pt
+def get_genotype_path_dict():
+    d = {"/home/delaney/igvf/references/PRJNA923323/Mus_musculus_129s1svimj.fa.gz": "129S1J",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_casteij.fa.gz": "CASTJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_aj.fa.gz": "AJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nodshiltj.fa.gz": "NODJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nzohlltj.fa.gz": "NZOJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_pwkphj.fa.gz": "PWKJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_wsbeij.fa.gz": "WSBJ",
+        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_c57bl6j.fa.gz": "B6J"}
+
+    return d
+
+def rename_klue_genotype_cols(adata):
+    """
+    """
+    d = get_genotype_path_dict()
+    adata = sc.read(infile)
+    adata.var['genotype'] = adata.var.gene_name.map(d)
+    adata.var.set_index('genotype', inplace=True)
+    return adata
+
 def add_meta_filter(adata,
                      cgg,
                      wc,
                      bc_df,
                      kit,
                      chemistry,
+                     klue,
                      sample_df,
                      min_counts,
                      ofile):
@@ -84,6 +107,13 @@ def add_meta_filter(adata,
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
 
     adata.obs.set_index('cellID', inplace=True)
+
+    # remove non-multiplexed cells if from klue
+    if klue:
+        inds = adata.obs.loc[adata.well_type=='Multiplexed'].index
+        adata = adata[inds, :].copy()
+        # TODO
+        adata = rename_klue_genotype_cols(adata)
 
     adata.write(ofile)
 

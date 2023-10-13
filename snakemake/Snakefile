@@ -214,25 +214,18 @@ rule make_filt_metadata_adata:
                          bc_df,
                          kit,
                          chemistry,
+                         params.klue,
                          sample_df,
                          params.min_counts,
                          output.adata)
-
-use rule make_filt_metadata_adata as make_subpool_genotype_filter_adata with:
-    input:
-        adata = config['klue']['adata'],
-        cgg = config['klue']['cgg']
-    params:
-        min_counts = first_min_counts
-    output:
-        adata = config['klue']['filt_adata']
 
 use rule make_filt_metadata_adata as make_subpool_filter_adata with:
     input:
         adata = config['kallisto']['adata'],
         cgg = config['kallisto']['cgg']
     params:
-        min_counts = first_min_counts
+        min_counts = first_min_counts,
+        klue = False
     output:
         adata = config['filter']['adata']
 
@@ -240,11 +233,18 @@ use rule make_filt_metadata_adata as make_subpool_filter_adata with:
 ####### Klue #######
 ####################
 
-# # concatenate all the adatas output from a klue run on a single
-# # genotype pair
-# rule klue_make_subpool_genotype_adata:
-#     input:
-#     output:
+# add metadata and perform v basic filtering
+use rule make_filt_metadata_adata as make_subpool_genotype_filter_adata with:
+    input:
+        adata = config['klue']['adata'],
+        cgg = config['klue']['cgg']
+    params:
+        min_counts = first_min_counts,
+        klue = True
+    output:
+        adata = config['klue']['filt_adata']
+
+# group all adatas across the same genotype
 
 
 
