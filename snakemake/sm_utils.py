@@ -14,7 +14,6 @@ def get_df_info(wc, df, col):
                     (temp.subpool==wc.subpool)&\
                     (temp.lane==wc.lane)&\
                     (temp.run==int(wc.run))]
-    import pdb; pdb.set_trace()
     assert len(temp.index) == 1
     return temp[col].values[0]
 
