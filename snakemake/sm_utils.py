@@ -17,6 +17,22 @@ def get_df_info(wc, df, col):
     assert len(temp.index) == 1
     return temp[col].values[0]
 
+def parse_sample_df(fname):
+    df = pd.read_csv(fname)
+
+    # add multiplexed genotypes if relevant
+    g_cols = ['Multiplexed_Genotype_1', 'Multiplexed_Genotype_2']
+    df[g_cols] = df.Genotype.str.split('/', expand=True)
+
+    # adjust single-genotype wells
+    df.loc[df.well_type=='Single', g_cols] = np.nan
+
+    # checks
+    for g in g_cols:
+        assert len(df.loc[(df.well_type=='Single')&(df[g].notnull())].index) == 0
+
+    return df
+
 def get_subpool_fastqs(wc, df, config, how, read=None):
     """
     Get list of fastqs from the same subpool. Can

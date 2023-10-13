@@ -23,7 +23,7 @@ first_min_counts = 500
 # read in config / analysis spec
 df = parse_config(config_tsv)
 bc_df = get_bc1_matches(kit, chemistry)
-sample_df = pd.read_csv(sample_csv)
+sample_df = parse_sample_df(sample_csv)
 
 wildcard_constraints:
     plate='|'.join([re.escape(x) for x in df.plate.tolist()]),
