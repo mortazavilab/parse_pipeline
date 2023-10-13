@@ -258,7 +258,7 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
 
     # merge this stuff in with the fastq df
     fastq_df = df.copy(deep=True)
-    temp = fastq_df.merge(sample_df, on='plate', how='inner')
+    temp = fastq_df.merge(temp_sample, on='plate', how='inner')
 
     # get the plate / subpool / sample info for this tissue
     plates = temp.plate.tolist()
