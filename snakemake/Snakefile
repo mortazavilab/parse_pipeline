@@ -173,9 +173,9 @@ rule kallisto:
         	-r {params.bc1_map} \
         	-w {params.barcodes} \
         	--workflow=nac \
-        	-g {params.t2g} \
+        	-g {input.t2g} \
         	-x SPLIT-SEQ \
-        	-i {params.ind} \
+        	-i {input.ind} \
         	-t {resources.threads} \
         	-o {params.odir} \
         	-c1 {params.c1} \
