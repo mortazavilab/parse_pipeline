@@ -108,7 +108,7 @@ def add_meta_filter(adata,
 
     # remove non-multiplexed cells if from klue
     if klue:
-        inds = adata.obs.loc[adata.well_type=='Multiplexed'].index
+        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
         adata = adata[inds, :].copy()
         # TODO
         adata = rename_klue_genotype_cols(adata)
