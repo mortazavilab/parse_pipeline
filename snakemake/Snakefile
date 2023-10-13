@@ -254,7 +254,6 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
     # limit to input tissue
     temp_sample = sample_df.copy(deep=True)
     temp_sample = temp_sample.loc[temp_sample.Tissue==wc.tissue]
-    import pdb; pdb.set_trace()
 
     # merge this stuff in with the fastq df
     fastq_df = df.copy(deep=True)
