@@ -13,7 +13,7 @@ def get_df_info(wc, df, col):
     temp = temp.loc[(temp.plate==wc.plate)&\
                     (temp.subpool==wc.subpool)&\
                     (temp.lane==wc.lane)&\
-                    (temp.nova_run==int(wc.nova_run))]
+                    (temp.run==int(wc.run))]
     import pdb; pdb.set_trace()
     assert len(temp.index) == 1
     return temp[col].values[0]
@@ -42,7 +42,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
         return expand(expand(config['raw'][entry],
                         zip,
                         lane=temp['lane'].tolist(),
-                        nova_run=temp['nova_run'].tolist(),
+                        run=temp['run'].tolist(),
                         allow_missing=True),
                         plate=wc.plate,
                         subpool=wc.subpool)
