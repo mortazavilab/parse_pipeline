@@ -12,8 +12,8 @@ def get_df_info(wc, df, col):
     temp = df.copy(deep=True)
     temp = temp.loc[(temp.plate==wc.plate)&\
                     (temp.subpool==wc.subpool)&\
-                    (temp.lane==wc['lane'])&\
-                    (temp.nova_run==wc.nova_run)]
+                    (temp.lane==wc.lane)&\
+                    (temp.nova_run==int(wc.nova_run))]
     import pdb; pdb.set_trace()
     assert len(temp.index) == 1
     return temp[col].values[0]
