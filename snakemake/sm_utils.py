@@ -50,6 +50,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
         r1s = expand(expand(config['raw']['r1_fastq'],
                         zip,
                         lane=temp['lane'].tolist(),
+                        run=temp['run'].tolist(),
                         allow_missing=True),
                         plate=wc.plate,
                         subpool=wc.subpool)
