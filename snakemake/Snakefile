@@ -229,7 +229,7 @@ use rule make_filt_metadata_adata as make_subpool_filter_adata with:
         min_counts = first_min_counts,
         klue = False
     output:
-        adata = config['filter']['adata']
+        adata = config['kallisto']['filt_adata']
 
 ################################################################################
 ##################################### klue #####################################
@@ -276,7 +276,7 @@ rule klue_make_subpool_adata:
 ####################
 rule make_subpool_sample_adata:
     input:
-        adata = config['filter']['adata']
+        adata = config['kallisto']['filt_adata']
     resources:
         mem_gb = 32,
         threads = 2
