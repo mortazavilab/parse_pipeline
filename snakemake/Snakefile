@@ -67,8 +67,8 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
 
 rule all:
     input:
-        # expand(config['tissue']['adata'],
-               # tissue=get_subset_tissues(df, sample_df)),
+        expand(config['tissue']['adata'],
+               tissue=get_subset_tissues(df, sample_df)),
         expand(config['klue']['genotype_counts'],
                zip,
                plate=df.plate.tolist(),
@@ -274,7 +274,7 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
 
     return files
 
-# group all adatas across the same genotype
+# get counts for each cell across all genotypes
 rule klue_get_genotype_counts:
     input:
         adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
@@ -285,6 +285,22 @@ rule klue_get_genotype_counts:
         ofile = config['klue']['genotype_counts']
     run:
         get_genotype_counts(input.adatas, output.ofile)
+
+# merge in w/ our filtered kallisto adata, which is at the same (subpool+plate)
+# resolution, and pick which genotype each nucleus should be
+rule klue_pick_cell_genotype:
+    input:
+        genotype_counts = config['klue']['genotype_counts'],
+        adata = config['kallisto']['filt_adata']
+    resources:
+        mem_gb = 128,
+        threads = 2
+    output:
+        adata = config['kallisto']['genotype_adata']
+    run:
+        # TODO
+
+
 
 ####################
 ###### Scrublet ####
