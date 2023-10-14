@@ -31,7 +31,6 @@ def rename_klue_genotype_cols(adata):
     """
     """
     d = get_genotype_path_dict()
-    adata = sc.read(infile)
     adata.var['genotype'] = adata.var.gene_name.map(d)
     adata.var.set_index('genotype', inplace=True)
     return adata
