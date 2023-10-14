@@ -103,8 +103,9 @@ def add_meta_filter(adata,
         adata.obs['plate']
     adata.obs.reset_index(drop=True)
 
-    # make sure these are unique
+    # make sure these are unique + set as index
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
+    adata.obs.set_index('cellID', inplace=True)
 
     # remove non-multiplexed cells if from klue
     if klue:
@@ -113,8 +114,6 @@ def add_meta_filter(adata,
         # TODO
         adata = rename_klue_genotype_cols(adata)
 
-
-    adata.obs.set_index('cellID', inplace=True)
     adata.write(ofile)
 
 def make_subpool_sample_adata(infile, wc, ofile):
