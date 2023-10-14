@@ -69,7 +69,7 @@ rule all:
     input:
         # expand(config['tissue']['adata'],
                # tissue=get_subset_tissues(df, sample_df)),
-        expand(config['klue']['subpool_adata']
+        expand(config['klue']['subpool_adata'],
                zip,
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
