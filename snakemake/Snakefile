@@ -254,9 +254,16 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     different pairs of genotypes ({mult_genotype_1},{mult_genotype_2})
     that klue was run on
     """
+    # restrict to the plates in our input sample set
     temp = df.merge(sample_df, on='plate', how='inner')
+
+    # restrict to this subpool / plate
+    temp = temp.loc[temp.plate==wc.plate]
+    temp = temp.loc[temp.subpool==wc.subpool]
+
     # restrict to multiplexed wells
     temp = temp.loc[temp.mult_genotype.notnull()]
+
     files = expand(cfg_entry,
                    zip,
                    plate=temp.plate.tolist(),
@@ -268,16 +275,16 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     return files
 
 # group all adatas across the same genotype
-rule klue_make_subpool_adata:
+rule klue_get_genotype_counts:
     input:
         adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
     resources:
         mem_gb = 128,
         threads = 2
     output:
-        adata = config['klue']['subpool_adata']
+        ofile = config['klue']['genotype_counts']
     run:
-        concat_adatas(input.adatas, output.adata)
+        get_genotype_counts(input.adatas, output.ofile)
 
 ####################
 ###### Scrublet ####

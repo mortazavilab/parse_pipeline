@@ -24,8 +24,24 @@ def get_genotype_path_dict():
         "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_pwkphj.fa.gz": "PWKJ",
         "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_wsbeij.fa.gz": "WSBJ",
         "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_c57bl6j.fa.gz": "B6J"}
-
     return d
+
+def get_genotype_counts(files, ofile):
+    """
+    Given a list of klue anndata objects, merge
+    the genotype counts together for each cell and output
+    as a tsv
+    """
+    for i, f in enumerate(files):
+        adata = sc.read(f)
+        if i == 0:
+            df = adata.to_df()
+        else:
+            df = df.merge(adata.to_df(),
+                          how='outer',
+                          left_index=True,
+                          right_index=True)
+    df.to_csv(ofile, index=False, sep='\t')
 
 def rename_klue_genotype_cols(adata):
     """
