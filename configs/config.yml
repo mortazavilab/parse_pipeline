@@ -29,6 +29,8 @@ kallisto:
   cgn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
   adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
 
+  filt_adata: kallisto/{plate}/{subpool}/filtered/adata.h5ad
+
 klue:
   cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
@@ -37,8 +39,10 @@ klue:
 
   filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
 
+  # version with all genotypes 
+  subpool_adata: klue/{plate}/{subpool}/adata.h5ad
+
 filter:
-  adata: filter/{plate}/{subpool}/raw_adata.h5ad
 
 scrublet:
   # TODO sample will be combo of {tissue}_{genotype}_{sex}_{age}_{mouse_id}
