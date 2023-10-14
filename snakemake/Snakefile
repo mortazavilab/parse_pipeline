@@ -249,12 +249,20 @@ use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata wit
         adata = config['klue']['filt_adata']
 
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
+    """
+    Get adatas that belong to the same subpool across the
+    different pairs of genotypes ({mult_genotype_1},{mult_genotype_2})
+    that klue was run on
+    """
     temp = df.merge(sample_df, on='plate', how='inner')
+    # restrict to multiplexed wells
     temp = temp.loc[temp.mult_genotype.notnull()]
     files = expand(cfg_entry,
                    zip,
                    plate=temp.plate.tolist(),
-                   subpool=temp.subpool.tolist())
+                   subpool=temp.subpool.tolist(),
+                   mult_genotype_1=temp.mult_genotype_1.tolist(),
+                   mult_genotype_2=temp.mult_genotype_2.tolist())
     files = list(set(files))
 
     return files
