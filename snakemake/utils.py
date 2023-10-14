@@ -188,3 +188,101 @@ def concat_adatas(adatas, ofile):
             adata.obs.set_index('cellID', inplace=True)
 
     adata.write(ofile)
+
+def get_genotypes():
+    g = ['WSBJ','NZOJ',
+         'B6J','NODJ','129S1J',
+         'CASTJ','AJ','PWKJ']
+    return g
+
+def assign_demux_genotype(df):
+    """
+    Assigns a cell the genotype w/ the maximum of counts
+    between the two genotypes that were loaded in the well
+    the cell is from.
+
+    Parameters:
+        df (pandas DataFrame): DF of obs table for each cell w/
+            klue counts for each genotype and multiplexed genotype
+            columns
+    """
+    genotype_cols = get_genotypes()
+
+    # restrict to nuclei w/ genetic multiplexing
+    df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
+
+    # fill nans once again
+    df[genotype_cols] = df[genotype_cols].fillna(0)
+
+    # loop through each multiplexed genotype combo
+    # use those genotypes to determine which,
+    # between the two, has the highest counts
+    keep_cols = ['mult_genotype',
+                 'mult_genotype_1',
+                 'mult_genotype_2']+genotype_cols
+    df = df[keep_cols]
+    temp2 = pd.DataFrame()
+    for g in df.mult_genotype.unique().tolist():
+        # print(g)
+        temp = df.loc[df.mult_genotype==g].copy(deep=True)
+
+        g1 = temp.mult_genotype_1.unique().tolist()
+        assert len(g1) == 1
+        g1 = g1[0]
+
+        g2 = temp.mult_genotype_2.unique().tolist()
+        assert len(g2) == 1
+        g2 = g2[0]
+
+        # find the best match and report ties if the
+        # values are the same
+        temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
+        temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
+
+        temp2 = pd.concat([temp2, temp], axis=0)
+
+    df = df.merge(temp2['new_genotype'], how='left',
+                  left_index=True, right_index=True)
+    df = df[['new_genotype']]
+
+    assert len(df.loc[df.new_genotype.isnull()].index) == 0
+
+    return df
+
+def merge_kallisto_klue(f, genotypes, ofile):
+    """
+    Merge in the klue results with the kallisto results. Use
+    a heuristic (which should be changeable / is subject to change)
+    to determine the genotype assignment to each cell
+    """
+
+    adata = sc.read(f)
+    df = pd.read_csv(genotypes, sep='\t')
+    df.set_index('cellID', inplace=True)
+
+    # make sure we won't dupe any cols
+    assert len(set(df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
+
+    # merge in first; this way we have access to the genotypes that should
+    # be in each well
+    adata.obs = adata.obs.merge(df,
+                                how='left',
+                                left_index=True,
+                                right_index=True)
+
+    # assign genotype for multiplexed wells
+    df = adata.obs.copy(deep=True)
+    df = assign_demux_genotype(df)
+
+    # merge in w/ adata and replace old values in "Genotype"
+    # column for multiplexed wells with the klue results
+    adata.obs = adata.obs.merge(df,
+                                how='left',
+                                left_index=True,
+                                right_index=True)
+    inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+    adata.obs.Genotype = adata.obs.Genotype.astype('str')
+    adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
+    adata.obs.drop('new_genotype', axis=1, inplace=True)
+
+    adata.write(ofile)
