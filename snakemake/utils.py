@@ -41,7 +41,8 @@ def get_genotype_counts(files, ofile):
                           how='outer',
                           left_index=True,
                           right_index=True)
-    df.to_csv(ofile, index=False, sep='\t')
+    df.fillna(0, inplace=True)
+    df.to_csv(ofile, index=True, sep='\t')
 
 def rename_klue_genotype_cols(adata):
     """
