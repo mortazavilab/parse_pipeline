@@ -33,6 +33,7 @@ def rename_klue_genotype_cols(adata):
     d = get_genotype_path_dict()
     adata.var['genotype'] = adata.var.gene_name.map(d)
     adata.var.set_index('genotype', inplace=True)
+    adata.var.drop(adata.var.columns, axis=1, inplace=True)
     return adata
 
 def add_meta_filter(adata,
