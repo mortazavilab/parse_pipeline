@@ -1,7 +1,7 @@
 import pandas as pd
 import anndata
 import scanpy as sc
-import scrublet as scr
+# import scrublet as scr
 
 from bc_utils import *
 
