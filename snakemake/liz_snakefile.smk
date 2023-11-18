@@ -11,8 +11,7 @@ configfile: 'configs/config.yml'
 
 # variables to change (again these could go in
 # a future analysis spec)
-# config_tsv = 'configs/test_2.tsv'
-# config_tsv = 'configs/test_3.tsv'
+# TODO - Liz
 config_tsv = 'configs/test_4.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
@@ -67,11 +66,11 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
 
 rule all:
     input:
-        expand(config['kallisto']['adata'],
-               plate='igvf_010',
-               subpool='Sublibrary_2')
-        # expand(config['tissue']['adata'],
-        #        tissue=get_subset_tissues(df, sample_df)),
+        expand(config['tissue']['adata'],
+               tissue=get_subset_tissues(df, sample_df)),
+        # expand(config['kallisto']['adata'],
+        #        plate=df.plate.tolist(),
+        #        subpool=df.subpool.tolist())
         # expand(config['klue']['genotype_counts'],
         #        zip,
         #        plate=df.plate.tolist(),
