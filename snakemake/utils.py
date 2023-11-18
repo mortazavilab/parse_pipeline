@@ -68,6 +68,7 @@ def add_meta_filter(adata,
     Very initial filtering on min_counts.
     """
     adata = sc.read(adata)
+    adata.X = adata.layers['unspliced']
     adata.obs.reset_index(inplace=True)
     adata.obs.columns = ['bc']
 
