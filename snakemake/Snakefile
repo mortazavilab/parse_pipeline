@@ -156,6 +156,7 @@ rule symlink_fastq_r2:
         """
         ln -s {params.fastq} {output.fastq}
         """
+
 ################################################################################
 ################################### kallisto ###################################
 ################################################################################
@@ -168,7 +169,7 @@ rule kallisto:
     conda:
         "hpc3sc"
     params:
-        # TODO bc1 map, barcodes, c1, c2 should be output from tsth
+        # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
         c1 = config['ref']['kallisto']['c1'],
