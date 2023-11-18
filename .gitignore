@@ -1,2 +1,5 @@
+*ipynb_check*
+klue/*
 .snakemake/*
-
+filter/*
+kallisto/*

@@ -1,0 +1,235 @@
+chemistry: v2
+protocol: Parse_WT_Mega
+samples:
+  A:
+    1:
+    - ali-mortazavi:016_B6J_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:017_B6J_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:018_B6J_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:019_B6J_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:020_B6J_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:021_B6J_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:024_B6J_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:025_B6J_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:016_B6J_10F_16_UBERON_0001388
+    - ali-mortazavi:066_NODJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:017_B6J_10M_16_UBERON_0001388
+    - ali-mortazavi:067_NODJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:018_B6J_10F_16_UBERON_0001388
+    - ali-mortazavi:074_NODJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:019_B6J_10M_16_UBERON_0001388
+    - ali-mortazavi:069_NODJ_10M_16_UBERON_0001388
+  B:
+    1:
+    - ali-mortazavi:066_NODJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:067_NODJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:068_NODJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:069_NODJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:070_NODJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:071_NODJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:072_NODJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:073_NODJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:020_B6J_10F_16_UBERON_0001388
+    - ali-mortazavi:070_NODJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:021_B6J_10M_16_UBERON_0001388
+    - ali-mortazavi:071_NODJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:024_B6J_10F_16_UBERON_0001388
+    - ali-mortazavi:072_NODJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:025_B6J_10M_16_UBERON_0001388
+    - ali-mortazavi:073_NODJ_10M_16_UBERON_0001388
+  C:
+    1:
+    - ali-mortazavi:026_AJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:029_AJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:028_AJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:031_AJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:030_AJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:033_AJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:032_AJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:035_AJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:026_AJ_10F_16_UBERON_0001388
+    - ali-mortazavi:076_PWKJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:027_AJ_10M_16_UBERON_0001388
+    - ali-mortazavi:077_PWKJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:028_AJ_10F_16_UBERON_0001388
+    - ali-mortazavi:078_PWKJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:031_AJ_10M_16_UBERON_0001388
+    - ali-mortazavi:079_PWKJ_10M_16_UBERON_0001388
+  D:
+    1:
+    - ali-mortazavi:076_PWKJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:077_PWKJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:078_PWKJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:079_PWKJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:080_PWKJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:081_PWKJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:084_PWKJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:085_PWKJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:030_AJ_10F_16_UBERON_0001388
+    - ali-mortazavi:080_PWKJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:033_AJ_10M_16_UBERON_0001388
+    - ali-mortazavi:081_PWKJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:034_AJ_10F_16_UBERON_0001388
+    - ali-mortazavi:084_PWKJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:035_AJ_10M_16_UBERON_0001388
+    - ali-mortazavi:085_PWKJ_10M_16_UBERON_0001388
+  E:
+    1:
+    - ali-mortazavi:036_129S1J_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:037_129S1J_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:038_129S1J_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:041_129S1J_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:040_129S1J_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:043_129S1J_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:044_129S1J_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:045_129S1J_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:042_129S1J_10F_16_UBERON_0001388
+    - ali-mortazavi:086_CASTJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:037_129S1J_10M_16_UBERON_0001388
+    - ali-mortazavi:087_CASTJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:038_129S1J_10F_16_UBERON_0001388
+    - ali-mortazavi:092_CASTJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:041_129S1J_10M_16_UBERON_0001388
+    - ali-mortazavi:089_CASTJ_10M_16_UBERON_0001388
+  F:
+    1:
+    - ali-mortazavi:086_CASTJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:087_CASTJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:088_CASTJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:089_CASTJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:090_CASTJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:091_CASTJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:094_CASTJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:093_CASTJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:040_129S1J_10F_16_UBERON_0001388
+    - ali-mortazavi:090_CASTJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:043_129S1J_10M_16_UBERON_0001388
+    - ali-mortazavi:091_CASTJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:044_129S1J_10F_16_UBERON_0001388
+    - ali-mortazavi:094_CASTJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:045_129S1J_10M_16_UBERON_0001388
+    - ali-mortazavi:093_CASTJ_10M_16_UBERON_0001388
+  G:
+    1:
+    - ali-mortazavi:058_WSBJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:057_WSBJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:060_WSBJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:059_WSBJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:062_WSBJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:061_WSBJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:096_WSBJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:063_WSBJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:058_WSBJ_10F_16_UBERON_0001388
+    - ali-mortazavi:046_NZOJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:057_WSBJ_10M_16_UBERON_0001388
+    - ali-mortazavi:047_NZOJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:064_WSBJ_10F_16_UBERON_0001388
+    - ali-mortazavi:048_NZOJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:059_WSBJ_10M_16_UBERON_0001388
+    - ali-mortazavi:049_NZOJ_10M_16_UBERON_0001388
+  H:
+    1:
+    - ali-mortazavi:046_NZOJ_10F_09_UBERON_0002113
+    2:
+    - ali-mortazavi:047_NZOJ_10M_09_UBERON_0002113
+    3:
+    - ali-mortazavi:048_NZOJ_10F_09_UBERON_0002113
+    4:
+    - ali-mortazavi:049_NZOJ_10M_09_UBERON_0002113
+    5:
+    - ali-mortazavi:050_NZOJ_10F_09_UBERON_0002113
+    6:
+    - ali-mortazavi:051_NZOJ_10M_09_UBERON_0002113
+    7:
+    - ali-mortazavi:052_NZOJ_10F_09_UBERON_0002113
+    8:
+    - ali-mortazavi:053_NZOJ_10M_09_UBERON_0002113
+    9:
+    - ali-mortazavi:062_WSBJ_10F_16_UBERON_0001388
+    - ali-mortazavi:050_NZOJ_10F_16_UBERON_0001388
+    10:
+    - ali-mortazavi:061_WSBJ_10M_16_UBERON_0001388
+    - ali-mortazavi:051_NZOJ_10M_16_UBERON_0001388
+    11:
+    - ali-mortazavi:096_WSBJ_10F_16_UBERON_0001388
+    - ali-mortazavi:052_NZOJ_10F_16_UBERON_0001388
+    12:
+    - ali-mortazavi:063_WSBJ_10M_16_UBERON_0001388
+    - ali-mortazavi:053_NZOJ_10M_16_UBERON_0001388
