@@ -1,0 +1,21 @@
+fastq	fastq_r2	subpool	plate	lane	run	platform	notes	seqspec
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R2_001.fastq.gz	Sublibrary_2	igvf_010	L001	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R2_001.fastq.gz	Sublibrary_2	igvf_010	L002	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R2_001.fastq.gz	Sublibrary_2	igvf_010	L003	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L004_R2_001.fastq.gz	Sublibrary_2	igvf_010	L004	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L001_R2_001.fastq.gz	Sublibrary_2	igvf_010	L001	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L002_R2_001.fastq.gz	Sublibrary_2	igvf_010	L002	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L003_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L003_R2_001.fastq.gz	Sublibrary_2	igvf_010	L003	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_2_S1_L004_R2_001.fastq.gz	Sublibrary_2	igvf_010	L004	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L001_R2_001.fastq.gz	Sublibrary_3	igvf_010	L001	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L002_R2_001.fastq.gz	Sublibrary_3	igvf_010	L002	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L003_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L003_R2_001.fastq.gz	Sublibrary_3	igvf_010	L003	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_3_S2_L004_R2_001.fastq.gz	Sublibrary_3	igvf_010	L004	1	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L001_R2_001.fastq.gz	Sublibrary_3	igvf_010	L001	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L002_R2_001.fastq.gz	Sublibrary_3	igvf_010	L002	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L003_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L003_R2_001.fastq.gz	Sublibrary_3	igvf_010	L003	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova2/Sublibrary_3_S2_L004_R2_001.fastq.gz	Sublibrary_3	igvf_010	L004	2	nova		igvf_010/nova/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/next1/Sublibrary_3_S2_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/next1/Sublibrary_3_S2_L004_R2_001.fastq.gz	Sublibrary_2	igvf_010	L001	1	next	fake	igvf_010/next/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/next2/Sublibrary_3_S2_L004_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/next2/Sublibrary_3_S2_L004_R2_001.fastq.gz	Sublibrary_2	igvf_010	L001	2	next	fake	igvf_010/next/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/grid/igvf_010_lig-blk.fastq.gz		Sublibrary_2	igvf_010		1	grid	fake	igvf_010/grid/seqspec.yml
+/dfs7/samlab/seyedam/IGVF/igvf_010/prom/igvf_010_lig-blk.fastq.gz		Sublibrary_2	igvf_010		1	prom	fake	igvf_010/prom/seqspec.yml
