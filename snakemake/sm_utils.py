@@ -7,7 +7,13 @@ def parse_config(fname):
     df['path'] = df.fastq.str.rsplit('/', n=2, expand=True)[0]+'/'
     df['path2'] = df.fastq.str.rsplit('/', n=1, expand=True)[0]+'/'
     # df['r2_fastq'] = df.fastq.str.replace('_R1_', '_R2_')
-    df['fastq_pair'] = df.apply(lambda x: (x.fastq, x.fastq_r2), axis=1)
+    # df['fastq_pairs'] = df.apply(lambda x: (x.fastq, x.fastq_r2) \
+    #                                 if not pd.isna(x.fastq_r2) else (x.fastq),
+    #                                 axis=1)
+    df['fastqs'] = df.apply(lambda x: [x.fastq, x.fastq_r2] \
+                                    if not pd.isna(x.fastq_r2) else [x.fastq],
+                                    axis=1)
+    df['fastq_pairs'] = df.fastqs
     
     return df
 
