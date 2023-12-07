@@ -14,7 +14,7 @@ def parse_config(fname):
                                     if not pd.isna(x.fastq_r2) else [x.fastq],
                                     axis=1)
     df['fastq_pairs'] = df.fastqs
-    
+
     return df
 
 def get_df_info(wc, df, col):
@@ -28,6 +28,7 @@ def get_df_info(wc, df, col):
 
 def parse_sample_df(fname):
     df = pd.read_csv(fname)
+    import pdb; pdb.set_trace()
 
     # add multiplexed genotypes if relevant
     g_cols = ['mult_genotype_1', 'mult_genotype_2']
