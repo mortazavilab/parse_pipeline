@@ -18,7 +18,7 @@ ref:
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
   r1_fastq: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz
-  r2_fastq: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
+  fastq_r2: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
 
 # TODO - make other output directories (ie the ones not in counts_unfiltered_modified)
 # temporary?
