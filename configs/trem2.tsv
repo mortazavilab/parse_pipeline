@@ -1,4 +1,4 @@
-fastq	fastq_r2	subpool	plate	lane	run	platform
+fastq	r2_fastq	subpool	plate	lane	run	platform
 /share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L001_R2_001.fastq.gz	Sublibrary_67C	igvf_015	L001	1	next
 /share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L002_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L002_R2_001.fastq.gz	Sublibrary_67C	igvf_015	L002	1	next
 /share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L001_R2_001.fastq.gz	Sublibrary_67D	igvf_015	L001	1	next
