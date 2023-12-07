@@ -147,12 +147,12 @@ rule symlink_fastq_r1:
 
 rule symlink_fastq_r2:
     params:
-        fastq = lambda wc:get_df_info(wc, df, 'r2_fastq')
+        fastq = lambda wc:get_df_info(wc, df, 'fastq_r2')
     resources:
         mem_gb = 4,
         threads = 1
     output:
-        fastq = config['raw']['r2_fastq']
+        fastq = config['raw']['fastq_r2']
     shell:
         """
         ln -s {params.fastq} {output.fastq}
@@ -164,7 +164,7 @@ rule symlink_fastq_r2:
 rule kallisto:
     input:
         r1_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R1'),
-        r2_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
+        fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
     conda:

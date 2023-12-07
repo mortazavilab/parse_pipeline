@@ -6,7 +6,7 @@ def parse_config(fname):
     df = pd.read_csv(fname, sep='\t')
     df['path'] = df.fastq.str.rsplit('/', n=2, expand=True)[0]+'/'
     df['path2'] = df.fastq.str.rsplit('/', n=1, expand=True)[0]+'/'
-    # df['r2_fastq'] = df.fastq.str.replace('_R1_', '_R2_')
+    # df['fastq_r2'] = df.fastq.str.replace('_R1_', '_R2_')
     # df['fastq_pairs'] = df.apply(lambda x: (x.fastq, x.fastq_r2) \
     #                                 if not pd.isna(x.fastq_r2) else (x.fastq),
     #                                 axis=1)
@@ -69,7 +69,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
         if read == 'R1':
             entry = 'r1_fastq'
         elif read == 'R2':
-            entry = 'r2_fastq'
+            entry = 'fastq_r2'
         return expand(expand(config['raw'][entry],
                         zip,
                         lane=temp['lane'].tolist(),
@@ -86,7 +86,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
                         allow_missing=True),
                         plate=wc.plate,
                         subpool=wc.subpool)
-        r2s = expand(expand(config['raw']['r2_fastq'],
+        r2s = expand(expand(config['raw']['fastq_r2'],
                         zip,
                         lane=temp['lane'].tolist(),
                         run=temp['run'].tolist(),
