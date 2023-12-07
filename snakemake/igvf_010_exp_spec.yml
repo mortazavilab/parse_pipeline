@@ -1,6 +1,6 @@
 chemistry: v2
 protocol: Parse_WT_Mega
-samples:
+sample:
   A:
     1:
     - ali-mortazavi:016_B6J_10F_09_UBERON_0002113
