@@ -6,7 +6,9 @@ def parse_config(fname):
     df = pd.read_csv(fname, sep='\t')
     df['path'] = df.fastq.str.rsplit('/', n=2, expand=True)[0]+'/'
     df['path2'] = df.fastq.str.rsplit('/', n=1, expand=True)[0]+'/'
-    df['r2_fastq'] = df.fastq.str.replace('_R1_', '_R2_')
+    # df['r2_fastq'] = df.fastq.str.replace('_R1_', '_R2_')
+    df['fastq_pair'] = df.apply(lambda x: (x.fastq, x.fastq_r2), axis=1)
+    
     return df
 
 def get_df_info(wc, df, col):
