@@ -28,7 +28,7 @@ def get_df_info(wc, df, col):
 
 def parse_sample_df(fname):
     df = pd.read_csv(fname)
-    import pdb; pdb.set_trace()
+    df.rename({'Experiment': 'plate'}, axis=1, inplace=True)
 
     # add multiplexed genotypes if relevant
     g_cols = ['mult_genotype_1', 'mult_genotype_2']
