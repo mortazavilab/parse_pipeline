@@ -66,6 +66,8 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
            subpool=subpools)
     return adatas
 
+import pdb; pdb.set_trace()
+
 rule all:
     input:
         expand(config['tissue']['adata'],
