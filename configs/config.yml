@@ -15,6 +15,10 @@ ref:
     c1: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c1
     c2: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/c57bl6j.c2
 
+  klue:
+    t2g: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/klue_ref/{mult_genotype_1}_{mult_genotype_2}.t2g
+    ind: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/klue_ref/{mult_genotype_1}_{mult_genotype_2}.idx
+
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
   r1_fastq: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz

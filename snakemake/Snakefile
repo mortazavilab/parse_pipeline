@@ -7,7 +7,12 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
+include: "klue.smk"
+
 configfile: 'configs/config.yml'
+
+# TODO
+# * figure out how to run seqspec to generate barcodes
 
 # variables to change (again these could go in
 # a future analysis spec)
@@ -67,18 +72,12 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
 
 rule all:
     input:
-        expand(config['tissue']['adata'],
-               tissue=get_subset_tissues(df, sample_df)),
-        # expand(config['klue']['genotype_counts'],
-        #        zip,
-        #        plate=df.plate.tolist(),
-        #        subpool=df.subpool.tolist())
-        # expand(config['klue']['filt_adata'],
-        #        zip,
-        #        plate=get_subset_mult_genotypes(df, sample_df, 'plate'),
-        #        subpool=get_subset_mult_genotypes(df, sample_df, 'subpool'),
-        #        mult_genotype_1=get_subset_mult_genotypes(df, sample_df, 'mult_genotype_1'),
-        #        mult_genotype_2=get_subset_mult_genotypes(df, sample_df, 'mult_genotype_2'))
+        expand(config['klue']['genotype_counts'],
+               zip,
+               plate=df.plate.tolist(),
+               subpool=df.subpool.tolist())
+        # expand(config['tissue']['adata'],
+        #        tissue=get_subset_tissues(df, sample_df))
 
 ################################################################################
 ########################## Ref download and generation #########################
@@ -302,8 +301,6 @@ rule klue_merge_genotype:
         merge_kallisto_klue(input.adata,
                             input.genotype_counts,
                             output.adata)
-
-
 
 ####################
 ###### Scrublet ####
