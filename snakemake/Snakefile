@@ -7,8 +7,6 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
-include: "klue.smk"
-
 configfile: 'configs/config.yml'
 
 # TODO
@@ -69,6 +67,8 @@ def get_sample_subpool_files(df, sample_df, cfg_entry):
            sample=samples,
            subpool=subpools)
     return adatas
+
+include: "klue.smk"
 
 rule all:
     input:
