@@ -19,7 +19,6 @@ rule klue:
         config['klue']['cgb'],
         config['klue']['cggn'],
         config['klue']['cgg'],
-        config['klue']['cgn'],
         config['klue']['adata']
     shell:
         """
