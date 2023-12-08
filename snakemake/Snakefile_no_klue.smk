@@ -312,7 +312,7 @@ rule klue_get_genotype_counts:
 rule make_subpool_sample_adata:
     input:
         # adata = config['kallisto']['genotype_adata']
-        adata = config['kallisto']['adata']
+        adata = config['kallisto']['filt_adata']
     resources:
         mem_gb = 32,
         threads = 2
