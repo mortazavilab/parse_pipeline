@@ -1,4 +1,4 @@
-fastq	fastq_r2	subpool	sample	plate	lane	run	platform
+fastq	r2_fastq	subpool	sample	plate	lane	run	platform
 /dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L001_R2_001.fastq.gz	Sublibrary_2	S1	igvf_010	L001	1	nova
 /dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L002_R2_001.fastq.gz	Sublibrary_2	S1	igvf_010	L002	1	nova
 /dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_010/nova1/Sublibrary_2_S1_L003_R2_001.fastq.gz	Sublibrary_2	S1	igvf_010	L003	1	nova
