@@ -19,7 +19,7 @@ config_tsv = 'configs/trem2.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
-first_min_counts = 500
+first_min_counts = 100
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
