@@ -67,7 +67,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
     if how == 'list':
         reads = [read for i in range(len(temp.index))]
         if read == 'R1':
-            entry = 'r1_fastq'
+            entry = 'fastq_r1'
         elif read == 'R2':
             entry = 'fastq_r2'
         return expand(expand(config['raw'][entry],
@@ -79,7 +79,7 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
                         subpool=wc.subpool)
 
     elif how == 'str':
-        r1s = expand(expand(config['raw']['r1_fastq'],
+        r1s = expand(expand(config['raw']['fastq_r1'],
                         zip,
                         lane=temp['lane'].tolist(),
                         run=temp['run'].tolist(),
