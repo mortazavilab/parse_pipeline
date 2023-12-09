@@ -11,7 +11,7 @@ rule klue:
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
         fastq_str = lambda wc:get_subpool_fastqs(wc, df, config, how='str'),
-        odir = config['kallisto']['cgb'].split('counts_unfiltered_modified/')[0]
+        odir = config['klue']['cgb'].split('counts_unfiltered_modified/')[0]
     resources:
         mem_gb = 64,
         threads = 24
