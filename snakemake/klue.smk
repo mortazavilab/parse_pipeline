@@ -19,7 +19,10 @@ rule klue:
         config['klue']['cgb'],
         config['klue']['cggn'],
         config['klue']['cgg'],
-        config['klue']['adata']
+        config['klue']['adata'],
+        temporary(config['klue']['bus']),
+        temporary(config['klue']['bus_modified_unfilt']),
+        temporary(config['klue']['bus_unfilt'])
     shell:
         """
         kb count \

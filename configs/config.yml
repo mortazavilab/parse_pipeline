@@ -32,6 +32,9 @@ kallisto:
   cgg: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
   cgn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.nucleus.mtx
   adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
+  bus: kallisto/{plate}/{subpool}/output.bus
+  bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
+  bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
 
   filt_adata: kallisto/{plate}/{subpool}/filtered/adata.h5ad
   genotype_adata: kallisto/{plate}/{subpool}/adata.h5ad
@@ -41,6 +44,9 @@ klue:
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
   cgg: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
   adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
+  bus: kallisto/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
+  bus_modified_unfilt: kallisto/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
+  bus_unfilt: kallisto/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
 
   filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
 
@@ -53,4 +59,4 @@ scrublet:
   scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
 
 tissue:
-  adata: ./{tissue}/adata.h5ad
+  adata: ./{plate}/{tissue}/adata.h5ad

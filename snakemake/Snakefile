@@ -183,7 +183,10 @@ rule kallisto:
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
         config['kallisto']['cgn'],
-        config['kallisto']['adata']
+        config['kallisto']['adata'],
+        temporary(config['kallisto']['bus']),
+        temporary(config['kallisto']['bus_modified_unfilt']),
+        temporary(config['kallisto']['bus_unfilt'])
     shell:
         """
         kb count \
