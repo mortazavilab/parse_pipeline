@@ -35,6 +35,6 @@ rule klue:
             -i {input.ind} \
             -t {resources.threads} \
             -o {params.odir} \
-            --tmp {params.odir} \
+            --tmp {params.odir}/temp/ \
             {params.fastq_str}
         """
