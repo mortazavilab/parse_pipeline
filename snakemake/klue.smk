@@ -34,5 +34,6 @@ rule klue:
             -x SPLIT-SEQ \
             -i {input.ind} \
             -t {resources.threads} \
-            -o {params.odir}
+            -o {params.odir} \
+            {params.fastq_str}
         """
