@@ -76,8 +76,9 @@ rule all:
         expand(config['klue']['genotype_counts'],
                zip,
                plate=df.plate.tolist(),
-               subpool=df.subpool.tolist())
+               subpool=df.subpool.tolist()),
         expand(config['tissue']['adata'],
+               plate=df.plate.tolist(),
                tissue=get_subset_tissues(df, sample_df))
 
 ################################################################################
