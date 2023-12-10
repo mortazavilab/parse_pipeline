@@ -77,8 +77,8 @@ rule all:
                zip,
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
-        # expand(config['tissue']['adata'],
-        #        tissue=get_subset_tissues(df, sample_df))
+        expand(config['tissue']['adata'],
+               tissue=get_subset_tissues(df, sample_df))
 
 ################################################################################
 ########################## Ref download and generation #########################
