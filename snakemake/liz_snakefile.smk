@@ -12,7 +12,7 @@ configfile: 'configs/config.yml'
 # variables to change (again these could go in
 # a future analysis spec)
 # TODO - Liz
-config_tsv = 'configs/test_4.tsv'
+config_tsv = 'configs/test_5.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
