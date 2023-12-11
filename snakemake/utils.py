@@ -1,7 +1,7 @@
 import pandas as pd
 import anndata
 import scanpy as sc
-# import scrublet as scr
+import scrublet as scr
 
 from bc_utils import *
 
@@ -68,7 +68,6 @@ def add_meta_filter(adata,
     Very initial filtering on min_counts.
     """
     adata = sc.read(adata)
-    adata.X = adata.layers['unspliced']
     adata.obs.reset_index(inplace=True)
     adata.obs.columns = ['bc']
 
@@ -81,10 +80,7 @@ def add_meta_filter(adata,
     names = pd.read_csv(cgg, sep="\t", header = None)
     names.columns = ['gene_id']
     adata.var['gene_id'] = names['gene_id']
-
     adata.obs['subpool'] = wc.subpool
-
-    sc.pp.filter_cells(adata, min_counts=min_counts, inplace=True)
 
     # merge in bc metadata
     temp = bc_df.copy(deep=True)
@@ -129,10 +125,16 @@ def add_meta_filter(adata,
     if klue:
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
         adata = adata[inds, :].copy()
-        # TODO
         adata = rename_klue_genotype_cols(adata)
+        
+    if not klue:
+        # filter based on min_counts in Snakefile 
+        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
+        #adata.X = adata.layers['unspliced']
 
     adata.write(ofile)
+
 
 def make_subpool_sample_adata(infile, wc, ofile):
     adata = sc.read(infile)
