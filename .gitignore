@@ -1,3 +1,5 @@
+*.idx
+*.fa
 *.gtf.gz
 *.fa.gz
 *.fastq.gz
