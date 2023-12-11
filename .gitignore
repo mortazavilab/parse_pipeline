@@ -1,3 +1,5 @@
+*.gtf.gz
+*.fa.gz
 *.fastq.gz
 *adata.h5ad*
 *ipynb_check*
