@@ -16,8 +16,8 @@ configfile: 'configs/config.yml'
 # a future analysis spec)
 # config_tsv = 'configs/test_2.tsv'
 # config_tsv = 'configs/test_3.tsv'
-# config_tsv = 'configs/test_4.tsv'
-config_tsv = 'configs/test_5.tsv'
+config_tsv = 'configs/test_4.tsv'
+# config_tsv = 'configs/test_5.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
@@ -111,18 +111,25 @@ rule kallisto_ind:
     conda:
         "hpc3sc"
     resources:
-        mem_gb = 16,
-        threads = 8
+        mem_gb = 64,
+        threads = 24
     output:
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind'],
-        fa = config['ref']['kallisto']['fa']
+        fa = config['ref']['kallisto']['fa'],
+        na = config['ref']['kallisto']['na'],
+        c1 = config['ref']['kallisto']['c1'],
+        c2 = config['ref']['kallisto']['c2']
     shell:
         """
         kb ref \
+            --workflow=nac \
             -i {output.ind} \
             -g {output.t2g} \
+            -c1 {output.c1} \
+            -c2 {output.c2} \
             -f1 {output.fa} \
+            -f2 {output.na} \
             {input.fa} \
             {input.annot}
         """
@@ -170,7 +177,7 @@ rule kallisto:
     conda:
         "hpc3sc"
     params:
-        # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
+        # TODO bc1 map and barcodes should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
         c1 = config['ref']['kallisto']['c1'],
@@ -184,8 +191,8 @@ rule kallisto:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
-        config['kallisto']['cgn'],
         config['kallisto']['adata'],
+        config['kallisto']['counts_mtx'],
         temporary(config['kallisto']['bus']),
         temporary(config['kallisto']['bus_modified_unfilt']),
         temporary(config['kallisto']['bus_unfilt'])
@@ -193,20 +200,20 @@ rule kallisto:
         """
         kb count \
             --h5ad \
-        	--gene-names \
-        	--sum=nucleus \
-        	--strand=forward \
-        	-r {params.bc1_map} \
-        	-w {params.barcodes} \
-        	--workflow=nac \
-        	-g {input.t2g} \
-        	-x SPLIT-SEQ \
-        	-i {input.ind} \
-        	-t {resources.threads} \
-        	-o {params.odir} \
-        	-c1 {params.c1} \
-        	-c2 {params.c2} \
-        	{params.fastq_str}
+            --gene-names \
+            --sum=total \
+            --strand=forward \
+            -r {params.bc1_map} \
+            -w {params.barcodes} \
+            --workflow=nac \
+            -g {input.t2g} \
+            -x SPLIT-SEQ \
+            -i {input.ind} \
+            -t {resources.threads} \
+            -o {params.odir} \
+            -c1 {params.c1} \
+            -c2 {params.c2} \
+            {params.fastq_str}
         """
 
 rule make_filt_metadata_adata:
