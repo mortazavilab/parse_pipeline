@@ -247,8 +247,6 @@ use rule make_filt_metadata_adata as make_subpool_filter_adata with:
 ##################################### klue #####################################
 ################################################################################
 
-# TODO - actually run klue lmao
-
 # add metadata and perform v basic filtering
 use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata with:
     input:

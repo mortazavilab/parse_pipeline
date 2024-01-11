@@ -16,14 +16,14 @@ def get_bc3(text):
 
 # TODO hopefully won't need this at some pt
 def get_genotype_path_dict():
-    d = {"/home/delaney/igvf/references/PRJNA923323/Mus_musculus_129s1svimj.fa.gz": "129S1J",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_casteij.fa.gz": "CASTJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_aj.fa.gz": "AJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nodshiltj.fa.gz": "NODJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nzohlltj.fa.gz": "NZOJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_pwkphj.fa.gz": "PWKJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_wsbeij.fa.gz": "WSBJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_c57bl6j.fa.gz": "B6J"}
+    d = {"129S1J_fasta/ncbi_dataset/data/GCA_029255695.1/GCA_029255695.1_ASM2925569v1_genomic.fna": "129S1J",
+        "CASTJ_fasta/ncbi_dataset/data/GCA_029237265.1/GCA_029237265.1_ASM2923726v1_genomic.fna": "CASTJ",
+        "AJ_fasta/ncbi_dataset/data/GCA_029255665.1/GCA_029255665.1_ASM2925566v1_genomic.fna": "AJ",
+        "NODJ_fasta/ncbi_dataset/data/GCA_029234005.1/GCA_029234005.1_ASM2923400v1_genomic.fna": "NODJ",
+        "NZOJ_fasta/ncbi_dataset/data/GCA_029233705.1/GCA_029233705.1_ASM2923370v1_genomic.fna": "NZOJ",
+        "PWKJ_fasta/ncbi_dataset/data/GCA_029233695.1/GCA_029233695.1_ASM2923369v1_genomic.fna": "PWKJ",
+        "WSBJ_fasta/ncbi_dataset/data/GCA_029233295.1/GCA_029233295.1_ASM2923329v1_genomic.fna": "WSBJ",
+        "GRCm39.primary_assembly.genome.fa.gz": "B6J"}
     return d
 
 def get_genotype_counts(files, ofile):
@@ -67,6 +67,7 @@ def add_meta_filter(adata,
     Add gene names to the kallisto output.
     Very initial filtering on min_counts.
     """
+    
     adata = sc.read(adata)
     adata.obs.reset_index(inplace=True)
     adata.obs.columns = ['bc']
