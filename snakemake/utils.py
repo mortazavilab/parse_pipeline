@@ -53,16 +53,106 @@ def rename_klue_genotype_cols(adata):
     adata.var.drop(adata.var.columns, axis=1, inplace=True)
     return adata
 
-def add_meta_filter(adata,
-                     cgg,
-                     wc,
-                     bc_df,
-                     kit,
-                     chemistry,
-                     klue,
-                     sample_df,
-                     min_counts,
-                     ofile):
+def add_meta_filter(mtx,
+                    cgb,
+                    cggn,
+                    cgg,
+                    wc,
+                    bc_df,
+                    kit,
+                    chemistry,
+                    klue,
+                    sample_df,
+                    min_counts,
+                    ofile):
+    
+    """
+    Add gene names to the kallisto output.
+    Very initial filtering on min_counts.
+    """
+    
+    data = sc.read_mtx(mtx)
+    obs = pd.read_csv(cgb, header = None, sep="\t")  
+    obs.columns = ["bc"]
+    var = pd.read_csv(cgg, header = None, sep="\t")
+    var.columns = ["gene_id"]
+    var_names = pd.read_csv(cgg, header = None, sep="\t")
+    var['gene_name'] = var_names
+    
+    X = data.X
+    adata = anndata.AnnData(X=X, obs=obs, var=var)  
+    adata.var_names = var['gene_name']
+    adata.obs.index = obs["bc"]
+
+    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
+    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
+    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
+
+    adata.obs['subpool'] = wc.subpool
+
+    # merge in bc metadata
+    temp = bc_df.copy(deep=True)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
+                                             'well': 'bc1_well'}, axis=1)
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
+
+    # merge in other bc information
+    for bc in [2,3]:
+        bc_name = f'bc{bc}'
+        seq_col = f'bc{bc}_sequence'
+        well_col = f'bc{bc}_well'
+        bc_df = get_bcs(bc, kit, chemistry)
+        bc_df.rename({'well': well_col,
+                      bc_name: seq_col}, axis=1, inplace=True)
+        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
+
+    # merge in w/ sample-level metadata
+    temp = sample_df.copy(deep=True)
+    temp = temp.loc[(sample_df.plate==wc.plate)]
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
+    adata.var.set_index('gene_id', inplace=True)
+
+    # make all object columns string columns
+    for c in adata.obs.columns:
+        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
+            adata.obs[c] = adata.obs[c].fillna('NA')
+
+    # create new index for each cell
+    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
+        adata.obs['bc2_well']+'_'+\
+        adata.obs['bc3_well']+'_'+\
+        adata.obs['subpool']+'_'+\
+        adata.obs['plate']
+    adata.obs.reset_index(drop=True)
+
+    # make sure these are unique + set as index
+    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
+    adata.obs.set_index('cellID', inplace=True)
+
+    # remove non-multiplexed cells if from klue
+    if klue:
+        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+        adata = adata[inds, :].copy()
+        adata = rename_klue_genotype_cols(adata)
+        
+    if not klue:
+        # filter based on min_counts in Snakefile 
+        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
+
+    adata.write(ofile)
+    
+def add_meta_filter_klue(adata,
+                         cgg,
+                         wc,
+                         bc_df,
+                         kit,
+                         chemistry,
+                         klue,
+                         sample_df,
+                         min_counts,
+                         ofile):
+    
     """
     Add gene names to the kallisto output.
     Very initial filtering on min_counts.
@@ -122,18 +212,10 @@ def add_meta_filter(adata,
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
 
-    # remove non-multiplexed cells if from klue
-    if klue:
-        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
-        adata = adata[inds, :].copy()
-        adata = rename_klue_genotype_cols(adata)
+    inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+    adata = adata[inds, :].copy()
+    adata = rename_klue_genotype_cols(adata)
         
-    if not klue:
-        # filter based on min_counts in Snakefile 
-        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
-        #adata.X = adata.layers['unspliced']
-
     adata.write(ofile)
 
 

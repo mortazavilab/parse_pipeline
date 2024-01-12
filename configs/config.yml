@@ -32,7 +32,7 @@ kallisto:
   cggn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
   cgg: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
   adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
-  counts_mtx: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.total.mtx
+  mtx: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.total.mtx
   bus: kallisto/{plate}/{subpool}/output.bus
   bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
   bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
