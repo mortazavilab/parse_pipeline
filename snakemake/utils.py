@@ -48,7 +48,7 @@ def rename_klue_genotype_cols(adata):
     """
     """
     d = get_genotype_path_dict()
-    adata.var['genotype'] = adata.var.gene_name.map(d)
+    adata.var['genotype'] = adata.var.index.map(d)
     adata.var.set_index('genotype', inplace=True)
     adata.var.drop(adata.var.columns, axis=1, inplace=True)
     return adata
@@ -61,7 +61,6 @@ def add_meta_filter(mtx,
                     bc_df,
                     kit,
                     chemistry,
-                    klue,
                     sample_df,
                     min_counts,
                     ofile):
@@ -75,13 +74,14 @@ def add_meta_filter(mtx,
     obs = pd.read_csv(cgb, header = None, sep="\t")  
     obs.columns = ["bc"]
     var = pd.read_csv(cgg, header = None, sep="\t")
-    var.columns = ["gene_id"]
-    var_names = pd.read_csv(cgg, header = None, sep="\t")
-    var['gene_name'] = var_names
+    var.columns = ["gene_name"]
+    genes = pd.read_csv(cggn, header = None, sep="\t")
+    genes.columns = ["gene_id"]
+    var['gene_id'] = genes['gene_id']
     
     X = data.X
     adata = anndata.AnnData(X=X, obs=obs, var=var)  
-    adata.var_names = var['gene_name']
+    print(adata.var)
     adata.obs.index = obs["bc"]
 
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
@@ -111,6 +111,7 @@ def add_meta_filter(mtx,
     temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
+    print(adata.var)
 
     # make all object columns string columns
     for c in adata.obs.columns:
@@ -129,48 +130,32 @@ def add_meta_filter(mtx,
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
 
-    # remove non-multiplexed cells if from klue
-    if klue:
-        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
-        adata = adata[inds, :].copy()
-        adata = rename_klue_genotype_cols(adata)
-        
-    if not klue:
-        # filter based on min_counts in Snakefile 
-        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
-
+    # filter based on min_counts in Snakefile         
+    adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+    adata = adata[adata.obs.n_counts >= min_counts,:]
+    print(adata.var)
     adata.write(ofile)
     
-def add_meta_filter_klue(adata,
-                         cgg,
+def add_meta_klue(adata,
                          wc,
                          bc_df,
                          kit,
                          chemistry,
-                         klue,
                          sample_df,
-                         min_counts,
                          ofile):
     
     """
-    Add gene names to the kallisto output.
-    Very initial filtering on min_counts.
+    Merge metadata in with klue output
     """
     
     adata = sc.read(adata)
+    print(adata.obs.head())
     adata.obs.reset_index(inplace=True)
     adata.obs.columns = ['bc']
 
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
     adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
     adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
-
-    adata.var.reset_index(inplace=True)
-    adata.var.columns = ['gene_name']
-    names = pd.read_csv(cgg, sep="\t", header = None)
-    names.columns = ['gene_id']
-    adata.var['gene_id'] = names['gene_id']
     adata.obs['subpool'] = wc.subpool
 
     # merge in bc metadata
@@ -193,7 +178,6 @@ def add_meta_filter_klue(adata,
     temp = sample_df.copy(deep=True)
     temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
-    adata.var.set_index('gene_id', inplace=True)
 
     # make all object columns string columns
     for c in adata.obs.columns:
@@ -215,6 +199,8 @@ def add_meta_filter_klue(adata,
     inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
     adata = adata[inds, :].copy()
     adata = rename_klue_genotype_cols(adata)
+    print(adata.obs.head())
+    print(adata.var.head())
         
     adata.write(ofile)
 
@@ -258,6 +244,7 @@ def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read(f)
+
         else:
             temp = sc.read(f)
 

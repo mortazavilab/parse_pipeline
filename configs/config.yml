@@ -25,8 +25,7 @@ raw:
   fastq_r1: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz
   fastq_r2: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
 
-# TODO - make other output directories (ie the ones not in counts_unfiltered_modified)
-# temporary?
+
 kallisto:
   cgb: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
   cggn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
@@ -45,11 +44,10 @@ klue:
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
   cgg: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
   adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
+  adata_with_cellID: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/adata.h5ad
   bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
-
-  filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
 
   # version with all genotypes
   genotype_counts: klue/{plate}/{subpool}/genotype_counts.tsv
