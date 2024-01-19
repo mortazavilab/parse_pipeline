@@ -33,14 +33,15 @@ def get_genotype_counts(files, ofile):
     as a tsv
     """
     for i, f in enumerate(files):
-        adata = sc.read(f)
-        if i == 0:
-            df = adata.to_df()
-        else:
-            df = df.merge(adata.to_df(),
-                          how='outer',
-                          left_index=True,
-                          right_index=True)
+        if "WSBJ_CASTJ" not in f:
+            adata = sc.read(f)
+            if i == 0:
+                df = adata.to_df()
+            else:
+                df = df.merge(adata.to_df(),
+                              how='outer',
+                              left_index=True,
+                              right_index=True)
     df.fillna(0, inplace=True)
     df.to_csv(ofile, index=True, sep='\t')
 
@@ -133,7 +134,11 @@ def add_meta_filter(mtx,
     # filter based on min_counts in Snakefile         
     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
     adata = adata[adata.obs.n_counts >= min_counts,:]
-    print(adata.var)
+    
+    # filter out sample swaps with wrong multiplexed genotype 
+    inds = adata.obs.loc[adata.obs['Genotype'] != 'WSBJ/CASTJ'].index
+    adata = adata[inds, :].copy()
+
     adata.write(ofile)
     
 def add_meta_klue(adata,
@@ -195,12 +200,11 @@ def add_meta_klue(adata,
     # make sure these are unique + set as index
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
-
-    inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+    
+    # filter out sample swaps with wrong multiplexed genotype     
+    inds = adata.obs.loc[(adata.obs.well_type=='Multiplexed') & (adata.obs['Genotype'] != 'WSBJ/CASTJ')].index
     adata = adata[inds, :].copy()
     adata = rename_klue_genotype_cols(adata)
-    print(adata.obs.head())
-    print(adata.var.head())
         
     adata.write(ofile)
 
