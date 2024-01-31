@@ -1,0 +1,47 @@
+leiden,celltypes,subtype,notes
+0,Myonuclei,Type2B_myonuclei,Myh4+
+1,Myonuclei,Type2B_myonuclei,Myh4+
+2,Myonuclei,Type2X_myonuclei,Myh1+
+3,Myonuclei,Type2B_myonuclei,Myh4+
+4,Myonuclei,Type2B_myonuclei,Myh4+
+5,Myonuclei,Type2B_myonuclei,Myh4+
+6,Myonuclei,Type2A_myonuclei,Myh2+
+7,Myonuclei,Type2B_myonuclei,Myh4+
+8,Myonuclei,Type2B_myonuclei,Myh4+
+9,Myonuclei,Type2B_myonuclei,Myh4+
+10,FAP,FAP,"Pdgfra+, Cd34+"
+11,Myonuclei,Type1_myonuclei,
+12,Myonuclei,Type2B_myonuclei,Myh4+
+13,FAP,FAP,"Pdgfra+, Cd34+"
+14,Endothelial,Endothelial,"Flt1+, Pecam1+"
+15,Myonuclei,Type2A_myonuclei,Myh2+
+16,Myonuclei,Type2B_myonuclei,Myh4+
+17,Myonuclei,MTJ,Col22a1+
+18,Myonuclei,MTJ,Col22a1+
+19,Smooth_muscle,Smooth_muscle,Myh11+
+20,Endothelial,Endothelial,"Flt1+, Pecam1+"
+21,FAP,FAP,"Pdgfra+, Cd34+"
+22,Myonuclei,Type2B_myonuclei,Myh4+
+23,Smooth_muscle,Smooth_muscle,Myh11+
+24,Tenocyte,Tenocyte,Dcn+
+25,Endothelial,Endothelial,"Flt1+, Pecam1+"
+26,Myonuclei,NMJ,Etv5+
+27,Immune,Immune,"F13a1+, Ikzf1+"
+28,Endothelial,Endothelial,"Flt1+, Pecam1+"
+29,Myonuclei,Type2B_myonuclei,Myh4+
+30,Myonuclei,Type2B_myonuclei,Myh4+
+31,Bleedthrough,igvf_011,Snap25+
+32,Satellite,Satellite,Pax7+
+33,Endothelial,Endothelial,"Flt1+, Pecam1+"
+34,Schwann,Schwann,"Mpz+, Sox10+"
+35,Myonuclei,Type2B_myonuclei,Myh4+
+36,Bleedthrough,igvf_010,"Slc12a1+, Akr1c21+"
+37,Myonuclei,Type2B_myonuclei,Myh4+
+38,Adipocyte,Adipocyte,Acsl1+
+39,Tenocyte,Tenocyte,Dcn+
+40,Schwann,Schwann,"Mpz+, Sox10+"
+41,Endothelial,Lymphatic_endothelial,Prox1+
+42,Myonuclei,Type1_myonuclei,
+43,Myonuclei,Type2B_myonuclei,Myh4+
+44,Myonuclei,Type2B_myonuclei,Myh4+
+45,Myonuclei,Type2B_myonuclei,Myh4+
