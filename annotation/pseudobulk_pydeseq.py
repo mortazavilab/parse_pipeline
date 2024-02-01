@@ -13,7 +13,8 @@ def main():
     
     args = parser.parse_args()
     
-    tissue = args.tissue.title()
+    tissue = args.tissue
+
     file = f'../IGVF_analysis/annotated_tissues/{tissue}_annotated.h5ad'
     outdirectory = f'degs/{tissue}/'
 
@@ -34,7 +35,8 @@ def main():
                                                "igvf_010",
                                                "igvf_011",
                                                "igvf_012",
-                                               "Bleedthrough"])]
+                                               "Bleedthrough",
+                                               "Doublet"])]
 
     if tissue == "Heart":
         adata = adata[~adata.obs['celltype'].isin(["Schwann","Epithelial"])]
