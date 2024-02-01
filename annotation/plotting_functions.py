@@ -11,6 +11,22 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import random
 
+def get_transcript_lengths(gtf_file_path):
+    transcript_lengths = {}  # Dictionary to store transcript lengths
+    with open(gtf_file_path) as gtf_file:
+        for line in gtf_file:
+            if line.startswith('#'):
+                continue
+            parts = line.strip().split('\t')
+            if parts[2] == 'transcript':
+                attributes = parts[8].split('; ')
+                transcript_id = attributes[1].split('"')[1]
+                gene_id = attributes[0].split('"')[1]
+                transcript_length = int(parts[4]) - int(parts[3]) + 1
+                if transcript_id not in transcript_lengths:
+                    transcript_lengths[transcript_id] = transcript_length
+    return transcript_lengths
+
 def plot_genes_by_counts(adata, category_column='plate', figsize=(10, 7)):
     adata_obs_df = adata.obs
     adata_obs_df.reset_index(drop=True, inplace=True)
