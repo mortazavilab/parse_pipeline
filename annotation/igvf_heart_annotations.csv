@@ -23,11 +23,11 @@
 21,Fibroblast,Dcn+
 22,Adipocyte,Adipoq+
 23,B_cell,Bcl11a+
-24,Schwann,"Sox10+, Plp1+,Cadm2+"
+24,Schwann2,"Scn7a+, Ncam1+, Slc35f1+…nonmyelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
 25,igvf_004,Alb+
 26,T_cell,Themis+
 27,Cycling,"Top2a+, Mki67+…endothelial?"
 28,igvf_003,Snap25+
 29,Endothelial,Flt1+
-30,Schwann,"Cadm2+, but seems like a weird cluster"
+30,Epithelial,"Not sure. Muc16+, Klf5+, Cdh+. EMT…?"
 31,Fibroblast,Dcn+
