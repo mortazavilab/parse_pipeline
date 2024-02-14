@@ -1,0 +1,33 @@
+﻿leiden,celltype,notes
+0,Fibroblast,Dcn+
+1,Endothelial,Flt1+
+2,Cardiomyocyte,Gata4+
+3,Fibroblast,Dcn+
+4,Endothelial,Flt1+
+5,Cardiomyocyte,Gata4+
+6,Pericyte,Pdgfrb+
+7,Cardiomyocyte,Gata4+
+8,Fibroblast,Dcn+
+9,Cardiomyocyte_atrial,"Myl7+, Myl4+"
+10,Epicardial,Wt1+
+11,Macrophage,F13a1+
+12,Fibroblast,Dcn+
+13,Macrophage,"F13a1+, also has some endothelial markers"
+14,Cardiomyocyte,Gata4+
+15,Endocardial,Sox17+
+16,Pericyte,Pdgfrb+
+17,Smooth_muscle1,Myh11+
+18,Endothelial,"Gata4+, also has endothelial markers…Flt1+"
+19,Lymphatic_endothelial,Prox1+
+20,Smooth_muscle2,Myh11+
+21,Fibroblast,Dcn+
+22,Adipocyte,Adipoq+
+23,B_cell,Bcl11a+
+24,Schwann2,"Scn7a+, Ncam1+, Slc35f1+…nonmyelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
+25,igvf_004,Alb+
+26,T_cell,Themis+
+27,Cycling,"Top2a+, Mki67+…endothelial?"
+28,igvf_003,Snap25+
+29,Endothelial,Flt1+
+30,Epithelial,"Not sure. Muc16+, Klf5+, Cdh+. EMT…?"
+31,Fibroblast,Dcn+

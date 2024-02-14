@@ -16,14 +16,14 @@ def get_bc3(text):
 
 # TODO hopefully won't need this at some pt
 def get_genotype_path_dict():
-    d = {"/home/delaney/igvf/references/PRJNA923323/Mus_musculus_129s1svimj.fa.gz": "129S1J",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_casteij.fa.gz": "CASTJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_aj.fa.gz": "AJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nodshiltj.fa.gz": "NODJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_nzohlltj.fa.gz": "NZOJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_pwkphj.fa.gz": "PWKJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_wsbeij.fa.gz": "WSBJ",
-        "/home/delaney/igvf/references/PRJNA923323/Mus_musculus_c57bl6j.fa.gz": "B6J"}
+    d = {"129S1J_fasta/ncbi_dataset/data/GCA_029255695.1/GCA_029255695.1_ASM2925569v1_genomic.fna": "129S1J",
+        "CASTJ_fasta/ncbi_dataset/data/GCA_029237265.1/GCA_029237265.1_ASM2923726v1_genomic.fna": "CASTJ",
+        "AJ_fasta/ncbi_dataset/data/GCA_029255665.1/GCA_029255665.1_ASM2925566v1_genomic.fna": "AJ",
+        "NODJ_fasta/ncbi_dataset/data/GCA_029234005.1/GCA_029234005.1_ASM2923400v1_genomic.fna": "NODJ",
+        "NZOJ_fasta/ncbi_dataset/data/GCA_029233705.1/GCA_029233705.1_ASM2923370v1_genomic.fna": "NZOJ",
+        "PWKJ_fasta/ncbi_dataset/data/GCA_029233695.1/GCA_029233695.1_ASM2923369v1_genomic.fna": "PWKJ",
+        "WSBJ_fasta/ncbi_dataset/data/GCA_029233295.1/GCA_029233295.1_ASM2923329v1_genomic.fna": "WSBJ",
+        "GRCm39.primary_assembly.genome.fa.gz": "B6J"}
     return d
 
 def get_genotype_counts(files, ofile):
@@ -33,14 +33,15 @@ def get_genotype_counts(files, ofile):
     as a tsv
     """
     for i, f in enumerate(files):
-        adata = sc.read(f)
-        if i == 0:
-            df = adata.to_df()
-        else:
-            df = df.merge(adata.to_df(),
-                          how='outer',
-                          left_index=True,
-                          right_index=True)
+        if "WSBJ_CASTJ" not in f:
+            adata = sc.read(f)
+            if i == 0:
+                df = adata.to_df()
+            else:
+                df = df.merge(adata.to_df(),
+                              how='outer',
+                              left_index=True,
+                              right_index=True)
     df.fillna(0, inplace=True)
     df.to_csv(ofile, index=True, sep='\t')
 
@@ -48,38 +49,46 @@ def rename_klue_genotype_cols(adata):
     """
     """
     d = get_genotype_path_dict()
-    adata.var['genotype'] = adata.var.gene_name.map(d)
+    adata.var['genotype'] = adata.var.index.map(d)
     adata.var.set_index('genotype', inplace=True)
     adata.var.drop(adata.var.columns, axis=1, inplace=True)
     return adata
 
-def add_meta_filter(adata,
-                     cgg,
-                     wc,
-                     bc_df,
-                     kit,
-                     chemistry,
-                     klue,
-                     sample_df,
-                     min_counts,
-                     ofile):
+def add_meta_filter(mtx,
+                    cgb,
+                    cggn,
+                    cgg,
+                    wc,
+                    bc_df,
+                    kit,
+                    chemistry,
+                    sample_df,
+                    min_counts,
+                    ofile):
+    
     """
     Add gene names to the kallisto output.
     Very initial filtering on min_counts.
     """
-    adata = sc.read(adata)
-    adata.obs.reset_index(inplace=True)
-    adata.obs.columns = ['bc']
+    
+    data = sc.read_mtx(mtx)
+    obs = pd.read_csv(cgb, header = None, sep="\t")  
+    obs.columns = ["bc"]
+    var = pd.read_csv(cgg, header = None, sep="\t")
+    var.columns = ["gene_name"]
+    genes = pd.read_csv(cggn, header = None, sep="\t")
+    genes.columns = ["gene_id"]
+    var['gene_id'] = genes['gene_id']
+    
+    X = data.X
+    adata = anndata.AnnData(X=X, obs=obs, var=var)  
+    print(adata.var)
+    adata.obs.index = obs["bc"]
 
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
     adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
     adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
 
-    adata.var.reset_index(inplace=True)
-    adata.var.columns = ['gene_name']
-    names = pd.read_csv(cgg, sep="\t", header = None)
-    names.columns = ['gene_id']
-    adata.var['gene_id'] = names['gene_id']
     adata.obs['subpool'] = wc.subpool
 
     # merge in bc metadata
@@ -103,6 +112,7 @@ def add_meta_filter(adata,
     temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
+    print(adata.var)
 
     # make all object columns string columns
     for c in adata.obs.columns:
@@ -121,6 +131,7 @@ def add_meta_filter(adata,
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
 
+<<<<<<< HEAD
     # remove non-multiplexed cells if from klue
     if klue:
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
@@ -132,7 +143,83 @@ def add_meta_filter(adata,
         adata.obs['n_counts'] = adata.X.sum(axis=1).A1
         adata_filt = adata[adata.obs.n_counts >= min_counts,:]
         #adata.X = adata.layers['unspliced']
+=======
+    # filter based on min_counts in Snakefile         
+    adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+    adata = adata[adata.obs.n_counts >= min_counts,:]
+    
+    # filter out sample swaps with wrong multiplexed genotype 
+    inds = adata.obs.loc[adata.obs['Genotype'] != 'WSBJ/CASTJ'].index
+    adata = adata[inds, :].copy()
+>>>>>>> b1a9c80c5c38be23112184abd83b6cb5a1b67e93
 
+    adata.write(ofile)
+    
+def add_meta_klue(adata,
+                         wc,
+                         bc_df,
+                         kit,
+                         chemistry,
+                         sample_df,
+                         ofile):
+    
+    """
+    Merge metadata in with klue output
+    """
+    
+    adata = sc.read(adata)
+    print(adata.obs.head())
+    adata.obs.reset_index(inplace=True)
+    adata.obs.columns = ['bc']
+
+    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
+    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
+    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
+    adata.obs['subpool'] = wc.subpool
+
+    # merge in bc metadata
+    temp = bc_df.copy(deep=True)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
+                                             'well': 'bc1_well'}, axis=1)
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
+
+    # merge in other bc information
+    for bc in [2,3]:
+        bc_name = f'bc{bc}'
+        seq_col = f'bc{bc}_sequence'
+        well_col = f'bc{bc}_well'
+        bc_df = get_bcs(bc, kit, chemistry)
+        bc_df.rename({'well': well_col,
+                      bc_name: seq_col}, axis=1, inplace=True)
+        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
+
+    # merge in w/ sample-level metadata
+    temp = sample_df.copy(deep=True)
+    temp = temp.loc[(sample_df.plate==wc.plate)]
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
+
+    # make all object columns string columns
+    for c in adata.obs.columns:
+        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
+            adata.obs[c] = adata.obs[c].fillna('NA')
+
+    # create new index for each cell
+    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
+        adata.obs['bc2_well']+'_'+\
+        adata.obs['bc3_well']+'_'+\
+        adata.obs['subpool']+'_'+\
+        adata.obs['plate']
+    adata.obs.reset_index(drop=True)
+
+    # make sure these are unique + set as index
+    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
+    adata.obs.set_index('cellID', inplace=True)
+    
+    # filter out sample swaps with wrong multiplexed genotype     
+    inds = adata.obs.loc[(adata.obs.well_type=='Multiplexed') & (adata.obs['Genotype'] != 'WSBJ/CASTJ')].index
+    adata = adata[inds, :].copy()
+    adata = rename_klue_genotype_cols(adata)
+        
     adata.write(ofile)
 
 
@@ -175,6 +262,7 @@ def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read(f)
+
         else:
             temp = sc.read(f)
 

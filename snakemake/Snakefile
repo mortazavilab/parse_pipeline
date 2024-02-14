@@ -16,13 +16,13 @@ configfile: 'configs/config.yml'
 # a future analysis spec)
 # config_tsv = 'configs/test_2.tsv'
 # config_tsv = 'configs/test_3.tsv'
-config_tsv = 'configs/test_4.tsv'
-# config_tsv = 'configs/test_5.tsv'
+# config_tsv = 'configs/test_4.tsv'
+config_tsv = 'configs/igvf_003_config.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
-first_min_counts = 500
+first_min_counts = 200
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
@@ -191,8 +191,7 @@ rule kallisto:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
-        config['kallisto']['adata'],
-        config['kallisto']['counts_mtx'],
+        config['kallisto']['mtx'],
         temporary(config['kallisto']['bus']),
         temporary(config['kallisto']['bus_modified_unfilt']),
         temporary(config['kallisto']['bus_unfilt'])
@@ -217,49 +216,52 @@ rule kallisto:
         """
 
 rule make_filt_metadata_adata:
+    params:
+        min_counts = first_min_counts,
+    input:
+        mtx = config['kallisto']['mtx'],
+        cgb = config['kallisto']['cgb'],
+        cggn = config['kallisto']['cggn'],
+        cgg = config['kallisto']['cgg']
     resources:
         mem_gb = 128,
         threads = 4
-    run:
-        add_meta_filter(input.adata,
-                         input.cgg,
-                         wildcards,
-                         bc_df,
-                         kit,
-                         chemistry,
-                         params.klue,
-                         sample_df,
-                         params.min_counts,
-                         output.adata)
-
-# add metadata and perform basic filtering
-use rule make_filt_metadata_adata as make_subpool_filter_adata with:
-    input:
-        adata = config['kallisto']['adata'],
-        cgg = config['kallisto']['cgg']
-    params:
-        min_counts = first_min_counts,
-        klue = False
     output:
         adata = config['kallisto']['filt_adata']
+    run:
+        add_meta_filter(input.mtx,
+                        input.cgb,
+                        input.cgg,
+                        input.cggn,
+                        wildcards,
+                        bc_df,
+                        kit,
+                        chemistry,
+                        sample_df,
+                        params.min_counts,
+                        output.adata)
 
 ################################################################################
 ##################################### klue #####################################
 ################################################################################
-
-# TODO - actually run klue lmao
-
-# add metadata and perform v basic filtering
-use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata with:
+rule klue_make_genotype_adata:
     input:
         adata = config['klue']['adata'],
-        cgg = config['klue']['cgg']
-    params:
-        min_counts = first_min_counts,
-        klue = True
+    resources:
+        mem_gb = 64,
+        threads = 4
     output:
-        adata = config['klue']['filt_adata']
-
+        adata = config['klue']['adata_with_cellID']  
+    run:
+        add_meta_klue(input.adata,
+                            wildcards,
+                            bc_df,
+                            kit,
+                            chemistry,
+                            sample_df,
+                            output.adata)
+                            
+                            
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the
@@ -289,7 +291,7 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
 # get counts for each cell across all genotypes
 rule klue_get_genotype_counts:
     input:
-        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
+        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['adata_with_cellID'])
     resources:
         mem_gb = 128,
         threads = 2
@@ -305,7 +307,7 @@ rule klue_merge_genotype:
         genotype_counts = config['klue']['genotype_counts'],
         adata = config['kallisto']['filt_adata']
     resources:
-        mem_gb = 128,
+        mem_gb = 64,
         threads = 2
     output:
         adata = config['kallisto']['genotype_adata']
@@ -340,7 +342,7 @@ rule scrublet:
         min_cells = 1,
         min_gene_variability_pctl = 85
     resources:
-        mem_gb = 256,
+        mem_gb = 32,
         threads = 8
     output:
         adata = config['scrublet']['scrub_adata']
@@ -385,7 +387,7 @@ rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:
-        mem_gb = 256,
+        mem_gb = 450,
         threads = 2
     output:
         adata = config['tissue']['adata']
