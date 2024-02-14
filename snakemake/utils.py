@@ -126,9 +126,9 @@ def add_meta_filter(adata,
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
         adata = adata[inds, :].copy()
         adata = rename_klue_genotype_cols(adata)
-        
+
     if not klue:
-        # filter based on min_counts in Snakefile 
+        # filter based on min_counts in Snakefile
         adata.obs['n_counts'] = adata.X.sum(axis=1).A1
         adata_filt = adata[adata.obs.n_counts >= min_counts,:]
         #adata.X = adata.layers['unspliced']
@@ -195,8 +195,18 @@ def concat_adatas(adatas, ofile):
 def get_genotypes():
     g = ['WSBJ','NZOJ',
          'B6J','NODJ','129S1J',
-         'CASTJ','AJ','PWKJ']
+         'CASTJ','AJ','PWKJ',
+         'B6129S1F1J',
+         'B6AF1J','B6PWKF1J',
+         'B6NODF1J', 'B6WSBF1J',
+         'B6CASTF1J', 'B6NZOF1J']
     return g
+
+# def get_f1_genotype_pieces():
+#     f1_genotypes = ['B6129S1F1J',
+#         'B6AF1J','B6PWKF1J',
+#         'B6NODF1J', 'B6WSBF1J',
+#         'B6CASTF1J', 'B6NZOF1J']
 
 def assign_demux_genotype(df):
     """
