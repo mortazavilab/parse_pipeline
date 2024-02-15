@@ -3,7 +3,7 @@ Set up fastq specification file (“igvf_016_config.tsv”) and move to here
 Make snakemake environment
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
-Packages you need: pandas, os, numpy, anndata, scanpy, scrublet, kb-python
+Required packages: `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 `pip install kb-python`
 `pip install scrublet`
 etc.
