@@ -7,7 +7,8 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
-configfile: 'configs/config_100k.yml'
+#configfile: 'configs/config_100k.yml'
+configfile: 'configs/config.yml'
 
 # TODO
 # * figure out how to run seqspec to generate barcodes
@@ -17,10 +18,12 @@ configfile: 'configs/config_100k.yml'
 # config_tsv = 'configs/test_2.tsv'
 # config_tsv = 'configs/test_3.tsv'
 # config_tsv = 'configs/test_4.tsv'
-config_tsv = 'configs/igvf_012_config.tsv'
+# config_tsv = 'configs/igvf_012_config.tsv'
+
+config_tsv = 'configs/igvf_015_config.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
-kit = 'WT'
+kit = 'WT_mega'
 chemistry = 'v2'
 first_min_counts = 200
 
