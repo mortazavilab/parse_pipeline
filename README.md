@@ -15,8 +15,8 @@ Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fa
 1. Pay attention to your login node — or choose your favorite out of i15, i16, i17. `ssh login-i15`
 2. Change directories to the main pipeline directory: `cd /share/crsp/lab/seyedam/share/igvf_pipeline`
 3. Start tmux session via `tmux new -s mysession`  If you need to reconnect — `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)).
-4. start interactive session srun -A SEYEDAM_LAB --cpus-per-task=1 --time=168:00:00 --mem 8GB --pty bash -i
-5. activate your snakemake environment: conda activate snakemake
+4. Start interactive session srun -A SEYEDAM_LAB --cpus-per-task=1 --time=168:00:00 --mem 8GB --pty bash -i
+5. Activate your snakemake environment: conda activate snakemake
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first)
 ```bash
  snakemake \
