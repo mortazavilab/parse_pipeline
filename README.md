@@ -1,14 +1,18 @@
-## Create a conda environment called `snakemake`
+## Create a conda environment called snakemake
+Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
-Required packages: `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
-`pip install kb-python`
-`pip install scrublet`
+3. Install required python packages with pip, e.g.
+```bash
+pip install kb-python
+pip install scrublet
+ ```
 
-
+## Create required files
 Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
-To set up to run pipeline
-1. pay attention to your login node — or choose your favorite out of i15, i16, i17. ssh login-i15
+
+## Run pipeline
+1. Pay attention to your login node — or choose your favorite out of i15, i16, i17. `ssh login-i15`
 2. go here: /share/crsp/lab/seyedam/share/igvf_pipeline and
 3. start tmux session via tmux new -s mysession  If you need to reconnect — tmux a -t mysession (https://tmuxcheatsheet.com/).
 4. start interactive session srun -A SEYEDAM_LAB --cpus-per-task=1 --time=168:00:00 --mem 8GB --pty bash -i
