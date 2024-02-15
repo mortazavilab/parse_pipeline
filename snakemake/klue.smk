@@ -28,8 +28,8 @@ rule klue:
         kb count \
             --h5ad \
             --gene-names \
-            --sum=nucleus \
             --strand=forward \
+            --mm \
             -r {params.bc1_map} \
         	-w {params.barcodes} \
             --workflow=standard \
@@ -39,5 +39,6 @@ rule klue:
             -t {resources.threads} \
             -o {params.odir} \
             --tmp {params.odir}/temp/ \
+            --verbose \
             {params.fastq_str}
         """
