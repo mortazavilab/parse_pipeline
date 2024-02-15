@@ -1,11 +1,12 @@
-Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
-Create a conda environment called `snakemake`
+## Create a conda environment called `snakemake`
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
 Required packages: `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 `pip install kb-python`
 `pip install scrublet`
-etc.
+
+
+Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
 To set up to run pipeline
 1. pay attention to your login node — or choose your favorite out of i15, i16, i17. ssh login-i15
 2. go here: /share/crsp/lab/seyedam/share/igvf_pipeline and
