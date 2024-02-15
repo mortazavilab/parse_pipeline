@@ -1,5 +1,5 @@
 Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
-Make snakemake environment
+Create a conda environment called `snakemake`
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
 Required packages: `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
