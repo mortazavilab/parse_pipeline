@@ -1,3 +1,5 @@
+*.err
+*.out
 *.h5ad
 *__pycache__*
 *.idx
