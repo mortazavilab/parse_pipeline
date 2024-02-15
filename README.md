@@ -21,7 +21,7 @@ Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fa
    
 ```bash
  snakemake \
-  -s snakemake/Snakefile_016 \
+  -s snakemake/Snakefile.smk \
   -j 100 \
   --latency-wait 120 \
   --use-conda \
@@ -29,5 +29,10 @@ Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fa
  ```
 7. Actually run pipeline
 ```bash
-snakemake   -s snakemake/Snakefile_016   -j 100   --latency-wait 120   --use-conda   --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
+snakemake \
+-s snakemake/Snakefile.smk \
+-j 100 \
+--latency-wait 120 \
+--use-conda \
+--cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
