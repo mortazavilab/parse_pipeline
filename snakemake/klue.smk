@@ -4,8 +4,8 @@ rule klue:
         r2_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['klue']['t2g'],
         ind = config['ref']['klue']['ind']
-    conda:
-        "hpc3sc"
+    # conda:
+    #     "hpc3sc"
     params:
         # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
