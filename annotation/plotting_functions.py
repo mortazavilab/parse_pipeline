@@ -109,8 +109,10 @@ def stacked_barplot_proportions(adata, cluster_key, var_key, flip=True, fsize = 
     
     # Create the stacked bar plot
     if flip:
-        #if cluster_key == "leiden":
-            #proportions = proportions.sort_values(by='leiden', ascending=False)
+        if cluster_key == "leiden":
+            proportions = proportions.sort_values(by='leiden', ascending=False)
+            m = m.sort_values(by='leiden', ascending=False)
+             
         if annotations:
             ax = proportions.plot(kind='barh',color=color_palette, 
                                   stacked=True, figsize=fsize, width = 0.8)

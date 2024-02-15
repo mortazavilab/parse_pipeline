@@ -8,12 +8,14 @@ from pydeseq2.ds import DeseqStats
 from itertools import combinations
 
 def main():
-    parser = argparse.ArgumentParser(description='Process pseudobulk DESeq2 analysis for a specific tissue.')
+    parser = argparse.ArgumentParser(description='Pseudobulk DESeq2 analysis for a specific tissue.')
     parser.add_argument('--tissue', '-t', type=str, help='Name of the tissue for analysis', required=True)
+    parser.add_argument('--min_cells', '-c', type=int, help='Number of cells needed in all 16 sample conditions to keep the celltype.', required=True)
     
     args = parser.parse_args()
     
     tissue = args.tissue
+    min_cells = args.min_cells
 
     file = f'../IGVF_analysis/annotated_tissues/{tissue}_annotated.h5ad'
     outdirectory = f'degs/{tissue}/'
@@ -36,11 +38,9 @@ def main():
                                                "igvf_011",
                                                "igvf_012",
                                                "Bleedthrough",
-                                               "Doublet"])]
-
-    if tissue == "Heart":
-        adata = adata[~adata.obs['celltype'].isin(["Schwann","Epithelial"])]
-
+                                               "Doublet",
+                                               "CR",
+                                               "Lymphatic_endothelial"])] # still error in ctx/hc CR, gastroc lymph endo
 
     # sample genotypes for each 'Multiplexed_sampleN'
     ms1 = ['B6J','AJ','WSBJ','129S1J']
@@ -48,7 +48,7 @@ def main():
 
     # Define a function to update 'Mouse_Tissue_ID' based on conditions
     def update_mouse_tissue_id(row):
-        if row['plate'] == 'igvf_010' and row['Column'] in [9.0, 10.0, 11.0, 12.0]:
+        if row['plate'] != 'igvf_012' and row['Column'] in [9.0, 10.0, 11.0, 12.0]:
             if row['Genotype'] in ms1:
                 return row['Multiplexed_sample1']
             elif row['Genotype'] in ms2:
@@ -58,6 +58,36 @@ def main():
 
     # Apply the function to update the 'Mouse_Tissue_ID' column
     adata.obs['Mouse_Tissue_ID'] = adata.obs.apply(update_mouse_tissue_id, axis=1)
+    
+    # Code to filter out celltypes that do not have atleast 10 cells in all 16 sample conditions (Sex x genotype)
+    gen = ['CASTJ', 'B6J', 'AJ', 'PWKJ', 'WSBJ', '129S1J', 'NODJ', 'NZOJ']
+    sex = ['Male', 'Female']
+    ct_values = adata.obs['celltype'].unique()
+    data = []
+
+    for cell_types in ct_values:
+        ct_data = []  # Create a list to store data for the current 'ct'
+        for s in sex:
+            adatas = adata[adata.obs['Sex'] == s]
+            for i in gen:
+                pair = s + '-' + i
+                num = adatas[adatas.obs['Genotype'] == i].obs['celltype'].value_counts().get(cell_types, 0)
+                ct_data.append(num)
+
+        data.append([cell_types] + ct_data)
+
+    # Create a DataFrame with columns for each 'ct' value
+    columns = ['celltype'] + [s + '-' + i for s in sex for i in gen]
+    df = pd.DataFrame(data, columns=columns)
+
+    # Set 'ct' column as the index
+    df = df.set_index('celltype')
+
+    filter_out = df.index[df.lt(min_cells).any(axis=1)].tolist()
+    print('Celltypes not represented in every genotype/sex:', filter_out)
+
+    ctunique = adata.obs['celltype'].unique().tolist()
+    filtered_celltypes = [x for x in ctunique if x not in filter_out]
 
     ######################################################################################################################
     # Differential Gene analysis loops
@@ -80,10 +110,12 @@ def main():
             adatac = adata[adata.obs['Sex'].isin(filtering['Sex'])]
             adatac = adatac[adatac.obs['Genotype'].isin(filtering['Genotype'])]
 
+            ##### Filter out celltypes that do not have 10 cells for each group
+            adatac = adatac[adatac.obs['celltype'].isin(filtered_celltypes)]
+            
             adatac.obs[sample_key] = adatac.obs[sample_key].astype(str)
 
-            #####
-            # Create pseudobulk 
+            ###### Create pseudobulk 
             pdata = dc.get_pseudobulk(
                 adatac,
                 sample_col=sample_key,
