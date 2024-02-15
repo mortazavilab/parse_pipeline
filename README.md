@@ -1,5 +1,4 @@
-Set up fastq specification file (“igvf_016_config.tsv”) and move to here
-`/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
+Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
 Make snakemake environment
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
