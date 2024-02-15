@@ -9,7 +9,7 @@ pip install scrublet
  ```
 
 ## Create required files
-Set up fastq specification file and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
+Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
 
 ## Run pipeline
 1. Pay attention to your login node — or choose your favorite out of i15, i16, i17. `ssh login-i15`
