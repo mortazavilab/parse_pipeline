@@ -1,4 +1,4 @@
-import pandas as pd
+lsimport pandas as pd
 
 p = os.path.dirname(os.getcwd())
 sys.path.append(p)
@@ -17,12 +17,12 @@ configfile: 'configs/config.yml'
 # config_tsv = 'configs/test_2.tsv'
 # config_tsv = 'configs/test_3.tsv'
 # config_tsv = 'configs/test_4.tsv'
-config_tsv = 'configs/igvf_003_config.tsv'
+config_tsv = 'configs/test_5.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
-first_min_counts = 200
+first_min_counts = 500
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
@@ -108,28 +108,26 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    conda:
-        "hpc3sc"
+    # conda:
+    #     "hpc3sc"
     resources:
-        mem_gb = 64,
-        threads = 24
+        mem_gb = 16,
+        threads = 8
     output:
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind'],
         fa = config['ref']['kallisto']['fa'],
-        na = config['ref']['kallisto']['na'],
         c1 = config['ref']['kallisto']['c1'],
         c2 = config['ref']['kallisto']['c2']
     shell:
         """
         kb ref \
-            --workflow=nac \
             -i {output.ind} \
             -g {output.t2g} \
+            -f1 {output.fa} \
             -c1 {output.c1} \
             -c2 {output.c2} \
-            -f1 {output.fa} \
-            -f2 {output.na} \
+            --verbose \
             {input.fa} \
             {input.annot}
         """
@@ -174,10 +172,10 @@ rule kallisto:
         fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
-    conda:
-        "hpc3sc"
+    # conda:
+    #     "hpc3sc"
     params:
-        # TODO bc1 map and barcodes should be output from sth, seqspec
+        # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
         c1 = config['ref']['kallisto']['c1'],
@@ -191,7 +189,8 @@ rule kallisto:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
-        config['kallisto']['mtx'],
+        config['kallisto']['cgn'],
+        config['kallisto']['adata'],
         temporary(config['kallisto']['bus']),
         temporary(config['kallisto']['bus_modified_unfilt']),
         temporary(config['kallisto']['bus_unfilt'])
@@ -199,69 +198,66 @@ rule kallisto:
         """
         kb count \
             --h5ad \
-            --gene-names \
-            --sum=total \
-            --strand=forward \
-            -r {params.bc1_map} \
-            -w {params.barcodes} \
-            --workflow=nac \
-            -g {input.t2g} \
-            -x SPLIT-SEQ \
-            -i {input.ind} \
-            -t {resources.threads} \
-            -o {params.odir} \
-            -c1 {params.c1} \
-            -c2 {params.c2} \
-            {params.fastq_str}
+        	--gene-names \
+        	--sum=total \
+        	--strand=forward \
+        	-r {params.bc1_map} \
+        	-w {params.barcodes} \
+        	--workflow=nac \
+        	-g {input.t2g} \
+        	-x SPLIT-SEQ \
+        	-i {input.ind} \
+        	-t {resources.threads} \
+        	-o {params.odir} \
+        	-c1 {params.c1} \
+        	-c2 {params.c2} \
+            --verbose \
+        	{params.fastq_str}
         """
 
 rule make_filt_metadata_adata:
-    params:
-        min_counts = first_min_counts,
-    input:
-        mtx = config['kallisto']['mtx'],
-        cgb = config['kallisto']['cgb'],
-        cggn = config['kallisto']['cggn'],
-        cgg = config['kallisto']['cgg']
     resources:
         mem_gb = 128,
         threads = 4
+    run:
+        add_meta_filter(input.adata,
+                         input.cgg,
+                         wildcards,
+                         bc_df,
+                         kit,
+                         chemistry,
+                         params.klue,
+                         sample_df,
+                         params.min_counts,
+                         output.adata)
+
+# add metadata and perform basic filtering
+use rule make_filt_metadata_adata as make_subpool_filter_adata with:
+    input:
+        adata = config['kallisto']['adata'],
+        cgg = config['kallisto']['cgg']
+    params:
+        min_counts = first_min_counts,
+        klue = False
     output:
         adata = config['kallisto']['filt_adata']
-    run:
-        add_meta_filter(input.mtx,
-                        input.cgb,
-                        input.cgg,
-                        input.cggn,
-                        wildcards,
-                        bc_df,
-                        kit,
-                        chemistry,
-                        sample_df,
-                        params.min_counts,
-                        output.adata)
 
 ################################################################################
 ##################################### klue #####################################
 ################################################################################
-rule klue_make_genotype_adata:
+
+
+# add metadata and perform v basic filtering
+use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata with:
     input:
         adata = config['klue']['adata'],
-    resources:
-        mem_gb = 64,
-        threads = 4
+        cgg = config['klue']['cgg']
+    params:
+        min_counts = first_min_counts,
+        klue = True
     output:
-        adata = config['klue']['adata_with_cellID']  
-    run:
-        add_meta_klue(input.adata,
-                            wildcards,
-                            bc_df,
-                            kit,
-                            chemistry,
-                            sample_df,
-                            output.adata)
-                            
-                            
+        adata = config['klue']['filt_adata']
+
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the
@@ -291,7 +287,7 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
 # get counts for each cell across all genotypes
 rule klue_get_genotype_counts:
     input:
-        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['adata_with_cellID'])
+        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
     resources:
         mem_gb = 128,
         threads = 2
@@ -307,7 +303,7 @@ rule klue_merge_genotype:
         genotype_counts = config['klue']['genotype_counts'],
         adata = config['kallisto']['filt_adata']
     resources:
-        mem_gb = 64,
+        mem_gb = 128,
         threads = 2
     output:
         adata = config['kallisto']['genotype_adata']
@@ -342,7 +338,7 @@ rule scrublet:
         min_cells = 1,
         min_gene_variability_pctl = 85
     resources:
-        mem_gb = 32,
+        mem_gb = 256,
         threads = 8
     output:
         adata = config['scrublet']['scrub_adata']
@@ -383,11 +379,14 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
 
     return files
 
+
+# TODO - make one of the concatenation rules for plate+tissue
+# and make another for just tissue
 rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:
-        mem_gb = 450,
+        mem_gb = 256,
         threads = 2
     output:
         adata = config['tissue']['adata']

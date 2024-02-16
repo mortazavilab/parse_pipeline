@@ -2,6 +2,7 @@ import pandas as pd
 import anndata
 import scanpy as sc
 import scrublet as scr
+import shutile
 
 from bc_utils import *
 
@@ -26,24 +27,42 @@ def get_genotype_path_dict():
         "GRCm39.primary_assembly.genome.fa.gz": "B6J"}
     return d
 
+def is_dummy(fname):
+    """
+    Check if a file is a dummy file (ie whether is empty)
+    Returns True if it's a dummy, False if not
+    """
+    return os.stat(fname).st_size == 0
+
+def touch_dummy(ofile):
+    """
+    Touch a dummy output file
+    """
+    open(x, ofile).close()
+
 def get_genotype_counts(files, ofile):
     """
     Given a list of klue anndata objects, merge
     the genotype counts together for each cell and output
     as a tsv
     """
-    for i, f in enumerate(files):
-        if "WSBJ_CASTJ" not in f:
-            adata = sc.read(f)
-            if i == 0:
-                df = adata.to_df()
-            else:
-                df = df.merge(adata.to_df(),
-                              how='outer',
-                              left_index=True,
-                              right_index=True)
-    df.fillna(0, inplace=True)
-    df.to_csv(ofile, index=True, sep='\t')
+    # if we have no genetic demultiplexing
+    if not files:
+        touch_dummy(ofile)
+    # otherwise merge and output merged summary
+    else:
+        for i, f in enumerate(files):
+            if "WSBJ_CASTJ" not in f:
+                adata = sc.read(f)
+                if i == 0:
+                    df = adata.to_df()
+                else:
+                    df = df.merge(adata.to_df(),
+                                  how='outer',
+                                  left_index=True,
+                                  right_index=True)
+        df.fillna(0, inplace=True)
+        df.to_csv(ofile, index=True, sep='\t')
 
 def rename_klue_genotype_cols(adata):
     """
@@ -65,23 +84,23 @@ def add_meta_filter(mtx,
                     sample_df,
                     min_counts,
                     ofile):
-    
+
     """
     Add gene names to the kallisto output.
     Very initial filtering on min_counts.
     """
-    
+
     data = sc.read_mtx(mtx)
-    obs = pd.read_csv(cgb, header = None, sep="\t")  
+    obs = pd.read_csv(cgb, header = None, sep="\t")
     obs.columns = ["bc"]
     var = pd.read_csv(cgg, header = None, sep="\t")
     var.columns = ["gene_name"]
     genes = pd.read_csv(cggn, header = None, sep="\t")
     genes.columns = ["gene_id"]
     var['gene_id'] = genes['gene_id']
-    
+
     X = data.X
-    adata = anndata.AnnData(X=X, obs=obs, var=var)  
+    adata = anndata.AnnData(X=X, obs=obs, var=var)
     print(adata.var)
     adata.obs.index = obs["bc"]
 
@@ -144,17 +163,17 @@ def add_meta_filter(mtx,
         adata_filt = adata[adata.obs.n_counts >= min_counts,:]
         #adata.X = adata.layers['unspliced']
 =======
-    # filter based on min_counts in Snakefile         
+    # filter based on min_counts in Snakefile
     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
     adata = adata[adata.obs.n_counts >= min_counts,:]
-    
-    # filter out sample swaps with wrong multiplexed genotype 
+
+    # filter out sample swaps with wrong multiplexed genotype
     inds = adata.obs.loc[adata.obs['Genotype'] != 'WSBJ/CASTJ'].index
     adata = adata[inds, :].copy()
 >>>>>>> b1a9c80c5c38be23112184abd83b6cb5a1b67e93
 
     adata.write(ofile)
-    
+
 def add_meta_klue(adata,
                          wc,
                          bc_df,
@@ -162,11 +181,11 @@ def add_meta_klue(adata,
                          chemistry,
                          sample_df,
                          ofile):
-    
+
     """
     Merge metadata in with klue output
     """
-    
+
     adata = sc.read(adata)
     print(adata.obs.head())
     adata.obs.reset_index(inplace=True)
@@ -214,12 +233,12 @@ def add_meta_klue(adata,
     # make sure these are unique + set as index
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
-    
-    # filter out sample swaps with wrong multiplexed genotype     
+
+    # filter out sample swaps with wrong multiplexed genotype
     inds = adata.obs.loc[(adata.obs.well_type=='Multiplexed') & (adata.obs['Genotype'] != 'WSBJ/CASTJ')].index
     adata = adata[inds, :].copy()
     adata = rename_klue_genotype_cols(adata)
-        
+
     adata.write(ofile)
 
 
@@ -356,34 +375,38 @@ def merge_kallisto_klue(f, genotypes, ofile):
     a heuristic (which should be changeable / is subject to change)
     to determine the genotype assignment to each cell
     """
+    # if we didn't run klue
+    if is_dummy(genotypes):
+        shutil.copy(f, ofile)
+    # otherwise, decide which genotype each thing is
+    else:
+        adata = sc.read(f)
+        df = pd.read_csv(genotypes, sep='\t')
+        df.set_index('cellID', inplace=True)
 
-    adata = sc.read(f)
-    df = pd.read_csv(genotypes, sep='\t')
-    df.set_index('cellID', inplace=True)
+        # make sure we won't dupe any cols
+        assert len(set(df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
 
-    # make sure we won't dupe any cols
-    assert len(set(df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
+        # merge in first; this way we have access to the genotypes that should
+        # be in each well
+        adata.obs = adata.obs.merge(df,
+                                    how='left',
+                                    left_index=True,
+                                    right_index=True)
 
-    # merge in first; this way we have access to the genotypes that should
-    # be in each well
-    adata.obs = adata.obs.merge(df,
-                                how='left',
-                                left_index=True,
-                                right_index=True)
+        # assign genotype for multiplexed wells
+        df = adata.obs.copy(deep=True)
+        df = assign_demux_genotype(df)
 
-    # assign genotype for multiplexed wells
-    df = adata.obs.copy(deep=True)
-    df = assign_demux_genotype(df)
+        # merge in w/ adata and replace old values in "Genotype"
+        # column for multiplexed wells with the klue results
+        adata.obs = adata.obs.merge(df,
+                                    how='left',
+                                    left_index=True,
+                                    right_index=True)
+        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+        adata.obs.Genotype = adata.obs.Genotype.astype('str')
+        adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
+        adata.obs.drop('new_genotype', axis=1, inplace=True)
 
-    # merge in w/ adata and replace old values in "Genotype"
-    # column for multiplexed wells with the klue results
-    adata.obs = adata.obs.merge(df,
-                                how='left',
-                                left_index=True,
-                                right_index=True)
-    inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
-    adata.obs.Genotype = adata.obs.Genotype.astype('str')
-    adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
-    adata.obs.drop('new_genotype', axis=1, inplace=True)
-
-    adata.write(ofile)
+        adata.write(ofile)
