@@ -2,7 +2,7 @@ import pandas as pd
 import anndata
 import scanpy as sc
 import scrublet as scr
-import shutile
+import shutil
 
 from bc_utils import *
 
