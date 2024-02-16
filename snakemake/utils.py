@@ -150,7 +150,6 @@ def add_meta_filter(mtx,
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
 
-<<<<<<< HEAD
     # remove non-multiplexed cells if from klue
     if klue:
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
@@ -162,7 +161,7 @@ def add_meta_filter(mtx,
         adata.obs['n_counts'] = adata.X.sum(axis=1).A1
         adata_filt = adata[adata.obs.n_counts >= min_counts,:]
         #adata.X = adata.layers['unspliced']
-=======
+
     # filter based on min_counts in Snakefile
     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
     adata = adata[adata.obs.n_counts >= min_counts,:]
@@ -170,7 +169,6 @@ def add_meta_filter(mtx,
     # filter out sample swaps with wrong multiplexed genotype
     inds = adata.obs.loc[adata.obs['Genotype'] != 'WSBJ/CASTJ'].index
     adata = adata[inds, :].copy()
->>>>>>> b1a9c80c5c38be23112184abd83b6cb5a1b67e93
 
     adata.write(ofile)
 
