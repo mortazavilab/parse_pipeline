@@ -38,7 +38,7 @@ def touch_dummy(ofile):
     """
     Touch a dummy output file
     """
-    open(x, ofile).close()
+    open(ofile, 'a').close()
 
 def get_genotype_counts(files, ofile):
     """
