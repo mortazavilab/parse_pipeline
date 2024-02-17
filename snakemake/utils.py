@@ -81,6 +81,7 @@ def add_meta_filter(mtx,
                     bc_df,
                     kit,
                     chemistry,
+                    klue,
                     sample_df,
                     min_counts,
                     ofile):
