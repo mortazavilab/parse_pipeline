@@ -157,13 +157,15 @@ def add_meta_filter(mtx,
         adata = adata[inds, :].copy()
         adata = rename_klue_genotype_cols(adata)
 
-    if not klue:
-        # filter based on min_counts in Snakefile
-        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
-        #adata.X = adata.layers['unspliced']
+    # if not klue:
+    #     # filter based on min_counts in Snakefile
+    #     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+    #     adata_filt = adata[adata.obs.n_counts >= min_counts,:]
+    #     #adata.X = adata.layers['unspliced']
 
     # filter based on min_counts in Snakefile
+    # the `.A1` is only necessary as X is sparse (to transform to a dense array after summing)
+    # see https://www.kallistobus.tools/tutorials/kb_building_atlas/python/kb_analysis_0_python/
     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
     adata = adata[adata.obs.n_counts >= min_counts,:]
 
