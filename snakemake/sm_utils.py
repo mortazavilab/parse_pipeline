@@ -40,8 +40,8 @@ def parse_sample_df(fname):
     # add a multiplexed genotype column
     inds = df.loc[df.well_type=='Multiplexed'].index
     df['mult_genotype'] = np.nan
-    df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]]+'_'+\
-                                   df.loc[inds, g_cols[1]]
+    df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]].astype(str)+'_'+\
+                                   df.loc[inds, g_cols[1]].astype(str)
 
     # checks
     for g in g_cols:
