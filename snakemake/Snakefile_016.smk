@@ -108,8 +108,8 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    conda:
-        "hpc3sc"
+    # conda:
+    #     "hpc3sc"
     resources:
         mem_gb = 64,
         threads = 24
@@ -251,7 +251,7 @@ rule klue_make_genotype_adata:
         mem_gb = 64,
         threads = 4
     output:
-        adata = config['klue']['adata_with_cellID']  
+        adata = config['klue']['adata_with_cellID']
     run:
         add_meta_klue(input.adata,
                             wildcards,
@@ -260,8 +260,8 @@ rule klue_make_genotype_adata:
                             chemistry,
                             sample_df,
                             output.adata)
-                            
-                            
+
+
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the
