@@ -20,7 +20,7 @@ ref:
       B6J: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
     zip: ./{genotype}.zip
     dir: ./{genotype}
-    fa: ref/{genotype}/{genotype}.fa.gz
+    fa: ref/genomes/{genotype}.fa.gz
 
 
   kallisto:
@@ -32,9 +32,9 @@ ref:
     c2: ref/kallisto/c57bl6j.c2
 
   klue:
-    fa: ref/klue_ref/{mult_genotype_1}_{mult_genotype_2}.fa
-    t2g: ref/klue_ref/{mult_genotype_1}_{mult_genotype_2}.t2g
-    ind: ref/klue_ref/{mult_genotype_1}_{mult_genotype_2}.idx
+    fa: ref/klue/{mult_genotype_1}_{mult_genotype_2}.fa
+    t2g: ref/klue/{mult_genotype_1}_{mult_genotype_2}.t2g
+    ind: ref/klue/{mult_genotype_1}_{mult_genotype_2}.idx
 
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
