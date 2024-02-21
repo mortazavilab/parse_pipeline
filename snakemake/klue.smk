@@ -1,7 +1,7 @@
 rule klue_fa:
     input:
         fa_g1 = expand(lambda wc: config['ref']['genome']['fa'],
-                    genotype=wc.mult_genotype_1)[0]
+                    genotype=wc.mult_genotype_1)[0],
         fa_g2 = expand(lambda wc: config['ref']['genome']['fa'],
                     genotype=wc.mult_genotype_2)[0]
     resources:
