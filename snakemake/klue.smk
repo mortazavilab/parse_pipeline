@@ -1,5 +1,42 @@
+rule klue_fa:
+    input:
+        fa_g1 = expand(lambda wc: config['ref']['genome']['fa'],
+                    genotype=wc.mult_genotype_1)[0]
+        fa_g2 = expand(lambda wc: config['ref']['genome']['fa'],
+                    genotype=wc.mult_genotype_2)[0]
+    resources:
+        threads = 24,
+        mem_gb = 64
+    output:
+    shell:
+        """
+        klue distinguish \
+            -o {output.fa} \
+            -g {output.t2g} \
+            -t 24 \
+            -r 61 \
+            --all-but-one \
+            {input.fa_g1} {input.fa_g2}
+        """
+
 rule klue_ind:
-    
+    input:
+        fa = config['ref']['klue']['fa']
+    resources:
+        threads = 24,
+        mem_gb = 64
+    output:
+        ind = config['ref']['klue']['ind']
+    shell:
+        """
+        kb ref \
+            --workflow=custom \
+            --distinguish \
+            -i {output.ind} \
+            -t {params.threads} \
+            {input.fa}
+        """
+
 
 
 rule klue:
