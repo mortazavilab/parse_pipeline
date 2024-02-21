@@ -117,9 +117,9 @@ rule fa_ref_fmt:
         fa = config['ref']['genome']['fa']
     shell:
         """
-        unzip {input.zip} -d {wc.genotype}
-        gzip -cvf {wc.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
-        rm -r {wc.genotype}
+        unzip {input.zip} -d {wildcards.genotype}
+        gzip -cvf {wildcards.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
+        rm -r {wildcards.genotype}
         """
 
 rule dl:
