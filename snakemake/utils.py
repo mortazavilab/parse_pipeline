@@ -300,14 +300,25 @@ def concat_adatas(adatas, ofile):
 
     adata.write(ofile)
 
-def get_genotypes():
+# TODO maybe splitting these up will make things easier in
+# the future
+def get_founder_genotypes():
     g = ['WSBJ','NZOJ',
          'B6J','NODJ','129S1J',
-         'CASTJ','AJ','PWKJ',
-         'B6129S1F1J',
-         'B6AF1J','B6PWKF1J',
-         'B6NODF1J', 'B6WSBF1J',
-         'B6CASTF1J', 'B6NZOF1J']
+         'CASTJ','AJ','PWKJ']
+    return g
+
+def get_f1_genotypes():
+    g = ['B6129S1F1J',
+    'B6AF1J','B6PWKF1J',
+    'B6NODF1J', 'B6WSBF1J',
+    'B6CASTF1J', 'B6NZOF1J']
+    return g
+
+def get_genotypes():
+    g = get_founder_genotypes()
+    g += get_f1_genotypes()
+
     return g
 
 # def get_f1_genotype_pieces():
