@@ -23,7 +23,7 @@ ref:
     fa: ref/{genotype}/{genotype}.fa.gz
 
 
-  kallist
+  kallisto:
     t2g: ref/kallisto/c57bl6j.t2g
     ind: ref/kallisto/c57bl6j.idx
     fa: ref/kallisto/c57bl6j.cdna.fasta
