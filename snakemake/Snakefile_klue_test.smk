@@ -39,7 +39,7 @@ wildcard_constraints:
     lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
-    genotype='|'.join([re.escape(x) for x in sample_df.genotype.unique().tolist()]),
+    genotype='|'.join([re.escape(x) for x in sample_df.Genotype.unique().tolist()]),
     mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
     mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
 
