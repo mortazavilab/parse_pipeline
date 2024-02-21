@@ -38,6 +38,7 @@ wildcard_constraints:
     lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
+    genotype='|'.join([re.escape(x) for x in sample_df.genotype.unique().tolist()]),
     mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
     mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
 
@@ -84,6 +85,38 @@ rule all:
 ################################################################################
 ########################## Ref download and generation #########################
 ################################################################################
+def get_fa_link(wc, config):
+    genotype = wc.genotype
+    link = config['ref']['genome']['link']
+    return link
+
+rule curl_fa:
+    resources:
+        mem_gb = 4,
+        threads = 1
+    params:
+        link = lambda wc: get_fa_link(wc, config),
+    output:
+        zip = temporary(config['ref']['genome']['zip'])
+    shell:
+        """
+        curl -OJX GET "{params.link}{output.zip}"
+        """
+
+rule fa_ref_fmt:
+    input:
+        zip = config['ref']['genome']['zip']
+    resources:
+        threads = 4,
+        mem_gb =16
+    output:
+        fa = config['ref']['genome']['fa']
+    shell:
+        """
+        unzip {output.zip} -d {wc.genotype}
+        gzip -cvf {wc.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
+        rm -r {wc.genotype}
+        """
 
 rule dl:
    resources:

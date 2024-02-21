@@ -1,3 +1,7 @@
+rule klue_ind:
+    
+
+
 rule klue:
     input:
         r1_fastq = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R1'),

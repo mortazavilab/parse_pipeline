@@ -226,7 +226,7 @@ rule kallisto:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
-        config['kallisto']['adata'],
+        config['kallisto']['mtx'],
         temporary(config['kallisto']['bus']),
         temporary(config['kallisto']['bus_modified_unfilt']),
         temporary(config['kallisto']['bus_unfilt'])
