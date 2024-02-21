@@ -258,7 +258,7 @@ rule make_filt_metadata_adata:
     run:
         add_meta_filter(input.mtx,
                         input.cgb,
-                        input.cggn
+                        input.cggn,
                         input.cgg,
                         wildcards,
                         bc_df,
