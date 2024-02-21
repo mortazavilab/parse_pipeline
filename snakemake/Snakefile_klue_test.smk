@@ -1,4 +1,4 @@
-lsimport pandas as pd
+import pandas as pd
 
 p = os.path.dirname(os.getcwd())
 sys.path.append(p)
