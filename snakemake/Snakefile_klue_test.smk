@@ -117,7 +117,7 @@ rule fa_ref_fmt:
         fa = config['ref']['genome']['fa']
     shell:
         """
-        unzip {output.zip} -d {wc.genotype}
+        unzip {input.zip} -d {wc.genotype}
         gzip -cvf {wc.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
         rm -r {wc.genotype}
         """
