@@ -104,7 +104,14 @@ rule curl_fa:
         zip = temporary(config['ref']['genome']['zip'])
     shell:
         """
-        curl -OJX GET "{params.link}{output.zip}"
+        if [ "{wildcards.genotype}" == "B6J" ]; then
+            wget -O {wildcards.genotype}.fa.gz {params.link}
+            mkdir -p {wildcards.genotype}/ncbi_dataset/data/temp/
+            gunzip {wildcards.genotype}.fa.gz
+            mv {wildcards.genotype}.fa {wildcards.genotype}/ncbi_dataset/data/temp/temp.fna
+        else
+            curl -OJX GET "{params.link}{output.zip}"
+        fi
         """
 
 rule fa_ref_fmt:
