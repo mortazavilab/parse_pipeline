@@ -65,7 +65,7 @@ klue:
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
 
-  adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
+  filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
 
 
   # version with all genotypes
