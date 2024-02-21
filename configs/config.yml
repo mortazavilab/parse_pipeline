@@ -11,12 +11,12 @@ ref:
   genome:
     link:
       WSBJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233295.1/download?include_annotation_type=GENOME_FASTA&filename=
-      PWKJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233695.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029233695.1.zip
-      NZOJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233705.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029233705.1.zip
-      NODJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029234005.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029234005.1.zip
-      CASTJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029237265.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029237265.1.zip
-      AJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255665.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029255665.1.zip
-      129S1J: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255695.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCA_029255695.1.zip
+      PWKJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233695.1/download?include_annotation_type=GENOME_FASTA&filename=
+      NZOJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233705.1/download?include_annotation_type=GENOME_FASTA&filename=
+      NODJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029234005.1/download?include_annotation_type=GENOME_FASTA&filename=
+      CASTJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029237265.1/download?include_annotation_type=GENOME_FASTA&filename=
+      AJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255665.1/download?include_annotation_type=GENOME_FASTA&filename=
+      129S1J: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255695.1/download?include_annotation_type=GENOME_FASTA&filename=
       B6J: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
     zip: ./{genotype}.zip
     dir: ./{genotype}

@@ -91,7 +91,7 @@ rule all:
 ################################################################################
 def get_fa_link(wc, config):
     genotype = wc.genotype
-    link = config['ref']['genome']['link']
+    link = config['ref']['genome']['link'][genotype]
     return link
 
 rule curl_fa:
