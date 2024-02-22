@@ -8,6 +8,8 @@ rule klue_fa:
         threads = 24,
         mem_gb = 64
     output:
+        fa = config['ref']['klue']['fa'],
+        t2g = config['ref']['klue']['t2g']
     shell:
         """
         klue distinguish \
