@@ -35,7 +35,7 @@ rule klue_ind:
             --workflow=custom \
             --distinguish \
             -i {output.ind} \
-            -t {params.threads} \
+            -t {resources.threads} \
             {input.fa}
         """
 
