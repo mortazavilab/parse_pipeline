@@ -75,12 +75,13 @@ include: "klue.smk"
 
 rule all:
     input:
-        expand(config['ref']['genome']['fa'],
-               genotype=get_founder_genotypes())
-        # expand(config['ref']['klue']['idx'],
-        #        zip,
-        #        mult_genotype_1=mult_genotype_1s,
-        #        mult_genotype_2=mult_genotype_2s)
+        expand(config['ref']['klue']['idx'],
+               zip,
+               mult_genotype_1=mult_genotype_1s,
+               mult_genotype_2=mult_genotype_2s)
+        # expand(config['ref']['genome']['fa'],
+               # genotype=get_founder_genotypes())
+
         # testing for klue fasta input downloads
 
 
