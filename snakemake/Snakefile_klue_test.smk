@@ -116,7 +116,7 @@ rule curl_fa:
             mkdir -p {wildcards.genotype}/ncbi_dataset/data/temp/
             gunzip {wildcards.genotype}.fa.gz
             mv {wildcards.genotype}.fa {wildcards.genotype}/ncbi_dataset/data/temp/temp.fna
-            zip {wildcards.genotype}
+            zip -r {wildcards.genotype}.zip {wildcards.genotype}
         else
             curl -OJX GET "{params.link}{output.zip}"
         fi
