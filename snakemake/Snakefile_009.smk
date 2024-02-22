@@ -84,7 +84,47 @@ rule all:
 ################################################################################
 ########################## Ref download and generation #########################
 ################################################################################
+def get_fa_link(wc, config):
+    genotype = wc.genotype
+    link = config['ref']['genome']['link'][genotype]
+    return link
 
+rule curl_fa:
+    resources:
+        mem_gb = 4,
+        threads = 1
+    params:
+        link = lambda wc: get_fa_link(wc, config),
+    output:
+        zip = temporary(config['ref']['genome']['zip'])
+    shell:
+        """
+        if [ "{wildcards.genotype}" == "B6J" ]; then
+            wget -O {wildcards.genotype}.fa.gz {params.link}
+            mkdir -p {wildcards.genotype}/ncbi_dataset/data/temp/
+            gunzip {wildcards.genotype}.fa.gz
+            mv {wildcards.genotype}.fa {wildcards.genotype}/ncbi_dataset/data/temp/temp.fna
+            zip -r {wildcards.genotype}.zip {wildcards.genotype}
+        else
+            curl -OJX GET "{params.link}{output.zip}"
+        fi
+        """
+
+rule fa_ref_fmt:
+    input:
+        zip = config['ref']['genome']['zip']
+    resources:
+        threads = 4,
+        mem_gb =16
+    output:
+        fa = config['ref']['genome']['fa']
+    shell:
+        """
+        unzip {input.zip} -d {wildcards.genotype}
+        gzip -cvf {wildcards.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
+        rm -r {wildcards.genotype}
+        """
+        
 rule dl:
    resources:
        mem_gb = 4,
@@ -251,7 +291,7 @@ rule klue_make_genotype_adata:
         mem_gb = 64,
         threads = 4
     output:
-        adata = config['klue']['adata_with_cellID']  
+        adata = config['klue']['adata_with_cellID']
     run:
         add_meta_klue(input.adata,
                             wildcards,
@@ -260,8 +300,8 @@ rule klue_make_genotype_adata:
                             chemistry,
                             sample_df,
                             output.adata)
-                            
-                            
+
+
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the
