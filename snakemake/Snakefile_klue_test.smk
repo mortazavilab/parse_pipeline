@@ -77,8 +77,8 @@ rule all:
     input:
         expand(config['ref']['klue']['ind'],
                zip,
-               mult_genotype_1=mult_genotype_1s,
-               mult_genotype_2=mult_genotype_2s)
+               mult_genotype_1=mult_genotype_1s[:8],
+               mult_genotype_2=mult_genotype_2s[:8])
         # expand(config['ref']['genome']['fa'],
                # genotype=get_founder_genotypes())
 
