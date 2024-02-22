@@ -75,7 +75,7 @@ include: "klue.smk"
 
 rule all:
     input:
-        expand(config['ref']['klue']['idx'],
+        expand(config['ref']['klue']['ind'],
                zip,
                mult_genotype_1=mult_genotype_1s,
                mult_genotype_2=mult_genotype_2s)
