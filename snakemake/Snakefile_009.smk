@@ -124,7 +124,7 @@ rule fa_ref_fmt:
         gzip -cvf {wildcards.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
         rm -r {wildcards.genotype}
         """
-        
+
 rule dl:
    resources:
        mem_gb = 4,
@@ -148,8 +148,6 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    conda:
-        "hpc3sc"
     resources:
         mem_gb = 64,
         threads = 24
@@ -214,8 +212,6 @@ rule kallisto:
         fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
-    conda:
-        "hpc3sc"
     params:
         # TODO bc1 map and barcodes should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
