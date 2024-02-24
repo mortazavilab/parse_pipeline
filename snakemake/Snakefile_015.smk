@@ -153,8 +153,8 @@ rule kallisto_ind:
     # conda:
     #     "hpc3sc"
     resources:
-        mem_gb = 16,
-        threads = 8
+        mem_gb = 64,
+        threads = 24
     output:
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind'],
