@@ -170,6 +170,7 @@ rule kallisto_ind:
             -c1 {output.c1} \
             -c2 {output.c2} \
             --verbose \
+	    --workflow=nac \
             {input.fa} \
             {input.annot}
         """
