@@ -159,6 +159,7 @@ rule kallisto_ind:
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind'],
         fa = config['ref']['kallisto']['fa'],
+        na = config['ref']['kallisto']['na'],
         c1 = config['ref']['kallisto']['c1'],
         c2 = config['ref']['kallisto']['c2']
     shell:
