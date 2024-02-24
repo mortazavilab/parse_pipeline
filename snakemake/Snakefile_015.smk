@@ -174,9 +174,7 @@ rule kallisto_ind:
             {input.fa} \
             {input.annot}
         """
-        
-kb ref --kallisto=$kallisto --workflow=lamanno -t 24 -i c57bl6j.idx -g c57bl6j.t2g -c1 c57bl6j.c1 -c2 c57bl6j.c2 -f1 c57bl6j.cdna.fasta -f2 c57bl6j.nascent.fasta --d-list references/Mus_musculus_c57bl6j.fa.gz references/Mus_musculus_c57bl6j.fa.gz references/Mus_musculus_c57bl6j.gtf.gz
-
+       
 
 ################################################################################
 ########################### Temporary fastq renaming ###########################
