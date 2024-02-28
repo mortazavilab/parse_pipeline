@@ -18,12 +18,12 @@ configfile: 'configs/config.yml'
 # config_tsv = 'configs/test_3.tsv'
 # config_tsv = 'configs/test_4.tsv'
 # config_tsv = 'configs/test_5.tsv'
-config_tsv = 'configs/igvf_005_config.tsv'
+config_tsv = 'configs/igvf_016_test_config.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
 chemistry = 'v2'
-first_min_counts = 500
+first_min_counts = 200
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
@@ -78,22 +78,17 @@ rule all:
         expand(config['ref']['klue']['ind'],
                zip,
                mult_genotype_1=[g for g in mult_genotype_1s if g in get_founder_genotypes()],
-               mult_genotype_2=[g for g in mult_genotype_2s if g in get_founder_genotypes()])
+               mult_genotype_2=[g for g in mult_genotype_2s if g in get_founder_genotypes()]),
+        #expand(config['ref']['genome']['fa'],
+        #        genotype=get_founder_genotypes()),
+        expand(config['klue']['genotype_counts'],
+                zip,
+                plate=df.plate.tolist(),
+                subpool=df.subpool.tolist()),
+                expand(config['tissue']['adata'],
+                plate=df.plate.tolist(),
+                tissue=get_subset_tissues(df, sample_df))
 
-        # expand(config['ref']['genome']['fa'],
-               # genotype=get_founder_genotypes())
-
-        # testing for klue fasta input downloads
-
-
-
-        # expand(config['klue']['genotype_counts'],
-        #        zip,
-        #        plate=df.plate.tolist(),
-        #        subpool=df.subpool.tolist()),
-        # expand(config['tissue']['adata'],
-        #        plate=df.plate.tolist(),
-        #        tissue=get_subset_tissues(df, sample_df))
 
 ################################################################################
 ########################## Ref download and generation #########################
@@ -110,7 +105,7 @@ rule curl_fa:
     params:
         link = lambda wc: get_fa_link(wc, config),
     output:
-        zip = temporary(config['ref']['genome']['zip'])
+        zip = temporary("{genotype}.zip")
     shell:
         """
         if [ "{wildcards.genotype}" == "B6J" ]; then
@@ -126,12 +121,12 @@ rule curl_fa:
 
 rule fa_ref_fmt:
     input:
-        zip = config['ref']['genome']['zip']
+        zip = "{genotype}.zip"
     resources:
         threads = 4,
         mem_gb =16
     output:
-        fa = config['ref']['genome']['fa']
+        fa = "ref/genomes/{genotype}.fa.gz"
     shell:
         """
         unzip {input.zip} -d {wildcards.genotype}
@@ -162,26 +157,26 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    # conda:
-    #     "hpc3sc"
     resources:
-        mem_gb = 16,
-        threads = 8
+        mem_gb = 64,
+        threads = 24
     output:
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind'],
         fa = config['ref']['kallisto']['fa'],
+        na = config['ref']['kallisto']['na'],
         c1 = config['ref']['kallisto']['c1'],
         c2 = config['ref']['kallisto']['c2']
     shell:
         """
         kb ref \
+            --workflow=nac \
             -i {output.ind} \
             -g {output.t2g} \
-            -f1 {output.fa} \
             -c1 {output.c1} \
             -c2 {output.c2} \
-            --verbose \
+            -f1 {output.fa} \
+            -f2 {output.na} \
             {input.fa} \
             {input.annot}
         """
@@ -226,8 +221,6 @@ rule kallisto:
         fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
-    # conda:
-    #     "hpc3sc"
     params:
         # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
