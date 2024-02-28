@@ -327,6 +327,60 @@ def get_genotypes():
 #         'B6NODF1J', 'B6WSBF1J',
 #         'B6CASTF1J', 'B6NZOF1J']
 
+ux_genotype(df):
+    """
+    Assigns a cell the genotype w/ the maximum of counts
+    between the two genotypes that were loaded in the well
+    the cell is from.
+
+    Parameters:
+        df (pandas DataFrame): DF of obs table for each cell w/
+            klue counts for each genotype and multiplexed genotype
+            columns
+    """
+    genotype_cols = get_genotypes()
+
+    # restrict to nuclei w/ genetic multiplexing
+    df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
+
+    # fill nans once again
+    df[genotype_cols] = df[genotype_cols].fillna(0)
+
+    # loop through each multiplexed genotype combo
+    # use those genotypes to determine which,
+    # between the two, has the highest counts
+    keep_cols = ['mult_genotype',
+                 'mult_genotype_1',
+                 'mult_genotype_2']+genotype_cols
+    df = df[keep_cols]
+    temp2 = pd.DataFrame()
+    for g in df.mult_genotype.unique().tolist():
+        # print(g)
+        temp = df.loc[df.mult_genotype==g].copy(deep=True)
+
+        g1 = temp.mult_genotype_1.unique().tolist()
+        assert len(g1) == 1
+        g1 = g1[0]
+
+        g2 = temp.mult_genotype_2.unique().tolist()
+        assert len(g2) == 1
+        g2 = g2[0]
+
+        # find the best match and report ties if the
+        # values are the same
+        temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
+        temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
+
+        temp2 = pd.concat([temp2, temp], axis=0)
+
+    df = df.merge(temp2['new_genotype'], how='left',
+                  left_index=True, right_index=True)
+    df = df[['new_genotype']]
+
+    assert len(df.loc[df.new_genotype.isnull()].index) == 0
+
+    return df
+
 def assign_demux_genotype(df):
     """
     Assigns a cell the genotype w/ the maximum of counts
@@ -339,6 +393,7 @@ def assign_demux_genotype(df):
             columns
     """
     genotype_cols = get_genotypes()
+    genotype_cols = [c for c in genotype_cols if c in df.columns.tolist()]
 
     # restrict to nuclei w/ genetic multiplexing
     df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
