@@ -95,6 +95,9 @@ rule all:
 ################################################################################
 def get_fa_link(wc, config):
     genotype = wc.genotype
+    if genotype in get_f1_genotypes():
+        d = get_f1_founder_genotype_dict()
+        genotype = d[genotype]
     link = config['ref']['genome']['link'][genotype]
     return link
 

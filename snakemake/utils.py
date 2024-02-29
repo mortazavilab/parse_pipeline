@@ -315,6 +315,22 @@ def get_f1_genotypes():
     'B6CASTF1J', 'B6NZOF1J']
     return g
 
+def get_f1_founder_genotype_dict():
+    d = {'B6129S1F1J':'129S1J',
+    'B6AF1J':'AJ',
+    'B6PWKF1J':'PWKJ',
+    'B6NODF1J':'NODJ',
+    'B6WSBF1J':'WSBJ',
+    'B6CASTF1J':'CASTJ',
+    'B6NZOF1J':'NZOJ'}
+
+    # make sure all keys are f1 genotypes
+    # and all items (sans B6J) are founder genotypes
+    assert set(list(d.keys())) == set(get_f1_genotypes())
+    assert set(list(d.items())) == set(get_founder_genotypes())-set(['B6J'])
+
+    return d
+
 def get_genotypes():
     g = get_founder_genotypes()
     g += get_f1_genotypes()
