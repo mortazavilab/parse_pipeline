@@ -35,20 +35,20 @@ etc.
 
 Read name is not used directly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq config file.
 
-# Setup instructions
+## Setup instructions
 Note: Written for and tested on UCI's HPC cluster with slurm job scheduler. Follow these steps if you are using this workflow for the first time.
 
-## Clone this repository
+### Clone this repository
 Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
 ```bash
 git clone https://github.com/fairliereese/parse_pipeline.git
 ```
-## Set up an interactive tmux session on HPC
+### Set up an interactive tmux session on HPC
 1. Remember your login node or choose your favorite out of i15, i16, i17. You can switch login nodes via ssh, e.g. `ssh login-i15`
 2. Start tmux session via `tmux new -s mysession`, or whatever you want to name it. When you need to reconnect, type `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)) from the **same login node** as when you started the session. This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
 3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
 
-## Create a conda environment called snakemake
+### Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
@@ -73,12 +73,12 @@ If step 7 does not work, follow these steps:
 
 Test installation by typing `klue` in the terminal, should see version and usage information.
 
-# Create / update input files
+## Create / update input files
 1. Make a fastq config file with columns that match the examples, e.g. [igvf_015_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_015_config.tsv) and save in configs folder. Required column are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 2. Update [sample_metadata.csv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
 3. Update snakemake file with name of your fastq config and check to make sure kit and chemistry are correct. - TODO make example
 
-# Run pipeline
+## Run pipeline
 Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
 
 1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
@@ -106,7 +106,7 @@ snakemake \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
-## Example job stats
+### Example job stats
 For a 1M cell WT Mega experiment (96 wells used for sample barcoding) with genetic multiplexing, 2 tissues, and 15 subpools (standard for 8-cube founders), 
 ```
 Job stats:
@@ -160,12 +160,12 @@ symlink_fastq_r2                16
 total                          289
 ```
 
-## Basic troubleshooting
+### Basic troubleshooting
 - Killed: You are probably on the login node, or you need to increase the requested memory for the interactive session. 
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 
-## Known issues / Wishlist
+### Known issues / Wishlist
 - klue reference generation runs twice for the F1 plates, in other words it makes both NODJ.idx file and a B6NODF1J.idx file, which for now are identical. And the same for all the other 6 non-B6J genotypes. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
 - Integrate Ryan's report code to make beautiful knee plots and well heatmaps
 - Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
