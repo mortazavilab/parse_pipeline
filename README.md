@@ -34,7 +34,7 @@ etc.
 Read name is not used directly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq input file.
 
 # Instructions
-Note: Written for and tested on UCI's HPC cluster. 
+Note: Written for and tested on UCI's HPC cluster with slurm job scheduler.
 
 ## Clone this repository
 Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
