@@ -106,6 +106,34 @@ snakemake \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
+# Expected job stats
+For a 1M cell Mega experiment (all 96 wells used for sample barcoding), 
+```
+Job stats:
+job                                        count
+---------------------------------------  -------
+all                                            1
+curl_fa                                        8
+dl_annot                                       1
+dl_fa                                          1
+fa_ref_fmt                                     8
+kallisto                                      15
+kallisto_ind                                   1
+klue                                          60
+klue_fa                                        4
+klue_get_genotype_counts                      15
+klue_ind                                       4
+klue_make_subpool_genotype_filter_adata       60
+klue_merge_genotype                           15
+make_subpool_filter_adata                     15
+make_subpool_sample_adata                   1440
+make_tissue_adata                              2
+scrublet                                    1440
+symlink_fastq_r1                             120
+symlink_fastq_r2                             120
+total                                       3330
+```
+
 # Basic troubleshooting
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
