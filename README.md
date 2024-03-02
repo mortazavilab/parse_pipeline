@@ -58,6 +58,7 @@ Klue installation instructions:
 5. `cmake ..`
 6. `make`
 7. `make install`
+If step 7 does not work, follow these steps:
 8. `cd src`
 9. `pwd` and copy the path
 10. Then edit your `~/.bashrc` (`vi ~/.bashrc`) by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
