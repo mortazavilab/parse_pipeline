@@ -61,10 +61,10 @@ Klue installation instructions:
 
 
 If step 7 does not work, follow these steps:
-1. `cd src`
-2. `pwd` and copy the path
-3. Then edit your `~/.bashrc` (`vi ~/.bashrc`) by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
-4. `source ~/.bashrc`
+7. `cd src`
+8. `pwd` and copy the path
+9. Then edit your `~/.bashrc` (`vi ~/.bashrc`) by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
+10. `source ~/.bashrc`
 
 
 ## Create required files
