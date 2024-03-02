@@ -106,8 +106,8 @@ snakemake \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
-# Expected job stats
-For a 1M cell Mega experiment (all 96 wells used for sample barcoding), 
+# Example job stats
+For a 1M cell WT Mega experiment (96 wells used for sample barcoding) with genetic multiplexing, 2 tissues, and 15 subpools (standard for 8-cube founders), 
 ```
 Job stats:
 job                                        count
@@ -132,6 +132,29 @@ scrublet                                    1440
 symlink_fastq_r1                             120
 symlink_fastq_r2                             120
 total                                       3330
+```
+
+
+For a 100k cell WT experiment (48 wells used for sample barcoding) with genetic multiplexing, 8 subpools, and 5 tissues (igvf_012):
+```
+all                              1
+curl_fa                          8
+dl_annot                         1
+dl_fa                            1
+fa_ref_fmt                       8
+kallisto                         8
+kallisto_ind                     1
+klue_fa                          4
+klue_get_genotype_counts         8
+klue_ind                         4
+klue_merge_genotype              8
+make_subpool_filter_adata        8
+make_subpool_sample_adata       96
+make_tissue_adata                5
+scrublet                        96
+symlink_fastq_r1                16
+symlink_fastq_r2                16
+total                          289
 ```
 
 # Basic troubleshooting
