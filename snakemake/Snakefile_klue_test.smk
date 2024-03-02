@@ -18,7 +18,7 @@ configfile: 'configs/config.yml'
 # config_tsv = 'configs/test_3.tsv'
 # config_tsv = 'configs/test_4.tsv'
 # config_tsv = 'configs/test_5.tsv'
-config_tsv = 'configs/igvf_016_test_config.tsv'
+config_tsv = 'configs/igvf_015_test_config.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
@@ -95,10 +95,13 @@ rule all:
 ################################################################################
 def get_fa_link(wc, config):
     genotype = wc.genotype
+    
     if genotype in get_f1_genotypes():
         d = get_f1_founder_genotype_dict()
         genotype = d[genotype]
+        
     link = config['ref']['genome']['link'][genotype]
+    
     return link
 
 rule curl_fa:
@@ -299,20 +302,19 @@ use rule make_filt_metadata_adata as make_subpool_filter_adata with:
 ##################################### klue #####################################
 ################################################################################
 
-
 # add metadata and perform v basic filtering
 use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata with:
     input:
-        mtx = config['kallisto']['mtx'],
-        cgb = config['kallisto']['cgb'],
-        cggn = config['kallisto']['cggn'],
-        cgg = config['kallisto']['cgg'],
+        mtx = config['klue']['mtx'],
+        cgb = config['klue']['cgb'],
+        cggn = config['klue']['cggn'],
+        cgg = config['klue']['cgg'],
     params:
         min_counts = first_min_counts,
         klue = True
     output:
         adata = config['klue']['filt_adata']
-
+        
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the

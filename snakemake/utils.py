@@ -16,16 +16,16 @@ def get_bc3(text):
     return text[:8]
 
 # TODO hopefully won't need this at some pt
-def get_genotype_path_dict():
-    d = {"129S1J_fasta/ncbi_dataset/data/GCA_029255695.1/GCA_029255695.1_ASM2925569v1_genomic.fna": "129S1J",
-        "CASTJ_fasta/ncbi_dataset/data/GCA_029237265.1/GCA_029237265.1_ASM2923726v1_genomic.fna": "CASTJ",
-        "AJ_fasta/ncbi_dataset/data/GCA_029255665.1/GCA_029255665.1_ASM2925566v1_genomic.fna": "AJ",
-        "NODJ_fasta/ncbi_dataset/data/GCA_029234005.1/GCA_029234005.1_ASM2923400v1_genomic.fna": "NODJ",
-        "NZOJ_fasta/ncbi_dataset/data/GCA_029233705.1/GCA_029233705.1_ASM2923370v1_genomic.fna": "NZOJ",
-        "PWKJ_fasta/ncbi_dataset/data/GCA_029233695.1/GCA_029233695.1_ASM2923369v1_genomic.fna": "PWKJ",
-        "WSBJ_fasta/ncbi_dataset/data/GCA_029233295.1/GCA_029233295.1_ASM2923329v1_genomic.fna": "WSBJ",
-        "GRCm39.primary_assembly.genome.fa.gz": "B6J"}
-    return d
+# def get_genotype_path_dict():
+#     d = {"129S1J_fasta/ncbi_dataset/data/GCA_029255695.1/GCA_029255695.1_ASM2925569v1_genomic.fna": "129S1J",
+#         "CASTJ_fasta/ncbi_dataset/data/GCA_029237265.1/GCA_029237265.1_ASM2923726v1_genomic.fna": "CASTJ",
+#         "AJ_fasta/ncbi_dataset/data/GCA_029255665.1/GCA_029255665.1_ASM2925566v1_genomic.fna": "AJ",
+#         "NODJ_fasta/ncbi_dataset/data/GCA_029234005.1/GCA_029234005.1_ASM2923400v1_genomic.fna": "NODJ",
+#         "NZOJ_fasta/ncbi_dataset/data/GCA_029233705.1/GCA_029233705.1_ASM2923370v1_genomic.fna": "NZOJ",
+#         "PWKJ_fasta/ncbi_dataset/data/GCA_029233695.1/GCA_029233695.1_ASM2923369v1_genomic.fna": "PWKJ",
+#         "WSBJ_fasta/ncbi_dataset/data/GCA_029233295.1/GCA_029233295.1_ASM2923329v1_genomic.fna": "WSBJ",
+#         "GRCm39.primary_assembly.genome.fa.gz": "B6J"}
+#     return d
 
 def is_dummy(fname):
     """
@@ -67,8 +67,10 @@ def get_genotype_counts(files, ofile):
 def rename_klue_genotype_cols(adata):
     """
     """
-    d = get_genotype_path_dict()
-    adata.var['genotype'] = adata.var.index.map(d)
+    #d = get_genotype_path_dict()
+    #adata.var['genotype'] = adata.var.index.map(d)
+    
+    adata.var['genotype'] = adata.var['gene_name'].str.split('/').str[-1].str.split('.').str[0]
     adata.var.set_index('genotype', inplace=True)
     adata.var.drop(adata.var.columns, axis=1, inplace=True)
     return adata
@@ -95,14 +97,13 @@ def add_meta_filter(mtx,
     obs = pd.read_csv(cgb, header = None, sep="\t")
     obs.columns = ["bc"]
     var = pd.read_csv(cgg, header = None, sep="\t")
-    var.columns = ["gene_name"]
+    var.columns = ["gene_id"]
     genes = pd.read_csv(cggn, header = None, sep="\t")
-    genes.columns = ["gene_id"]
-    var['gene_id'] = genes['gene_id']
+    genes.columns = ["gene_name"]
+    var['gene_name'] = genes['gene_name']
 
     X = data.X
     adata = anndata.AnnData(X=X, obs=obs, var=var)
-    print(adata.var)
     adata.obs.index = obs["bc"]
 
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
@@ -157,98 +158,26 @@ def add_meta_filter(mtx,
         adata = adata[inds, :].copy()
         adata = rename_klue_genotype_cols(adata)
 
-    # if not klue:
-    #     # filter based on min_counts in Snakefile
-    #     adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-    #     adata_filt = adata[adata.obs.n_counts >= min_counts,:]
-    #     #adata.X = adata.layers['unspliced']
-
+    # only apply UMI filter to non-klue UMI matrix, does not work for klue matrix
     # filter based on min_counts in Snakefile
     # the `.A1` is only necessary as X is sparse (to transform to a dense array after summing)
     # see https://www.kallistobus.tools/tutorials/kb_building_atlas/python/kb_analysis_0_python/
-    adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-    adata = adata[adata.obs.n_counts >= min_counts,:]
+    if not klue:
+        # filter based on min_counts in Snakefile
+        adata.obs['n_counts'] = adata.X.sum(axis=1).A1
+        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
 
     # filter out sample swaps with wrong multiplexed genotype
-    inds = adata.obs.loc[adata.obs['Genotype'] != 'WSBJ/CASTJ'].index
-    adata = adata[inds, :].copy()
-
+    adata = adata[adata.obs['Genotype'] != 'WSBJ/CASTJ']
+    
     adata.write(ofile)
-
-def add_meta_klue(adata,
-                         wc,
-                         bc_df,
-                         kit,
-                         chemistry,
-                         sample_df,
-                         ofile):
-
-    """
-    Merge metadata in with klue output
-    """
-
-    adata = sc.read(adata)
-    print(adata.obs.head())
-    adata.obs.reset_index(inplace=True)
-    adata.obs.columns = ['bc']
-
-    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
-    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
-    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
-    adata.obs['subpool'] = wc.subpool
-
-    # merge in bc metadata
-    temp = bc_df.copy(deep=True)
-    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
-                                             'well': 'bc1_well'}, axis=1)
-    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
-
-    # merge in other bc information
-    for bc in [2,3]:
-        bc_name = f'bc{bc}'
-        seq_col = f'bc{bc}_sequence'
-        well_col = f'bc{bc}_well'
-        bc_df = get_bcs(bc, kit, chemistry)
-        bc_df.rename({'well': well_col,
-                      bc_name: seq_col}, axis=1, inplace=True)
-        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
-
-    # merge in w/ sample-level metadata
-    temp = sample_df.copy(deep=True)
-    temp = temp.loc[(sample_df.plate==wc.plate)]
-    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
-
-    # make all object columns string columns
-    for c in adata.obs.columns:
-        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
-            adata.obs[c] = adata.obs[c].fillna('NA')
-
-    # create new index for each cell
-    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
-        adata.obs['bc2_well']+'_'+\
-        adata.obs['bc3_well']+'_'+\
-        adata.obs['subpool']+'_'+\
-        adata.obs['plate']
-    adata.obs.reset_index(drop=True)
-
-    # make sure these are unique + set as index
-    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
-    adata.obs.set_index('cellID', inplace=True)
-
-    # filter out sample swaps with wrong multiplexed genotype
-    inds = adata.obs.loc[(adata.obs.well_type=='Multiplexed') & (adata.obs['Genotype'] != 'WSBJ/CASTJ')].index
-    adata = adata[inds, :].copy()
-    adata = rename_klue_genotype_cols(adata)
-
-    adata.write(ofile)
-
 
 def make_subpool_sample_adata(infile, wc, ofile):
     adata = sc.read(infile)
     inds = []
 
     # filter on sample
-    # TODO sample will be combo of {tissue}_{genotype}_{sex}_{rep}
+    # TODO sample will be combo of {tissue}_{genotype}_{sex}_{rep} -- in ER opinion not necessary
     inds += adata.obs.loc[adata.obs['Mouse_Tissue_ID']==wc.sample].index.tolist()
 
     adata = adata[inds, :].copy()
@@ -315,6 +244,12 @@ def get_f1_genotypes():
     'B6CASTF1J', 'B6NZOF1J']
     return g
 
+def get_genotypes():
+    g = get_founder_genotypes()
+    g += get_f1_genotypes()
+
+    return g
+
 def get_f1_founder_genotype_dict():
     d = {'B6129S1F1J':'129S1J',
     'B6AF1J':'AJ',
@@ -327,75 +262,9 @@ def get_f1_founder_genotype_dict():
     # make sure all keys are f1 genotypes
     # and all items (sans B6J) are founder genotypes
     assert set(list(d.keys())) == set(get_f1_genotypes())
-    assert set(list(d.items())) == set(get_founder_genotypes())-set(['B6J'])
+    assert set(list(d.values())) == set(get_founder_genotypes())-set(['B6J'])
 
     return d
-
-def get_genotypes():
-    g = get_founder_genotypes()
-    g += get_f1_genotypes()
-
-    return g
-
-# def get_f1_genotype_pieces():
-#     f1_genotypes = ['B6129S1F1J',
-#         'B6AF1J','B6PWKF1J',
-#         'B6NODF1J', 'B6WSBF1J',
-#         'B6CASTF1J', 'B6NZOF1J']
-
-ux_genotype(df):
-    """
-    Assigns a cell the genotype w/ the maximum of counts
-    between the two genotypes that were loaded in the well
-    the cell is from.
-
-    Parameters:
-        df (pandas DataFrame): DF of obs table for each cell w/
-            klue counts for each genotype and multiplexed genotype
-            columns
-    """
-    genotype_cols = get_genotypes()
-
-    # restrict to nuclei w/ genetic multiplexing
-    df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
-
-    # fill nans once again
-    df[genotype_cols] = df[genotype_cols].fillna(0)
-
-    # loop through each multiplexed genotype combo
-    # use those genotypes to determine which,
-    # between the two, has the highest counts
-    keep_cols = ['mult_genotype',
-                 'mult_genotype_1',
-                 'mult_genotype_2']+genotype_cols
-    df = df[keep_cols]
-    temp2 = pd.DataFrame()
-    for g in df.mult_genotype.unique().tolist():
-        # print(g)
-        temp = df.loc[df.mult_genotype==g].copy(deep=True)
-
-        g1 = temp.mult_genotype_1.unique().tolist()
-        assert len(g1) == 1
-        g1 = g1[0]
-
-        g2 = temp.mult_genotype_2.unique().tolist()
-        assert len(g2) == 1
-        g2 = g2[0]
-
-        # find the best match and report ties if the
-        # values are the same
-        temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
-        temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
-
-        temp2 = pd.concat([temp2, temp], axis=0)
-
-    df = df.merge(temp2['new_genotype'], how='left',
-                  left_index=True, right_index=True)
-    df = df[['new_genotype']]
-
-    assert len(df.loc[df.new_genotype.isnull()].index) == 0
-
-    return df
 
 def assign_demux_genotype(df):
     """
