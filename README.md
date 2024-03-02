@@ -73,10 +73,16 @@ If step 7 does not work, follow these steps:
 
 Test installation by typing `klue` in the terminal, should see version and usage information.
 
-## Create / update input files
-1. Make a fastq config file with columns that match the examples, e.g. [igvf_015_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_015_config.tsv) and save in configs folder. Required column are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
+## Create / edit input files
+1. Make a fastq config file with columns that match the many examples in the configs folder, e.g. [igvf_015_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_015_config.tsv) and save in configs folder. Required columns are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 2. Update [sample_metadata.csv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
-3. Update snakemake file with name of your fastq config and check to make sure kit and chemistry are correct. - TODO make example
+3. Make a copy of `snakemake/Snakefile.smk` with your experiment name to edit. Keep the copy in the snakemake folder. You can also just edit `Snakefile.smk` directly, but I like to keep a copy of the Snakefile used for each run for my own records. You only need to edit **5 lines** maximum in the header region of the file:
+- config_tsv: Path to the fastq config file which has the paths to your read1 and read2 input fastqs and the plate, lane, run, and sequencing platform.
+- sample_csv: Path to the sample metadata. I typically update the [Google spreadsheet](https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=2080239896), download the tab, and upload it to my configs folder. 
+- kit: either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
+- chemistry: all IGVF and ModelAD experiments are v2 so far, v3 coming soon
+- first_min_counts: minimum # of UMIs per cell
+ 
 
 ## Run pipeline
 Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
@@ -86,11 +92,11 @@ Skip steps 1-4 if you were following the setup instructions and are already in a
 3. Start tmux session, e.g. `tmux new -s mysession`
 4. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`
 5. Activate your snakemake environment: `conda activate snakemake` (you need to activate your snakemake conda environment again even if you were following setup instructions since sourcing the bashrc probably reset it to your base environment)
-6. Check that snakemake is going to run the appropriate jobs (use the -n flag first)
+6. Check that snakemake is going to run the appropriate jobs (use the -n flag first). Make sure to change `Snakefile.smk` to the one you are actually using! For example, `Snakefile_igvf015.smk`
    
 ```bash
  snakemake \
-  -s snakemake/Snakefile_klue_test.smk \
+  -s snakemake/Snakefile.smk \
   -j 100 \
   --latency-wait 120 \
   --use-conda \
@@ -99,7 +105,7 @@ Skip steps 1-4 if you were following the setup instructions and are already in a
 7. Actually run pipeline
 ```bash
 snakemake \
--s snakemake/Snakefile_klue_test.smk \
+-s snakemake/Snakefile.smk \
 -j 100 \
 --latency-wait 120 \
 --use-conda \
