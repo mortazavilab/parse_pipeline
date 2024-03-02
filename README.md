@@ -38,7 +38,9 @@ Note: Written for and tested on UCI's HPC cluster.
 
 ## Clone this repository
 Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
-`git clone https://github.com/fairliereese/parse_pipeline.git`
+```bash
+git clone https://github.com/fairliereese/parse_pipeline.git
+```
 
 ## Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
