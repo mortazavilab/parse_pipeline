@@ -137,6 +137,9 @@ total                                       3330
 
 For a 100k cell WT experiment (48 wells used for sample barcoding) with genetic multiplexing, 8 subpools, and 5 tissues (igvf_012):
 ```
+Job stats:
+job                                        count
+---------------------------------------  -------
 all                              1
 curl_fa                          8
 dl_annot                         1
