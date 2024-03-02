@@ -1,4 +1,4 @@
-# Parse Biosciences Split-seq
+# Parse Biosciences Split-seq Pre-processing Workflow
 ## Background: Combinatorial barcoding for snRNA-seq
 Combinatorial or split-pool barcoding appends a unique **set** of barcodes to single cells or nuclei during multiple "rounds". These reactions are confined to each individual fixed and permeabilized cell, bypassing the need for physical barriers between cells such as microwells or nanodroplets.
 
