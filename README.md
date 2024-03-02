@@ -10,8 +10,8 @@ This workflow does the following:
 
 1. **[kb-count](https://github.com/pachterlab/kb_python)**: Associate reads with their cells/nuclei of origin
 2. **kb-count**: Collapse duplicated reads according to unique molecular identifiers (UMIs)
-3. **kb-count**:: Collapse reads from oligo-dT and random hexamer primers in the same well (`counts_unfiltered_modified`)
-4. **kb-count**:: Generate cell x gene adatas for each subpool
+3. **kb-count**: Collapse reads from oligo-dT and random hexamer primers in the same well (`counts_unfiltered_modified`)
+4. **kb-count**: Generate cell x gene adatas for each subpool
 5. **[klue](https://github.com/Yenaled/klue)**: Quantify reads associated with distinct genotypes for each cell & merge with kallisto adata
 6. Merge custom metadata by sample barcode-to-well mapping
 7. Assign genotype with higher count number between 2 expected genotypes, `tie` otherwise 
