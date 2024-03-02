@@ -63,13 +63,12 @@ If step 7 does not work, follow these steps:
 3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"`
 4. `source ~/.bashrc`
 
+Test installation by typing `klue` in the terminal, should see version and usage information.
 
 ## Create required files
-1. fastq config file
-2. sample metadata file
-3. snakemake file
-
-Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
+1. Fastq config file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and save in configs folder
+2. Updated [sample metadata file](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment
+3. Snakemake file - TODO make example
 
 ## Run pipeline
 1. Pay attention to your login node — or choose your favorite out of i15, i16, i17. `ssh login-i15`
