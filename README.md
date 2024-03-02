@@ -31,7 +31,7 @@ Fastq files split by multiple lanes are ok, e.g.
 - Subpool_2_S1_L003_R2_001.fastq.gz
 etc.
 
-Read name is not used direcly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq input file.
+Read name is not used directly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq input file.
 
 # Instructions
 Note: Written for and tested on UCI's HPC cluster. 
