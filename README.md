@@ -42,13 +42,11 @@ Choose a location on HPC with plenty of space to clone this repo. The kallisto o
 
 ## Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
-1. ```bash conda install -n base -c conda-forge mamba ```
+1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
 3. Install required python packages with pip, e.g.
-```bash
-pip install kb-python
-pip install scrublet
- ```
+`pip install kb-python`
+`pip install scrublet`
 
 Klue installation instructions:
 1. `git clone https://github.com/Yenaled/klue`
@@ -58,11 +56,12 @@ Klue installation instructions:
 5. `cmake ..`
 6. `make`
 7. `make install`
+
 If step 7 does not work, follow these steps:
-8. `cd src`
-9. `pwd` and copy the path
-10. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
-11. `source ~/.bashrc`
+1. `cd src`
+2. `pwd` and copy the path
+3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
+4. `source ~/.bashrc`
 
 
 ## Create required files
