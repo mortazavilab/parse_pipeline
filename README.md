@@ -166,7 +166,7 @@ total                          289
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 
 ## Known issues / Wishlist
-- klue reference generation runs twice for the F1 plates. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
+- klue reference generation runs twice for the F1 plates, in other words it makes both NODJ.idx file and a B6NODF1J.idx file, which for now are identical. And the same for all the other 6 non-B6J genotypes. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
 - Integrate Ryan's report code to make beautiful knee plots and well heatmaps
 - Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
 - Move all the slurm std err/out files to a folder after the run finishes
