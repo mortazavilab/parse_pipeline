@@ -35,6 +35,7 @@ ref:
     fa: ref/klue/{mult_genotype_1}_{mult_genotype_2}.fa
     t2g: ref/klue/{mult_genotype_1}_{mult_genotype_2}.t2g
     ind: ref/klue/{mult_genotype_1}_{mult_genotype_2}.idx
+    temp: ref/klue/{mult_genotype_1}_{mult_genotype_2}
 
 raw:
   # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
@@ -59,9 +60,8 @@ klue:
   cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
   cgg: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
-  mtx: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.total.mtx
+  mtx: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.mtx
   adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
-  adata_with_cellID: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/adata.h5ad
   bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
