@@ -168,4 +168,4 @@ total                          289
 ## Known issues / Wishlist
 - klue reference generation runs twice for the F1 plates. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
 - Integrate Ryan's report code to make beautiful knee plots and well heatmaps
- 
+- Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
