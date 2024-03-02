@@ -7,23 +7,19 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
-configfile: 'configs/config.yml'
 
-# TODO
-# * figure out how to run seqspec to generate barcodes
-
-# variables to change (again these could go in
-# a future analysis spec)
-# config_tsv = 'configs/test_2.tsv'
-# config_tsv = 'configs/test_3.tsv'
-# config_tsv = 'configs/test_4.tsv'
-# config_tsv = 'configs/test_5.tsv'
-config_tsv = 'configs/igvf_015_test_config.tsv'
-
+######## Only need to edit this part ########
+config_tsv = 'configs/igvf_015_config.tsv'
 sample_csv = 'configs/sample_metadata.csv'
-kit = 'WT_mega'
-chemistry = 'v2'
-first_min_counts = 200
+
+kit = 'WT_mega'		# either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
+chemistry = 'v2'	# all IGVF and ModelAD experiments are v2 so far, v3 coming soon
+first_min_counts = 200	# minimum # of UMIs per cell
+
+
+######## Do not change anything past this point ########
+
+configfile: 'configs/config.yml'
 
 # read in config / analysis spec
 df = parse_config(config_tsv)

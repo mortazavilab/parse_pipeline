@@ -17,7 +17,7 @@ configfile: 'configs/config.yml'
 # config_tsv = 'configs/test_2.tsv'
 # config_tsv = 'configs/test_3.tsv'
 # config_tsv = 'configs/test_4.tsv'
-config_tsv = 'configs/igvf_016_config.tsv'
+config_tsv = 'configs/igvf_009_config.tsv'
 
 sample_csv = 'configs/sample_metadata.csv'
 kit = 'WT_mega'
@@ -84,6 +84,46 @@ rule all:
 ################################################################################
 ########################## Ref download and generation #########################
 ################################################################################
+def get_fa_link(wc, config):
+    genotype = wc.genotype
+    link = config['ref']['genome']['link'][genotype]
+    return link
+
+rule curl_fa:
+    resources:
+        mem_gb = 4,
+        threads = 1
+    params:
+        link = lambda wc: get_fa_link(wc, config),
+    output:
+        zip = temporary(config['ref']['genome']['zip'])
+    shell:
+        """
+        if [ "{wildcards.genotype}" == "B6J" ]; then
+            wget -O {wildcards.genotype}.fa.gz {params.link}
+            mkdir -p {wildcards.genotype}/ncbi_dataset/data/temp/
+            gunzip {wildcards.genotype}.fa.gz
+            mv {wildcards.genotype}.fa {wildcards.genotype}/ncbi_dataset/data/temp/temp.fna
+            zip -r {wildcards.genotype}.zip {wildcards.genotype}
+        else
+            curl -OJX GET "{params.link}{output.zip}"
+        fi
+        """
+
+rule fa_ref_fmt:
+    input:
+        zip = config['ref']['genome']['zip']
+    resources:
+        threads = 4,
+        mem_gb =16
+    output:
+        fa = config['ref']['genome']['fa']
+    shell:
+        """
+        unzip {input.zip} -d {wildcards.genotype}
+        gzip -cvf {wildcards.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
+        rm -r {wildcards.genotype}
+        """
 
 rule dl:
    resources:
@@ -108,8 +148,6 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    # conda:
-    #     "hpc3sc"
     resources:
         mem_gb = 64,
         threads = 24
@@ -174,8 +212,6 @@ rule kallisto:
         fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
-    # conda:
-    #     "hpc3sc"
     params:
         # TODO bc1 map and barcodes should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
