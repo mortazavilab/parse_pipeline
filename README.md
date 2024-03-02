@@ -51,8 +51,8 @@ git clone https://github.com/fairliereese/parse_pipeline.git
 ### Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
-2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
-3. `conda activate snakemake`
+2. `mamba create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
+3. `mamba activate snakemake`
 4. Install required python packages with pip,
 `pip install kb-python scrublet`
 
