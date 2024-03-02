@@ -24,8 +24,21 @@ Subpool FASTQ Files:
 - Subpool_1_R1.fastq.gz (contains cDNA)
 - Subpool_1_R2.fastq.gz (contains the cell barcode and UMI)
 
+Fastq files split by multiple lanes are ok, e.g. 
+- Subpool_2_S1_L001_R1_001.fastq.gz
+- Subpool_2_S1_L001_R2_001.fastq.gz
+- Subpool_2_S1_L003_R1_001.fastq.gz
+- Subpool_2_S1_L003_R2_001.fastq.gz
+etc.
+
+Read name is not used direcly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq input file.
+
 # Instructions
 Note: Written for and tested on UCI's HPC cluster. 
+
+## Clone this repository
+Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
+`git clone https://github.com/fairliereese/parse_pipeline.git`
 
 ## Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
@@ -46,11 +59,18 @@ Klue installation instructions:
 6. `make`
 7. `make install`
 
-## Clone this repository
-Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
-`git clone https://github.com/fairliereese/parse_pipeline.git`
+If step 7 does not work, follow these steps:
+7. `cd src`
+8. `pwd` and copy the path
+9. Then edit your `~/.bashrc` (`vi ~/.bashrc`) by adding this line to the bottom of the file: `export PATH="<your path>/klue/build/src:$PATH"` and save it
+10. `source ~/.bashrc`
+
 
 ## Create required files
+1. fastq config file
+2. sample metadata file
+3. snakemake file
+
 Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
 
 ## Run pipeline
