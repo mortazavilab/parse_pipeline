@@ -169,3 +169,4 @@ total                          289
 - klue reference generation runs twice for the F1 plates. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
 - Integrate Ryan's report code to make beautiful knee plots and well heatmaps
 - Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
+- Move all the slurm std err/out files to a folder after the run finishes
