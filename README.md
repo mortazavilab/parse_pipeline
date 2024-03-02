@@ -73,7 +73,7 @@ If step 7 does not work, follow these steps:
 
 Test installation by typing `klue` in the terminal, should see version and usage information.
 
-# Create / update 3 required input configuration files
+# Create / update supplemental files
 1. Fastq config file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and save in configs folder
 2. Update [sample metadata file](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
 3. Update snakemake file with name of your fastq config and check to make sure kit and chemistry are correct. - TODO make example
