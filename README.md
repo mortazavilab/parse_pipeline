@@ -74,23 +74,23 @@ If step 7 does not work, follow these steps:
 Test installation by typing `klue` in the terminal, should see version and usage information.
 
 # Create / update input files
-1. Fastq config file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and save in configs folder
-2. Update [sample metadata file](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
+1. Make a fastq config file with columns that match the examples, e.g. [igvf_015_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_015_config.tsv) and save in configs folder. Required column are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
+2. Update [sample_metadata.csv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
 3. Update snakemake file with name of your fastq config and check to make sure kit and chemistry are correct. - TODO make example
 
 # Run pipeline
-Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session. 
+Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
 
 1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
-2. Change directories to the your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`
+2. Change directories to the your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`. MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
 3. Start tmux session, e.g. `tmux new -s mysession`
 4. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`
-5. Activate your snakemake environment: `conda activate snakemake`
+5. Activate your snakemake environment: `conda activate snakemake` (you need to activate your snakemake conda environment again even if you were following setup instructions since sourcing the bashrc probably reset it to your base environment)
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first)
    
 ```bash
  snakemake \
-  -s snakemake/Snakefile.smk \
+  -s snakemake/Snakefile_klue_test.smk \
   -j 100 \
   --latency-wait 120 \
   --use-conda \
@@ -106,4 +106,7 @@ snakemake \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
+# Basic troubleshooting
+- FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
+- AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 
