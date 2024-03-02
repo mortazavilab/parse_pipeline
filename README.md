@@ -35,20 +35,26 @@ etc.
 
 Read name is not used directly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq config file.
 
-# Instructions
-Note: Written for and tested on UCI's HPC cluster with slurm job scheduler.
+# Setup instructions
+Note: Written for and tested on UCI's HPC cluster with slurm job scheduler. Follow these steps if you are using this workflow for the first time.
 
 ## Clone this repository
 Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
 ```bash
 git clone https://github.com/fairliereese/parse_pipeline.git
 ```
+## Set up an interactive tmux session on HPC
+1. Remember your login node or choose your favorite out of i15, i16, i17. You can switch login nodes via ssh, e.g. `ssh login-i15`
+2. Start tmux session via `tmux new -s mysession`  When you need to reconnect, type `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)) from the **same login node** as when you started the session. This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
+3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. If you ever see an error 'Killed', you are probably on the login node, or you need to increase the requested memory. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
 
 ## Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
-1. `conda install -n base -c conda-forge mamba`
-2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
-3. Install required python packages with pip,
+1.
+2. `conda install -n base -c conda-forge mamba`
+3. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
+4. `conda activate snakemake`
+5. Install required python packages with pip,
 `pip install kb-python scrublet`
 
 Klue installation instructions:
