@@ -21,8 +21,8 @@ This workflow does the following:
 
 ## Input data
 Subpool FASTQ Files:
-Subpool_1_R1.fastq.gz (contains cDNA)
-Subpool_1_R2.fastq.gz (contains the cell barcode and UMI)
+- Subpool_1_R1.fastq.gz (contains cDNA)
+- Subpool_1_R2.fastq.gz (contains the cell barcode and UMI)
 
 # Instructions
 Note: Written for and tested on UCI's HPC cluster. 
