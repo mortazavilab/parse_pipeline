@@ -46,15 +46,14 @@ git clone https://github.com/fairliereese/parse_pipeline.git
 ## Set up an interactive tmux session on HPC
 1. Remember your login node or choose your favorite out of i15, i16, i17. You can switch login nodes via ssh, e.g. `ssh login-i15`
 2. Start tmux session via `tmux new -s mysession`, or whatever you want to name it. When you need to reconnect, type `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)) from the **same login node** as when you started the session. This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
-3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. If you ever see an error 'Killed', you are probably on the login node, or you need to increase the requested memory. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
+3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. If you ever see the error 'Killed', you are probably on the login node, or you need to increase the requested memory for the interactive session. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
 
 ## Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
-1.
-2. `conda install -n base -c conda-forge mamba`
-3. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
-4. `conda activate snakemake`
-5. Install required python packages with pip,
+1. `conda install -n base -c conda-forge mamba`
+2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas`
+3. `conda activate snakemake`
+4. Install required python packages with pip,
 `pip install kb-python scrublet`
 
 Klue installation instructions:
@@ -79,11 +78,13 @@ Test installation by typing `klue` in the terminal, should see version and usage
 2. Updated [sample metadata file](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. Minimum required metadata columns are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype** 
 3. Snakemake file - TODO make example
 
-## Run pipeline
-1. Pay attention to your login node — or choose your favorite out of i15, i16, i17. `ssh login-i15`
-2. Change directories to the main pipeline directory: `cd /share/crsp/lab/seyedam/share/igvf_pipeline`
-3. Start tmux session via `tmux new -s mysession`  If you need to reconnect — `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)).
-4. Start interactive session `srun -A SEYEDAM_LAB --cpus-per-task=1 --time=168:00:00 --mem 8GB --pty bash -i`
+# Run pipeline
+Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session 
+
+1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
+2. Change directories to the your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`
+3. Start tmux session, e.g. `tmux new -s mysession`
+4. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`
 5. Activate your snakemake environment: `conda activate snakemake`
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first)
    
@@ -104,3 +105,5 @@ snakemake \
 --use-conda \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
+
+
