@@ -99,7 +99,7 @@ Skip steps 1-4 if you were following the setup instructions and are already in a
 7. Actually run pipeline
 ```bash
 snakemake \
--s snakemake/Snakefile.smk \
+-s snakemake/Snakefile_klue_test.smk \
 -j 100 \
 --latency-wait 120 \
 --use-conda \
