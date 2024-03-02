@@ -106,7 +106,7 @@ snakemake \
 --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
-# Example job stats
+## Example job stats
 For a 1M cell WT Mega experiment (96 wells used for sample barcoding) with genetic multiplexing, 2 tissues, and 15 subpools (standard for 8-cube founders), 
 ```
 Job stats:
@@ -160,8 +160,12 @@ symlink_fastq_r2                16
 total                          289
 ```
 
-# Basic troubleshooting
+## Basic troubleshooting
 - Killed: You are probably on the login node, or you need to increase the requested memory for the interactive session. 
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, and **platform**.
 
+## Known issues / Wishlist
+- klue reference generation runs twice for the F1 plates. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
+- Integrate Ryan's report code to make beautiful knee plots and well heatmaps
+ 
