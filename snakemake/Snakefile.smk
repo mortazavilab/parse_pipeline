@@ -7,22 +7,19 @@ from utils import *
 from sm_utils import *
 from bc_utils import *
 
-configfile: 'configs/config.yml'
 
-# TODO
-# * figure out how to run seqspec to generate barcodes
-
-# variables to change (again these could go in
-# a future analysis spec)
-# config_tsv = 'configs/test_2.tsv'
-# config_tsv = 'configs/test_3.tsv'
-# config_tsv = 'configs/test_4.tsv'
+######## Only need to edit this part ########
 config_tsv = 'configs/igvf_015_config.tsv'
-
 sample_csv = 'configs/sample_metadata.csv'
-kit = 'WT_mega'
-chemistry = 'v2'
-first_min_counts = 200
+
+kit = 'WT_mega'		# either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
+chemistry = 'v2'	# all IGVF and ModelAD experiments are v2 so far, v3 coming soon
+first_min_counts = 200	# minimum # of UMIs per cell
+
+
+######## Do not change anything past this point ########
+
+configfile: 'configs/config.yml'
 
 # read in config / analysis spec
 df = parse_config(config_tsv)
@@ -38,6 +35,7 @@ wildcard_constraints:
     lane='|'.join([re.escape(x) for x in df.lane.tolist()]),
     sample='|'.join([re.escape(x) for x in sample_df.Mouse_Tissue_ID.tolist()]),
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
+    genotype='|'.join([re.escape(x) for x in sample_df.Genotype.unique().tolist()]),
     mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
     mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
 
@@ -73,17 +71,70 @@ include: "klue.smk"
 
 rule all:
     input:
-        expand(config['klue']['genotype_counts'],
+        expand(config['ref']['klue']['ind'],
                zip,
-               plate=df.plate.tolist(),
-               subpool=df.subpool.tolist()),
-        expand(config['tissue']['adata'],
-               plate=df.plate.tolist(),
-               tissue=get_subset_tissues(df, sample_df))
+               mult_genotype_1=[g for g in mult_genotype_1s if g in get_founder_genotypes()],
+               mult_genotype_2=[g for g in mult_genotype_2s if g in get_founder_genotypes()]),
+        #expand(config['ref']['genome']['fa'],
+        #        genotype=get_founder_genotypes()),
+        expand(config['klue']['genotype_counts'],
+                zip,
+                plate=df.plate.tolist(),
+                subpool=df.subpool.tolist()),
+                expand(config['tissue']['adata'],
+                plate=df.plate.tolist(),
+                tissue=get_subset_tissues(df, sample_df))
+
 
 ################################################################################
 ########################## Ref download and generation #########################
 ################################################################################
+def get_fa_link(wc, config):
+    genotype = wc.genotype
+    
+    if genotype in get_f1_genotypes():
+        d = get_f1_founder_genotype_dict()
+        genotype = d[genotype]
+        
+    link = config['ref']['genome']['link'][genotype]
+    
+    return link
+
+rule curl_fa:
+    resources:
+        mem_gb = 4,
+        threads = 1
+    params:
+        link = lambda wc: get_fa_link(wc, config),
+    output:
+        zip = temporary("{genotype}.zip")
+    shell:
+        """
+        if [ "{wildcards.genotype}" == "B6J" ]; then
+            wget -O {wildcards.genotype}.fa.gz {params.link}
+            mkdir -p {wildcards.genotype}/ncbi_dataset/data/temp/
+            gunzip {wildcards.genotype}.fa.gz
+            mv {wildcards.genotype}.fa {wildcards.genotype}/ncbi_dataset/data/temp/temp.fna
+            zip -r {wildcards.genotype}.zip {wildcards.genotype}
+        else
+            curl -OJX GET "{params.link}{output.zip}"
+        fi
+        """
+
+rule fa_ref_fmt:
+    input:
+        zip = "{genotype}.zip"
+    resources:
+        threads = 4,
+        mem_gb =16
+    output:
+        fa = "ref/genomes/{genotype}.fa.gz"
+    shell:
+        """
+        unzip {input.zip} -d {wildcards.genotype}
+        gzip -cvf {wildcards.genotype}/ncbi_dataset/data/*/*fna > {output.fa}
+        rm -r {wildcards.genotype}
+        """
 
 rule dl:
    resources:
@@ -108,8 +159,6 @@ rule kallisto_ind:
     input:
         annot = config['ref']['annot'],
         fa = config['ref']['fa']
-    conda:
-        "snakemake"
     resources:
         mem_gb = 64,
         threads = 24
@@ -174,10 +223,8 @@ rule kallisto:
         fastq_r2 = lambda wc:get_subpool_fastqs(wc, df, config, how='list', read='R2'),
         t2g = config['ref']['kallisto']['t2g'],
         ind = config['ref']['kallisto']['ind']
-    conda:
-        "snakemake"
     params:
-        # TODO bc1 map and barcodes should be output from sth, seqspec
+        # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
         bc1_map = config['ref']['bc1_map'],
         barcodes = config['ref']['barcodes'],
         c1 = config['ref']['kallisto']['c1'],
@@ -199,69 +246,71 @@ rule kallisto:
         """
         kb count \
             --h5ad \
-            --gene-names \
-            --sum=total \
-            --strand=forward \
-            -r {params.bc1_map} \
-            -w {params.barcodes} \
-            --workflow=nac \
-            -g {input.t2g} \
-            -x SPLIT-SEQ \
-            -i {input.ind} \
-            -t {resources.threads} \
-            -o {params.odir} \
-            -c1 {params.c1} \
-            -c2 {params.c2} \
-            {params.fastq_str}
+        	--gene-names \
+        	--sum=total \
+        	--strand=forward \
+        	-r {params.bc1_map} \
+        	-w {params.barcodes} \
+        	--workflow=nac \
+        	-g {input.t2g} \
+        	-x SPLIT-SEQ \
+        	-i {input.ind} \
+        	-t {resources.threads} \
+        	-o {params.odir} \
+        	-c1 {params.c1} \
+        	-c2 {params.c2} \
+            --verbose \
+        	{params.fastq_str}
         """
 
 rule make_filt_metadata_adata:
-    params:
-        min_counts = first_min_counts,
-    input:
-        mtx = config['kallisto']['mtx'],
-        cgb = config['kallisto']['cgb'],
-        cggn = config['kallisto']['cggn'],
-        cgg = config['kallisto']['cgg']
     resources:
         mem_gb = 128,
         threads = 4
-    output:
-        adata = config['kallisto']['filt_adata']
     run:
         add_meta_filter(input.mtx,
                         input.cgb,
-                        input.cgg,
                         input.cggn,
+                        input.cgg,
                         wildcards,
                         bc_df,
                         kit,
                         chemistry,
+                        params.klue,
                         sample_df,
                         params.min_counts,
                         output.adata)
 
+# add metadata and perform basic filtering
+use rule make_filt_metadata_adata as make_subpool_filter_adata with:
+    input:
+        mtx = config['kallisto']['mtx'],
+        cgb = config['kallisto']['cgb'],
+        cggn = config['kallisto']['cggn'],
+        cgg = config['kallisto']['cgg'],
+    params:
+        min_counts = first_min_counts,
+        klue = False
+    output:
+        adata = config['kallisto']['filt_adata']
+
 ################################################################################
 ##################################### klue #####################################
 ################################################################################
-rule klue_make_genotype_adata:
+
+# add metadata and perform v basic filtering
+use rule make_filt_metadata_adata as klue_make_subpool_genotype_filter_adata with:
     input:
-        adata = config['klue']['adata'],
-    resources:
-        mem_gb = 64,
-        threads = 4
+        mtx = config['klue']['mtx'],
+        cgb = config['klue']['cgb'],
+        cggn = config['klue']['cggn'],
+        cgg = config['klue']['cgg'],
+    params:
+        min_counts = first_min_counts,
+        klue = True
     output:
-        adata = config['klue']['adata_with_cellID']  
-    run:
-        add_meta_klue(input.adata,
-                            wildcards,
-                            bc_df,
-                            kit,
-                            chemistry,
-                            sample_df,
-                            output.adata)
-                            
-                            
+        adata = config['klue']['filt_adata']
+        
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
     """
     Get adatas that belong to the same subpool across the
@@ -291,7 +340,7 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
 # get counts for each cell across all genotypes
 rule klue_get_genotype_counts:
     input:
-        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['adata_with_cellID'])
+        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
     resources:
         mem_gb = 128,
         threads = 2
@@ -307,7 +356,7 @@ rule klue_merge_genotype:
         genotype_counts = config['klue']['genotype_counts'],
         adata = config['kallisto']['filt_adata']
     resources:
-        mem_gb = 64,
+        mem_gb = 128,
         threads = 2
     output:
         adata = config['kallisto']['genotype_adata']
@@ -342,7 +391,7 @@ rule scrublet:
         min_cells = 1,
         min_gene_variability_pctl = 85
     resources:
-        mem_gb = 32,
+        mem_gb = 256,
         threads = 8
     output:
         adata = config['scrublet']['scrub_adata']
@@ -383,11 +432,14 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
 
     return files
 
+
+# TODO - make one of the concatenation rules for plate+tissue
+# and make another for just tissue
 rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:
-        mem_gb = 450,
+        mem_gb = 256,
         threads = 2
     output:
         adata = config['tissue']['adata']
