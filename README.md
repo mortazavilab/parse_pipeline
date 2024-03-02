@@ -48,9 +48,8 @@ git clone https://github.com/fairliereese/parse_pipeline.git
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
 2. `conda create -c conda-forge -c bioconda -n snakemake snakemake==7.32 python==3.9 pandas` 
-3. Install required python packages with pip, e.g.
-`pip install kb-python`
-`pip install scrublet`
+3. Install required python packages with pip,
+`pip install kb-python scrublet`
 
 Klue installation instructions:
 1. `git clone https://github.com/Yenaled/klue`
