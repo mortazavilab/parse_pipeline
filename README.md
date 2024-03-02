@@ -37,6 +37,19 @@ pip install kb-python
 pip install scrublet
  ```
 
+Klue installation instructions:
+1. `git clone https://github.com/Yenaled/klue`
+2. `cd klue`
+3. `mkdir build`
+4. `cd build`
+5. `cmake ..`
+6. `make`
+7. `make install`
+
+## Clone this repository
+Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
+`git clone https://github.com/fairliereese/parse_pipeline.git`
+
 ## Create required files
 Set up fastq specification file e.g. [igvf_003_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_003_config.tsv) and move to here `/share/crsp/lab/seyedam/share/igvf_pipeline/configs`
 
