@@ -165,7 +165,7 @@ def add_meta_filter(mtx,
     if not klue:
         # filter based on min_counts in Snakefile
         adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-        adata_filt = adata[adata.obs.n_counts >= min_counts,:]
+        adata = adata[adata.obs.n_counts >= min_counts,:]
 
     # filter out sample swaps with wrong multiplexed genotype
     adata = adata[adata.obs['Genotype'] != 'WSBJ/CASTJ']
