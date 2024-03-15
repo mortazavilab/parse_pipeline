@@ -9,7 +9,7 @@ from bc_utils import *
 
 
 ######## Only need to edit this part ########
-config_tsv = 'configs/igvf_015_config.tsv'
+config_tsv = 'configs/igvf_018_config.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 
 kit = 'WT_mega'		# either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
@@ -433,13 +433,11 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
     return files
 
 
-# TODO - make one of the concatenation rules for plate+tissue
-# and make another for just tissue
 rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:
-        mem_gb = 256,
+        mem_gb = 450,
         threads = 2
     output:
         adata = config['tissue']['adata']
