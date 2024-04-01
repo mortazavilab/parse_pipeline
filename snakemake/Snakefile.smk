@@ -437,7 +437,7 @@ rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
     resources:
-        mem_gb = 450,
+        mem_gb = 350,
         threads = 2
     output:
         adata = config['tissue']['adata']
