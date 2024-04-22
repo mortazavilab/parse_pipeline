@@ -863,62 +863,62 @@ GH_M3_03,igvf_011,H10,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,0
 GH_F4_03,igvf_011,H11,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,096_WSBJ_10F_03,052_NZOJ_10F_03,H,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_M4_03,igvf_011,H12,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,063_WSBJ_10M_03,053_NZOJ_10M_03,H,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_F3_03,igvf_011,H9,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,062_WSBJ_10F_03,050_NZOJ_10F_03,H,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
-118_B6J_10F_21,igvf_b01,A1,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,1,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-117_B6J_10M_21,igvf_b01,A10,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,10,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-118_B6J_10F_21,igvf_b01,A11,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,11,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-117_B6J_10M_21,igvf_b01,A12,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,12,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-117_B6J_10M_21,igvf_b01,A2,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,2,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-118_B6J_10F_21,igvf_b01,A3,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,3,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-117_B6J_10M_21,igvf_b01,A4,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,4,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-118_B6J_10F_21,igvf_b01,A5,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,5,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-117_B6J_10M_21,igvf_b01,A6,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,6,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-118_B6J_10F_21,igvf_b01,A7,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,7,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-117_B6J_10M_21,igvf_b01,A8,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,8,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.2,Diestrus,1/19/2023,10:57 AM,SK,119
-118_B6J_10F_21,igvf_b01,A9,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,9,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:20 PM,SK,137
-106_CASTJ_10F_21,igvf_b01,B1,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,1,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-105_CASTJ_10M_21,igvf_b01,B10,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,10,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-106_CASTJ_10F_21,igvf_b01,B11,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,11,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-105_CASTJ_10M_21,igvf_b01,B12,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,12,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-105_CASTJ_10M_21,igvf_b01,B2,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,2,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-106_CASTJ_10F_21,igvf_b01,B3,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,3,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-105_CASTJ_10M_21,igvf_b01,B4,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,4,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-106_CASTJ_10F_21,igvf_b01,B5,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,5,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-105_CASTJ_10M_21,igvf_b01,B6,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,6,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-106_CASTJ_10F_21,igvf_b01,B7,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,7,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-105_CASTJ_10M_21,igvf_b01,B8,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,8,Nuclei,Male,PNM_02,NA,11/22/2022,72,20.4,Metestrus,2/2/2023,10:07 AM,SK,138
-106_CASTJ_10F_21,igvf_b01,B9,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,9,Nuclei,Female,PNM_02,NA,11/22/2022,72,24,Diestrus,2/2/2023,10:35 AM,SK,147
-120_B6J_10F_21,igvf_b01,C1,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,1,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-119_B6J_10M_21,igvf_b01,C10,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,10,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-120_B6J_10F_21,igvf_b01,C11,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,11,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-119_B6J_10M_21,igvf_b01,C12,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,12,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-119_B6J_10M_21,igvf_b01,C2,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,2,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-120_B6J_10F_21,igvf_b01,C3,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,3,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-119_B6J_10M_21,igvf_b01,C4,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,4,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-120_B6J_10F_21,igvf_b01,C5,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,5,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-119_B6J_10M_21,igvf_b01,C6,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,6,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-120_B6J_10F_21,igvf_b01,C7,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,7,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-119_B6J_10M_21,igvf_b01,C8,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,8,Nuclei,Male,PNM_02,NA,11/8/2022,72,13.8,Metestrus,1/19/2023,11:05 AM,SK,106
-120_B6J_10F_21,igvf_b01,C9,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,9,Nuclei,Female,PNM_02,NA,11/8/2022,72,14.9,Metestrus,1/19/2023,12:34 PM,SK,133
-108_CASTJ_10F_21,igvf_b01,D1,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,1,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
-107_CASTJ_10M_21,igvf_b01,D10,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,10,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-108_CASTJ_10F_21,igvf_b01,D11,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,11,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
-107_CASTJ_10M_21,igvf_b01,D12,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,12,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-107_CASTJ_10M_21,igvf_b01,D2,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,2,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-108_CASTJ_10F_21,igvf_b01,D3,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,3,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
-107_CASTJ_10M_21,igvf_b01,D4,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,4,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-108_CASTJ_10F_21,igvf_b01,D5,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,5,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
-107_CASTJ_10M_21,igvf_b01,D6,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,6,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-108_CASTJ_10F_21,igvf_b01,D7,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,7,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
-107_CASTJ_10M_21,igvf_b01,D8,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,8,Nuclei,Male,PNM_02,NA,11/22/2022,72,21.3,Metestrus,2/2/2023,10:16 AM,SK,156
-108_CASTJ_10F_21,igvf_b01,D9,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,9,Nuclei,Female,PNM_02,NA,11/22/2022,72,24.9,Metestrus,2/2/2023,10:44 AM,SK,141
+118_B6J_10F_21,igvf_b01,A1,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,1,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+117_B6J_10M_21,igvf_b01,A10,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,10,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+118_B6J_10F_21,igvf_b01,A11,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,11,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+117_B6J_10M_21,igvf_b01,A12,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,12,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+117_B6J_10M_21,igvf_b01,A2,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,2,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+118_B6J_10F_21,igvf_b01,A3,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,3,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+117_B6J_10M_21,igvf_b01,A4,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,4,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+118_B6J_10F_21,igvf_b01,A5,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,5,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+117_B6J_10M_21,igvf_b01,A6,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,6,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+118_B6J_10F_21,igvf_b01,A7,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,7,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+117_B6J_10M_21,igvf_b01,A8,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,8,Nuclei,Male,PNM_02,NA,11/8/22,72,13.2,Diestrus,1/19/23,10:57 AM,SK,119
+118_B6J_10F_21,igvf_b01,A9,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,A,9,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:20 PM,SK,137
+106_CASTJ_10F_21,igvf_b01,B1,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,1,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+105_CASTJ_10M_21,igvf_b01,B10,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,10,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+106_CASTJ_10F_21,igvf_b01,B11,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,11,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+105_CASTJ_10M_21,igvf_b01,B12,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,12,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+105_CASTJ_10M_21,igvf_b01,B2,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,2,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+106_CASTJ_10F_21,igvf_b01,B3,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,3,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+105_CASTJ_10M_21,igvf_b01,B4,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,4,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+106_CASTJ_10F_21,igvf_b01,B5,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,5,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+105_CASTJ_10M_21,igvf_b01,B6,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,6,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+106_CASTJ_10F_21,igvf_b01,B7,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,7,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+105_CASTJ_10M_21,igvf_b01,B8,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,8,Nuclei,Male,PNM_02,NA,11/22/22,72,20.4,Metestrus,2/2/23,10:07 AM,SK,138
+106_CASTJ_10F_21,igvf_b01,B9,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,B,9,Nuclei,Female,PNM_02,NA,11/22/22,72,24,Diestrus,2/2/23,10:35 AM,SK,147
+120_B6J_10F_21,igvf_b01,C1,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,1,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+119_B6J_10M_21,igvf_b01,C10,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,10,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+120_B6J_10F_21,igvf_b01,C11,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,11,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+119_B6J_10M_21,igvf_b01,C12,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,12,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+119_B6J_10M_21,igvf_b01,C2,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,2,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+120_B6J_10F_21,igvf_b01,C3,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,3,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+119_B6J_10M_21,igvf_b01,C4,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,4,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+120_B6J_10F_21,igvf_b01,C5,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,5,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+119_B6J_10M_21,igvf_b01,C6,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,6,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+120_B6J_10F_21,igvf_b01,C7,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,7,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+119_B6J_10M_21,igvf_b01,C8,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,8,Nuclei,Male,PNM_02,NA,11/8/22,72,13.8,Metestrus,1/19/23,11:05 AM,SK,106
+120_B6J_10F_21,igvf_b01,C9,Single,LeftCortex,B6J,Parse_WT,v2,NA,NA,C,9,Nuclei,Female,PNM_02,NA,11/8/22,72,14.9,Metestrus,1/19/23,12:34 PM,SK,133
+108_CASTJ_10F_21,igvf_b01,D1,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,1,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
+107_CASTJ_10M_21,igvf_b01,D10,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,10,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+108_CASTJ_10F_21,igvf_b01,D11,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,11,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
+107_CASTJ_10M_21,igvf_b01,D12,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,12,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+107_CASTJ_10M_21,igvf_b01,D2,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,2,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+108_CASTJ_10F_21,igvf_b01,D3,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,3,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
+107_CASTJ_10M_21,igvf_b01,D4,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,4,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+108_CASTJ_10F_21,igvf_b01,D5,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,5,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
+107_CASTJ_10M_21,igvf_b01,D6,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,6,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+108_CASTJ_10F_21,igvf_b01,D7,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,7,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
+107_CASTJ_10M_21,igvf_b01,D8,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,8,Nuclei,Male,PNM_02,NA,11/22/22,72,21.3,Metestrus,2/2/23,10:16 AM,SK,156
+108_CASTJ_10F_21,igvf_b01,D9,Single,LeftCortex,CASTJ,Parse_WT,v2,NA,NA,D,9,Nuclei,Female,PNM_02,NA,11/22/22,72,24.9,Metestrus,2/2/23,10:44 AM,SK,141
 016_B6J_10F_08,igvf_012,A1,Single,Adrenal,B6J,Parse_WT,v2,NA,NA,A,1,Nuclei,Female,PNM_02,Replacement,8/16/22,72,21.1,Diestrus,10/27/22,9:01 AM,GM,15
 016_B6J_10F_08,igvf_012,A2,Single,Adrenal,B6J,Parse_WT,v2,NA,NA,A,2,Nuclei,Female,PNM_02,Replacement,8/16/22,72,21.1,Diestrus,10/27/22,9:01 AM,GM,15
 016_B6J_10F_08,igvf_012,A3,Single,Adrenal,B6J,Parse_WT,v2,NA,NA,A,3,Nuclei,Female,PNM_02,Replacement,8/16/22,72,21.1,Diestrus,10/27/22,9:01 AM,GM,15
 016_B6J_10F_08,igvf_012,A4,Single,Adrenal,B6J,Parse_WT,v2,NA,NA,A,4,Nuclei,Female,PNM_02,Replacement,8/16/22,72,21.1,Diestrus,10/27/22,9:01 AM,GM,15
-022_B6J_10F_16,igvf_012,A5,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,5,Nuclei,Female,PNM_02,Replacement,8/16/2022,72,20.8,Estrus,10/27/2022,10:43 AM,SK,NA
-022_B6J_10F_16,igvf_012,A6,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,6,Nuclei,Female,PNM_02,Replacement,8/16/2022,72,20.8,Estrus,10/27/2022,10:43 AM,SK,NA
-022_B6J_10F_16,igvf_012,A7,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,7,Nuclei,Female,PNM_02,Replacement,8/16/2022,72,20.8,Estrus,10/27/2022,10:43 AM,SK,NA
-022_B6J_10F_16,igvf_012,A8,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,8,Nuclei,Female,PNM_02,Replacement,8/16/2022,72,20.8,Estrus,10/27/2022,10:43 AM,SK,NA
+022_B6J_10F_16,igvf_012,A5,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,5,Nuclei,Female,PNM_02,Replacement,8/16/22,72,20.8,Estrus,10/27/22,10:43 AM,SK,NA
+022_B6J_10F_16,igvf_012,A6,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,6,Nuclei,Female,PNM_02,Replacement,8/16/22,72,20.8,Estrus,10/27/22,10:43 AM,SK,NA
+022_B6J_10F_16,igvf_012,A7,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,7,Nuclei,Female,PNM_02,Replacement,8/16/22,72,20.8,Estrus,10/27/22,10:43 AM,SK,NA
+022_B6J_10F_16,igvf_012,A8,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,A,8,Nuclei,Female,PNM_02,Replacement,8/16/22,72,20.8,Estrus,10/27/22,10:43 AM,SK,NA
 029_AJ_10M_06,igvf_012,A9,Single,Heart,AJ,Parse_WT,v2,NA,NA,A,9,Nuclei,Male,PNM_02,Replacement,7/26/22,69,21.1,NA,10/3/22,12:20 PM,GM,125
 029_AJ_10M_06,igvf_012,A10,Single,Heart,AJ,Parse_WT,v2,NA,NA,A,10,Nuclei,Male,PNM_02,Replacement,7/26/22,69,21.1,NA,10/3/22,12:20 PM,GM,125
 029_AJ_10M_06,igvf_012,A11,Single,Heart,AJ,Parse_WT,v2,NA,NA,A,11,Nuclei,Male,PNM_02,Replacement,7/26/22,69,21.1,NA,10/3/22,12:20 PM,GM,125
@@ -931,14 +931,14 @@ GH_F3_03,igvf_011,H9,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,06
 047_NZOJ_10M_08,igvf_012,B6,Single,Adrenal,NZOJ,Parse_WT,v2,NA,NA,B,6,Nuclei,Male,PNM_02,Replacement,8/2/22,69,42.8,NA,10/10/22,2:30 PM,GM,15
 047_NZOJ_10M_08,igvf_012,B7,Single,Adrenal,NZOJ,Parse_WT,v2,NA,NA,B,7,Nuclei,Male,PNM_02,Replacement,8/2/22,69,42.8,NA,10/10/22,2:30 PM,GM,15
 047_NZOJ_10M_08,igvf_012,B8,Single,Adrenal,NZOJ,Parse_WT,v2,NA,NA,B,8,Nuclei,Male,PNM_02,Replacement,8/2/22,69,42.8,NA,10/10/22,2:30 PM,GM,15
-122_B6J_10F_16,igvf_012,B9,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,9,Nuclei,Female,PNM_02,Replacement,03/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
-122_B6J_10F_16,igvf_012,B10,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,10,Nuclei,Female,PNM_02,Replacement,03/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
-122_B6J_10F_16,igvf_012,B11,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,11,Nuclei,Female,PNM_02,Replacement,03/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
-122_B6J_10F_16,igvf_012,B12,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,12,Nuclei,Female,PNM_02,Replacement,03/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
-046_NZOJ_10F_03,igvf_012,C1,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,1,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,115
-046_NZOJ_10F_03,igvf_012,C2,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,2,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,115
-046_NZOJ_10F_03,igvf_012,C3,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,3,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,115
-046_NZOJ_10F_03,igvf_012,C4,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,4,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,115
+122_B6J_10F_16,igvf_012,B9,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,9,Nuclei,Female,PNM_02,Replacement,3/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
+122_B6J_10F_16,igvf_012,B10,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,10,Nuclei,Female,PNM_02,Replacement,3/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
+122_B6J_10F_16,igvf_012,B11,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,11,Nuclei,Female,PNM_02,Replacement,3/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
+122_B6J_10F_16,igvf_012,B12,Single,Gastrocnemius,B6J,Parse_WT,v2,NA,NA,B,12,Nuclei,Female,PNM_02,Replacement,3/22/23,70,NA,NA,5/31/23,11:00 AM,SK,NA
+046_NZOJ_10F_03,igvf_012,C1,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,1,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,115
+046_NZOJ_10F_03,igvf_012,C2,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,2,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,115
+046_NZOJ_10F_03,igvf_012,C3,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,3,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,115
+046_NZOJ_10F_03,igvf_012,C4,Single,CortexHippocampus,NZOJ,Parse_WT,v2,NA,NA,C,4,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,115
 058_WSBJ_10F_06,igvf_012,C5,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,C,5,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.9,NA,10/17/22,9:46 AM,GM,94
 058_WSBJ_10F_06,igvf_012,C6,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,C,6,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.9,NA,10/17/22,9:46 AM,GM,94
 058_WSBJ_10F_06,igvf_012,C7,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,C,7,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.9,NA,10/17/22,9:46 AM,GM,94
@@ -951,10 +951,10 @@ GH_F3_03,igvf_011,H9,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,06
 057_WSBJ_10M_06,igvf_012,D2,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,2,Nuclei,Male,PNM_02,Replacement,8/9/22,69,15.8,NA,10/17/22,11:07 AM,GM,129
 057_WSBJ_10M_06,igvf_012,D3,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,3,Nuclei,Male,PNM_02,Replacement,8/9/22,69,15.8,NA,10/17/22,11:07 AM,GM,129
 057_WSBJ_10M_06,igvf_012,D4,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,4,Nuclei,Male,PNM_02,Replacement,8/9/22,69,15.8,NA,10/17/22,11:07 AM,GM,129
-046_NZOJ_10F_01,igvf_012,D5,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,5,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,42
-046_NZOJ_10F_01,igvf_012,D6,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,6,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,42
-046_NZOJ_10F_01,igvf_012,D7,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,7,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,42
-046_NZOJ_10F_01,igvf_012,D8,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,8,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/2022,11:00 AM,SK,42
+046_NZOJ_10F_01,igvf_012,D5,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,5,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,42
+046_NZOJ_10F_01,igvf_012,D6,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,6,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,42
+046_NZOJ_10F_01,igvf_012,D7,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,7,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,42
+046_NZOJ_10F_01,igvf_012,D8,Single,HypothalamusPituitary,NZOJ,Parse_WT,v2,NA,NA,D,8,Nuclei,Female,PNM_02,Addition,8/2/22,69,43.6,Diestrus,10/10/22,11:00 AM,SK,42
 062_WSBJ_10F_06,igvf_012,D9,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,9,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.8,NA,10/17/22,10:38 AM,GM,136
 062_WSBJ_10F_06,igvf_012,D10,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,10,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.8,NA,10/17/22,10:38 AM,GM,136
 062_WSBJ_10F_06,igvf_012,D11,Single,Heart,WSBJ,Parse_WT,v2,NA,NA,D,11,Nuclei,Female,PNM_02,Replacement,8/9/22,69,12.8,NA,10/17/22,10:38 AM,GM,136
@@ -989,7 +989,7 @@ GH_F3_03,igvf_011,H9,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,06
 079_PWKJ_10M_20,igvf_013,D4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,D,4,Cells,Male,PNM_02,NA,8/16/22,69,13.7,NA,10/24/22,11:47 AM,SK,NA
 080_PWKJ_10F_20,igvf_013,E4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,E,4,Cells,Female,PNM_02,NA,8/16/22,69,13.6,Estrus,10/24/22,10:23 AM,SK,NA
 083_PWKJ_10M_20,igvf_013,F4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,F,4,Cells,Male,PNM_02,NA,8/16/22,69,14.8,NA,10/24/22,12:43 PM,SK,NA
-082_PWKJ_10F_20,igvf_013,G4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,G,4,Cells,Female,PNM_02,NA,9/20/22,72,13.4,Diestrus,12/01/22,10:32 AM,SK,NA
+082_PWKJ_10F_20,igvf_013,G4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,G,4,Cells,Female,PNM_02,NA,9/20/22,72,13.4,Diestrus,12/1/22,10:32 AM,SK,NA
 085_PWKJ_10M_20,igvf_013,H4,Single,PBMC,PWKJ,Parse_WT_Mega,v2,NA,NA,H,4,Cells,Male,PNM_02,NA,9/13/22,69,17.1,NA,11/21/22,11:05 AM,SK,NA
 036_129S1J_10F_20,igvf_013,A5,Single,PBMC,129S1J,Parse_WT_Mega,v2,NA,NA,A,5,Cells,Female,PNM_02,NA,7/26/22,72,19.5,Diestrus,10/6/22,8:30 AM,SK,NA
 037_129S1J_10M_20,igvf_013,B5,Single,PBMC,129S1J,Parse_WT_Mega,v2,NA,NA,B,5,Cells,Male,PNM_02,NA,7/26/22,72,24.5,NA,10/6/22,10:40 AM,SK,NA
@@ -1023,7 +1023,7 @@ GH_F3_03,igvf_011,H9,Multiplexed,CortexHippocampus,WSBJ/NZOJ,Parse_WT_Mega,v2,06
 051_NZOJ_10M_20,igvf_013,F8,Single,PBMC,NZOJ,Parse_WT_Mega,v2,NA,NA,F,8,Cells,Male,PNM_02,NA,8/2/22,69,45.5,NA,10/10/22,3:30 PM,SK,NA
 052_NZOJ_10F_20,igvf_013,G8,Single,PBMC,NZOJ,Parse_WT_Mega,v2,NA,NA,G,8,Cells,Female,PNM_02,NA,8/2/22,69,40.2,Estrus,10/10/22,12:30 PM,SK,NA
 053_NZOJ_10M_20,igvf_013,H8,Single,PBMC,NZOJ,Parse_WT_Mega,v2,NA,NA,H,8,Cells,Male,PNM_02,NA,8/2/22,69,42.4,NA,10/10/22,4:00 PM,SK,NA
-194_B6CASTF1J_10F_20,igvf_013,A9,Single,PBMC,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,A,9,Cells,Female,PNM_02,NA,05/02/23,69,16.68,Estrus,7/10/23,10:30 AM,SK,NA
+194_B6CASTF1J_10F_20,igvf_013,A9,Single,PBMC,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,A,9,Cells,Female,PNM_02,NA,5/2/23,69,16.68,Estrus,7/10/23,10:30 AM,SK,NA
 193_B6CASTF1J_10M_20,igvf_013,B9,Single,PBMC,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,B,9,Cells,Male,PNM_02,NA,5/2/23,69,22.8,NA,7/10/23,12:55 PM,SK,NA
 196_B6CASTF1J_10F_20,igvf_013,C9,Single,PBMC,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,C,9,Cells,Female,PNM_02,NA,5/2/23,69,17.28,Estrus,7/10/23,10:55 AM,SK,NA
 199_B6CASTF1J_10M_20,igvf_013,D9,Single,PBMC,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,D,9,Cells,Male,PNM_02,NA,5/2/23,69,23.61,NA,7/10/23,2:38 PM,SK,NA
@@ -1631,3 +1631,195 @@ EF_M2_33,igvf_019,E12,Multiplexed,Gastrocnemius,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,
 EF_M4_33,igvf_019,F12,Multiplexed,Gastrocnemius,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_M2_33,igvf_019,G12,Multiplexed,Gastrocnemius,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_M4_33,igvf_019,H12,Multiplexed,Gastrocnemius,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+698_B6J_10F_08,igvf_020,A1,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,1,Nuclei,Female,PNM_02,Dissociated 2x,9/26/23,69,19.4,Diestrus,12/4/23,10:00 AM,GF,20
+701_B6J_10M_08,igvf_020,A2,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,2,Nuclei,Male,PNM_02,Dissociated 2x,9/26/23,69,26,NA,12/4/23,11:19 AM,GF,13
+700_B6J_10F_08,igvf_020,A3,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,Dissociated 2x,9/26/23,69,17.9,Estrus,12/4/23,10:52 AM,GF,17
+703_B6J_10M_08,igvf_020,A4,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,4,Nuclei,Male,PNM_02,"Dissociated 2x, had small bits after dissociation still",9/26/23,69,27.9,NA,12/4/23,11:58 AM,GF,11
+702_B6J_10F_08,igvf_020,A5,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,5,Nuclei,Female,PNM_02,Had small bits after dissociation,9/26/23,69,18.8,Proestrus,12/4/23,11:39 AM,GF,16
+705_B6J_10M_08,igvf_020,A6,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,6,Nuclei,Male,PNM_02,"Dissociated 2x, had small bits after dissociation still",9/26/23,69,27.2,NA,12/4/23,1:25 PM,GF,16
+706_B6J_10F_08,igvf_020,A7,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,7,Nuclei,Female,PNM_02,Had small bits after dissociation,9/26/23,69,22,Diestrus,12/4/23,1:47 PM,GF,26
+707_B6J_10M_08,igvf_020,A8,Single,Adrenal,B6J,Parse_WT_Mega,v2,NA,NA,A,8,Nuclei,Male,PNM_02,NA,9/26/23,69,25,NA,12/4/23,2:08 PM,GF,16
+164_B6NODF1J_10F_08,igvf_020,B1,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,1,Nuclei,Female,PNM_02,Dissociated 2x,5/16/23,69,17,Diestrus,7/24/23,10:37 AM,GF,36
+159_B6NODF1J_10M_08,igvf_020,B2,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,2,Nuclei,Male,PNM_02,Dissociated 2x,5/16/23,69,25.3,NA,7/24/23,12:15 PM,GF,25
+166_B6NODF1J_10F_08,igvf_020,B3,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Female,PNM_02,Had small bits after dissociation,5/16/23,69,20.5,Metestrus,7/24/23,11:10 AM,GF,35
+161_B6NODF1J_10M_08,igvf_020,B4,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,4,Nuclei,Male,PNM_02,Dissociated 2x,5/16/23,69,24.8,NA,7/24/23,1:11 PM,GF,36
+170_B6NODF1J_10F_08,igvf_020,B5,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,5,Nuclei,Female,PNM_02,Dissociated 2x,6/27/23,72,20.8,Estrus,9/7/23,1:47 PM,GF,32
+165_B6NODF1J_10M_08,igvf_020,B6,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,6,Nuclei,Male,PNM_02,Had small bits after dissociation,5/16/23,69,26,NA,7/24/23,1:58 PM,GF,35
+172_B6NODF1J_10F_08,igvf_020,B7,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,7,Nuclei,Female,PNM_02,Had small bits after dissociation,6/27/23,72,20.3,Estrus,9/7/23,2:21 PM,GF,33
+167_B6NODF1J_10M_08,igvf_020,B8,Single,Adrenal,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,8,Nuclei,Male,PNM_02,Dissociated 2x,5/16/23,69,25.2,NA,7/24/23,2:21 PM,GF,41
+128_B6AF1J_10F_08,igvf_020,C1,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,1,Nuclei,Female,PNM_02,Dissociated 2x,6/27/23,72,18.3,Diestrus,9/7/23,9:43 AM,GF,23
+127_B6AF1J_10M_08,igvf_020,C2,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,2,Nuclei,Male,PNM_02,Dissociated 2x,6/27/23,72,25.5,NA,9/7/23,11:09 AM,GF,21
+130_B6AF1J_10F_08,igvf_020,C3,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,Had small bits after dissociation,6/27/23,72,19.6,Metestrus,9/7/23,10:10 AM,GF,NA
+129_B6AF1J_10M_08,igvf_020,C4,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,4,Nuclei,Male,PNM_02,Had small bits after dissociation,6/27/23,72,23.8,NA,9/7/23,11:40 AM,GF,24
+132_B6AF1J_10F_08,igvf_020,C5,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,5,Nuclei,Female,PNM_02,"Dissociated 2x, had small bits after dissociation still",6/27/23,72,21.2,Metestrus,9/7/23,10:40 AM,GF,26
+131_B6AF1J_10M_08,igvf_020,C6,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,6,Nuclei,Male,PNM_02,"Dissociated 2x, had small bits after dissociation still",6/27/23,72,28.6,NA,9/7/23,12:10 PM,GF,24
+138_B6AF1J_10F_08,igvf_020,C7,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,7,Nuclei,Female,PNM_02,"Dissociated 2x, had small bits after dissociation still",7/25/23,71,18.5,Diestrus,10/4/23,11:57 AM,GF,31
+133_B6AF1J_10M_08,igvf_020,C8,Single,Adrenal,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,8,Nuclei,Male,PNM_02,"Dissociated 2x, sample was bloody",7/25/23,71,27.2,NA,10/4/23,11:05 AM,GF,16
+210_B6PWKF1J_10F_08,igvf_020,D1,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,1,Nuclei,Female,PNM_02,Dissociated 2x,5/23/23,69,15.6,Diestrus,7/31/23,1:24 PM,GF,33
+207_B6PWKF1J_10M_08,igvf_020,D2,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,2,Nuclei,Male,PNM_02,Dissociated 2x,5/23/23,69,21.7,NA,7/31/23,2:23 PM,GF,49
+212_B6PWKF1J_10F_08,igvf_020,D3,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Female,PNM_02,NA,5/23/23,69,16.4,Diestrus,7/31/23,1:51 PM,GF,33
+215_B6PWKF1J_10M_08,igvf_020,D4,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,4,Nuclei,Male,PNM_02,Had small bits after dissociation,5/23/23,69,18.6,NA,7/31/23,1:43 PM,GF,21
+216_B6PWKF1J_10F_08,igvf_020,D5,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,5,Nuclei,Female,PNM_02,Had small bits after dissociation,5/23/23,69,16.7,Estrus,7/31/23,10:39 AM,GF,19
+213_B6PWKF1J_10M_08,igvf_020,D6,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,6,Nuclei,Male,PNM_02,NA,5/23/23,69,21.5,NA,7/31/23,12:28 PM,GF,26
+218_B6PWKF1J_10F_08,igvf_020,D7,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,7,Nuclei,Female,PNM_02,Had small bits after dissociation,5/16/23,65,13,Diestrus,7/20/23,11:08 AM,GF,34
+217_B6PWKF1J_10M_08,igvf_020,D8,Single,Adrenal,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,8,Nuclei,Male,PNM_02,Dissociated 2x,5/16/23,65,24.2,NA,7/20/23,2:08 PM,GF,37
+144_B6129S1F1J_10F_08,igvf_020,E1,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,1,Nuclei,Female,PNM_02,Dissociated 2x,6/20/23,69,19.9,Diestrus,8/28/23,11:15 AM,GF,28
+143_B6129S1F1J_10M_08,igvf_020,E2,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,2,Nuclei,Male,PNM_02,Dissociated 2x,6/20/23,69,26.4,NA,8/28/23,2:15 PM,GF,28
+150_B6129S1F1J_10F_08,igvf_020,E3,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,Dissociated 2x,6/20/23,69,17.7,Diestrus,8/28/23,12:28 PM,GF,47
+153_B6129S1F1J_10M_08,igvf_020,E4,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,4,Nuclei,Male,PNM_02,"Dissociated 2x, had small bits after dissociation still",7/10/23,73,23.2,NA,9/21/23,11:17 AM,GF,23
+152_B6129S1F1J_10F_08,igvf_020,E5,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,5,Nuclei,Female,PNM_02,NA,6/20/23,69,18.8,Metestrus,8/28/23,1:47 PM,GF,39
+155_B6129S1F1J_10M_08,igvf_020,E6,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,6,Nuclei,Male,PNM_02,NA,7/10/23,73,25.7,NA,9/21/23,11:47 AM,GF,33
+156_B6129S1F1J_10F_08,igvf_020,E7,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,7,Nuclei,Female,PNM_02,"Dissociated 2x, had small bits after dissociation",7/10/23,73,17.9,Diestrus,9/21/23,10:29 AM,GF,28
+157_B6129S1F1J_10M_08,igvf_020,E8,Single,Adrenal,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,8,Nuclei,Male,PNM_02,NA,7/10/23,73,24.4,NA,9/21/23,12:13 PM,GF,30
+194_B6CASTF1J_10F_08,igvf_020,F1,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,1,Nuclei,Female,PNM_02,Dissociated 2x,5/2/23,69,16.68,Estrus,7/10/23,10:30 AM,GF,34
+191_B6CASTF1J_10M_08,igvf_020,F2,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,2,Nuclei,Male,PNM_02,Dissociated 2x,5/2/23,69,31.5,NA,7/10/23,12:23 PM,GF,25
+196_B6CASTF1J_10F_08,igvf_020,F3,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,3,Nuclei,Female,PNM_02,Had small bits after dissociation,5/2/23,69,17.28,Estrus,7/10/23,10:55 AM,GF,64
+193_B6CASTF1J_10M_08,igvf_020,F4,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,4,Nuclei,Male,PNM_02,NA,5/2/23,69,22.8,NA,7/10/23,12:55 PM,GF,39
+202_B6CASTF1J_10F_08,igvf_020,F5,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,5,Nuclei,Female,PNM_02,Had small bits after dissociation,5/30/23,65,19.2,Diestrus,8/3/23,1:36 PM,GF,47
+195_B6CASTF1J_10M_08,igvf_020,F6,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,6,Nuclei,Male,PNM_02,NA,5/2/23,69,23.8,NA,7/10/23,1:26 PM,GF,29
+204_B6CASTF1J_10F_08,igvf_020,F7,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,7,Nuclei,Female,PNM_02,NA,5/30/23,65,20.1,Metestrus,8/3/23,2:08 PM,GF,39
+197_B6CASTF1J_10M_08,igvf_020,F8,Single,Adrenal,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,8,Nuclei,Male,PNM_02,Had small bits after dissociation,5/2/23,69,29.63,NA,7/10/23,1:56 PM,GF,35
+228_B6WSBF1J_10F_08,igvf_020,G1,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,1,Nuclei,Female,PNM_02,Dissociated 2x,5/9/23,69,15.1,Diestrus,7/17/23,10:58 AM,GF,27
+223_B6WSBF1J_10M_08,igvf_020,G2,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Male,PNM_02,Dissociated 2x,5/9/23,69,21.4,NA,7/17/23,12:20 PM,GF,24
+232_B6WSBF1J_10F_08,igvf_020,G3,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,3,Nuclei,Female,PNM_02,Had small bits after dissociation,5/9/23,69,16.29,Diestrus,7/17/23,11:53 AM,GF,29
+225_B6WSBF1J_10M_08,igvf_020,G4,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,4,Nuclei,Male,PNM_02,NA,5/9/23,69,19.9,NA,7/17/23,1:33 PM,GF,17
+234_B6WSBF1J_10F_08,igvf_020,G5,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,5,Nuclei,Female,PNM_02,NA,6/6/23,69,16.3,Diestrus,8/14/23,12:20 PM,GF,32
+227_B6WSBF1J_10M_08,igvf_020,G6,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,6,Nuclei,Male,PNM_02,Had small bits after dissociation,5/9/23,69,19.8,NA,7/17/23,1:59 PM,GF,28
+238_B6WSBF1J_10F_08,igvf_020,G7,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,7,Nuclei,Female,PNM_02,Had small bits after dissociation,6/6/23,69,16,Diestrus,8/14/23,2:03 PM,GF,40
+229_B6WSBF1J_10M_08,igvf_020,G8,Single,Adrenal,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,8,Nuclei,Male,PNM_02,Had small bits after dissociation,5/9/23,69,21.5,NA,7/17/23,2:25 PM,GF,29
+178_B6NZOF1J_10F_08,igvf_020,H1,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,1,Nuclei,Female,PNM_02,Dissociated 2x,5/30/23,69,27.3,Proestrus,8/7/23,10:28 AM,GF,30
+175_B6NZOF1J_10M_08,igvf_020,H2,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,"Dissociated 2x, first filtering was done through 70 um",5/30/23,69,35.3,NA,8/7/23,12:33 PM,GF,28
+180_B6NZOF1J_10F_08,igvf_020,H3,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,3,Nuclei,Female,PNM_02,"5th rep, Dissociated 2x",5/30/23,69,25.4,Diestrus,8/7/23,10:56 AM,GF,38
+177_B6NZOF1J_10M_08,igvf_020,H4,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,4,Nuclei,Male,PNM_02,"Dissociated 2x, had small bits after dissociation still",5/30/23,69,37.8,NA,8/7/23,2:01 PM,GF,29
+188_B6NZOF1J_10F_08,igvf_020,H5,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,5,Nuclei,Female,PNM_02,"Dissociated 2x, had small bits after dissociation still",6/13/23,65,25.4,Proestrus,8/17/23,12:40 PM,GF,41
+181_B6NZOF1J_10M_08,igvf_020,H6,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,6,Nuclei,Male,PNM_02,Dissociated 2x,5/30/23,69,39.2,NA,8/7/23,3:13 PM,GF,29
+190_B6NZOF1J_10F_08,igvf_020,H7,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Female,PNM_02,Had small bits after dissociation,6/13/23,65,25.3,Diestrus,8/17/23,2:10 PM,GF,30
+185_B6NZOF1J_10M_08,igvf_020,H8,Single,Adrenal,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,Had small bits after dissociation,6/13/23,65,33.2,NA,8/17/23,2:37 PM,GF,37
+AB_F1_08,igvf_020,A9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,A,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F3_08,igvf_020,B9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F1_08,igvf_020,C9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,C,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F3_08,igvf_020,D9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,D,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F1_08,igvf_020,E9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,E,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F3_08,igvf_020,F9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,F,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F1_08,igvf_020,G9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,G,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F3_08,igvf_020,H9,Multiplexed,Adrenal,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,H,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M1_08,igvf_020,A10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,A,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M3_08,igvf_020,B10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,B,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M1_08,igvf_020,C10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,C,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M3_08,igvf_020,D10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M1_08,igvf_020,E10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,E,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M3_08,igvf_020,F10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M1_08,igvf_020,G10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M3_08,igvf_020,H10,Multiplexed,Adrenal,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F2_08,igvf_020,A11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F4_08,igvf_020,B11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F2_08,igvf_020,C11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F4_08,igvf_020,D11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F2_08,igvf_020,E11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,E,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F4_08,igvf_020,F11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F2_08,igvf_020,G11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,G,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F4_08,igvf_020,H11,Multiplexed,Adrenal,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,H,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M2_08,igvf_020,A12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,A,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M4_08,igvf_020,B12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,B,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M2_08,igvf_020,C12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,C,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M4_08,igvf_020,D12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,D,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M2_08,igvf_020,E12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,E,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M4_08,igvf_020,F12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M2_08,igvf_020,G12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M4_08,igvf_020,H12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+698_B6J_10F_01,igvf_021,A1,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,19.4,Diestrus,12/4/23,10:00 AM,HL,80
+701_B6J_10M_01,igvf_021,A2,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,26,NA,12/4/23,11:19 AM,HL,88
+700_B6J_10F_01,igvf_021,A3,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,17.9,Estrus,12/4/23,10:52 AM,HL,86
+703_B6J_10M_01,igvf_021,A4,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,27.9,NA,12/4/23,11:58 AM,HL,82
+702_B6J_10F_01,igvf_021,A5,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,18.8,Proestrus,12/4/23,11:39 AM,HL,79
+705_B6J_10M_01,igvf_021,A6,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,27.2,NA,12/4/23,1:25 PM,HL,76
+706_B6J_10F_01,igvf_021,A7,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,22,Diestrus,12/4/23,1:47 PM,HL,91
+707_B6J_10M_01,igvf_021,A8,Single,HypothalamusPituitary,B6J,Parse_WT_Mega,v2,NA,NA,A,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,9/26/23,69,25,NA,12/4/23,2:08 PM,HL,83
+164_B6NODF1J_10F_01,igvf_021,B1,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,69,17,Diestrus,7/24/23,10:37 AM,HL,93
+159_B6NODF1J_10M_01,igvf_021,B2,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,69,25.3,NA,7/24/23,12:15 PM,HL,96
+166_B6NODF1J_10F_01,igvf_021,B3,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,69,20.5,Metestrus,7/24/23,11:10 AM,HL,99
+161_B6NODF1J_10M_01,igvf_021,B4,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,69,24.8,NA,7/24/23,1:11 PM,HL,107
+170_B6NODF1J_10F_01,igvf_021,B5,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,20.8,Estrus,9/7/23,1:47 PM,HL,95
+165_B6NODF1J_10M_01,igvf_021,B6,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,69,26,NA,7/24/23,1:58 PM,HL,79
+172_B6NODF1J_10F_01,igvf_021,B7,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,20.3,Estrus,9/7/23,2:21 PM,HL,91
+167_B6NODF1J_10M_01,igvf_021,B8,Single,HypothalamusPituitary,B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip. Mixed up and could be in a different 4th rep male tube,5/16/23,69,25.2,NA,7/24/23,2:21 PM,HL,105
+128_B6AF1J_10F_01,igvf_021,C1,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,18.3,Diestrus,9/7/23,9:43 AM,HL,81
+127_B6AF1J_10M_01,igvf_021,C2,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,25.5,NA,9/7/23,11:09 AM,HL,82
+130_B6AF1J_10F_01,igvf_021,C3,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,19.6,Metestrus,9/7/23,10:10 AM,HL,79
+129_B6AF1J_10M_01,igvf_021,C4,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,23.8,NA,9/7/23,11:40 AM,HL,77
+132_B6AF1J_10F_01,igvf_021,C5,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,21.2,Metestrus,9/7/23,10:40 AM,HL,76
+131_B6AF1J_10M_01,igvf_021,C6,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/27/23,72,28.6,NA,9/7/23,12:10 PM,HL,78
+138_B6AF1J_10F_01,igvf_021,C7,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/25/23,71,18.5,Diestrus,10/4/23,11:57 AM,HL,91
+133_B6AF1J_10M_01,igvf_021,C8,Single,HypothalamusPituitary,B6AF1J,Parse_WT_Mega,v2,NA,NA,C,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/25/23,71,27.2,NA,10/4/23,11:05 AM,HL,93
+210_B6PWKF1J_10F_01,igvf_021,D1,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,15.6,Diestrus,7/31/23,1:24 PM,HL,88
+207_B6PWKF1J_10M_01,igvf_021,D2,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,21.7,NA,7/31/23,2:23 PM,HL,87
+212_B6PWKF1J_10F_01,igvf_021,D3,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,16.4,Diestrus,7/31/23,1:51 PM,HL,90
+215_B6PWKF1J_10M_01,igvf_021,D4,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,18.6,NA,7/31/23,1:43 PM,HL,93
+216_B6PWKF1J_10F_01,igvf_021,D5,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,16.7,Estrus,7/31/23,10:39 AM,HL,107
+213_B6PWKF1J_10M_01,igvf_021,D6,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/23/23,69,21.5,NA,7/31/23,12:28 PM,HL,96
+218_B6PWKF1J_10F_01,igvf_021,D7,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,65,13,Diestrus,7/20/23,11:08 AM,HL,95
+217_B6PWKF1J_10M_01,igvf_021,D8,Single,HypothalamusPituitary,B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/16/23,65,24.2,NA,7/20/23,2:08 PM,HL,107
+144_B6129S1F1J_10F_01,igvf_021,E1,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/20/23,69,19.9,Diestrus,8/28/23,11:15 AM,HL,89
+143_B6129S1F1J_10M_01,igvf_021,E2,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/20/23,69,26.4,NA,8/28/23,2:15 PM,HL,99
+150_B6129S1F1J_10F_01,igvf_021,E3,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/20/23,69,17.7,Diestrus,8/28/23,12:28 PM,HL,84
+153_B6129S1F1J_10M_01,igvf_021,E4,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/10/23,73,23.2,NA,9/21/23,11:17 AM,HL,115
+152_B6129S1F1J_10F_01,igvf_021,E5,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/20/23,69,18.8,Metestrus,8/28/23,1:47 PM,HL,94
+155_B6129S1F1J_10M_01,igvf_021,E6,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/10/23,73,25.7,NA,9/21/23,11:47 AM,HL,83
+156_B6129S1F1J_10F_01,igvf_021,E7,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/10/23,73,17.9,Diestrus,9/21/23,10:29 AM,HL,86
+157_B6129S1F1J_10M_01,igvf_021,E8,Single,HypothalamusPituitary,B6129S1F1J,Parse_WT_Mega,v2,NA,NA,E,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,7/10/23,73,24.4,NA,9/21/23,12:13 PM,HL,85
+194_B6CASTF1J_10F_01,igvf_021,F1,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,16.68,Estrus,7/10/23,10:30 AM,HL,90
+191_B6CASTF1J_10M_01,igvf_021,F2,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,31.5,NA,7/10/23,12:23 PM,HL,130
+196_B6CASTF1J_10F_01,igvf_021,F3,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,17.28,Estrus,7/10/23,10:55 AM,HL,86
+193_B6CASTF1J_10M_01,igvf_021,F4,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,22.8,NA,7/10/23,12:55 PM,HL,116
+202_B6CASTF1J_10F_01,igvf_021,F5,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,65,19.2,Diestrus,8/3/23,1:36 PM,HL,106
+195_B6CASTF1J_10M_01,igvf_021,F6,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,23.8,NA,7/10/23,1:26 PM,HL,87
+204_B6CASTF1J_10F_01,igvf_021,F7,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,65,20.1,Metestrus,8/3/23,2:08 PM,HL,98
+197_B6CASTF1J_10M_01,igvf_021,F8,Single,HypothalamusPituitary,B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/2/23,69,29.63,NA,7/10/23,1:56 PM,HL,98
+228_B6WSBF1J_10F_01,igvf_021,G1,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,15.1,Diestrus,7/17/23,10:58 AM,HL,122
+223_B6WSBF1J_10M_01,igvf_021,G2,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,21.4,NA,7/17/23,12:20 PM,HL,119
+232_B6WSBF1J_10F_01,igvf_021,G3,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,16.29,Diestrus,7/17/23,11:53 AM,HL,118
+225_B6WSBF1J_10M_01,igvf_021,G4,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,19.9,NA,7/17/23,1:33 PM,HL,118
+234_B6WSBF1J_10F_01,igvf_021,G5,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/6/23,69,16.3,Diestrus,8/14/23,12:20 PM,HL,100
+227_B6WSBF1J_10M_01,igvf_021,G6,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,19.8,NA,7/17/23,1:59 PM,HL,115
+238_B6WSBF1J_10F_01,igvf_021,G7,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/6/23,69,16,Diestrus,8/14/23,2:03 PM,HL,86
+229_B6WSBF1J_10M_01,igvf_021,G8,Single,HypothalamusPituitary,B6WSBF1J,Parse_WT_Mega,v2,NA,NA,G,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/9/23,69,21.5,NA,7/17/23,2:25 PM,HL,101
+178_B6NZOF1J_10F_01,igvf_021,H1,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,1,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,69,27.3,Proestrus,8/7/23,10:28 AM,HL,99
+175_B6NZOF1J_10M_01,igvf_021,H2,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,69,35.3,NA,8/7/23,12:33 PM,HL,108
+180_B6NZOF1J_10F_01,igvf_021,H3,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,3,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,69,25.4,Diestrus,8/7/23,10:56 AM,HL,99
+177_B6NZOF1J_10M_01,igvf_021,H4,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,4,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,69,37.8,NA,8/7/23,2:01 PM,HL,101
+188_B6NZOF1J_10F_01,igvf_021,H5,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,5,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/13/23,65,25.4,Proestrus,8/17/23,12:40 PM,HL,93
+181_B6NZOF1J_10M_01,igvf_021,H6,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,6,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,5/30/23,69,39.2,NA,8/7/23,3:13 PM,HL,92
+190_B6NZOF1J_10F_01,igvf_021,H7,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Female,PNM_02,Bits left after dissociation; was mushed into the filter using the tip,6/13/23,65,25.3,Diestrus,8/17/23,2:10 PM,HL,93
+185_B6NZOF1J_10M_01,igvf_021,H8,Single,HypothalamusPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,Bits left after dissociation; was mushed into the filter using the tip. Spilled after aliquoting 4M while filtering through the 40 um filter,6/13/23,65,33.2,NA,8/17/23,2:37 PM,HL,95
+AB_F1_01,igvf_021,A9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,A,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F3_01,igvf_021,B9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,B,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F1_01,igvf_021,C9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,C,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F3_01,igvf_021,D9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,D,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F1_01,igvf_021,E9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,E,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F3_01,igvf_021,F9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,F,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F1_01,igvf_021,G9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,G,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F3_01,igvf_021,H9,Multiplexed,HypothalamusPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,NA,NA,H,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M1_01,igvf_021,A10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,A,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M3_01,igvf_021,B10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,B,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M1_01,igvf_021,C10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,C,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M3_01,igvf_021,D10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,D,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M1_01,igvf_021,E10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,E,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M3_01,igvf_021,F10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M1_01,igvf_021,G10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M3_01,igvf_021,H10,Multiplexed,HypothalamusPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F2_01,igvf_021,A11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F4_01,igvf_021,B11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F2_01,igvf_021,C11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_F4_01,igvf_021,D11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F2_01,igvf_021,E11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,E,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_F4_01,igvf_021,F11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,F,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F2_01,igvf_021,G11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,G,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_F4_01,igvf_021,H11,Multiplexed,HypothalamusPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,NA,NA,H,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M2_01,igvf_021,A12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,A,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M4_01,igvf_021,B12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,B,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M2_01,igvf_021,C12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,C,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+CD_M4_01,igvf_021,D12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,D,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M2_01,igvf_021,E12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,E,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+EF_M4_01,igvf_021,F12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M2_01,igvf_021,G12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
+GH_M4_01,igvf_021,H12,Multiplexed,HypothalamusPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA
