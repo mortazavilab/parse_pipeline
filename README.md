@@ -46,7 +46,7 @@ Note: Written for and tested on the Mortazavi lab's Watson server. Follow these 
 ### Clone this repository
 Clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
 ```bash
-git clone https://github.com/mortazavilab/parse_pipeline.git
+git clone -b cellbender https://github.com/mortazavilab/parse_pipeline.git
 ```
 ### Set up a screen session on Watson
 Start screen session via `screen -S mysession`, or whatever you want to name it. When you need to reconnect, type `screen -r mysession` ([screen cheatsheet](https://kapeli.com/cheat_sheets/screen.docset/Contents/Resources/Documents/index)). This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
