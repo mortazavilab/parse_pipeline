@@ -1,4 +1,10 @@
 # Parse Biosciences Split-seq pre-processing workflow for local machine with GPU
+## NOTES 8/5/24
+- Saving unfiltered adata with NO modifications after kallisto run, using hopefully clearer file names. This will be in the input into cellbender.
+- Since cellbender will do some filtering automatically, we can just merge in the klue results for those filtered cells. Also merge in the metadata
+- Combined all the little python scripts into one big utils.py file.
+- Working on validating this branch works on Watson without cellbender
+
 ## Background: Combinatorial barcoding for snRNA-seq
 Combinatorial or split-pool barcoding appends a unique **set** of barcodes to single cells or nuclei during multiple "rounds". These reactions are confined to each individual fixed and permeabilized cell, bypassing the need for physical barriers between cells such as microwells or nanodroplets.
 
