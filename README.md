@@ -101,11 +101,6 @@ snakemake  -s snakemake/Snakefile.smk --latency-wait 120   --use-conda
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, and **run**.
 
-### Screen recordings
-- [Environment setup part 1](https://www.youtube.com/watch?v=0eRg3Mu5PqY)
-- [Environment setup part 2](https://www.youtube.com/watch?v=OetoqXz5qpg)
-- [Running pipeline](https://www.youtube.com/watch?v=B-VvOtHw6rk)
-
 ### Known issues / Wishlist
 - CELLBENDER PLZ
 - Clean up extra files
