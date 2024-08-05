@@ -1,12 +1,7 @@
 ref:
-  bc1_map_link: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1_RT_replace.txt
   bc1_map: ref/r1_RT_replace.txt
-  barcodes_link: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1r2r3.txt
   barcodes: ref/r1r2r3.txt
-  
-  bc1_map_link_wt: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1_RT_replace_wt.txt
   bc1_map_wt: ref/r1_RT_replace_wt.txt
-  barcodes_link_wt: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1r2r3_wt.txt
   barcodes_wt: ref/r1r2r3_wt.txt
 
   annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz

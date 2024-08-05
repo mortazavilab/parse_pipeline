@@ -128,30 +128,6 @@ use rule dl as dl_fa with:
         link = config['ref']['fa_link']
     output:
         out = config['ref']['fa']
-        
-use rule dl as dl_barcodes with:
-    params:
-        link = config['ref']['barcodes_link']
-    output:
-        out = config['ref']['barcodes']
-        
-use rule dl as dl_r1_replace_map with:
-    params:
-        link = config['ref']['bc1_map_link']
-    output:
-        out = config['ref']['bc1_map']
-        
-use rule dl as dl_barcodes_wt with:
-    params:
-        link = config['ref']['barcodes_link_wt']
-    output:
-        out = config['ref']['barcodes_wt']
-        
-use rule dl as dl_r1_replace_map_wt with:
-    params:
-        link = config['ref']['bc1_map_link_wt']
-    output:
-        out = config['ref']['bc1_map_wt']
 
 rule kallisto_ind:
     input:
