@@ -90,7 +90,7 @@ Test installation by typing `klue` in the terminal, should see version and usage
 ## Run pipeline
 Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
 
-1. Login to Watson and start a screen session, e.g. screen -S pipe
+1. Login to Watson and start a screen session, e.g. `screen -S pipe`
 2. Change directories to your pipeline directory, e.g. `cd /home/erebboah/parse_pipeline`. You MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
 3. Activate your snakemake environment: `conda activate snakemake` (you need to activate your snakemake conda environment again even if you were following setup instructions since sourcing the bashrc probably reset it to your base environment)
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first). Make sure to change `Snakefile.smk` to the one you are actually using! For example, `Snakefile_igvf015.smk`
