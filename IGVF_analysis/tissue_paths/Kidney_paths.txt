@@ -1,2 +1,0 @@
-/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_010/Kidney
-/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_009/Kidney

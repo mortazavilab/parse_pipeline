@@ -1,3 +1,0 @@
-/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_012/CortexHippocampus
-/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_011/CortexHippocampus
-/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_003/CortexHippocampus
