@@ -1,0 +1,86 @@
+ref:
+  bc1_map_link: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1_RT_replace.txt
+  bc1_map: ref/r1_RT_replace.txt
+  barcodes_link: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1r2r3.txt
+  barcodes: ref/r1r2r3.txt
+  
+  bc1_map_link_wt: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1_RT_replace_wt.txt
+  bc1_map_wt: ref/r1_RT_replace_wt.txt
+  barcodes_link_wt: http://crick.bio.uci.edu/erebboah/parse_barcodes/r1r2r3_wt.txt
+  barcodes_wt: ref/r1r2r3_wt.txt
+
+  annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz
+  annot: ref/gencode.vM32.gtf.gz
+  fa_link: https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
+  fa: ref/mm39.fa.gz
+
+  genome:
+    link:
+      WSBJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233295.1/download?include_annotation_type=GENOME_FASTA&filename=
+      PWKJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233695.1/download?include_annotation_type=GENOME_FASTA&filename=
+      NZOJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029233705.1/download?include_annotation_type=GENOME_FASTA&filename=
+      NODJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029234005.1/download?include_annotation_type=GENOME_FASTA&filename=
+      CASTJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029237265.1/download?include_annotation_type=GENOME_FASTA&filename=
+      AJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255665.1/download?include_annotation_type=GENOME_FASTA&filename=
+      129S1J: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255695.1/download?include_annotation_type=GENOME_FASTA&filename=
+      B6J: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
+    zip: ./{genotype}.zip
+    dir: ./{genotype}
+    fa: ref/genomes/{genotype}.fa.gz
+
+
+  kallisto:
+    t2g: ref/kallisto/c57bl6j.t2g
+    ind: ref/kallisto/c57bl6j.idx
+    fa: ref/kallisto/c57bl6j.cdna.fasta
+    na: ref/kallisto/c57bl6j.nascent.fasta
+    c1: ref/kallisto/c57bl6j.c1
+    c2: ref/kallisto/c57bl6j.c2
+
+  klue:
+    fa: ref/klue/{mult_genotype_1}_{mult_genotype_2}.fa
+    t2g: ref/klue/{mult_genotype_1}_{mult_genotype_2}.t2g
+    ind: ref/klue/{mult_genotype_1}_{mult_genotype_2}.idx
+    temp: ref/klue/{mult_genotype_1}_{mult_genotype_2}
+
+raw:
+  fastq_r1: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz
+  fastq_r2: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
+
+
+kallisto:
+  cgb: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
+  mtx: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.total.mtx
+  bus: kallisto/{plate}/{subpool}/output.bus
+  bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
+  bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
+
+  filt_adata: kallisto/{plate}/{subpool}/pipeline_adatas/filtered_adata.h5ad
+  unfilt_adata: kallisto/{plate}/{subpool}/pipeline_adatas/unfiltered_adata.h5ad
+  genotype_adata: kallisto/{plate}/{subpool}/pipeline_adatas/filtered_adata_with_klue.h5ad
+
+klue:
+  cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  mtx: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.mtx
+  adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
+  bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
+  bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
+  bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
+
+  filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/pipeline_adatas/filtered_adata.h5ad
+
+  # version with all genotypes
+  genotype_counts: klue/{plate}/{subpool}/genotype_counts.tsv
+
+scrublet:
+  # TODO sample will be combo of {tissue}_{genotype}_{sex}_{age}_{mouse_id}
+  adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
+  scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
+
+tissue:
+  adata: ./{plate}/{tissue}/adata.h5ad

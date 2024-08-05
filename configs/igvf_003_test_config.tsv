@@ -1,0 +1,3 @@
+fastq	fastq_r2	subpool	plate	lane	run
+/dfs5/bio/erebboah/parse_pipeline/fastq/003_67A_R1_small.fastq.gz	/dfs5/bio/erebboah/parse_pipeline/fastq/003_67A_R2_small.fastq.gz	67A	igvf_003	L001	1
+/dfs5/bio/erebboah/parse_pipeline/fastq/003_67B_R1_small.fastq.gz	/dfs5/bio/erebboah/parse_pipeline/fastq/003_67B_R2_small.fastq.gz	67B	igvf_003	L001	1
