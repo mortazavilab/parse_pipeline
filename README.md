@@ -96,11 +96,11 @@ Skip steps 1-4 if you were following the setup instructions and are already in a
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first). Make sure to change `Snakefile.smk` to the one you are actually using! For example, `Snakefile_igvf015.smk`
    
 ```bash
-snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 2 -n
+snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 1 -n
  ```
 7. Actually run pipeline
 ```bash
-snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 2 
+snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 1
  ```
 
 ### Basic troubleshooting
