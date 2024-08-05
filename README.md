@@ -44,9 +44,9 @@ Read name is not used directly in the pipeline, can be formatted however. Just n
 Note: Written for and tested on the Mortazavi lab's Watson server. Follow these steps if you are using this workflow for the first time.
 
 ### Clone this repository
-Choose a location on HPC with plenty of space to clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
+Clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
 ```bash
-git clone https://github.com/fairliereese/parse_pipeline.git
+git clone https://github.com/mortazavilab/parse_pipeline.git
 ```
 ### Set up a screen session on Watson
 Start screen session via `screen -S mysession`, or whatever you want to name it. When you need to reconnect, type `screen -r mysession` ([screen cheatsheet](https://kapeli.com/cheat_sheets/screen.docset/Contents/Resources/Documents/index)). This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
