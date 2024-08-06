@@ -268,6 +268,8 @@ rule cellbender:
         threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5']
+    conda:
+        "cellbender"
     shell:
         """
         cellbender remove-background \
@@ -286,6 +288,8 @@ rule make_filt_adata:
         filt_h5 = config['cellbender']['filt_h5']
     output:
         filt_adata = config['cellbender']['filt_adata']
+    conda:
+        "cellbender"
     run:
         add_meta_filter(input.filt_h5,
                         wildcards,
