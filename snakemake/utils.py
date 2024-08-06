@@ -249,8 +249,7 @@ def make_adata_from_kallisto(mtx,
                     ofile):
 
     """
-    Add gene names to the kallisto output.
-    Very initial filtering on min_counts.
+    Make adata from unfiltered kallisot output using total mtx
     """
 
     data = sc.read_mtx(mtx)
@@ -349,11 +348,7 @@ def add_meta_filter(filt_h5,
     # make sure these are unique + set as index
     assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
     adata.obs.set_index('cellID', inplace=True)
-
-    # filter by UMI
-    adata.obs['n_counts'] = adata.X.sum(axis=1).A1
-    adata = adata[adata.obs.n_counts >= min_counts,:]
-    
+   
     # filter out sample swaps with wrong multiplexed genotype
     adata = adata[~adata.obs['Genotype'].isin(['WSBJ/CASTJ', 'AJ/129S1J', 'PWKJ/CASTJ'])].copy()
         
@@ -425,12 +420,10 @@ def add_meta_filter_klue(mtx,
                     kit,
                     chemistry,
                     sample_df,
-                    min_counts,
                     ofile):
 
     """
     Add gene names to the klue output.
-    Very initial filtering on min_counts.
     """
 
     data = sc.read_mtx(mtx)
@@ -517,7 +510,6 @@ def make_subpool_sample_adata(infile, wc, ofile):
 
 def run_scrublet(infile,
                  n_pcs,
-                 min_counts,
                  min_cells,
                  min_gene_variability_pctl,
                  ofile):
@@ -530,8 +522,7 @@ def run_scrublet(infile,
     # number of cells has to be more than number of PCs
     elif adata.X.shape[0] >= n_pcs*10:
         scrub = scr.Scrublet(adata.X)
-        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_counts=min_counts,
-                                                                  min_cells=min_cells,
+        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
                                                                   min_gene_variability_pctl=min_gene_variability_pctl,
                                                                   n_prin_comps=n_pcs)
         adata.obs['doublet_scores'] = doublet_scores

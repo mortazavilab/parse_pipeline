@@ -6,7 +6,7 @@ sys.path.append(p)
 from utils import *
 
 ######## Only need to edit this part ########
-config_tsv = 'configs/igvf_003_test_config.tsv'
+config_tsv = 'configs/igvf_003_config.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 
 kit = 'WT_mega'  # either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
