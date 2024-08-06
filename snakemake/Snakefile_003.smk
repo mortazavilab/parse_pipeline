@@ -261,8 +261,11 @@ rule cellbender:
     input:
         unfilt_adata = config['kallisto']['unfilt_adata']
     params:
-        total_drops = 1000,
+        total_drops = 200000,
         learning_rate = 0.0001,
+    resources:
+        mem_gb = 250,
+        threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5']
     shell:

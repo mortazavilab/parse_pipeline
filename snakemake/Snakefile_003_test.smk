@@ -263,6 +263,9 @@ rule cellbender:
     params:
         total_drops = 1000,
         learning_rate = 0.0001,
+    resources:
+        mem_gb = 250,
+        threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5']
     shell:

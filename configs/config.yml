@@ -82,4 +82,4 @@ cellbender:
   
  
 tissue:
-  adata: ./{plate}/{tissue}/adata.h5ad
+  adata: {plate}/{tissue}/adata.h5ad
