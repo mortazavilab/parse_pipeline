@@ -411,7 +411,7 @@ def rename_klue_genotype_cols(adata):
     return adata
 
     
-def add_meta_filter_klue(mtx,
+def add_meta_klue(mtx,
                     cgb,
                     cggn,
                     cgg,
