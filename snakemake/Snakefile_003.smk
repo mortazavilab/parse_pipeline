@@ -318,7 +318,6 @@ rule make_filt_adata_klue:
                         kit,
                         chemistry,
                         sample_df,
-                        params.min_counts,
                         output.adata)
         
 def get_subpool_adatas(df, sample_df, wc, cfg_entry):
