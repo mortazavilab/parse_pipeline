@@ -300,7 +300,7 @@ rule make_filt_adata:
 ################################################################################
 
 # add metadata and perform basic filtering
-rule make_filt_adata_klue:
+rule make_adata_klue:
     resources:
         mem_gb = 128,
         threads = 4
@@ -310,9 +310,9 @@ rule make_filt_adata_klue:
         cggn = config['klue']['cggn'],
         cgg = config['klue']['cgg']
     output:
-        adata = config['klue']['filt_adata']
+        adata = config['klue']['unfilt_adata']
     run:
-        add_meta_filter_klue(input.mtx,
+        add_meta_klue(input.mtx,
                         input.cgb,
                         input.cggn,
                         input.cgg,
@@ -352,7 +352,7 @@ def get_subpool_adatas(df, sample_df, wc, cfg_entry):
 # get counts for each cell across all genotypes
 rule klue_get_genotype_counts:
     input:
-        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['filt_adata'])
+        adatas = lambda wc:get_subpool_adatas(df, sample_df, wc, config['klue']['unfilt_adata'])
     resources:
         mem_gb = 128,
         threads = 2
