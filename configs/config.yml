@@ -65,8 +65,8 @@ klue:
   bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
-
-  filt_adata: pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered_adata.h5ad
+  
+  unfilt_adata: pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/unfiltered_adata.h5ad
 
   # version with all genotypes
   genotype_counts: pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
@@ -82,4 +82,4 @@ cellbender:
   
  
 tissue:
-  adata: {plate}/{tissue}/adata.h5ad
+  adata: ./{plate}/{tissue}/adata.h5ad
