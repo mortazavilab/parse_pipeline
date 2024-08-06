@@ -254,25 +254,44 @@ rule make_unfilt_adata:
                         input.cgg,
                         wildcards,
                         output.unfilt_adata)
+                        
+                        
+################################################################################
+################################### cellbender ###################################
+################################################################################
+rule cellbender:
+    input:
+        unfilt_adata = config['kallisto']['unfilt_adata']
+    params:
+        total_drops = 1000,
+        learning_rate = 0.0001,
+    output:
+        filt_h5 = config['cellbender']['filt_h5']
+    shell:
+        """
+        cellbender remove-background \
+            --input {input.unfilt_adata} \
+            --output {output.filt_h5} \
+            --total-droplets-included {params.total_drops} \
+            --learning-rate {params.learning_rate} \
+            --cuda
+        """
 
 rule make_filt_adata:
     resources:
         mem_gb = 128,
         threads = 4
     input:
-        unfilt_adata = config['kallisto']['unfilt_adata']
-    params:
-        min_counts = first_min_counts,
+        filt_h5 = config['cellbender']['filt_h5']
     output:
-        filt_adata = config['kallisto']['filt_adata']
+        filt_adata = config['cellbender']['filt_adata']
     run:
-        add_meta_filter(input.unfilt_adata,
+        add_meta_filter(input.filt_h5,
                         wildcards,
                         bc_df,
                         kit,
                         chemistry,
                         sample_df,
-                        params.min_counts,
                         output.filt_adata)
 
 ################################################################################
@@ -349,12 +368,12 @@ rule klue_get_genotype_counts:
 rule klue_merge_genotype:
     input:
         genotype_counts = config['klue']['genotype_counts'],
-        adata = config['kallisto']['filt_adata']
+        adata = config['cellbender']['filt_adata']
     resources:
         mem_gb = 128,
         threads = 2
     output:
-        adata = config['kallisto']['genotype_adata']
+        adata = config['cellbender']['genotype_adata']
     run:
         merge_kallisto_klue(input.adata,
                             input.genotype_counts,
@@ -365,7 +384,7 @@ rule klue_merge_genotype:
 ####################
 rule make_subpool_sample_adata:
     input:
-        adata = config['kallisto']['genotype_adata']
+        adata = config['cellbender']['genotype_adata']
     resources:
         mem_gb = 32,
         threads = 2

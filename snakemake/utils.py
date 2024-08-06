@@ -6,6 +6,7 @@ import scanpy as sc
 import scrublet as scr
 import shutil
 import os
+from cellbender.remove_background.downstream import anndata_from_h5
 
 ############################################################################################################
 ############################################### Barcode stuff ##############################################
@@ -237,70 +238,8 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
         return fastq_str
     
 ############################################################################################################
-################################## Klue, kallisto, scrublet, scanpy stuff ##################################
+################################## Format kallisto output ##################################
 ############################################################################################################
-    
-
-def get_bc1(text):
-    return text[-8:]
-
-def get_bc2(text):
-    return text[8:16]
-
-def get_bc3(text):
-    return text[:8]
-
-def is_dummy(fname):
-    """
-    Check if a file is a dummy file (ie whether is empty)
-    Returns True if it's a dummy, False if not
-    """
-    return os.stat(fname).st_size == 0
-
-def touch_dummy(ofile):
-    """
-    Touch a dummy output file
-    """
-    open(ofile, 'a').close()
-
-def get_genotype_counts(files, ofile):
-    """
-    Given a list of klue anndata objects, merge
-    the genotype counts together for each cell and output
-    as a tsv.
-    """
-    # If we have no genetic demultiplexing
-    if not files:
-        touch_dummy(ofile)
-    # Otherwise, merge and output merged summary
-    else:
-        for i, f in enumerate(files):
-            # Exclude specific genotype combinations
-            if all(exclude not in f for exclude in ["WSBJ_CASTJ", "AJ_129S1J", "PWKJ_CASTJ"]):
-                adata = sc.read_h5ad(f)
-                if i == 0:
-                    df = adata.to_df()
-                else:
-                    df = df.merge(adata.to_df(),
-                                  how='outer',
-                                  left_index=True,
-                                  right_index=True)
-        df.fillna(0, inplace=True)
-        df.to_csv(ofile, index=True, sep='\t')
-
-
-def rename_klue_genotype_cols(adata):
-    """
-    """
-    #d = get_genotype_path_dict()
-    #adata.var['genotype'] = adata.var.index.map(d)
-    
-    adata.var['genotype'] = adata.var['gene_name'].str.split('/').str[-1].str.split('.').str[0]
-    adata.var.set_index('genotype', inplace=True)
-    adata.var.drop(adata.var.columns, axis=1, inplace=True)
-    return adata
-
-
 
 def make_adata_from_kallisto(mtx,
                     cgb,
@@ -329,22 +268,40 @@ def make_adata_from_kallisto(mtx,
     
     adata.write(ofile)
     
+############################################################################################################
+################################## Cellbender ##################################
+############################################################################################################
 
-def add_meta_filter(unfilt_adata,
+def get_bc1(text):
+    return text[-8:]
+
+def get_bc2(text):
+    return text[8:16]
+
+def get_bc3(text):
+    return text[:8]
+
+def add_meta_filter(filt_h5,
                     wc,
                     bc_df,
                     kit,
                     chemistry,
                     sample_df,
-                    min_counts,
                     ofile):
 
     """
-    Add gene names to the kallisto output.
-    Very initial filtering on min_counts.
+    Format cellbender output adata.
     """
 
-    adata = sc.read_h5ad(unfilt_adata)
+    adata = anndata_from_h5(filt_h5)
+    print(adata.var.head())
+    print(adata.obs.head())
+    
+    adata.var.drop(columns=['feature_type', 'genome'], inplace=True)
+
+    # Append subpool identifier to .var columns
+    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.subpool}',
+                              'cellbender_analyzed': f'cellbender_analyzed_{wc.subpool}'}, inplace=True)
     
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
     adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
@@ -402,6 +359,62 @@ def add_meta_filter(unfilt_adata,
         
     adata.write(ofile)
     
+
+############################################################################################################
+################################## Post-cellbender Klue, scrublet, scanpy stuff ##################################
+############################################################################################################
+
+
+def is_dummy(fname):
+    """
+    Check if a file is a dummy file (ie whether is empty)
+    Returns True if it's a dummy, False if not
+    """
+    return os.stat(fname).st_size == 0
+
+def touch_dummy(ofile):
+    """
+    Touch a dummy output file
+    """
+    open(ofile, 'a').close()
+
+def get_genotype_counts(files, ofile):
+    """
+    Given a list of klue anndata objects, merge
+    the genotype counts together for each cell and output
+    as a tsv.
+    """
+    # If we have no genetic demultiplexing
+    if not files:
+        touch_dummy(ofile)
+    # Otherwise, merge and output merged summary
+    else:
+        for i, f in enumerate(files):
+            # Exclude specific genotype combinations
+            if all(exclude not in f for exclude in ["WSBJ_CASTJ", "AJ_129S1J", "PWKJ_CASTJ"]):
+                adata = sc.read_h5ad(f)
+                if i == 0:
+                    df = adata.to_df()
+                else:
+                    df = df.merge(adata.to_df(),
+                                  how='outer',
+                                  left_index=True,
+                                  right_index=True)
+        df.fillna(0, inplace=True)
+        df.to_csv(ofile, index=True, sep='\t')
+
+
+def rename_klue_genotype_cols(adata):
+    """
+    """
+    #d = get_genotype_path_dict()
+    #adata.var['genotype'] = adata.var.index.map(d)
+    
+    adata.var['genotype'] = adata.var['gene_name'].str.split('/').str[-1].str.split('.').str[0]
+    adata.var.set_index('genotype', inplace=True)
+    adata.var.drop(adata.var.columns, axis=1, inplace=True)
+    return adata
+
     
 def add_meta_filter_klue(mtx,
                     cgb,
@@ -500,6 +513,7 @@ def make_subpool_sample_adata(infile, wc, ofile):
     adata = adata[inds, :].copy()
 
     adata.write(ofile)
+    
 
 def run_scrublet(infile,
                  n_pcs,
