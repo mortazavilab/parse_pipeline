@@ -290,7 +290,6 @@ rule make_filt_adata:
     output:
         filt_adata = config['cellbender']['filt_adata']
     run:
-        shell("conda activate cellbender")
         add_meta_filter(input.filt_h5,
                         wildcards,
                         bc_df,

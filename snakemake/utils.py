@@ -299,9 +299,10 @@ def add_meta_filter(filt_h5,
     adata.var.drop(columns=['feature_type', 'genome'], inplace=True)
 
     # Append subpool identifier to .var columns
-    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.subpool}',
-                              'cellbender_analyzed': f'cellbender_analyzed_{wc.subpool}'}, inplace=True)
+    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{"13A"}',
+                              'cellbender_analyzed': f'cellbender_analyzed_{"13A"}'}, inplace=True)
     
+    adata.obs['bc'] = adata.obs.index
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
     adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
     adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
