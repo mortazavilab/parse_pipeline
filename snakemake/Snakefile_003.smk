@@ -401,7 +401,6 @@ rule scrublet:
         adata = config['scrublet']['adata']
     params:
         n_pcs = 30,
-        min_counts = 1,
         min_cells = 1,
         min_gene_variability_pctl = 85
     resources:
@@ -412,7 +411,6 @@ rule scrublet:
     run:
         run_scrublet(input.adata,
                      params.n_pcs,
-                     params.min_counts,
                      params.min_cells,
                      params.min_gene_variability_pctl,
                      output.adata)
