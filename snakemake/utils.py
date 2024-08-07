@@ -517,11 +517,11 @@ def run_scrublet(infile,
     adata = sc.read_h5ad(infile)
 
     # if number of cells is very low, don't call doublets, fill in
-    if adata.X.shape[0] < n_pcs*10:
+    if adata.X.shape[0] < n_pcs*100:
         adata.obs['doublet_scores'] = 0
 
     # number of cells has to be more than number of PCs
-    elif adata.X.shape[0] >= n_pcs*10:
+    elif adata.X.shape[0] >= n_pcs*100:
         scrub = scr.Scrublet(adata.X)
         doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
                                                                   min_gene_variability_pctl=min_gene_variability_pctl,
