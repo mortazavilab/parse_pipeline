@@ -279,6 +279,7 @@ rule cellbender:
             --learning-rate {params.learning_rate} \
             --cuda
         """
+        
 
 rule make_filt_adata:
     resources:
@@ -288,9 +289,8 @@ rule make_filt_adata:
         filt_h5 = config['cellbender']['filt_h5']
     output:
         filt_adata = config['cellbender']['filt_adata']
-    conda:
-        "cellbender"
     run:
+        shell("conda activate cellbender")
         add_meta_filter(input.filt_h5,
                         wildcards,
                         bc_df,
