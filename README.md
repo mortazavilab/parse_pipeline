@@ -3,7 +3,10 @@
 - Saving unfiltered adata with NO modifications after kallisto run, using hopefully clearer file names. This will be in the input into cellbender.
 - Since cellbender will do some filtering automatically, we can just merge in the klue results for those filtered cells. Also merge in the metadata
 - Combined all the little python scripts into one big utils.py file.
-- Transferring full fastq to test integration of cellbender 
+- Transferring full fastq to test integration of cellbender
+
+## 8/8/24
+- Running igvf003 nova FULL on Watson starting at 10am. I expect to be very very slow -- confused why it's trying to regenerate the files that I created on HPC :( May need to actually split in 2 parts
 
 ## Background: Combinatorial barcoding for snRNA-seq
 Combinatorial or split-pool barcoding appends a unique **set** of barcodes to single cells or nuclei during multiple "rounds". These reactions are confined to each individual fixed and permeabilized cell, bypassing the need for physical barriers between cells such as microwells or nanodroplets.
