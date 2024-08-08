@@ -53,9 +53,11 @@ rule all:
                 zip,
                 plate=df.plate.tolist(),
                 subpool=df.subpool.tolist()),
-                expand(config['tissue']['adata'],
+        expand(config['kallisto']['unfilt_adata'],
+                zip,
                 plate=df.plate.tolist(),
-                tissue=get_subset_tissues(df, sample_df))
+                subpool=df.subpool.tolist()),
+        
 
 
 ################################################################################
@@ -252,51 +254,7 @@ rule make_unfilt_adata:
                         input.cgg,
                         wildcards,
                         output.unfilt_adata)
-                        
-                        
-################################################################################
-################################### cellbender ###################################
-################################################################################
-rule cellbender:
-    input:
-        unfilt_adata = config['kallisto']['unfilt_adata']
-    params:
-        total_drops = 200000,
-        learning_rate = 0.0001,
-    resources:
-        mem_gb = 250,
-        threads = 12
-    output:
-        filt_h5 = config['cellbender']['filt_h5']
-    conda:
-        "cellbender"
-    shell:
-        """
-        cellbender remove-background \
-            --input {input.unfilt_adata} \
-            --output {output.filt_h5} \
-            --total-droplets-included {params.total_drops} \
-            --learning-rate {params.learning_rate} \
-            --cuda
-        """
-        
-
-rule make_filt_adata:
-    resources:
-        mem_gb = 128,
-        threads = 4
-    input:
-        filt_h5 = config['cellbender']['filt_h5']
-    output:
-        filt_adata = config['cellbender']['filt_adata']
-    run:
-        add_meta_filter(input.filt_h5,
-                        wildcards,
-                        bc_df,
-                        kit,
-                        chemistry,
-                        sample_df,
-                        output.filt_adata)
+                       
 
 ################################################################################
 ##################################### klue #####################################
@@ -364,96 +322,3 @@ rule klue_get_genotype_counts:
     run:
         get_genotype_counts(input.adatas, output.ofile)
 
-# merge in w/ our filtered kallisto adata, which is at the same (subpool+plate)
-# resolution, and pick which genotype each nucleus should be
-rule klue_merge_genotype:
-    input:
-        genotype_counts = config['klue']['genotype_counts'],
-        adata = config['cellbender']['filt_adata']
-    resources:
-        mem_gb = 128,
-        threads = 2
-    output:
-        adata = config['cellbender']['genotype_adata']
-    run:
-        merge_kallisto_klue(input.adata,
-                            input.genotype_counts,
-                            output.adata)
-
-####################
-###### Scrublet ####
-####################
-rule make_subpool_sample_adata:
-    input:
-        adata = config['cellbender']['genotype_adata']
-    resources:
-        mem_gb = 32,
-        threads = 2
-    output:
-        adata = config['scrublet']['adata']
-    run:
-        make_subpool_sample_adata(input.adata,
-                                  wildcards,
-                                  output.adata)
-
-rule scrublet:
-    input:
-        adata = config['scrublet']['adata']
-    params:
-        n_pcs = 30,
-        min_cells = 1,
-        min_gene_variability_pctl = 85
-    resources:
-        mem_gb = 256,
-        threads = 8
-    output:
-        adata = config['scrublet']['scrub_adata']
-    run:
-        run_scrublet(input.adata,
-                     params.n_pcs,
-                     params.min_cells,
-                     params.min_gene_variability_pctl,
-                     output.adata)
-
-
-####################
-### Combine adatas
-###################
-
-def get_tissue_adatas(df, sample_df, wc, cfg_entry):
-
-    # limit to input tissue
-    temp_sample = sample_df.copy(deep=True)
-    temp_sample = temp_sample.loc[temp_sample.Tissue==wc.tissue]
-
-    # merge this stuff in with the fastq df
-    fastq_df = df.copy(deep=True)
-    temp = fastq_df.merge(temp_sample, on='plate', how='inner')
-
-    # get the plate / subpool / sample info for this tissue
-    plates = temp.plate.tolist()
-    subpools = temp.subpool.tolist()
-    samples = temp.Mouse_Tissue_ID.tolist()
-
-    files = expand(cfg_entry,
-           zip,
-           plate=plates,
-           sample=samples,
-           subpool=subpools)
-    files = list(set(files))
-
-    return files
-
-
-# TODO - make one of the concatenation rules for plate+tissue
-# and make another for just tissue
-rule make_tissue_adata:
-    input:
-        adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['scrublet']['scrub_adata'])
-    resources:
-        mem_gb = 256,
-        threads = 2
-    output:
-        adata = config['tissue']['adata']
-    run:
-        concat_adatas(input.adatas, output.adata)

@@ -31,7 +31,7 @@ ref:
     na: ref/kallisto/c57bl6j.nascent.fasta
     c1: ref/kallisto/c57bl6j.c1
     c2: ref/kallisto/c57bl6j.c2
-
+    
   klue:
     fa: ref/klue/{mult_genotype_1}_{mult_genotype_2}.fa
     t2g: ref/klue/{mult_genotype_1}_{mult_genotype_2}.t2g
@@ -65,21 +65,18 @@ klue:
   bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
-  
   unfilt_adata: pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/unfiltered_adata.h5ad
-
   # version with all genotypes
   genotype_counts: pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
 
 scrublet:
   adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
   scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
-  
+
 cellbender:
   filt_h5: cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
   filt_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
   genotype_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised_with_klue.h5ad
-  
- 
+
 tissue:
-  adata: {plate}/{tissue}/adata.h5ad
+  adata: ./{plate}/{tissue}/adata.h5ad
