@@ -210,9 +210,9 @@ rule kallisto:
         config['kallisto']['cggn'],
         config['kallisto']['cgg'],
         config['kallisto']['mtx'],
-        config['kallisto']['bus'], # temporary()
-        config['kallisto']['bus_modified_unfilt'], # temporary()
-        config['kallisto']['bus_unfilt'] # temporary()
+        temporary(config['kallisto']['bus']),
+        temporary(config['kallisto']['bus_modified_unfilt']),
+        temporary(config['kallisto']['bus_unfilt']) 
     shell:
         """
         kb count \
