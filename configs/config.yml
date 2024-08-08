@@ -44,42 +44,42 @@ raw:
 
 
 kallisto:
-  cgb: /nanopore/kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
-  cggn: /nanopore/kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
-  cgg: /nanopore/kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
-  adata: /nanopore/kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
-  mtx: /nanopore/kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.total.mtx
-  bus: /nanopore/kallisto/{plate}/{subpool}/output.bus
-  bus_modified_unfilt: /nanopore/kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
-  bus_unfilt: /nanopore/kallisto/{plate}/{subpool}/output.unfiltered.bus
+  cgb: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  adata: kallisto/{plate}/{subpool}/counts_unfiltered_modified/adata.h5ad
+  mtx: kallisto/{plate}/{subpool}/counts_unfiltered_modified/cells_x_genes.total.mtx
+  bus: kallisto/{plate}/{subpool}/output.bus
+  bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
+  bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
 
-  filt_adata: /nanopore/pipeline_output_kallisto/{plate}/{subpool}/filtered_adata.h5ad
-  unfilt_adata: /nanopore/pipeline_output_kallisto/{plate}/{subpool}/unfiltered_adata.h5ad
+  filt_adata: pipeline_output_kallisto/{plate}/{subpool}/filtered_adata.h5ad
+  unfilt_adata: pipeline_output_kallisto/{plate}/{subpool}/unfiltered_adata.h5ad
 
 klue:
-  cgb: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
-  cggn: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
-  cgg: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
-  mtx: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.mtx
-  adata: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
-  bus: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
-  bus_modified_unfilt: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
-  bus_unfilt: /nanopore/klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
+  cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
+  cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
+  cgg: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.txt
+  mtx: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.mtx
+  adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/adata.h5ad
+  bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
+  bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
+  bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
   
-  unfilt_adata: /nanopore/pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/unfiltered_adata.h5ad
+  unfilt_adata: pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/unfiltered_adata.h5ad
 
   # version with all genotypes
-  genotype_counts: /nanopore/pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
+  genotype_counts: pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
 
 scrublet:
-  adata: /nanopore/scrublet/{plate}/{sample}/{subpool}/adata.h5ad
-  scrub_adata: /nanopore/scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
+  adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
+  scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
   
 cellbender:
-  filt_h5: /nanopore/cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
-  filt_adata: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
-  genotype_adata: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised_with_klue.h5ad
+  filt_h5: cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
+  filt_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
+  genotype_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised_with_klue.h5ad
   
  
 tissue:
-  adata: /nanopore/{plate}/{tissue}/adata.h5ad
+  adata: {plate}/{tissue}/adata.h5ad
