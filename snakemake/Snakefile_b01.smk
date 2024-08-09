@@ -198,8 +198,8 @@ rule kallisto:
         ind = config['ref']['kallisto']['ind']
     params:
         # TODO bc1 map, barcodes, c1, c2 should be output from sth, seqspec
-        bc1_map = config['ref']['bc1_map'],
-        barcodes = config['ref']['barcodes'],
+        bc1_map = config['ref']['bc1_map_wt'], # 100k kit!!!!!!
+        barcodes = config['ref']['barcodes_wt'], # 100k kit!!!!!!
         c1 = config['ref']['kallisto']['c1'],
         c2 = config['ref']['kallisto']['c2'],
         fastq_str = lambda wc:get_subpool_fastqs(wc, df, config, how='str'),
