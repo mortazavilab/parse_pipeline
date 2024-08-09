@@ -274,6 +274,10 @@ def add_meta_filter(filt_h5,
    
     # filter out sample swaps with wrong multiplexed genotype
     adata = adata[~adata.obs['Genotype'].isin(['WSBJ/CASTJ', 'AJ/129S1J', 'PWKJ/CASTJ'])].copy()
+    
+    # add raw counts layer
+    adata.layers['raw_counts'] = adata.X.copy()
+    
         
     adata.write(ofile)
     

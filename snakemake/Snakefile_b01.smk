@@ -54,11 +54,13 @@ rule cellbender:
         unfilt_adata = config['kallisto']['unfilt_adata']
     params:
         total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
+        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
     resources:
         mem_gb = 250,
         threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5']
+        ckpt_tar = config['cellbender']['ckpt_tar']
     conda:
         "cellbender"
     shell:
@@ -67,6 +69,8 @@ rule cellbender:
             --input {input.unfilt_adata} \
             --output {output.filt_h5} \
             --total-droplets-included {params.total_drops} \
+            --learning-rate{params.learning_rate} \
+            --checkpoint {output.ckpt_tar} \
             --cuda
         """
 
