@@ -59,7 +59,8 @@ rule cellbender:
         mem_gb = 250,
         threads = 12
     output:
-        filt_h5 = config['cellbender']['filt_h5']
+        filt_h5 = config['cellbender']['filt_h5'],
+        ckpt_tar = config['cellbender']['ckpt_tar']
     conda:
         "cellbender"
     shell:
@@ -68,7 +69,8 @@ rule cellbender:
             --input {input.unfilt_adata} \
             --output {output.filt_h5} \
             --total-droplets-included {params.total_drops} \
-            --learning-rate{params.learning_rate} \
+            --learning-rate {params.learning_rate} \
+            --checkpoint {output.ckpt_tar} \
             --cuda
         """
 
