@@ -76,7 +76,6 @@ rule cellbender:
             --output {output.filt_h5} \
             --total-droplets-included {params.total_drops} \
             --learning-rate {params.learning_rate} \
-            --checkpoint {output.ckpt_tar} \
             --cuda
         """
 
