@@ -293,6 +293,25 @@ def touch_dummy(ofile):
     Touch a dummy output file
     """
     open(ofile, 'a').close()
+    
+def get_founder_genotypes():
+    g = ['WSBJ','NZOJ',
+         'B6J','NODJ','129S1J',
+         'CASTJ','AJ','PWKJ']
+    return g
+
+def get_f1_genotypes():
+    g = ['B6129S1F1J',
+    'B6AF1J','B6PWKF1J',
+    'B6NODF1J', 'B6WSBF1J',
+    'B6CASTF1J', 'B6NZOF1J']
+    return g
+
+def get_genotypes():
+    g = get_founder_genotypes()
+    g += get_f1_genotypes()
+
+    return g
 
 def get_genotype_counts(files, ofile):
     """
