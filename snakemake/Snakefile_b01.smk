@@ -60,19 +60,21 @@ rule cellbender:
         threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5'],
-        ckpt_tar = config['cellbender']['ckpt_tar']
     conda:
         "cellbender"
-    shell:
-        """
-        cellbender remove-background \
-            --input {input.unfilt_adata} \
-            --output {output.filt_h5} \
-            --total-droplets-included {params.total_drops} \
-            --learning-rate {params.learning_rate} \
-            --checkpoint {output.ckpt_tar} \
-            --cuda
-        """
+    run:
+        target_dir = os.path.dirname(output.filt_h5)
+        shell(f"mkdir -p {target_dir}")
+        os.chdir(target_dir)
+        
+        shell("""
+            cellbender remove-background \
+                --input {input.unfilt_adata} \
+                --output {output.filt_h5} \
+                --total-droplets-included {params.total_drops} \
+                --learning-rate {params.learning_rate} \
+                --cuda
+        """)
 
 rule make_filt_adata:
     resources:

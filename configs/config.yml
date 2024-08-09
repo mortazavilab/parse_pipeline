@@ -15,7 +15,6 @@ scrublet:
 cellbender:
   filt_h5: /nanopore/cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
   filt_adata: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
-  ckpt_tar: /nanopore/cellbender/{plate}/{subpool}/ckpt.tar.gz
   genotype_adata: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised_with_klue.h5ad
   
 tissue:
