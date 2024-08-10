@@ -202,6 +202,7 @@ def get_bc3(text):
     return text[:8]
 
 def add_meta_filter(filt_h5,
+                    unfilt_adata,
                     wc,
                     bc_df,
                     kit,
@@ -215,14 +216,11 @@ def add_meta_filter(filt_h5,
 
     adata = anndata_from_h5(filt_h5)
     
-    print(adata.var.head())
-    print(adata.obs.head())
-    
     adata.var.drop(columns=['feature_type', 'genome'], inplace=True)
 
     # Append subpool identifier to .var columns
-    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.subpool}',
-                              'cellbender_analyzed': f'cellbender_analyzed_{wc.subpool}'}, inplace=True)
+    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
+                              'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
     
     adata.obs['bc'] = adata.obs.index
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
@@ -252,8 +250,11 @@ def add_meta_filter(filt_h5,
     temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
     adata.var.set_index('gene_id', inplace=True)
-    print(adata.var)
-    print(adata.obs)
+    
+    # get gene names back....
+    adata_kallisto = sc.read_h5ad(unfilt_adata)
+    adata_kallisto.var_names = adata_kallisto.var['gene_id']
+    adata.var = adata_kallisto.var
 
     # make all object columns string columns
     for c in adata.obs.columns:
@@ -279,7 +280,7 @@ def add_meta_filter(filt_h5,
     adata.layers['raw_counts'] = adata.X.copy()
     
         
-    adata.write(ofile)
+    adata.write_h5ad(ofile)
     
 
 ############################################################################################################
@@ -294,7 +295,7 @@ def make_subpool_sample_adata(infile, wc, ofile):
 
     adata = adata[inds, :].copy()
 
-    adata.write(ofile)
+    adata.write_h5ad(ofile)
     
 def run_scrublet(infile,
                  n_pcs,
@@ -304,18 +305,18 @@ def run_scrublet(infile,
     adata = sc.read_h5ad(infile)
 
     # if number of cells is very low, don't call doublets, fill in
-    if adata.X.shape[0] < n_pcs*100:
+    if adata.X.shape[0] < n_pcs*10:
         adata.obs['doublet_scores'] = 0
 
     # number of cells has to be more than number of PCs
-    elif adata.X.shape[0] >= n_pcs*100:
+    elif adata.X.shape[0] >= n_pcs*10:
         scrub = scr.Scrublet(adata.X)
         doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
                                                                   min_gene_variability_pctl=min_gene_variability_pctl,
                                                                   n_prin_comps=n_pcs)
         adata.obs['doublet_scores'] = doublet_scores
 
-    adata.write(ofile)
+    adata.write_h5ad(ofile)
     
 ############################################################################################################
 ################################## Merge klue results, merge final adata ###################################
@@ -334,25 +335,6 @@ def is_dummy(fname):
     Returns True if it's a dummy, False if not
     """
     return os.stat(fname).st_size == 0
-
-def concat_adatas(adatas, ofile):
-    for i, f in enumerate(adatas):
-        if i == 0:
-            adata = sc.read_h5ad(f)
-
-        else:
-            temp = sc.read_h5ad(f)
-
-            temp.obs.reset_index(inplace=True)
-            temp.obs.set_index('cellID', inplace=True)
-            adata = adata.concatenate(temp,
-                        join='outer',
-                        batch_key=None,
-                        index_unique=None)
-            adata.obs.reset_index(inplace=True)
-            adata.obs.set_index('cellID', inplace=True)
-
-    adata.write(ofile)
 
 # TODO maybe splitting these up will make things easier in the future
 def get_founder_genotypes():
@@ -484,4 +466,24 @@ def merge_kallisto_klue(f, genotypes, ofile):
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
 
-        adata.write(ofile)
+        adata.write_h5ad(ofile)
+        
+        
+def concat_adatas(adatas, ofile):
+    for i, f in enumerate(adatas):
+        if i == 0:
+            adata = sc.read_h5ad(f)
+
+        else:
+            temp = sc.read_h5ad(f)
+
+            temp.obs.reset_index(inplace=True)
+            temp.obs.set_index('cellID', inplace=True)
+            adata = adata.concatenate(temp,
+                        join='outer',
+                        batch_key=None,
+                        index_unique=None)
+            adata.obs.reset_index(inplace=True)
+            adata.obs.set_index('cellID', inplace=True)
+
+    adata.write_h5ad(ofile)

@@ -64,13 +64,11 @@ rule cellbender:
         "cellbender"
     shell:
         """
-        # Create target directory if it doesn't exist
         mkdir -p $(dirname {output.filt_h5})
-
-        # Change to the target directory
         cd $(dirname {output.filt_h5})
 
-        # Run CellBender
+        # Run cb in target directory
+        # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
         cellbender remove-background \
             --input {input.unfilt_adata} \
             --output {output.filt_h5} \
@@ -85,10 +83,12 @@ rule make_filt_adata:
         threads = 4
     input:
         filt_h5 = config['cellbender']['filt_h5'],
+        unfilt_adata = config['kallisto']['unfilt_adata'],
     output:
         filt_adata = config['cellbender']['filt_adata']
     run:
         add_meta_filter(input.filt_h5,
+                        input.unfilt_adata,
                         wildcards,
                         bc_df,
                         kit,
