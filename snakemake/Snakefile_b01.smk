@@ -190,4 +190,4 @@ rule make_tissue_adata:
     output:
         adata = config['tissue']['adata']
     run:
-        concat_adatas(input.adatas, wildcards, output.adata)
+        concat_adatas(input.adatas, output.adata)
