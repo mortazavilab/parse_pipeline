@@ -465,7 +465,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
         adata.write_h5ad(ofile)
         
         
-def concat_adatas(adatas, ofile):
+def concat_adatas(adatas, wc, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read_h5ad(f)
