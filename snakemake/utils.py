@@ -464,7 +464,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
 
         adata.write_h5ad(ofile)
         
-        
+
 def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
@@ -494,13 +494,16 @@ def concat_adatas(adatas, ofile):
             
             print(temp.var.head())
  
+            # Ensure var columns are consistent
+            temp.var = temp.var.reindex(adata.var.index)
 
             temp.obs.reset_index(inplace=True)
             temp.obs.set_index('cellID', inplace=True)
+
             adata = anndata.concat([adata, temp],
                                    join='outer',
                                    index_unique=None)
             adata.obs.reset_index(inplace=True)
             adata.obs.set_index('cellID', inplace=True)
 
-    adata.write_h5ad(ofile)
+    adata.write(ofile)
