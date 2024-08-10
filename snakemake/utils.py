@@ -484,6 +484,10 @@ def concat_adatas(adatas, ofile):
 
         else:
             temp = sc.read_h5ad(f)
+            print(adata.obs['plate'].unique())
+            print(adata.obs['Mouse_Tissue_ID'].unique())
+            print(adata.obs['subpool'].unique())
+            
             temp.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
                                       'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
  
