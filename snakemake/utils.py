@@ -501,5 +501,7 @@ def concat_adatas(adatas, ofile):
                                    index_unique=None)
             adata.obs.reset_index(inplace=True)
             adata.obs.set_index('cellID', inplace=True)
+            
+            print(adata.var.head())
 
     adata.write(ofile)
