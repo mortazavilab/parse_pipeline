@@ -215,8 +215,6 @@ def add_meta_filter(filt_h5,
     """
 
     adata = anndata_from_h5(filt_h5)
-    
-    adata.var.drop(columns=['feature_type', 'genome'], inplace=True)
    
     adata.obs['bc'] = adata.obs.index
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
@@ -471,14 +469,16 @@ def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         temp = sc.read_h5ad(f)
         
-        plate = temp.obs['plate'][0]
-        sample = temp.obs['Mouse_Tissue_ID'][0]
-        subpool = temp.obs['subpool'][0]
+        temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
         
-        temp.var.rename(columns={
-            'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
-            'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'
-        }, inplace=True)
+#         plate = temp.obs['plate'][0]
+#         sample = temp.obs['Mouse_Tissue_ID'][0]
+#         subpool = temp.obs['subpool'][0]
+        
+#         temp.var.rename(columns={
+#             'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
+#             'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'
+#         }, inplace=True)
         
         var_dfs.append(temp.var)
         
