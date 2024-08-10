@@ -32,7 +32,8 @@ wildcard_constraints:
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
     genotype='|'.join([re.escape(x) for x in sample_df.Genotype.unique().tolist()]),
     mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
-    mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
+    mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s]),
+    total_drops='|'.join([re.escape(str(x)) for x in df.droplets_included.tolist()])
 
 def get_subset_tissues(df, sample_df):
     temp = df.merge(sample_df, on='plate', how='inner')
@@ -52,17 +53,22 @@ rule cellbender:
     input:
         unfilt_adata = config['kallisto']['unfilt_adata']
     params:
-        total_drops = 200000,
-        learning_rate = 0.0001,
+        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
+        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
     resources:
         mem_gb = 250,
         threads = 12
     output:
-        filt_h5 = config['cellbender']['filt_h5']
+        filt_h5 = config['cellbender']['filt_h5'],
     conda:
         "cellbender"
     shell:
         """
+        mkdir -p $(dirname {output.filt_h5})
+        cd $(dirname {output.filt_h5})
+
+        # Run cb in target directory
+        # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
         cellbender remove-background \
             --input {input.unfilt_adata} \
             --output {output.filt_h5} \
@@ -70,18 +76,19 @@ rule cellbender:
             --learning-rate {params.learning_rate} \
             --cuda
         """
-        
 
 rule make_filt_adata:
     resources:
         mem_gb = 128,
         threads = 4
     input:
-        filt_h5 = config['cellbender']['filt_h5']
+        filt_h5 = config['cellbender']['filt_h5'],
+        unfilt_adata = config['kallisto']['unfilt_adata'],
     output:
         filt_adata = config['cellbender']['filt_adata']
     run:
         add_meta_filter(input.filt_h5,
+                        input.unfilt_adata,
                         wildcards,
                         bc_df,
                         kit,
@@ -90,11 +97,9 @@ rule make_filt_adata:
                         output.filt_adata)
 
 ################################################################################
-##################################### Merge klue output #####################################
+############################### Merge klue output ##############################
 ################################################################################
 
-# merge in w/ our filtered kallisto adata, which is at the same (subpool+plate)
-# resolution, and pick which genotype each nucleus should be
 rule klue_merge_genotype:
     input:
         genotype_counts = config['klue']['genotype_counts'],
