@@ -49,33 +49,33 @@ rule all:
 ################################################################################
 ################################### cellbender ###################################
 ################################################################################
-rule cellbender:
-    input:
-        unfilt_adata = config['kallisto']['unfilt_adata']
-    params:
-        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
-        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
-    resources:
-        mem_gb = 250,
-        threads = 12
-    output:
-        filt_h5 = config['cellbender']['filt_h5'],
-    conda:
-        "cellbender"
-    shell:
-        """
-        mkdir -p $(dirname {output.filt_h5})
-        cd $(dirname {output.filt_h5})
-
-        # Run cb in target directory
-        # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
-        cellbender remove-background \
-            --input {input.unfilt_adata} \
-            --output {output.filt_h5} \
-            --total-droplets-included {params.total_drops} \
-            --learning-rate {params.learning_rate} \
-            --cuda
-        """
+#rule cellbender:
+#    input:
+#        unfilt_adata = config['kallisto']['unfilt_adata']
+#    params:
+#        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
+#        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
+#    resources:
+#        mem_gb = 250,
+#        threads = 12
+#    output:
+#        filt_h5 = config['cellbender']['filt_h5'],
+#    conda:
+#        "cellbender"
+#    shell:
+#        """
+#        mkdir -p $(dirname {output.filt_h5})
+#        cd $(dirname {output.filt_h5})
+#
+#        # Run cb in target directory
+#        # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
+#        cellbender remove-background \
+#            --input {input.unfilt_adata} \
+#            --output {output.filt_h5} \
+#            --total-droplets-included {params.total_drops} \
+#            --learning-rate {params.learning_rate} \
+#            --cuda
+#        """
 
 rule make_filt_adata:
     resources:
