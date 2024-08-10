@@ -249,6 +249,7 @@ def add_meta_filter(filt_h5,
     
     # get gene names back....
     adata_kallisto = sc.read_h5ad(unfilt_adata)
+    adata_kallisto.var_names = adata_kallisto.var['gene_id']
     adata.var['gene_name'] = adata_kallisto.var['gene_name']
 
     # make all object columns string columns
