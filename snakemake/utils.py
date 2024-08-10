@@ -469,11 +469,8 @@ def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read_h5ad(f)
-            # Append identifier to .var columns
-            print(adata.obs['plate'].unique())
-            print(adata.obs['Mouse_Tissue_ID'].unique())
-            print(adata.obs['subpool'].unique())
             
+            # Append identifier to .var columns
             plate = adata.obs['plate'][0]
             sample = adata.obs['Mouse_Tissue_ID'][0]
             subpool = adata.obs['subpool'][0]
@@ -484,10 +481,8 @@ def concat_adatas(adatas, ofile):
 
         else:
             temp = sc.read_h5ad(f)
-            print(temp.obs['plate'].unique())
-            print(temp.obs['Mouse_Tissue_ID'].unique())
-            print(temp.obs['subpool'].unique())
             
+            # Append identifier to .var columns
             plate = temp.obs['plate'][0]
             sample = temp.obs['Mouse_Tissue_ID'][0]
             subpool = temp.obs['subpool'][0]
