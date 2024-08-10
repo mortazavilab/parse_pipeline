@@ -477,9 +477,7 @@ def concat_adatas(adatas, ofile):
             
             adata.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
                                       'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
-            
-            print(adata.var.head())
- 
+             
 
         else:
             temp = sc.read_h5ad(f)
@@ -491,9 +489,7 @@ def concat_adatas(adatas, ofile):
             
             temp.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
                                       'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
-            
-            print(temp.var.head())
- 
+             
             # Ensure var columns are consistent
             temp.var = temp.var.reindex(adata.var.index)
 
