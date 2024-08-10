@@ -245,12 +245,11 @@ def add_meta_filter(filt_h5,
     temp = sample_df.copy(deep=True)
     temp = temp.loc[(sample_df.plate==wc.plate)]
     adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
-    adata.var.set_index('gene_id', inplace=True)
+    adata.var_names = adata.var['gene_id']
     
     # get gene names back....
     adata_kallisto = sc.read_h5ad(unfilt_adata)
-    adata_kallisto.var_names = adata_kallisto.var['gene_id']
-    adata.var = adata_kallisto.var
+    adata.var['gene_name'] = adata_kallisto.var['gene_name']
 
     # make all object columns string columns
     for c in adata.obs.columns:
