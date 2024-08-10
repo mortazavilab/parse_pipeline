@@ -494,10 +494,9 @@ def concat_adatas(adatas, ofile):
 
             temp.obs.reset_index(inplace=True)
             temp.obs.set_index('cellID', inplace=True)
-            adata = adata.concatenate(temp,
-                        join='outer',
-                        batch_key=None,
-                        index_unique=None)
+            adata = anndata.concat([adata, temp],
+                                   join='outer',
+                                   index_unique=None)
             adata.obs.reset_index(inplace=True)
             adata.obs.set_index('cellID', inplace=True)
 
