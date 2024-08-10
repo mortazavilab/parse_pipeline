@@ -466,42 +466,39 @@ def merge_kallisto_klue(f, genotypes, ofile):
         
 
 def concat_adatas(adatas, ofile):
+    var_dfs = []
+    
     for i, f in enumerate(adatas):
+        temp = sc.read_h5ad(f)
+        
+        plate = temp.obs['plate'][0]
+        sample = temp.obs['Mouse_Tissue_ID'][0]
+        subpool = temp.obs['subpool'][0]
+        
+        temp.var.rename(columns={
+            'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
+            'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'
+        }, inplace=True)
+        
+        var_dfs.append(temp.var)
+        
         if i == 0:
-            adata = sc.read_h5ad(f)
-            
-            # Append identifier to .var columns
-            plate = adata.obs['plate'][0]
-            sample = adata.obs['Mouse_Tissue_ID'][0]
-            subpool = adata.obs['subpool'][0]
-            
-            adata.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
-                                      'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
-             
-
+            # Initialize the combined adata object
+            adata = temp
         else:
-            temp = sc.read_h5ad(f)
-            
-            # Append identifier to .var columns
-            plate = temp.obs['plate'][0]
-            sample = temp.obs['Mouse_Tissue_ID'][0]
-            subpool = temp.obs['subpool'][0]
-            
-            temp.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
-                                      'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
-             
-            # Ensure var columns are consistent
-            temp.var = temp.var.reindex(adata.var.index)
-
+            # Concatenate obs and X
             temp.obs.reset_index(inplace=True)
             temp.obs.set_index('cellID', inplace=True)
-
             adata = anndata.concat([adata, temp],
                                    join='outer',
                                    index_unique=None)
             adata.obs.reset_index(inplace=True)
             adata.obs.set_index('cellID', inplace=True)
-            
-            print(adata.var.head())
+    
+    # Concatenate all var DataFrames and drop duplicates
+    combined_var = pd.concat(var_dfs, axis=1, join='outer')
+    combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
+    adata.var = combined_var
 
     adata.write(ofile)
+
