@@ -469,15 +469,23 @@ def concat_adatas(adatas, wc, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read_h5ad(f)
-            # Append sample + subpool identifier to .var columns
-            adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
-                                      'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
+            # Append identifier to .var columns
+            print(adata.obs['plate'].unique())
+            print(adata.obs['Mouse_Tissue_ID'].unique())
+            print(adata.obs['subpool'].unique())
+            
+            plate = adata.obs['plate'][0]
+            sample = adata.obs['Mouse_Tissue_ID'][0]
+            subpool = adata.obs['subpool'][0]
+            
+            adata.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
+                                      'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
  
 
         else:
             temp = sc.read_h5ad(f)
-            temp.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
-                                      'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
+            temp.var.rename(columns={'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
+                                      'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'}, inplace=True)
  
 
             temp.obs.reset_index(inplace=True)
