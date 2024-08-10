@@ -500,7 +500,5 @@ def concat_adatas(adatas, ofile):
     combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
     adata.var = combined_var
     
-    print(adata.var.head())
-
     adata.write(ofile)
 
