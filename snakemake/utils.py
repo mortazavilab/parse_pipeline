@@ -217,11 +217,7 @@ def add_meta_filter(filt_h5,
     adata = anndata_from_h5(filt_h5)
     
     adata.var.drop(columns=['feature_type', 'genome'], inplace=True)
-
-    # Append subpool identifier to .var columns
-    adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
-                              'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
-    
+   
     adata.obs['bc'] = adata.obs.index
     adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
     adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
@@ -473,9 +469,16 @@ def concat_adatas(adatas, ofile):
     for i, f in enumerate(adatas):
         if i == 0:
             adata = sc.read_h5ad(f)
+            # Append sample + subpool identifier to .var columns
+            adata.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
+                                      'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
+ 
 
         else:
             temp = sc.read_h5ad(f)
+            temp.var.rename(columns={'ambient_expression': f'ambient_expression_{wc.sample}_{wc.subpool}_{wc.plate}',
+                                      'cellbender_analyzed': f'cellbender_analyzed_{wc.sample}_{wc.subpool}_{wc.plate}'}, inplace=True)
+ 
 
             temp.obs.reset_index(inplace=True)
             temp.obs.set_index('cellID', inplace=True)
