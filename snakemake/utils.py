@@ -460,6 +460,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
+        
         # adjust mouse_tissue_id
         ms1 = ['B6J','AJ','WSBJ','129S1J']
         ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
@@ -470,7 +471,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
                     'igvf_008', 'igvf_008b', 'igvf_009', 'igvf_010', 
                     'igvf_011', 'igvf_016', 'igvf_017', 'igvf_018', 
                     'igvf_019', 'igvf_020', 'igvf_021', 'igvf_022', 
-                    'igvf_023']:
+                    'igvf_023'] and row['Column'] in [9, 10, 11, 12]:
                 if row['Genotype'] in ms1:
                     return row['Multiplexed_sample1']
                 elif row['Genotype'] in ms2:
