@@ -441,24 +441,21 @@ def merge_kallisto_klue(f, genotypes, ofile):
         assert len(set(df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
 
         # merge in first; this way we have access to the genotypes that should be in each well
-        adata.obs = adata.obs.merge(df,
-                                    how='left',
-                                    left_index=True,
-                                    right_index=True)
+        adata.obs = adata.obs.merge(df,how='left',left_index=True,right_index=True)
 
         # assign genotype for multiplexed wells
         df = adata.obs.copy(deep=True)
         df = assign_demux_genotype(df)
 
         # merge in w/ adata and replace old values in "Genotype" column for multiplexed wells with the klue results
-        adata.obs = adata.obs.merge(df,
-                                    how='left',
-                                    left_index=True,
-                                    right_index=True)
+        adata.obs = adata.obs.merge(df,how='left',left_index=True,right_index=True)
+        
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
         adata.obs.Genotype = adata.obs.Genotype.astype('str')
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
+        
+        adata = adata[adata.obs['Genotype'] != 'tie'].copy() # aaaahh remove TIE's
         
         # adjust mouse_tissue_id
         ms1 = ['B6J','AJ','WSBJ','129S1J']
@@ -467,7 +464,6 @@ def merge_kallisto_klue(f, genotypes, ofile):
         # Define a function to update 'Mouse_Tissue_ID' based on conditions
         def update_mouse_tissue_id(row):
             if row['well_type'] == "Multiplexed":
-                print(row)
                 if row['Genotype'] in ms1:
                     return row['Multiplexed_sample1']
                 elif row['Genotype'] in ms2:
