@@ -67,9 +67,18 @@ rule cellbender:
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
         
+        # Debugging information
+        echo "Wildcards Subpool: {wildcards.subpool}"
+        
         # Extract numeric part of subpool and alternate GPU assignment
         SUBPOOL_ID=$(echo {wildcards.subpool} | grep -o '[0-9]*')
+        echo "Extracted Subpool ID: $SUBPOOL_ID"
+        if [ -z "$SUBPOOL_ID" ]; then
+            echo "Error: Could not extract numeric part from subpool"
+            exit 1
+        fi
         GPU_ID=$(( SUBPOOL_ID % 2 ))
+        echo "Assigned GPU ID: $GPU_ID"
         export CUDA_VISIBLE_DEVICES=$GPU_ID
 
         # Run cb in target directory
