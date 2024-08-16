@@ -66,6 +66,8 @@ rule cellbender:
         """
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
+        
+        export CUDA_VISIBLE_DEVICES=0,1  # jaz tip!
 
         # Run cb in target directory
         # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
