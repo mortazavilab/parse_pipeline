@@ -67,7 +67,10 @@ rule cellbender:
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
         
-        export CUDA_VISIBLE_DEVICES=0,1  # jaz tip!
+        # Extract numeric part of subpool and alternate GPU assignment
+        SUBPOOL_ID=$(echo {wildcards.subpool} | grep -o '[0-9]*')
+        GPU_ID=$(( SUBPOOL_ID % 2 ))
+        export CUDA_VISIBLE_DEVICES=$GPU_ID
 
         # Run cb in target directory
         # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
