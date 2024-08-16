@@ -82,10 +82,6 @@ rule cellbender:
             --cuda
         """
         
-cellbender remove-background --input /nanopore/pipeline_output_kallisto/igvf_003/Subpool_12/unfiltered_adata.h5ad --output /nanopore/cellbender/igvf_003/Subpool_12/adata_denoised_filtered.h5 --total-droplets-included 200000 --learning-rate 0.0001             
-
-cellbender remove-background --input /nanopore/pipeline_output_kallisto/igvf_003/Subpool_14/unfiltered_adata.h5ad --output /nanopore/cellbender/igvf_003/Subpool_14/adata_denoised_filtered.h5 --total-droplets-included 150000 --learning-rate 0.000025  
-
 rule make_filt_adata:
     resources:
         mem_gb = 128,
