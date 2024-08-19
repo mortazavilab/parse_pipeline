@@ -55,6 +55,7 @@ rule cellbender:
     params:
         total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
         learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
+        expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
     resources:
         mem_gb = 250,
         threads = 12
@@ -79,7 +80,7 @@ rule cellbender:
             --output {output.filt_h5} \
             --total-droplets-included {params.total_drops} \
             --learning-rate {params.learning_rate} \
-            --total-droplets-included {params.total_droplets} \
+            --expected-cells {params.expected_cells} \
             --cuda
         """
         
