@@ -277,40 +277,7 @@ def add_meta_filter(filt_h5,
     adata.write_h5ad(ofile)
     
 
-############################################################################################################
-################################################# Scrublet #################################################
-############################################################################################################
 
-
-def make_subpool_sample_adata(infile, wc, ofile):
-    adata = sc.read_h5ad(infile)
-    inds = []
-    inds += adata.obs.loc[adata.obs['Mouse_Tissue_ID']==wc.sample].index.tolist()
-
-    adata = adata[inds, :].copy()
-
-    adata.write_h5ad(ofile)
-    
-def run_scrublet(infile,
-                 n_pcs,
-                 min_cells,
-                 min_gene_variability_pctl,
-                 ofile):
-    adata = sc.read_h5ad(infile)
-
-    # if number of cells is very low, don't call doublets, fill in
-    if adata.X.shape[0] < n_pcs*20:
-        adata.obs['doublet_scores'] = 0
-
-    # number of cells has to be more than number of PCs
-    elif adata.X.shape[0] >= n_pcs*20:
-        scrub = scr.Scrublet(adata.X)
-        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
-                                                                  min_gene_variability_pctl=min_gene_variability_pctl,
-                                                                  n_prin_comps=n_pcs)
-        adata.obs['doublet_scores'] = doublet_scores
-
-    adata.write_h5ad(ofile)
     
 ############################################################################################################
 ################################## Merge klue results, merge final adata ###################################
@@ -475,9 +442,51 @@ def merge_kallisto_klue(f, genotypes, ofile):
 
         # Apply the function to update the 'Mouse_Tissue_ID' column
         meta['Mouse_Tissue_ID'] = meta.apply(update_mouse_tissue_id, axis=1)
+        
+        adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
+        
         adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
         
         adata.write_h5ad(ofile)
+        
+############################################################################################################
+################################################# Scrublet #################################################
+############################################################################################################
+
+
+def make_subpool_sample_adata(infile, wc, ofile):
+    adata = sc.read_h5ad(infile)
+    inds = []
+    inds += adata.obs.loc[adata.obs['Original_Mouse_Tissue_ID']==wc.sample].index.tolist()
+
+    adata = adata[inds, :].copy()
+
+    adata.write_h5ad(ofile)
+    
+def run_scrublet(infile,
+                 n_pcs,
+                 min_cells,
+                 min_gene_variability_pctl,
+                 ofile):
+    adata = sc.read_h5ad(infile)
+
+    # if number of cells is very low, don't call doublets, fill in
+    if adata.X.shape[0] < n_pcs*20:
+        adata.obs['doublet_scores'] = 0
+
+    # number of cells has to be more than number of PCs
+    elif adata.X.shape[0] >= n_pcs*20:
+        scrub = scr.Scrublet(adata.X)
+        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
+                                                                  min_gene_variability_pctl=min_gene_variability_pctl,
+                                                                  n_prin_comps=n_pcs)
+        adata.obs['doublet_scores'] = doublet_scores
+
+    adata.write_h5ad(ofile)
+    
+############################################################################################################
+############################################## Final concat ################################################
+############################################################################################################
 
 def concat_adatas(adatas, ofile):
     var_dfs = []
