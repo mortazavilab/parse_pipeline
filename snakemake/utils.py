@@ -426,33 +426,30 @@ def merge_kallisto_klue(f, genotypes, ofile):
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
-        adata = adata[adata.obs['Genotype'] != 'tie'].copy() # aaaahh remove TIE's
-        
-        print(adata.obs['Mouse_Tissue_ID'].value_counts())
-        print(adata.obs['Original_Mouse_Tissue_ID'].value_counts())
+        #adata = adata[adata.obs['Genotype'] != 'tie'].copy() 
         
         # adjust mouse_tissue_id
-        ms1 = ['B6J','AJ','WSBJ','129S1J']
-        ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
+        #ms1 = ['B6J','AJ','WSBJ','129S1J']
+        #ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
 
         # Define a function to update 'Mouse_Tissue_ID' based on conditions
-        def update_mouse_tissue_id(row):
-            if row['well_type'] == "Multiplexed":
-                if row['Genotype'] in ms1:
-                    return row['Multiplexed_sample1']
-                elif row['Genotype'] in ms2:
-                    return row['Multiplexed_sample2']
-            return row['Mouse_Tissue_ID']
+        #def update_mouse_tissue_id(row):
+        #    if row['well_type'] == "Multiplexed":
+        #        if row['Genotype'] in ms1:
+        #            return row['Multiplexed_sample1']
+        #        elif row['Genotype'] in ms2:
+        #            return row['Multiplexed_sample2']
+        #    return row['Mouse_Tissue_ID']
 
-        adata.obs['Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'].astype(str)
-        meta = adata.obs
+        #adata.obs['Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'].astype(str)
+        #meta = adata.obs
 
         # Apply the function to update the 'Mouse_Tissue_ID' column
-        meta['Mouse_Tissue_ID'] = meta.apply(update_mouse_tissue_id, axis=1)
+        #meta['Mouse_Tissue_ID'] = meta.apply(update_mouse_tissue_id, axis=1)
         
-        adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
+        #adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
 
-        adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
+        #adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
         
         adata.write_h5ad(ofile)
         
@@ -463,7 +460,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
 def make_subpool_sample_adata(infile, wc, ofile):
     adata = sc.read_h5ad(infile)
     inds = []
-    inds += adata.obs.loc[adata.obs['Original_Mouse_Tissue_ID']==wc.sample].index.tolist()
+    inds += adata.obs.loc[adata.obs['Mouse_Tissue_ID']==wc.sample].index.tolist()
 
     adata = adata[inds, :].copy()
 
