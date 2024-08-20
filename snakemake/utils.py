@@ -400,6 +400,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
     # otherwise, decide which genotype each cell is
     else:
         adata = sc.read_h5ad(f)
+        print("HELLO?")
         
         df = pd.read_csv(genotypes, sep='\t')
         df.set_index('cellID', inplace=True)
@@ -424,6 +425,9 @@ def merge_kallisto_klue(f, genotypes, ofile):
         
         adata = adata[adata.obs['Genotype'] != 'tie'].copy() # aaaahh remove TIE's
         
+        print(adata.obs['Mouse_Tissue_ID'].value_counts())
+        print(adata.obs['Original_Mouse_Tissue_ID'].value_counts())
+        
         # adjust mouse_tissue_id
         ms1 = ['B6J','AJ','WSBJ','129S1J']
         ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
@@ -445,8 +449,7 @@ def merge_kallisto_klue(f, genotypes, ofile):
         
         adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
         
-        print(adata.obs['Mouse_Tissue_ID'].value_counts())
-        print(adata.obs['Original_Mouse_Tissue_ID'].value_counts())
+
         
         adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
         
