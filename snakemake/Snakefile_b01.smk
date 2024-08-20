@@ -55,6 +55,7 @@ rule all:
 #    params:
 #        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
 #        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
+#        expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
 #    resources:
 #        mem_gb = 250,
 #        threads = 12
@@ -66,17 +67,23 @@ rule all:
 #        """
 #        mkdir -p $(dirname {output.filt_h5})
 #        cd $(dirname {output.filt_h5})
+#        
+#        # Extract numeric part of subpool and alternate GPU assignment
+#        #SUBPOOL_ID=$(echo {wildcards.subpool} | grep -o '[0-9]*')
+#        #GPU_ID=$(( SUBPOOL_ID % 2 ))
+#        #export CUDA_VISIBLE_DEVICES=$GPU_ID
 #
 #        # Run cb in target directory
 #        # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
 #        cellbender remove-background \
 #            --input {input.unfilt_adata} \
-#            --output {output.filt_h5} \
+#            --output {output.unfilt_h5} \
 #            --total-droplets-included {params.total_drops} \
 #            --learning-rate {params.learning_rate} \
+#            --expected-cells {params.expected_cells} \
 #            --cuda
 #        """
-
+        
 rule make_filt_adata:
     resources:
         mem_gb = 128,
