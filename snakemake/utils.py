@@ -445,6 +445,8 @@ def merge_kallisto_klue(f, genotypes, ofile):
         
         adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
         
+        print(adata.obs['Original_Mouse_Tissue_ID'].value_counts())
+        
         adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
         
         adata.write_h5ad(ofile)
