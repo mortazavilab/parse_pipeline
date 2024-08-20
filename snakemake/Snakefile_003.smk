@@ -77,7 +77,7 @@ rule cellbender:
         # trying to make sure the checkpoint isn't overwritten when multiple CB run in parallel
         cellbender remove-background \
             --input {input.unfilt_adata} \
-            --output {output.filt_h5} \
+            --output {output.unfilt_h5} \
             --total-droplets-included {params.total_drops} \
             --learning-rate {params.learning_rate} \
             --expected-cells {params.expected_cells} \
