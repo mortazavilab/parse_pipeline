@@ -241,11 +241,11 @@ def add_meta_filter(filt_h5,
     2. Add cellbender counts as a layer
     3. Add raw counts as a layer
     4. Run scrublet within scanpy for each bc1_well using raw counts
-    5. Createv a cell ID to ensure uniqueness across subpools and experiments.
+    5. Create a cell ID to ensure uniqueness across subpools and experiments.
     6. If relevant, merge in the klue results. Update Genotype and Mouse_Tissue_ID for multiplexed wells. 
     """
     ############# 1. Add barcode and sample metadata #############
-    
+    print('Adding barcode and sample information...')
     adata = anndata_from_h5(filt_h5)
    
     adata.obs['bc'] = adata.obs.index
@@ -299,6 +299,7 @@ def add_meta_filter(filt_h5,
    
     ############# 4. Run scrublet within scanpy for each bc1_well #############
     # https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html
+    print('Running scrublet...')
     
     adata_raw_filtered.obs['bc1_well'] = adata.obs['bc1_well']
     sc.pp.scrublet(adata_raw_filtered, batch_key="bc1_well", n_prin_comps=30)
@@ -348,6 +349,7 @@ def add_meta_filter(filt_h5,
         df = adata.obs.copy(deep=True)
         df = assign_demux_genotype(df)
 
+        print('Updating genotype for multiplexed wells...')
         # merge in w/ adata and replace old values in "Genotype" column for multiplexed wells with the klue results
         adata.obs = adata.obs.merge(df,how='left',left_index=True,right_index=True)
         
@@ -380,6 +382,7 @@ def add_meta_filter(filt_h5,
 
 def concat_adatas(adatas, ofile):
     var_dfs = []
+    print("Merging subpool adatas...")
     print(adatas)
     
     for i, f in enumerate(adatas):
