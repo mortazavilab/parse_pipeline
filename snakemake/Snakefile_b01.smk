@@ -32,7 +32,7 @@ wildcard_constraints:
     tissue='|'.join([re.escape(x) for x in sample_df.Tissue.tolist()]),
     genotype='|'.join([re.escape(x) for x in sample_df.Genotype.unique().tolist()]),
     mult_genotype_1='|'.join([re.escape(x) for x in mult_genotype_1s]),
-    mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])])
+    mult_genotype_2='|'.join([re.escape(x) for x in mult_genotype_2s])
 
 def get_subset_tissues(df, sample_df):
     temp = df.merge(sample_df, on='plate', how='inner')
