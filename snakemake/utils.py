@@ -116,8 +116,7 @@ def parse_sample_df(fname):
     # add a multiplexed genotype column
     inds = df.loc[df.well_type=='Multiplexed'].index
     df['mult_genotype'] = np.nan
-    df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]].astype(str)+'_'+\
-                                   df.loc[inds, g_cols[1]].astype(str)
+    df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]].astype(str) + '_' + df.loc[inds, g_cols[1]].astype(str)
 
     # checks
     for g in g_cols:
@@ -331,7 +330,7 @@ def add_meta_filter(filt_h5,
     # assign genotype for multiplexed wells
     # if we didn't run klue
     if is_dummy(genotypes):
-        shutil.copy(f, ofile)
+        adata.write_h5ad(ofile)
     # otherwise, decide which genotype each cell is
     else:
         # filter out sample swaps with wrong multiplexed genotype
