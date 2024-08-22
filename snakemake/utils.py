@@ -348,6 +348,9 @@ def add_meta_filter(filt_h5,
         # assign genotype for multiplexed wells
         df = adata.obs.copy(deep=True)
         df = assign_demux_genotype(df)
+        
+        print("geno df:")
+        print(df.head())
 
         print('Updating genotype for multiplexed wells...')
         # merge in w/ adata and replace old values in "Genotype" column for multiplexed wells with the klue results
