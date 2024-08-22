@@ -375,6 +375,7 @@ def add_meta_filter(filt_h5,
         obs['Mouse_Tissue_ID'] = obs.apply(update_mouse_tissue_id, axis=1)
         adata.obs['Mouse_Tissue_ID'] = obs['Mouse_Tissue_ID']
 
+        print(f'Saving file {ofile}')
         adata.write_h5ad(ofile)
 
 ############################################################################################################
