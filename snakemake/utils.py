@@ -363,13 +363,14 @@ def add_meta_filter(filt_h5,
         ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
 
         def update_mouse_tissue_id(row):
-            if row['well_type'] == "Multiplexed" & row['Genotype'] != "tie":
+            if row['well_type'] == "Multiplexed" and row['Genotype'] != "tie":
                 if row['Genotype'] in ms1:
                     return row['Multiplexed_sample1']
                 elif row['Genotype'] in ms2:
                     return row['Multiplexed_sample2']
             return row['Mouse_Tissue_ID']
-
+        
+       # adata.obs['Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'].astype(str)
         obs = adata.obs
         obs['Mouse_Tissue_ID'] = obs.apply(update_mouse_tissue_id, axis=1)
         adata.obs['Mouse_Tissue_ID'] = obs['Mouse_Tissue_ID']
