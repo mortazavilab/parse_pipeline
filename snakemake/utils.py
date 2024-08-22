@@ -337,15 +337,14 @@ def add_meta_filter(filt_h5,
         # filter out sample swaps with wrong multiplexed genotype
         adata = adata[~adata.obs['Genotype'].isin(['WSBJ/CASTJ', 'AJ/129S1J', 'PWKJ/CASTJ'])].copy()
         
-        df = pd.read_csv(genotypes, sep='\t')
-        df.set_index('cellID', inplace=True)
-        df.columns = [col + '_klue_counts' for col in df.columns]
+        klue_counts_df = pd.read_csv(genotypes, sep='\t')
+        klue_counts_df.set_index('cellID', inplace=True)
 
         # make sure we won't dupe any cols
-        assert len(set(df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
+        assert len(set(klue_counts_df.columns.tolist())&set(adata.obs.columns.tolist())) == 0
 
         # merge in first; this way we have access to the genotypes that should be in each well
-        adata.obs = adata.obs.merge(df,how='left',left_index=True,right_index=True)
+        adata.obs = adata.obs.merge(klue_counts_df,how='left',left_index=True,right_index=True)
 
         # assign genotype for multiplexed wells
         df = adata.obs.copy(deep=True)
@@ -354,6 +353,11 @@ def add_meta_filter(filt_h5,
         print('Updating genotype for multiplexed wells...')
         # merge in w/ adata and replace old values in "Genotype" column for multiplexed wells with the klue results
         adata.obs = adata.obs.merge(df,how='left',left_index=True,right_index=True)
+        
+        # append "_klue_counts" to the genotype counts columns for clarity
+        for col in klue_counts_df.columns:
+            if col in adata.obs.columns:
+                adata.obs.rename(columns={col: col + '_klue_counts'}, inplace=True)
         
         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
         adata.obs.Genotype = adata.obs.Genotype.astype('str')
