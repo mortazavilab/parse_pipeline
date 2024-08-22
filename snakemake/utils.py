@@ -269,7 +269,7 @@ def add_meta_filter(filt_h5,
         well_col = f'bc{bc}_well'
         bc_df = get_bcs(bc, kit, chemistry)
         bc_df.rename({'well': well_col, bc_name: seq_col}, axis=1, inplace=True)
-        adata.obs = adata.obs.merge(bc_df, how='left', on='bc3_sequence')
+        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
 
     # merge in w/ sample-level metadata
     temp = sample_df.copy(deep=True)
