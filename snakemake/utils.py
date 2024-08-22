@@ -3,7 +3,6 @@ import numpy as np
 from snakemake.io import expand
 import anndata
 import scanpy as sc
-import scrublet as scr
 import shutil
 import os
 from cellbender.remove_background.downstream import anndata_from_h5
@@ -11,22 +10,6 @@ from cellbender.remove_background.downstream import anndata_from_h5
 ############################################################################################################
 ############################################### Barcode stuff ##############################################
 ############################################################################################################
-    
-# from the parse pipeline
-def load_bc_dict(fname, verb=False):
-    """ Load barcode edit dict
-    """
-    with open(fname, 'r') as INFILE:
-        bc_dict = json.load(INFILE)
-        if verb:
-            print(f"Loaded {fname}")
-
-    # Top level has int keys and holds default dicts
-    new_dict = {}
-    for k, v in bc_dict.items():
-        new_dict[int(k)] = defaultdict(list, bc_dict[k])
-
-    return new_dict
 
 def get_bc_round_set(kit, chemistry):
     KIT_INT_DICT = {'custom_1': 1, 'WT': 48, 'WT_mini': 12, 'WT_mega': 96}
@@ -42,51 +25,6 @@ def get_bc_round_set(kit, chemistry):
         bc_round_set = [['bc1', 'n96_v4'], ['bc2', 'v1'], ['bc3', 'v1']]
 
     return bc_round_set
-
-def load_barcodes(kit, chemistry):
-    """
-    Load the barcodes. Adapted from the Parse biosciences pipeline.
-
-    Returns:
-        edit_dict_set (dict): Dict for barcode<1,2,3> with
-            key: query bc
-            item: corrected bc
-    """
-    pkg_path = os.path.dirname(__file__)
-    bc_path = '/'.join(pkg_path.split('/')[:-1])+'/barcodes/'
-
-    bc_round_set = get_bc_round_set(kit, chemistry)
-
-    edit_dict_set = {}
-    for entry in bc_round_set:
-        bc = entry[0]
-        ver = entry[1]
-        fname = bc_path + 'bc_dict_{}.json'.format(ver)
-        edit_dict = load_bc_dict(fname)
-        edit_dict_set[bc] = edit_dict
-
-    return edit_dict_set
-
-# From the Parse biosciences pipeline
-def load_barcodes_set(kit, chemistry):
-    """
-    Load the barcodes. Adapted from the Parse biosciences pipeline.
-    """
-    pkg_path = os.path.dirname(__file__)
-    bc_path = '/'.join(pkg_path.split('/')[:-1])+'/barcodes/'
-
-    bc_round_set = get_bc_round_set(kit, chemistry)
-
-    bc_set = {}
-    for entry in bc_round_set:
-        bc = entry[0]
-        ver = entry[1]
-        fname = bc_path + '/bc_data_{}.csv'.format(ver)
-        bc_df = pd.read_csv(fname)
-        bcs = set(bc_df.sequence.tolist())
-        bc_set[bc] = bcs
-
-    return bc_set
 
 def get_bc1_matches(kit, chemistry):
     pkg_path = os.path.dirname(os.path.dirname(__file__))
@@ -201,89 +139,6 @@ def get_bc2(text):
 def get_bc3(text):
     return text[:8]
 
-def add_meta_filter(filt_h5,
-                    unfilt_adata,
-                    wc,
-                    bc_df,
-                    kit,
-                    chemistry,
-                    sample_df,
-                    ofile):
-
-    """
-    Format cellbender output adata.
-    """
-
-    adata = anndata_from_h5(filt_h5)
-   
-    adata.obs['bc'] = adata.obs.index
-    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
-    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
-    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
-
-    adata.obs['subpool'] = wc.subpool
-
-    # merge in bc metadata
-    temp = bc_df.copy(deep=True)
-    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
-                                             'well': 'bc1_well'}, axis=1)
-    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
-
-    # merge in other bc information
-    for bc in [2,3]:
-        bc_name = f'bc{bc}'
-        seq_col = f'bc{bc}_sequence'
-        well_col = f'bc{bc}_well'
-        bc_df = get_bcs(bc, kit, chemistry)
-        bc_df.rename({'well': well_col,
-                      bc_name: seq_col}, axis=1, inplace=True)
-        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
-
-    # merge in w/ sample-level metadata
-    temp = sample_df.copy(deep=True)
-    temp = temp.loc[(sample_df.plate==wc.plate)]
-    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
-    adata.var_names = adata.var['gene_id']
-    
-    # get gene names back....
-    adata_kallisto = sc.read_h5ad(unfilt_adata)
-    adata_kallisto.var_names = adata_kallisto.var['gene_id']
-    adata.var['gene_name'] = adata_kallisto.var['gene_name']
-
-    # make all object columns string columns
-    for c in adata.obs.columns:
-        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
-            adata.obs[c] = adata.obs[c].fillna('NA')
-
-    # create new index for each cell
-    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
-        adata.obs['bc2_well']+'_'+\
-        adata.obs['bc3_well']+'_'+\
-        adata.obs['subpool']+'_'+\
-        adata.obs['plate']
-    adata.obs.reset_index(drop=True)
-
-    # make sure these are unique + set as index
-    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
-    adata.obs.set_index('cellID', inplace=True)
-   
-    # filter out sample swaps with wrong multiplexed genotype
-    adata = adata[~adata.obs['Genotype'].isin(['WSBJ/CASTJ', 'AJ/129S1J', 'PWKJ/CASTJ'])].copy()
-    
-    # add raw counts layer
-    adata.layers['raw_counts'] = adata.X.copy()
-    
-        
-    adata.write_h5ad(ofile)
-    
-
-
-    
-############################################################################################################
-################################## Merge klue results, merge final adata ###################################
-############################################################################################################
-
-    
 def touch_dummy(ofile):
     """
     Touch a dummy output file
@@ -297,7 +152,6 @@ def is_dummy(fname):
     """
     return os.stat(fname).st_size == 0
 
-# TODO maybe splitting these up will make things easier in the future
 def get_founder_genotypes():
     g = ['WSBJ','NZOJ',
          'B6J','NODJ','129S1J',
@@ -316,22 +170,6 @@ def get_genotypes():
     g += get_f1_genotypes()
 
     return g
-
-def get_f1_founder_genotype_dict():
-    d = {'B6129S1F1J':'129S1J',
-    'B6AF1J':'AJ',
-    'B6PWKF1J':'PWKJ',
-    'B6NODF1J':'NODJ',
-    'B6WSBF1J':'WSBJ',
-    'B6CASTF1J':'CASTJ',
-    'B6NZOF1J':'NZOJ'}
-
-    # make sure all keys are f1 genotypes
-    # and all items (sans B6J) are founder genotypes
-    assert set(list(d.keys())) == set(get_f1_genotypes())
-    assert set(list(d.values())) == set(get_founder_genotypes())-set(['B6J'])
-
-    return d
 
 def assign_demux_genotype(df):
     """
@@ -388,22 +226,116 @@ def assign_demux_genotype(df):
 
     return df
 
-def merge_kallisto_klue(f, genotypes, ofile):
+
+def add_meta_filter(filt_h5,
+                    unfilt_adata,
+                    genotypes,
+                    wc,
+                    bc_df,
+                    kit,
+                    chemistry,
+                    sample_df,
+                    ofile):
+
     """
-    Merge in the klue results with the kallisto results. Use
-    a heuristic (which should be changeable / is subject to change)
-    to determine the genotype assignment to each cell
+    Format cellbender output adata:
+    1. Add barcode and sample metadata
+    2. Add cellbender counts as a layer
+    3. Add raw counts as a layer
+    4. Run scrublet within scanpy for each bc1_well using raw counts
+    5. Clean up adata obs, including creating a cell ID to ensure uniqueness across subpools and experiments.
+    6. If relevant, merge in the klue results. Update Genotype and Mouse_Tissue_ID for multiplexed wells. 
     """
+    ############# 1. Add barcode and sample metadata #############
+    
+    adata = anndata_from_h5(filt_h5)
+   
+    adata.obs['bc'] = adata.obs.index
+    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
+    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
+    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
+
+    adata.obs['subpool'] = wc.subpool
+
+    # merge in bc1 information
+    temp = bc_df.copy(deep=True)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence', 'well': 'bc1_well'}, axis=1)
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
+
+    # merge in bc2 and bc3 information
+    for bc in [2,3]:
+        bc_name = f'bc{bc}'
+        seq_col = f'bc{bc}_sequence'
+        well_col = f'bc{bc}_well'
+        bc_df = get_bcs(bc, kit, chemistry)
+        bc_df.rename({'well': well_col, bc_name: seq_col}, axis=1, inplace=True)
+        adata.obs = adata.obs.merge(bc_df, how='left', on='bc3_sequence')
+
+    # merge in w/ sample-level metadata
+    temp = sample_df.copy(deep=True)
+    temp = temp.loc[(sample_df.plate==wc.plate)]
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_well')
+    
+    # for now (to transfer info to/from the raw kallisto output)
+    adata.obs_names = adata.obs['bc']
+    
+    # store gene names as a column in var
+    adata.var['gene_name'] = adata.var_names
+    
+    # set gene ID as var names for further processing (avoid gene name duplication issues)
+    adata.var_names = adata.var['gene_id']   
+    
+    ############# 2. Add cellbender counts as a layer #############
+    # store cellbender normalized data as a layer
+    adata.layers['cellbender_counts'] = adata.X.copy()
+    
+    ############# 3. Add raw counts as a layer #############
+    # store raw data as a layer
+    adata_raw = sc.read_h5ad(unfilt_adata)
+    adata_raw.var_names = adata_raw.var['gene_id']   
+    adata_raw_filtered = adata_raw[adata_raw.obs['bc'].isin(adata.obs['bc']), :].copy()
+    adata_raw_filtered = adata_raw_filtered[adata.obs['bc'], :].copy()
+    
+    adata.layers['raw_counts'] = adata_raw_filtered.X.copy()
+    
+   
+    ############# 4. Run scrublet within scanpy for each bc1_well #############
+    # https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html
+    
+    adata_raw_filtered.obs['bc1_well'] = adata.obs['bc1_well']
+    sc.pp.scrublet(adata_raw_filtered, batch_key="bc1_well", n_prin_comps=30)
+    
+    # transfer doublet score information to adata
+    adata.obs['doublet_score'] = adata_raw_filtered.obs['doublet_score']
+    adata.obs['predicted_doublet'] = adata_raw_filtered.obs['predicted_doublet']
+    
+    ############# 5. Clean up obs #############
+    # create new cell IDs
+    adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
+        adata.obs['bc2_well']+'_'+\
+        adata.obs['bc3_well']+'_'+\
+        adata.obs['subpool']+'_'+\
+        adata.obs['plate']
+    adata.obs.reset_index(drop=True)
+
+    # make sure these are unique + set as index
+    assert len(adata.obs.index) == len(adata.obs.cellID.unique().tolist())
+    adata.obs.set_index('cellID', inplace=True)
+    
+    # make all object columns string columns
+    for c in adata.obs.columns:
+        if pd.api.types.is_object_dtype(adata.obs[c].dtype):
+            adata.obs[c] = adata.obs[c].fillna('NA')
+
+    ############# 6. Merge in the klue results #############
+    # assign genotype for multiplexed wells
     # if we didn't run klue
     if is_dummy(genotypes):
         shutil.copy(f, ofile)
-        adata = sc.read_h5ad(f)
-        adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
-        adata.write_h5ad(ofile)
-        
     # otherwise, decide which genotype each cell is
     else:
-        adata = sc.read_h5ad(f)
+        # filter out sample swaps with wrong multiplexed genotype
+        adata = adata[~adata.obs['Genotype'].isin(['WSBJ/CASTJ', 'AJ/129S1J', 'PWKJ/CASTJ'])].copy()
         
         df = pd.read_csv(genotypes, sep='\t')
         df.set_index('cellID', inplace=True)
@@ -426,67 +358,24 @@ def merge_kallisto_klue(f, genotypes, ofile):
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
-        #adata = adata[adata.obs['Genotype'] != 'tie'].copy() 
-        
         # adjust mouse_tissue_id
-        #ms1 = ['B6J','AJ','WSBJ','129S1J']
-        #ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
+        ms1 = ['B6J','AJ','WSBJ','129S1J']
+        ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
 
-        # Define a function to update 'Mouse_Tissue_ID' based on conditions
-        #def update_mouse_tissue_id(row):
-        #    if row['well_type'] == "Multiplexed":
-        #        if row['Genotype'] in ms1:
-        #            return row['Multiplexed_sample1']
-        #        elif row['Genotype'] in ms2:
-        #            return row['Multiplexed_sample2']
-        #    return row['Mouse_Tissue_ID']
+        def update_mouse_tissue_id(row):
+            if row['well_type'] == "Multiplexed" & row['Genotype'] != "tie":
+                if row['Genotype'] in ms1:
+                    return row['Multiplexed_sample1']
+                elif row['Genotype'] in ms2:
+                    return row['Multiplexed_sample2']
+            return row['Mouse_Tissue_ID']
 
-        #adata.obs['Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'].astype(str)
-        #meta = adata.obs
+        obs = adata.obs
+        obs['Mouse_Tissue_ID'] = meta.apply(update_mouse_tissue_id, axis=1)
+        adata.obs['Mouse_Tissue_ID'] = obs['Mouse_Tissue_ID']
 
-        # Apply the function to update the 'Mouse_Tissue_ID' column
-        #meta['Mouse_Tissue_ID'] = meta.apply(update_mouse_tissue_id, axis=1)
-        
-        #adata.obs['Original_Mouse_Tissue_ID'] = adata.obs['Mouse_Tissue_ID'] 
-
-        #adata.obs['Mouse_Tissue_ID'] = meta['Mouse_Tissue_ID']
-        
         adata.write_h5ad(ofile)
-        
-############################################################################################################
-################################################# Scrublet #################################################
-############################################################################################################
 
-def make_subpool_sample_adata(infile, wc, ofile):
-    adata = sc.read_h5ad(infile)
-    inds = []
-    inds += adata.obs.loc[adata.obs['Mouse_Tissue_ID']==wc.sample].index.tolist()
-
-    adata = adata[inds, :].copy()
-
-    adata.write_h5ad(ofile)
-    
-def run_scrublet(infile,
-                 n_pcs,
-                 min_cells,
-                 min_gene_variability_pctl,
-                 ofile):
-    adata = sc.read_h5ad(infile)
-
-    # if number of cells is very low, don't call doublets, fill in
-    if adata.X.shape[0] < n_pcs*20:
-        adata.obs['doublet_scores'] = 0
-
-    # number of cells has to be more than number of PCs
-    elif adata.X.shape[0] >= n_pcs*20:
-        scrub = scr.Scrublet(adata.X)
-        doublet_scores, predicted_doublets = scrub.scrub_doublets(min_cells=min_cells,
-                                                                  min_gene_variability_pctl=min_gene_variability_pctl,
-                                                                  n_prin_comps=n_pcs)
-        adata.obs['doublet_scores'] = doublet_scores
-
-    adata.write_h5ad(ofile)
-    
 ############################################################################################################
 ############################################## Final concat ################################################
 ############################################################################################################
@@ -499,15 +388,6 @@ def concat_adatas(adatas, ofile):
         temp = sc.read_h5ad(f)
         
         temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
-        
-#         plate = temp.obs['plate'][0]
-#         sample = temp.obs['Mouse_Tissue_ID'][0]
-#         subpool = temp.obs['subpool'][0]
-        
-#         temp.var.rename(columns={
-#             'ambient_expression': f'ambient_expression_{sample}_{subpool}_{plate}',
-#             'cellbender_analyzed': f'cellbender_analyzed_{sample}_{subpool}_{plate}'
-#         }, inplace=True)
         
         var_dfs.append(temp.var)
         
