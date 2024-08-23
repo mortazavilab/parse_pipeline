@@ -185,12 +185,12 @@ rule make_plate_adata_combined:
 
 rule make_tissue_adata:
     input:
-        plate_adata = '{plate}/adata.h5ad'
+        plate_adata = config['plate']['adata']
     resources:
         mem_gb = 350,
         threads = 2
     output:
-        tissue_adata ='{plate}/{tissue}/adata.h5ad'
+        tissue_adata =config['tissue']['adata']
     run:
         os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
 
@@ -201,12 +201,12 @@ rule make_tissue_adata:
         
 rule make_tissue_adata_raw_counts:
     input:
-        plate_adata = '{plate}/adata_raw_counts.h5ad'
+        plate_adata = config['plate']['adata_raw_counts']
     resources:
         mem_gb = 350,
         threads = 2
     output:
-        tissue_adata ='{plate}/{tissue}/adata_raw_counts.h5ad'
+        tissue_adata = config['tissue']['adata_raw_counts']
     run:
         os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
 
@@ -217,12 +217,12 @@ rule make_tissue_adata_raw_counts:
         
 rule make_tissue_adata_cellbender_counts:
     input:
-        plate_adata = '{plate}/adata_cellbender_counts.h5ad'
+        plate_adata = config['plate']['adata_cb_counts']
     resources:
         mem_gb = 350,
         threads = 2
     output:
-        tissue_adata ='{plate}/{tissue}/adata_cellbender_counts.h5ad'
+        tissue_adata = config['tissue']['adata_cb_counts']
     run:
         os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
 
