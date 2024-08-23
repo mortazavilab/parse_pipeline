@@ -323,6 +323,12 @@ def add_meta_filter(filt_h5,
     for c in adata.obs.columns:
         if pd.api.types.is_object_dtype(adata.obs[c].dtype):
             adata.obs[c] = adata.obs[c].fillna('NA')
+            
+    # Add QC metrics from scanpy
+    adata.var_names = adata.var['gene_name']
+    adata.var['mt'] = adata.var_names.str.startswith('mt-')  # annotate the group of mitochondrial genes as 'mt'
+    sc.pp.calculate_qc_metrics(adata, qc_vars=['mt'], layer='raw_counts', percent_top=None, log1p=False, inplace=True)
+
 
     ############# 6. Merge in the klue results #############
     # assign genotype for multiplexed wells
@@ -399,9 +405,9 @@ def concat_adatas_raw_counts(adatas, ofile, temp_dir="temp_files"):
         temp = sc.read_h5ad(f)
         
         if 'cellbender_counts' in temp.layers:
-            temp.layers.pop('cellbender_counts')
+            del temp.layers['cellbender_counts']
             
-        temp.X = temp.layers['raw_counts']
+        temp.X = temp.layers['raw_counts'].copy()
         
         temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
         
@@ -432,19 +438,6 @@ def concat_adatas_raw_counts(adatas, ofile, temp_dir="temp_files"):
     # Clean up temporary directory if necessary
     for temp_file in temp_files:
         os.remove(temp_file)
-        
-        
-def split_raw_counts_plate_adata_by_tissue(plate_adata_file, ofile):
-    adata = sc.read_h5ad(plate_adata_file)
-    
-    tissues = adata.obs['Tissue'].unique()
-    
-    for tissue in tissues:
-        adata_tissue = adata[adata.obs['Tissue'] == tissue].copy()
-        
-        adata_tissue.write(ofile)
-        print(f"Saved tissue-level adata: {ofile}")
-        
         
         
 def concat_adatas_cb_counts(adatas, ofile, temp_dir="temp_files"):
@@ -460,9 +453,9 @@ def concat_adatas_cb_counts(adatas, ofile, temp_dir="temp_files"):
         temp = sc.read_h5ad(f)
         
         if 'raw_counts' in temp.layers:
-            temp.layers.pop('raw_counts')
+            del temp.layers['raw_counts']
             
-        temp.X = temp.layers['cellbender_counts']
+        temp.X = temp.layers['cellbender_counts'].copy()
         
         temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
         
@@ -494,14 +487,3 @@ def concat_adatas_cb_counts(adatas, ofile, temp_dir="temp_files"):
     for temp_file in temp_files:
         os.remove(temp_file)
         
-        
-def split_cb_counts_plate_adata_by_tissue(plate_adata_file, ofile):
-    adata = sc.read_h5ad(plate_adata_file)
-    
-    tissues = adata.obs['Tissue'].unique()
-    
-    for tissue in tissues:
-        adata_tissue = adata[adata.obs['Tissue'] == tissue].copy()
-        
-        adata_tissue.write(ofile)
-        print(f"Saved tissue-level adata: {ofile}")
