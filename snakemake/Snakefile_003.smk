@@ -41,7 +41,10 @@ def get_subset_tissues(df, sample_df):
 
 rule all:
     input:
-        expand(config['tissue']['adata'],
+        expand(config['tissue']['adata_raw_counts'],
+                plate=df.plate.tolist(),
+                tissue=get_subset_tissues(df, sample_df)),
+        expand(config['tissue']['adata_cb_counts'],
                 plate=df.plate.tolist(),
                 tissue=get_subset_tissues(df, sample_df))
                         
@@ -111,40 +114,65 @@ rule make_filt_adata:
 ################################ Combine adatas ################################
 ################################################################################
 
-def get_tissue_adatas(df, sample_df, wc, cfg_entry):
-
-    # limit to input tissue
-    temp_sample = sample_df.copy(deep=True)
-    temp_sample = temp_sample.loc[temp_sample.Tissue==wc.tissue]
-
-    # merge this stuff in with the fastq df
-    fastq_df = df.copy(deep=True)
-    temp = fastq_df.merge(temp_sample, on='plate', how='inner')
-
-    # get the plate / subpool / sample info for this tissue
-    plates = temp.plate.tolist()
-    subpools = temp.subpool.tolist()
-    samples = temp.Mouse_Tissue_ID.tolist()
-
+def get_adatas(df, cfg_entry):
+    # Extract unique plates and subpools from the DataFrame
+    plates = df.plate.unique().tolist()
+    subpools = df.subpool.unique().tolist()
+    
+    # Generate file paths based on plates and subpools
     files = expand(cfg_entry,
-           zip,
-           plate=plates,
-           sample=samples,
-           subpool=subpools)
+                   plate=plates,
+                   subpool=subpools)
+    
+    # Remove duplicate file paths
     files = list(set(files))
-
+    
     return files
 
+######
 
-rule make_tissue_adata:
+rule make_plate_adata_raw_counts:
     input:
-        adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['cellbender']['filt_adata'])
+        adatas = lambda wc: get_adatas(df, config['cellbender']['filt_adata'])
     resources:
-        mem_gb = 256,
+        mem_gb = 350,
         threads = 2
     output:
-        adata = config['tissue']['adata']
+        adata = config['plate']['adata_raw_counts']
     run:
-        concat_adatas(input.adatas, output.adata)
+        concat_adatas_raw_counts(input.adatas, output.adata)
 
+rule make_tissue_adatas_raw_counts:
+    input:
+        plate_adata = config['plate']['adata_raw_counts']
+    output:
+        tissue_adata = config['tissue']['adata_raw_counts']
+    resources:
+        mem_gb = 350,
+        threads = 2
+    run:
+        split_raw_counts_plate_adata_by_tissue(input.plate_adata, output.tissue_adata)
 
+######
+
+rule make_plate_adata_cb_counts:
+    input:
+        adatas = lambda wc: get_adatas(df, config['cellbender']['filt_adata'])
+    resources:
+        mem_gb = 350,
+        threads = 2
+    output:
+        adata = config['plate']['adata_cb_counts']
+    run:
+        concat_adatas_cb_counts(input.adatas, output.adata)
+
+rule make_tissue_adatas_cb_counts:
+    input:
+        plate_adata = config['plate']['adata_cb_counts']
+    output:
+        tissue_adata = config['tissue']['adata_cb_counts']
+    resources:
+        mem_gb = 350,
+        threads = 2
+    run:
+        split_cb_counts_plate_adata_by_tissue(input.plate_adata, output.tissue_adata)
