@@ -41,13 +41,13 @@ def get_subset_tissues(df, sample_df):
     
 rule all:
     input:
-        expand('/nanopore/{plate}/{tissue}/adata.h5ad',
+        expand(config['tissue']['adata'],
                plate=df.plate.tolist(),
                tissue=get_subset_tissues(df, sample_df)),
-        expand('/nanopore/{plate}/{tissue}/adata_raw_counts.h5ad',
+        expand(config['tissue']['adata_raw_counts'],
                plate=df.plate.tolist(),
                tissue=get_subset_tissues(df, sample_df)),
-        expand('/nanopore/{plate}/{tissue}/adata_cellbender_counts.h5ad',
+        expand(config['tissue']['adata_cb_counts'],
                plate=df.plate.tolist(),
                tissue=get_subset_tissues(df, sample_df))
                         
