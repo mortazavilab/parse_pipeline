@@ -41,7 +41,7 @@ def get_subset_tissues(df, sample_df):
     
 rule all:
     input:
-        expand(config['tissue']['adata'],
+        expand(config['plate']['adata'],
                plate=df.plate.tolist(),
                tissue=get_subset_tissues(df, sample_df)),
         expand(config['tissue']['adata_raw_counts'],
