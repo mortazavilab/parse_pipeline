@@ -63,6 +63,7 @@ rule cellbender:
         threads = 12
     output:
         filt_h5 = config['cellbender']['filt_h5'],
+        unfilt_h5 = config['cellbender']['unfilt_h5'],
     conda:
         "cellbender"
     shell:
