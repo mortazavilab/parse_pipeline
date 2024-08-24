@@ -391,102 +391,41 @@ def add_meta_filter(filt_h5,
 ############################################################################################################
 ############################################## Final concat ################################################
 ############################################################################################################
-    
-def concat_adatas_raw_counts(adatas, ofile, temp_dir="raw_temp_files"):
-    var_dfs = []
-    
-    if not os.path.exists(temp_dir):
-        os.makedirs(temp_dir)
-    
+        
+def concat_adatas_raw_counts(adatas, ofile): 
     adata = None  # Initialize adata
-    temp_files = []
 
     for i, f in enumerate(adatas):
         temp = sc.read_h5ad(f)
-        
-        if 'cellbender_counts' in temp.layers:
-            del temp.layers['cellbender_counts']
-            
+        del temp.layers['cellbender_counts']    
         temp.X = temp.layers['raw_counts'].copy()
-        
-        temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
-        
-        var_dfs.append(temp.var)
         
         if adata is None:
             adata = temp
         else:
-            temp.obs.reset_index(inplace=True)
-            temp.obs.set_index('cellID', inplace=True)
-            adata = anndata.concat([adata, temp], join='outer', index_unique=None)
-            adata.obs.reset_index(inplace=True)
-            adata.obs.set_index('cellID', inplace=True)
-        
-        # Optionally save intermediate adata if you want to track progress
-        temp_file = os.path.join(temp_dir, f"temp_{i}.h5ad")
-        adata.write(temp_file)
-        temp_files.append(temp_file)
+            adata = anndata.concat([adata, temp], join='outer', label = None, index_unique=None)
 
-    # Combine var DataFrames
-    combined_var = pd.concat(var_dfs, axis=1, join='outer')
-    combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
-    adata.var = combined_var
+    adata.var = temp.var[['gene_id', 'gene_name', 'mt']]
     
     # Final save
-    adata.write(ofile)
-    
-    # Clean up temporary directory if necessary
-    for temp_file in temp_files:
-        os.remove(temp_file)
+    adata.write_h5ad(ofile)
         
         
 def concat_adatas_cb_counts(adatas, ofile, temp_dir="cb_temp_files"):
-    var_dfs = []
-
-    if not os.path.exists(temp_dir):
-        os.makedirs(temp_dir)
-    
     adata = None  # Initialize adata
-    temp_files = []
 
     for i, f in enumerate(adatas):
+        print(f)
         temp = sc.read_h5ad(f)
-        
-        if 'raw_counts' in temp.layers:
-            del temp.layers['raw_counts']
-            
-        temp.X = temp.layers['cellbender_counts'].copy()
-        
-        # delete because of size limitations...
-        del temp.layers['cellbender_counts']
-        
-        temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
-        
-        var_dfs.append(temp.var)
-        
+        del temp.layers['raw_counts']
+        temp.X = temp.layers['cellbender_counts']
+
         if adata is None:
             adata = temp
         else:
-            temp.obs.reset_index(inplace=True)
-            temp.obs.set_index('cellID', inplace=True)
-            adata = anndata.concat([adata, temp], join='outer', index_unique=None)
-            adata.obs.reset_index(inplace=True)
-            adata.obs.set_index('cellID', inplace=True)
-        
-        # Optionally save intermediate adata if you want to track progress
-        temp_file = os.path.join(temp_dir, f"temp_{i}.h5ad")
-        adata.write(temp_file)
-        temp_files.append(temp_file)
-
-    # Combine var DataFrames
-    combined_var = pd.concat(var_dfs, axis=1, join='outer')
-    combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
-    adata.var = combined_var
+            adata = anndata.concat([adata, temp], join='outer', label = None, index_unique=None)
+            
+    adata.var = temp.var[['gene_id', 'gene_name', 'mt']]
     
     # Final save
-    adata.write(ofile)
-    
-    # Clean up temporary directory if necessary
-    for temp_file in temp_files:
-        os.remove(temp_file)
-        
+    adata.write_h5ad(ofile)
