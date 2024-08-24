@@ -160,7 +160,7 @@ rule make_plate_adata_cb_counts:
         
 ######
 
-rule make_plate_adata_combined:
+rule make_plate_adata:
     input:
         adata_raw_counts = config['plate']['adata_raw_counts'],
         adata_cb_counts = config['plate']['adata_cb_counts']
@@ -176,7 +176,7 @@ rule make_plate_adata_combined:
         adata_cb = sc.read_h5ad(input.adata_cb_counts)
 
         # Add the 'cellbender_counts' layer from adata_cb to adata
-        adata.layers['cellbender_counts'] = adata_cb.layers['cellbender_counts'].copy()     
+        adata.layers['cellbender_counts'] = adata_cb.X.copy()     
 
         # Save the combined adata object to the output file
         adata.write_h5ad(output.adata)
@@ -211,7 +211,6 @@ rule make_tissue_adata_raw_counts:
         os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
 
         adata = sc.read_h5ad(input.plate_adata)
-        adata.X = adata.layers['raw_counts'].copy()
         adata_tissue = adata[adata.obs['Tissue'] == wildcards.tissue].copy()
         adata_tissue.write_h5ad(output.tissue_adata)
         
@@ -227,6 +226,5 @@ rule make_tissue_adata_cellbender_counts:
         os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
 
         adata = sc.read_h5ad(input.plate_adata)
-        adata.X = adata.layers['cellbender_counts'].copy()
         adata_tissue = adata[adata.obs['Tissue'] == wildcards.tissue].copy()
         adata_tissue.write_h5ad(output.tissue_adata)

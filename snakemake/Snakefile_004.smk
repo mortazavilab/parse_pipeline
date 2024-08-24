@@ -38,15 +38,18 @@ def get_subset_tissues(df, sample_df):
     temp = df.merge(sample_df, on='plate', how='inner')
     tissues = temp.Tissue.unique().tolist()
     return tissues
-
+    
 rule all:
     input:
+        expand(config['tissue']['adata'],
+               plate=df.plate.tolist(),
+               tissue=get_subset_tissues(df, sample_df)),
         expand(config['tissue']['adata_raw_counts'],
-                plate=df.plate.tolist(),
-                tissue=get_subset_tissues(df, sample_df)),
+               plate=df.plate.tolist(),
+               tissue=get_subset_tissues(df, sample_df)),
         expand(config['tissue']['adata_cb_counts'],
-                plate=df.plate.tolist(),
-                tissue=get_subset_tissues(df, sample_df))
+               plate=df.plate.tolist(),
+               tissue=get_subset_tissues(df, sample_df))
                         
 ################################################################################
 ################################## cellbender ##################################
@@ -143,18 +146,6 @@ rule make_plate_adata_raw_counts:
     run:
         concat_adatas_raw_counts(input.adatas, output.adata)
 
-rule make_tissue_adatas_raw_counts:
-    input:
-        plate_adata = config['plate']['adata_raw_counts']
-    output:
-        tissue_adata = config['tissue']['adata_raw_counts']
-    resources:
-        mem_gb = 350,
-        threads = 2
-    run:
-        split_raw_counts_plate_adata_by_tissue(input.plate_adata, output.tissue_adata)
-
-######
 
 rule make_plate_adata_cb_counts:
     input:
@@ -166,14 +157,74 @@ rule make_plate_adata_cb_counts:
         adata = config['plate']['adata_cb_counts']
     run:
         concat_adatas_cb_counts(input.adatas, output.adata)
+        
+######
 
-rule make_tissue_adatas_cb_counts:
+rule make_plate_adata:
     input:
-        plate_adata = config['plate']['adata_cb_counts']
-    output:
-        tissue_adata = config['tissue']['adata_cb_counts']
+        adata_raw_counts = config['plate']['adata_raw_counts'],
+        adata_cb_counts = config['plate']['adata_cb_counts']
     resources:
         mem_gb = 350,
         threads = 2
+    output:
+        adata=config['plate']['adata']
     run:
-        split_cb_counts_plate_adata_by_tissue(input.plate_adata, output.tissue_adata)
+        import scanpy as sc
+
+        adata = sc.read_h5ad(input.adata_raw_counts)
+        adata_cb = sc.read_h5ad(input.adata_cb_counts)
+
+        # Add the 'cellbender_counts' layer from adata_cb to adata
+        adata.layers['cellbender_counts'] = adata_cb.X.copy()     
+
+        # Save the combined adata object to the output file
+        adata.write_h5ad(output.adata)
+        
+######
+
+rule make_tissue_adata:
+    input:
+        plate_adata = config['plate']['adata']
+    resources:
+        mem_gb = 350,
+        threads = 2
+    output:
+        tissue_adata =config['tissue']['adata']
+    run:
+        os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
+
+        adata = sc.read_h5ad(input.plate_adata)
+        adata_tissue = adata[adata.obs['Tissue'] == wildcards.tissue].copy()
+        adata_tissue.write_h5ad(output.tissue_adata)
+        
+        
+rule make_tissue_adata_raw_counts:
+    input:
+        plate_adata = config['plate']['adata_raw_counts']
+    resources:
+        mem_gb = 350,
+        threads = 2
+    output:
+        tissue_adata = config['tissue']['adata_raw_counts']
+    run:
+        os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
+
+        adata = sc.read_h5ad(input.plate_adata)
+        adata_tissue = adata[adata.obs['Tissue'] == wildcards.tissue].copy()
+        adata_tissue.write_h5ad(output.tissue_adata)
+        
+rule make_tissue_adata_cellbender_counts:
+    input:
+        plate_adata = config['plate']['adata_cb_counts']
+    resources:
+        mem_gb = 350,
+        threads = 2
+    output:
+        tissue_adata = config['tissue']['adata_cb_counts']
+    run:
+        os.makedirs(os.path.dirname(output.tissue_adata), exist_ok=True)
+
+        adata = sc.read_h5ad(input.plate_adata)
+        adata_tissue = adata[adata.obs['Tissue'] == wildcards.tissue].copy()
+        adata_tissue.write_h5ad(output.tissue_adata)

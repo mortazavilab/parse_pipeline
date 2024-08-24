@@ -392,7 +392,7 @@ def add_meta_filter(filt_h5,
 ############################################## Final concat ################################################
 ############################################################################################################
     
-def concat_adatas_raw_counts(adatas, ofile, temp_dir="temp_files"):
+def concat_adatas_raw_counts(adatas, ofile, temp_dir="raw_temp_files"):
     var_dfs = []
     
     if not os.path.exists(temp_dir):
@@ -440,7 +440,7 @@ def concat_adatas_raw_counts(adatas, ofile, temp_dir="temp_files"):
         os.remove(temp_file)
         
         
-def concat_adatas_cb_counts(adatas, ofile, temp_dir="temp_files"):
+def concat_adatas_cb_counts(adatas, ofile, temp_dir="cb_temp_files"):
     var_dfs = []
 
     if not os.path.exists(temp_dir):
@@ -456,6 +456,9 @@ def concat_adatas_cb_counts(adatas, ofile, temp_dir="temp_files"):
             del temp.layers['raw_counts']
             
         temp.X = temp.layers['cellbender_counts'].copy()
+        
+        # delete because of size limitations...
+        del temp.layers['cellbender_counts']
         
         temp.var.drop(columns=['feature_type', 'genome', 'ambient_expression', 'cellbender_analyzed'], inplace=True)
         
