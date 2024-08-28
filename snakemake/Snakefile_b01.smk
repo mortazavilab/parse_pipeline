@@ -43,7 +43,10 @@ rule all:
     input:
         expand(config['tissue']['adata'],
                 plate=df.plate.tolist(),
-                tissue=get_subset_tissues(df, sample_df))
+                tissue=get_subset_tissues(df, sample_df)),
+        expand(config['cellbender']['metrics_copy'],
+               plate=df.plate.tolist(),
+               subpool=df.subpool.tolist())
                         
 ################################################################################
 ################################## cellbender ##################################
@@ -82,6 +85,18 @@ rule all:
 #        """
         
 
+rule copy_cellbender_metrics:
+    input:
+        metrics = config['cellbender']['metrics']
+    output:
+        metrics_copy = config['cellbender']['metrics_copy']
+    shell:
+        """
+        mkdir -p $(dirname {output.metrics_copy})
+
+        cp {input.metrics} {output.metrics_copy}
+        """
+        
 ################################################################################
 ##################### Merge klue results and run scrublet ######################
 ################################################################################

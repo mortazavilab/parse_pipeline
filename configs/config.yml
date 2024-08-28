@@ -12,6 +12,8 @@ cellbender:
   unfilt_h5: /nanopore/cellbender/{plate}/{subpool}/adata_denoised.h5
   filt_h5: /nanopore/cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
   filt_adata: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
+  metrics: /nanopore/cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
+  metrics_copy: /nanopore/pipeline_output_cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
   #filt_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
   
 plate:
