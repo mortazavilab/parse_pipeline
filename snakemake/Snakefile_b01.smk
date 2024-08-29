@@ -47,7 +47,7 @@ rule all:
         expand(config['cellbender']['metrics_copy'],
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist()),
-        expand(config['cellbender']['version_file'],
+        expand(config['cellbender']['package_versions'],
                plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
                         
