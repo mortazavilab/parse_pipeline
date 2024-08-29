@@ -46,6 +46,9 @@ rule all:
                 tissue=get_subset_tissues(df, sample_df)),
         expand(config['cellbender']['metrics_copy'],
                plate=df.plate.tolist(),
+               subpool=df.subpool.tolist()),
+        expand(config['cellbender']['version_file'],
+               plate=df.plate.tolist(),
                subpool=df.subpool.tolist())
                         
 ################################################################################
@@ -97,6 +100,27 @@ rule copy_cellbender_metrics:
         cp {input.metrics} {output.metrics_copy}
         """
         
+rule track_versions:
+    output:
+        version_file = config['cellbender']['package_versions']
+    shell:
+        """
+        # Activate cellbender environment and get version
+        conda activate cellbender
+        cellbender_version=$(cellbender --version | awk '{print $NF}')
+
+        # Activate snakemake environment and get versions of required packages
+        conda activate snakemake
+        scanpy_version=$(pip list | grep '^scanpy ' | awk '{print $2}')
+        anndata_version=$(pip list | grep '^anndata ' | awk '{print $2}')
+        pandas_version=$(pip list | grep '^pandas ' | awk '{print $2}')
+        numpy_version=$(pip list | grep '^numpy ' | awk '{print $2}')
+
+        # Write the output to the CSV file
+        echo "Package,Cellbender,Scanpy,Anndata,Pandas,Numpy" > {output.version_file}
+        echo "Version,$cellbender_version,$scanpy_version,$anndata_version,$pandas_version,$numpy_version" >> {output.version_file}
+        """
+
 ################################################################################
 ##################### Merge klue results and run scrublet ######################
 ################################################################################
