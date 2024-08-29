@@ -11,7 +11,7 @@ fastq	fastq_r2	subpool	sample	plate	lane	run	platform	droplets_included	learning
 /dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13E_S5_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13E_S5_L002_R2_001.fastq.gz	Subpool_5	S5	igvf_012	L002	1	next	40000	0.00005	13000
 /dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13F_S6_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13F_S6_L001_R2_001.fastq.gz	Subpool_6	S6	igvf_012	L001	1	next	40000	0.00005	13000
 /dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13F_S6_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13F_S6_L002_R2_001.fastq.gz	Subpool_6	S6	igvf_012	L002	1	next	40000	0.00005	13000
-/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L001_R2_001.fastq.gz	Subpool_7	S7	igvf_012	L001	1	next	40000	0.00005	13000
-/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L002_R2_001.fastq.gz	Subpool_7	S7	igvf_012	L002	1	next	40000	0.00005	13000
-/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L001_R2_001.fastq.gz	Subpool_8	S8	igvf_012	L001	1	next	40000	0.00005	13000
-/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L002_R2_001.fastq.gz	Subpool_8	S8	igvf_012	L002	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L001_R2_001.fastq.gz	Subpool_8	S8	igvf_012	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13G_S7_L002_R2_001.fastq.gz	Subpool_8	S8	igvf_012	L002	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L001_R2_001.fastq.gz	Subpool_7	S7	igvf_012	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_012/nextseq/012_13H_S8_L002_R2_001.fastq.gz	Subpool_7	S7	igvf_012	L002	1	next	40000	0.00005	13000
