@@ -106,6 +106,8 @@ rule track_versions:
     shell:
         """
         # Activate cellbender environment and get version
+        source /path/to/miniconda3/etc/profile.d/conda.sh
+        
         conda activate cellbender
         cellbender_version=$(cellbender --version | awk '{{print $NF}}')
 
@@ -120,6 +122,7 @@ rule track_versions:
         echo "Package,Cellbender,Scanpy,Anndata,Pandas,Numpy" > {output.version_file}
         echo "Version,$cellbender_version,$scanpy_version,$anndata_version,$pandas_version,$numpy_version" >> {output.version_file}
         """
+
 
 ################################################################################
 ##################### Merge klue results and run scrublet ######################
