@@ -107,14 +107,14 @@ rule track_versions:
         """
         # Activate cellbender environment and get version
         conda activate cellbender
-        cellbender_version=$(cellbender --version | awk '{print $NF}')
+        cellbender_version=$(cellbender --version | awk '{{print $NF}}')
 
         # Activate snakemake environment and get versions of required packages
         conda activate snakemake
-        scanpy_version=$(pip list | grep '^scanpy ' | awk '{print $2}')
-        anndata_version=$(pip list | grep '^anndata ' | awk '{print $2}')
-        pandas_version=$(pip list | grep '^pandas ' | awk '{print $2}')
-        numpy_version=$(pip list | grep '^numpy ' | awk '{print $2}')
+        scanpy_version=$(pip list | grep '^scanpy ' | awk '{{print $2}}')
+        anndata_version=$(pip list | grep '^anndata ' | awk '{{print $2}}')
+        pandas_version=$(pip list | grep '^pandas ' | awk '{{print $2}}')
+        numpy_version=$(pip list | grep '^numpy ' | awk '{{print $2}}')
 
         # Write the output to the CSV file
         echo "Package,Cellbender,Scanpy,Anndata,Pandas,Numpy" > {output.version_file}
