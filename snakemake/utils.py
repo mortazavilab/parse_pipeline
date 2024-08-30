@@ -301,6 +301,8 @@ def add_meta_filter(filt_h5,
     print('Running scrublet...')
     
     adata_raw_filtered.obs['bc1_well'] = adata.obs['bc1_well']
+    adata_raw_filtered.obs['bc1_well'] = adata_raw_filtered.obs['bc1_well'].astype(str)
+
     sc.pp.scrublet(adata_raw_filtered, batch_key="bc1_well", n_prin_comps=30)
     
     # transfer doublet score information to adata
