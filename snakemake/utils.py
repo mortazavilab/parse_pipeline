@@ -3,10 +3,9 @@ import numpy as np
 from snakemake.io import expand
 import anndata
 import scanpy as sc
-import scrublet as scr
 import shutil
 import os
-from cellbender.remove_background.downstream import anndata_from_h5
+import json
 
 ############################################################################################################
 ############################################### Barcode stuff ##############################################
@@ -29,8 +28,19 @@ def load_bc_dict(fname, verb=False):
     return new_dict
 
 def get_bc_round_set(kit, chemistry):
+    valid_kits = {'custom_1', 'WT', 'WT_mini', 'WT_mega'}
+    valid_chemistries = {'v1', 'v2', 'v3'}
+    
+    # Check if the provided kit and chemistry are valid
+    if kit not in valid_kits:
+        raise ValueError(f"Invalid kit: {kit}. Valid options are: {', '.join(valid_kits)}.")
+    if chemistry not in valid_chemistries:
+        raise ValueError(f"Invalid chemistry: {chemistry}. Valid options are: {', '.join(valid_chemistries)}.")
+
+        
     KIT_INT_DICT = {'custom_1': 1, 'WT': 48, 'WT_mini': 12, 'WT_mega': 96}
     kit_n = KIT_INT_DICT[kit]
+    
     if kit_n == 12:
         bc_round_set = [['bc1','n24_v4'], ['bc2','v1'], ['bc3','v1']]
     if kit_n == 96:
@@ -40,53 +50,19 @@ def get_bc_round_set(kit, chemistry):
 
     if kit == 'WT' and chemistry == 'v2':
         bc_round_set = [['bc1', 'n96_v4'], ['bc2', 'v1'], ['bc3', 'v1']]
+        
+    # support for v3 chemistry
+    if kit == 'WT_mini' and chemistry == 'v3':
+        bc_round_set = [['bc1', 'n26_R1_v3_3'], ['bc2', 'v1'], ['bc3', 'R3_v3']]
+        
+    if kit == 'WT' and chemistry == 'v3':
+        bc_round_set = [['bc1', 'n102_R1_v3_3'], ['bc2', 'v1'], ['bc3', 'R3_v3']]
+        
+    if kit == 'WT_mega' and chemistry == 'v3':
+        bc_round_set = [['bc1', 'n208_R1_v3_3'], ['bc2', 'v1'], ['bc3', 'R3_v3']]
 
     return bc_round_set
 
-def load_barcodes(kit, chemistry):
-    """
-    Load the barcodes. Adapted from the Parse biosciences pipeline.
-
-    Returns:
-        edit_dict_set (dict): Dict for barcode<1,2,3> with
-            key: query bc
-            item: corrected bc
-    """
-    pkg_path = os.path.dirname(__file__)
-    bc_path = '/'.join(pkg_path.split('/')[:-1])+'/barcodes/'
-
-    bc_round_set = get_bc_round_set(kit, chemistry)
-
-    edit_dict_set = {}
-    for entry in bc_round_set:
-        bc = entry[0]
-        ver = entry[1]
-        fname = bc_path + 'bc_dict_{}.json'.format(ver)
-        edit_dict = load_bc_dict(fname)
-        edit_dict_set[bc] = edit_dict
-
-    return edit_dict_set
-
-# From the Parse biosciences pipeline
-def load_barcodes_set(kit, chemistry):
-    """
-    Load the barcodes. Adapted from the Parse biosciences pipeline.
-    """
-    pkg_path = os.path.dirname(__file__)
-    bc_path = '/'.join(pkg_path.split('/')[:-1])+'/barcodes/'
-
-    bc_round_set = get_bc_round_set(kit, chemistry)
-
-    bc_set = {}
-    for entry in bc_round_set:
-        bc = entry[0]
-        ver = entry[1]
-        fname = bc_path + '/bc_data_{}.csv'.format(ver)
-        bc_df = pd.read_csv(fname)
-        bcs = set(bc_df.sequence.tolist())
-        bc_set[bc] = bcs
-
-    return bc_set
 
 def get_bc1_matches(kit, chemistry):
     pkg_path = os.path.dirname(os.path.dirname(__file__))
@@ -102,6 +78,11 @@ def get_bc1_matches(kit, chemistry):
     # matched with its randhex partner from the same well
     fname = pkg_path+'/barcodes/bc_data_{}.csv'.format(ver)
     df = pd.read_csv(fname)
+    
+    if chemistry == "v3":
+        df = df[df['stype'] != "X"]
+        df.rename({'stype': 'type'}, axis=1, inplace=True)
+    
     df.loc[df.well.duplicated(keep=False)].sort_values(by='well')
     drop_cols = ['bci', 'uid', 'type']
     bc1_dt = df.loc[df['type'] == 'T'].drop(drop_cols, axis=1)
@@ -129,17 +110,118 @@ def get_bcs(bc, kit, chemistry):
 
     fname = pkg_path+'/barcodes/bc_data_{}.csv'.format(ver)
     df = pd.read_csv(fname)
+    
+    if chemistry == "v3":
+        if 'stype' in df.columns:
+            df = df[df['stype'] != "X"]
+            df.rename({'stype': 'type'}, axis=1, inplace=True)
+        else:
+            df = df[df['type'] != "X"]
+        
     df.loc[df.well.duplicated(keep=False)].sort_values(by='well')
 
     if bc == 2 or bc == 3:
         assert len(df['type'].unique().tolist()) == 1
 
-    drop_cols = ['bci', 'uid', 'type']
-    df.drop(drop_cols, axis=1, inplace=True)
+    df = df[['sequence', 'well']]
     df.rename({'sequence': bc_name}, axis=1, inplace=True)
 
     return df
 
+
+def create_r1_RT_replace(kit, chemistry, ofile):
+    # Use the get_bc_round_set function to get the appropriate bc_round_set
+    bc_round_set = get_bc_round_set(kit, chemistry)
+    
+    # Extract the first barcode file info (bc1)
+    bc, file_suffix = bc_round_set[0]  # Only use the first entry, which corresponds to bc1
+    
+    pkg_path = os.path.dirname(__file__)
+    bc_path = '/'.join(pkg_path.split('/')[:-1])+'/barcodes/'
+    
+    filename = bc_path + f"bc_data_{file_suffix}.csv"
+    
+    # Read the corresponding CSV file
+    df = pd.read_csv(filename)
+    
+    if chemistry == "v3":
+        df = df[df['stype'] != "X"]
+        df.rename({'stype': 'type'}, axis=1, inplace=True)
+    
+    # Filter rows based on 'type' column
+    df_R = df[df['type'] == 'R']['sequence']
+    df_T = df[df['type'] == 'T']['sequence']
+    
+    # Format the sequences into the desired output
+    formatted_sequences = [f"{r} *{t}" for r, t in zip(df_R, df_T)]
+    
+    # Write the formatted sequences to a new file
+    output_filename = ofile
+    with open(output_filename, 'w') as f:
+        f.write("\n".join(formatted_sequences))
+
+
+def create_r1r2r3_file(kit, chemistry, ofile):
+    # Helper function to generate all well identifiers
+    def generate_wells():
+        return [f"{row}{col}" for row in "ABCDEFGH" for col in range(1, 13)]
+    
+    # Get barcode files based on the kit and chemistry
+    bc_round_set = get_bc_round_set(kit, chemistry)
+    pkg_path = os.path.dirname(__file__)
+    bc_path = os.path.join(pkg_path, '..', 'barcodes')
+    bc_files = {bc[0]: os.path.join(bc_path, f"bc_data_{bc[1]}.csv") for bc in bc_round_set}
+        
+    
+    # Read barcode data into DataFrames
+    bc_data = {}
+    for bc in bc_files:
+        df = pd.read_csv(bc_files[bc])
+        
+        if chemistry == "v3":
+            df.rename({'stype': 'type'}, axis=1, inplace=True)
+            
+        bc_data[bc] = df
+            
+    # Generate all well identifiers
+    all_wells = generate_wells()
+
+    # Create empty DataFrames for type L/T and type R
+    df_l_t = pd.DataFrame({'well': all_wells})
+    df_r = pd.DataFrame({'well': all_wells})
+    
+    # Filter and merge DataFrames for type L/T
+    for bc in ['bc1', 'bc2', 'bc3']:
+        df = bc_data[bc]
+        df_l_t_filtered = df[df['type'].isin(['L', 'T'])][['well', 'sequence']]
+        df_l_t_filtered = df_l_t_filtered.rename(columns={'sequence': f'{bc}_sequence'})
+        df_l_t = df_l_t.merge(df_l_t_filtered, on='well', how='left')
+    
+    # Fill NaNs with dashes for type L/T
+    df_l_t.fillna('-', inplace=True)
+    
+    # Filter and merge DataFrames for type R
+    for bc in ['bc1', 'bc2', 'bc3']:
+        df = bc_data[bc]
+        df_r_filtered = df[df['type'] == 'R'][['well', 'sequence']]
+        df_r_filtered = df_r_filtered.rename(columns={'sequence': f'{bc}_sequence'})
+        df_r = df_r.merge(df_r_filtered, on='well', how='left')
+    
+    # Fill NaNs with dashes for type R
+    df_r.fillna('-', inplace=True)
+    
+    # Combine DataFrames for L/T and R
+    combined_df = pd.concat([df_l_t, df_r], ignore_index=True)
+    
+    sequence_columns = ['bc3_sequence','bc2_sequence','bc1_sequence']
+    sequences_df = combined_df[sequence_columns]
+    sequences_df = sequences_df[~(sequences_df[sequence_columns] == '-').all(axis=1)]
+
+    
+    sequences_df.to_csv(ofile, sep=' ', index=False, header=False)
+
+
+    
 ############################################################################################################
 ############################################## Snakemake stuff #############################################
 ############################################################################################################
@@ -242,16 +324,27 @@ def get_subpool_fastqs(wc, df, config, how, read=None):
 ############################################################################################################
 
 def make_adata_from_kallisto(mtx,
-                    cgb,
-                    cggn,
-                    cgg,
-                    wc,
-                    ofile):
+                             cgb,
+                             cggn,
+                             cgg,
+                             bc_df,
+                             kit,
+                             chemistry,
+                             run_info,
+                             bc_info,
+                             config_tsv,
+                             wc,
+                             ofile,
+                             knee_file,
+                             report_df,
+                             cb_df
+                            ):
 
     """
-    Make adata from unfiltered kallisot output using total mtx
+    Make adata from unfiltered kallisto output using total mtx
     """
 
+    print(ofile)
     data = sc.read_mtx(mtx)
     obs = pd.read_csv(cgb, header = None, sep="\t")
     obs.columns = ["bc"]
@@ -263,11 +356,118 @@ def make_adata_from_kallisto(mtx,
 
     X = data.X
     adata = anndata.AnnData(X=X, obs=obs, var=var)
-    adata.obs.index = obs["bc"]
     adata.var_names = adata.var['gene_name']
     adata.var_names_make_unique()
     
+    adata.var['mt'] = adata.var_names.str.startswith('mt-')  # annotate the group of mitochondrial genes as 'mt'
+    
+    adata.obs['bc1_sequence'] = adata.obs['bc'].apply(get_bc1)
+    adata.obs['bc2_sequence'] = adata.obs['bc'].apply(get_bc2)
+    adata.obs['bc3_sequence'] = adata.obs['bc'].apply(get_bc3)
+
+    # merge in bc metadata
+    temp = bc_df.copy(deep=True)
+    temp = temp[['bc1_dt', 'well']].rename({'bc1_dt': 'bc1_sequence',
+                                             'well': 'bc1_well'}, axis=1)
+
+    adata.obs = adata.obs.merge(temp, how='left', on='bc1_sequence')
+
+    for bc in [2,3]:
+        bc_name = f'bc{bc}'
+        seq_col = f'bc{bc}_sequence'
+        well_col = f'bc{bc}_well'
+        bc_df = get_bcs(bc, kit, chemistry)
+        bc_df.rename({'well': well_col,
+                      bc_name: seq_col}, axis=1, inplace=True)
+        adata.obs = adata.obs.merge(bc_df, how='left', on=seq_col)
+        
+    adata.obs.index = obs["bc"]
+
+    ################## extra stuff for report ################## 
+    sc.pp.calculate_qc_metrics(adata, qc_vars=['mt'], percent_top=None, log1p=False, inplace=True)
+    
+    ### knee plot df
+    knee = np.sort((np.array(adata.X.sum(axis=1))).flatten())[::-1]
+    knee_df = pd.DataFrame({
+        'Barcode rank': range(len(knee)),
+        'UMIs': knee})
+    
+    knee_df.to_csv(knee_file, index=False)
+    
+    ### pseudoaligment stats
+    json_file_path = run_info
+    with open(json_file_path, 'r') as file:
+        data_dict = json.load(file)
+
+    df = pd.DataFrame([data_dict])
+    df = df.drop(columns=['call', 'start_time', 'index_version', 'n_bootstraps', 'n_targets'])
+    
+    ### barcode stats
+    json_file_path = bc_info
+    with open(json_file_path, 'r') as file:
+        data_dict = json.load(file)
+
+    bc_info_df = pd.DataFrame([data_dict])
+    
+    
+    #total_umis = np.sum(adata.X)
+    df['Total UMIs'] = bc_info_df['numBarcodeUMIs']
+    df['Sequencing saturation'] = 1 - (df['Total UMIs'] / df['n_pseudoaligned'])
+    df['Sequencing saturation'] = round(df['Sequencing saturation'], 3)
+    
+    
+    df['Total UMIs'] = format(int(df['Total UMIs']),',')
+    
+    df['n_processed'] = format(int(df['n_processed']),',')
+    df['n_pseudoaligned'] = format(int(df['n_pseudoaligned']),',')
+    df['n_unique'] = format(int(df['n_unique']),',')
+    
+
+    # Rename the remaining columns
+    df = df.rename(columns={
+        'n_processed': 'Total reads',
+        'n_pseudoaligned': 'Total pseudoaligned',
+        'n_unique': 'Total unique',
+        'p_pseudoaligned': 'Pct. pseudoaligned',
+        'p_unique': 'Pct. uniquely pseudoaligned',
+        'kallisto_version': 'kallisto version'
+    })
+    
+    df['Subpool'] = wc.subpool
+    
+
+    ### other QC stats
+    adata_200 = adata[adata.obs['total_counts'] >= 200]
+    df['Num. cells >= 200 UMI'] = f"{int(adata_200.shape[0]):,}"
+    df['Median UMIs/cell (200 UMIs)'] = f"{int(adata_200.obs['total_counts'].median()):,}"
+    df['Mean UMIs/cell (200 UMIs)'] = f"{round(adata_200.obs['total_counts'].mean(), 1):,.1f}"
+    df['Median genes/cell (200 UMIs)'] = f"{int(adata_200.obs['n_genes_by_counts'].median()):,}"
+    df['Mean genes/cell (200 UMIs)'] = f"{round(adata_200.obs['n_genes_by_counts'].mean(), 1):,.1f}"
+
+    adata_500 = adata[adata.obs['total_counts'] >= 500]
+    df['Num. cells >= 500 UMI'] = f"{int(adata_500.shape[0]):,}"
+    df['Median UMIs/cell (500 UMIs)'] = f"{int(adata_500.obs['total_counts'].median()):,}"
+    df['Mean UMIs/cell (500 UMIs)'] = f"{round(adata_500.obs['total_counts'].mean(), 1):,.1f}"
+    df['Median genes/cell (500 UMIs)'] = f"{int(adata_500.obs['n_genes_by_counts'].median()):,}"
+    df['Mean genes/cell (500 UMIs)'] = f"{round(adata_500.obs['n_genes_by_counts'].mean(), 1):,.1f}"
+ 
+    df.to_csv(report_df, index=False)
+    
+    
+    ### cb settings
+    cb_settings = pd.read_csv(config_tsv, sep='\t')
+    
+    columns_of_interest = ['plate', 'subpool', 'droplets_included', 'learning_rate', 'expected_cells']
+    available_columns = [column for column in columns_of_interest if column in cb_settings.columns]
+    if available_columns:
+        cb_settings = cb_settings[available_columns]
+        cb_settings = cb_settings.drop_duplicates().reset_index(drop=True)
+        
+    cb_settings.to_csv(cb_df, index=False)
+    
+    # WRITE
     adata.write(ofile)
+
 
 ############################################################################################################
 ########################################### Post-cellbender Klue ###########################################
