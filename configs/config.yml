@@ -1,9 +1,4 @@
 ref:
-  bc1_map: ref/r1_RT_replace.txt
-  barcodes: ref/r1r2r3.txt
-  bc1_map_wt: ref/r1_RT_replace_wt.txt
-  barcodes_wt: ref/r1r2r3_wt.txt
-
   annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz
   annot: ref/gencode.vM32.gtf.gz
   fa_link: https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
@@ -52,10 +47,12 @@ kallisto:
   bus: kallisto/{plate}/{subpool}/output.bus
   bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
   bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
+  run_info: kallisto/{plate}/{subpool}/run_info.json
+  bc_info: kallisto/{plate}/{subpool}/inspect.json
 
   filt_adata: pipeline_output_kallisto/{plate}/{subpool}/filtered_adata.h5ad
   unfilt_adata: pipeline_output_kallisto/{plate}/{subpool}/unfiltered_adata.h5ad
-
+  
 klue:
   cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
@@ -80,3 +77,8 @@ cellbender:
 
 tissue:
   adata: ./{plate}/{tissue}/adata.h5ad
+
+report:
+  knee_df: pipeline_report/{plate}/{subpool}/knee_plot_df.csv
+  report_df: pipeline_report/{plate}/{subpool}/report.csv
+  cb_df: pipeline_report/{plate}/{subpool}/cellbender_settings.csv
