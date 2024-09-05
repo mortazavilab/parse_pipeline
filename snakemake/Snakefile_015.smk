@@ -59,8 +59,8 @@ rule cellbender:
         unfilt_adata = config['kallisto']['unfilt_adata']
     params:
         total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
-        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
-        expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
+        #learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
+        #expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
     resources:
         mem_gb = 250,
         threads = 12
@@ -83,8 +83,8 @@ rule cellbender:
             --input {input.unfilt_adata} \
             --output {output.unfilt_h5} \
             --total-droplets-included {params.total_drops} \
-            --learning-rate {params.learning_rate} \
-            --expected-cells {params.expected_cells} \
+            #--learning-rate {params.learning_rate} \
+            #--expected-cells {params.expected_cells} \
             --cuda
         """ 
 
