@@ -83,8 +83,6 @@ rule cellbender:
             --input {input.unfilt_adata} \
             --output {output.unfilt_h5} \
             --total-droplets-included {params.total_drops} \
-            #--learning-rate {params.learning_rate} \
-            #--expected-cells {params.expected_cells} \
             --cuda
         """ 
 
