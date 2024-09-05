@@ -6,7 +6,7 @@ sys.path.append(p)
 from utils import *
 
 ######## Only need to edit this part ########
-config_tsv = 'configs/igvf_003_config.tsv'
+config_tsv = 'configs/igvf_008_config.tsv'
 sample_csv = 'configs/sample_metadata.csv'
 
 kit = 'WT_mega'  # either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
@@ -54,39 +54,39 @@ rule all:
 ################################################################################
 ################################## cellbender ##################################
 ################################################################################
-#rule cellbender:
-#    input:
-#        unfilt_adata = config['kallisto']['unfilt_adata']
-#    params:
-#        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
-#        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
-#        expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
-#    resources:
-#        mem_gb = 250,
-#        threads = 12
-#    output:
-#        filt_h5 = config['cellbender']['filt_h5'],
-#        unfilt_h5 = config['cellbender']['unfilt_h5'],
-#    conda:
-#        "cellbender"
-#    shell:
-#        """
-#        mkdir -p $(dirname {output.filt_h5})
-#        cd $(dirname {output.filt_h5})
-#        
-#        #SUBPOOL_ID=$(echo {wildcards.subpool} | grep -o '[0-9]*')
-#        #GPU_ID=$(( SUBPOOL_ID % 2 ))
-#        #export CUDA_VISIBLE_DEVICES=$GPU_ID
-#
-#        # Run cb in target directory
-#        cellbender remove-background \
-#            --input {input.unfilt_adata} \
-#            --output {output.unfilt_h5} \
-#            --total-droplets-included {params.total_drops} \
-#            --learning-rate {params.learning_rate} \
-#            --expected-cells {params.expected_cells} \
-#            --cuda
-#        """
+rule cellbender:
+    input:
+        unfilt_adata = config['kallisto']['unfilt_adata']
+    params:
+        total_drops = lambda wildcards: df[df['subpool'] == wildcards.subpool]['droplets_included'].values[0],
+        learning_rate = lambda wildcards: df[df['subpool'] == wildcards.subpool]['learning_rate'].values[0],
+        expected_cells = lambda wildcards: df[df['subpool'] == wildcards.subpool]['expected_cells'].values[0],
+    resources:
+        mem_gb = 250,
+        threads = 12
+    output:
+        filt_h5 = config['cellbender']['filt_h5'],
+        unfilt_h5 = config['cellbender']['unfilt_h5'],
+    conda:
+        "cellbender"
+    shell:
+        """
+        mkdir -p $(dirname {output.filt_h5})
+        cd $(dirname {output.filt_h5})
+        
+        #SUBPOOL_ID=$(echo {wildcards.subpool} | grep -o '[0-9]*')
+        #GPU_ID=$(( SUBPOOL_ID % 2 ))
+        #export CUDA_VISIBLE_DEVICES=$GPU_ID
+
+        # Run cb in target directory
+        cellbender remove-background \
+            --input {input.unfilt_adata} \
+            --output {output.unfilt_h5} \
+            --total-droplets-included {params.total_drops} \
+            --learning-rate {params.learning_rate} \
+            --expected-cells {params.expected_cells} \
+            --cuda
+        """
         
 
 ################################################################################

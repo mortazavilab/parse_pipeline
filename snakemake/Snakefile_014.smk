@@ -3,7 +3,7 @@ import pandas as pd
 p = os.path.dirname(os.getcwd())
 sys.path.append(p)
 
-from utils import *
+from utils_014 import *
 
 ######## Only need to edit this part ########
 config_tsv = 'configs/igvf_014_config.tsv'
@@ -172,11 +172,11 @@ rule make_plate_adata:
     run:
         import scanpy as sc
 
-        adata = sc.read_h5ad(input.adata_raw_counts)
-        adata_cb = sc.read_h5ad(input.adata_cb_counts)
+        adata_raw = sc.read_h5ad(input.adata_raw_counts)
+        adata = sc.read_h5ad(input.adata_cb_counts)
 
-        # Add the 'cellbender_counts' layer from adata_cb to adata
-        adata.layers['cellbender_counts'] = adata_cb.X.copy()     
+        # Add the 'raw counts' layer from adata_raw to adata
+        adata.layers['raw_counts'] = adata_raw.X.copy()     
 
         # Save the combined adata object to the output file
         adata.write_h5ad(output.adata)
