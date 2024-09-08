@@ -176,7 +176,9 @@ rule make_plate_adata:
         adata = sc.read_h5ad(input.adata_cb_counts)
 
         # Add the 'raw counts' layer from adata_raw to adata
-        adata.layers['raw_counts'] = adata_raw.X.copy()     
+        adata.layers['raw_counts'] = adata_raw.X.copy()   
+        
+        adata.X = adata.layers['cellbender_counts']
 
         # Save the combined adata object to the output file
         adata.write_h5ad(output.adata)
