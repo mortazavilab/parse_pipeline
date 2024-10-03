@@ -460,9 +460,6 @@ rule cellbender:
         """
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
-        
-        # need to install cellbender specific version not available thru pip
-        source ~/miniconda3/bin/activate cellbender
 
         # Conditionally run the command based on the value of wildcards.subpool
         if [[ "{wildcards.plate}" == "igvf_b01" || "{wildcards.plate}" == "igvf_003" ]]; then
