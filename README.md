@@ -49,7 +49,7 @@ git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
 2. `mamba create -n snakemake -c conda-forge -c bioconda -c anaconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9 pytables`
-3.  Pip install other necessary packages for cellbender: `pip install torch`, and `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
+3.  Pip install [other necessary packages](https://cellbender.readthedocs.io/en/latest/installation/index.html) for cellbender: `pip install torch`, and `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
 
 Klue installation instructions:
 1. `git clone https://github.com/Yenaled/klue`
