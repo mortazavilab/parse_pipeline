@@ -37,12 +37,14 @@ Read name is not used directly in the pipeline, can be formatted however. Just n
 Note: Written for and tested on UCI's HPC. Follow these steps if you are using this workflow for the first time.
 
 ### Clone this repository
-Clone this repo.
+Clone this branch.
 ```bash
-git clone -b cellbender https://github.com/mortazavilab/parse_pipeline.git
+git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
 ```
-### Set up a screen session on Watson
-Start screen session via `screen -S mysession`, or whatever you want to name it. When you need to reconnect, type `screen -r mysession` ([screen cheatsheet](https://kapeli.com/cheat_sheets/screen.docset/Contents/Resources/Documents/index)). This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
+### Set up an interactive tmux session on HPC
+1. Remember your login node or choose your favorite out of i15, i16, i17. You can switch login nodes via ssh, e.g. `ssh login-i15`
+2. Start tmux session via `tmux new -s mysession`, or whatever you want to name it. When you need to reconnect, type `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)) from the **same login node** as when you started the session. This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
+3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
 
 ### Create a conda environment called snakemake
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
@@ -63,8 +65,8 @@ Klue installation instructions:
 
 If step 7 does not work, follow these steps:
 1. `cd src` (within the build folder)
-2. `pwd` and copy the path, for example mine is `/home/erebboah/klue/build/src`
-3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>:$PATH"`. For example I added `export PATH="/home/erebboah/klue/build/src:$PATH"`
+2. `pwd` and copy the path, for example mine is `/share/crsp/lab/seyedam/erebboah/parse_pipeline/klue/build/src`
+3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>:$PATH"`. For example I added `export PATH="/share/crsp/lab/seyedam/erebboah/parse_pipeline/klue/build/src:$PATH"`
 4. `source ~/.bashrc`
 
 Test installation by typing `klue` in the terminal, should see version and usage information.
@@ -83,17 +85,29 @@ Test installation by typing `klue` in the terminal, should see version and usage
 ## Run pipeline
 Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
 
-1. Login to Watson and start a screen session, e.g. `screen -S pipe`
-2. Change directories to your pipeline directory, e.g. `cd /home/erebboah/parse_pipeline`. You MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
-3. Activate your snakemake environment: `conda activate snakemake` (you need to activate your snakemake conda environment again even if you were following setup instructions since sourcing the bashrc probably reset it to your base environment)
+1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
+2. Change directories to your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`. You MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
+3. Start tmux session, e.g. `tmux new -s mysession`
+4. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`
+5. Activate your snakemake environment: `conda activate snakemake` (you need to activate your snakemake conda environment again even if you were following setup instructions since sourcing the bashrc probably reset it to your base environment)
 6. Check that snakemake is going to run the appropriate jobs (use the -n flag first). Make sure to change `Snakefile.smk` to the one you are actually using! For example, `Snakefile_igvf015.smk`
    
 ```bash
-snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 1 -n
+ snakemake \
+  -s snakemake/Snakefile.smk \
+  -j 100 \
+  --latency-wait 120 \
+  --use-conda \
+  --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00" -n
  ```
 7. Actually run pipeline
 ```bash
-snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 1
+snakemake \
+-s snakemake/Snakefile.smk \
+-j 100 \
+--latency-wait 120 \
+--use-conda \
+--cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
  ```
 
 ### Basic troubleshooting
@@ -101,10 +115,8 @@ snakemake  -s snakemake/Snakefile.smk --latency-wait 120  --use-conda --cores 1
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, and **run**.
 
 ### Known issues / Wishlist
-- CELLBENDER PLZ
 - Clean up extra files
-- Scrublet woes...
 - klue reference generation runs twice for the F1 plates, in other words it makes both NODJ.idx file and a B6NODF1J.idx file, which for now are identical. And the same for all the other 6 non-B6J genotypes. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
-- Integrate Ryan's report code to make beautiful knee plots and well heatmaps
+- Integrate report code
 - Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
 - Support custom humanized loci for Model AD
