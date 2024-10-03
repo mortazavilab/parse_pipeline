@@ -143,6 +143,10 @@ def create_r1_RT_replace(kit, chemistry, ofile):
     # Format
     formatted_sequences = [f"{r} *{t}" for r, t in zip(df_R, df_T)]
     
+    output_dir = os.path.dirname(ofile)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
     # Write
     output_filename = ofile
     with open(output_filename, 'w') as f:
