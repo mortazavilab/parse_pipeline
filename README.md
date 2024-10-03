@@ -70,8 +70,33 @@ If step 7 does not work, follow these steps:
 Test installation by typing `klue` in the terminal, should see version and usage information.
 
 ## Create / edit input files
-1. Make a fastq config file with columns that match the many examples in the configs folder, e.g. [igvf_015_config.tsv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/igvf_015_config.tsv) and save in configs folder. Required columns are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, and **run**.
-2. Update [sample_metadata.csv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The minimum required metadata columns for the pipeline to run properly are **Mouse_Tissue_ID**, **Experiment**, **bc1_well**, **well_type**, **Tissue**, and **Genotype**. If you have genetically multiplexed wells, it's also very convienent for downstream analysis to also have **Multiplexed_sample1** and **Multiplexed_sample2**.
+1. Make a fastq config file with columns that match the many examples in the configs folder, e.g. [igvf_004_config.tsv](https://github.com/mortazavilab/parse_pipeline/blob/cellbender_hpc/configs/igvf_004_config.tsv) and save in configs folder. Required columns are **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, **droplets_included**, **learning_rate**, and **expected_cells**. The last 3 parameters are specifically for CellBender [parameters of the same name](https://cellbender.readthedocs.io/en/latest/usage/index.html#recommended-best-practices). We recommend entering the same number of cells/nuclei as expected in the subpool (for example 67000 for 1M kits, 13000 for 100k kits) for expected cells, half the default learning rate (0.00005), and approximately 3 times the expected cells for the total droplets included (for example 200000 for 1M kits and 40000 for 100k kits). In the case of subpar CellBender results with these parameters, modify droplets included by including an additional 50,000 or subtracting 50,000 (1M kits).
+2. Update [sample_metadata.csv](https://github.com/fairliereese/parse_pipeline/blob/main/configs/sample_metadata.csv) with relevant metadata for your experiment. The pipeline works on the assumption you have something in the following columns, in order to adhere to a common set of attributes especially when submitting data to the IGVF portal:
+- Mouse_Tissue_ID
+- Experiment
+- bc1_well
+- well_type
+- SampleType
+- Tissue
+- Genotype
+- Sex
+- Age
+- Protocol
+- Chemistry
+- Multiplexed_sample1
+- Multiplexed_sample2
+- Row
+- Column
+- DOB
+- Age_days
+- Body_weight_g
+- Estrus_cycle
+- Dissection_date
+- Dissection_time
+- ZT
+- Dissector
+- Tissue_weight_mg
+- Notes
 3. Make a copy of `snakemake/Snakefile.smk` with your experiment name to edit. Keep the copy in the snakemake folder. You can also just edit `Snakefile.smk` directly, but I like to keep a copy of the Snakefile used for each run for my own records. You only need to edit 5 lines maximum in the header region of the file:
 - **config_tsv**: Path to the fastq config file which has the paths to your read1 and read2 input fastqs and the plate, lane, run, and sequencing platform.
 - **sample_csv**: Path to the sample metadata. I typically update the [Google spreadsheet](https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=2080239896), download the tab, and upload it to my configs folder. Each row represents a well in the sample barcoding plate with metadata information for that sample, some of which is repeated across all the samples on the plate, such as experiment name, kit, and tissue.
