@@ -97,16 +97,14 @@ Test installation by typing `klue` in the terminal, should see version and usage
 - Dissector
 - Tissue_weight_mg
 - Notes
-3. Make a copy of `snakemake/Snakefile.smk` with your experiment name to edit. Keep the copy in the snakemake folder. You can also just edit `Snakefile.smk` directly, but I like to keep a copy of the Snakefile used for each run for my own records. You only need to edit 5 lines maximum in the header region of the file:
+3. Make a copy of `snakemake/Snakefile.smk` with your experiment name to edit. Keep the copy in the snakemake folder. You can also just edit `Snakefile.smk` directly, but I like to keep a copy of the Snakefile used for each run for my own records. You only need to edit 4 lines maximum in the header region of the file:
 - **config_tsv**: Path to the fastq config file which has the paths to your read1 and read2 input fastqs and the plate, lane, run, and sequencing platform.
 - **sample_csv**: Path to the sample metadata. I typically update the [Google spreadsheet](https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=2080239896), download the tab, and upload it to my configs folder. Each row represents a well in the sample barcoding plate with metadata information for that sample, some of which is repeated across all the samples on the plate, such as experiment name, kit, and tissue.
 - **kit**: either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
-- **chemistry**: all IGVF and ModelAD experiments are v2 so far, v3 coming soon
-- **first_min_counts**: minimum # of UMIs per cell
- 
+- **chemistry**: all IGVF and ModelAD experiments are v2 so far, v3 coming soon 
 
 ## Run pipeline
-Skip steps 1-4 if you were following the setup instructions and are already in an interactive tmux session.
+Skip steps 1-4 below if you were following the setup instructions and are already in an interactive tmux session.
 
 1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
 2. Change directories to your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`. You MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
