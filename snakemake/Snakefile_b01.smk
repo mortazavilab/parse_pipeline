@@ -465,7 +465,7 @@ rule cellbender:
         source ~/miniconda3/bin/activate cellbender
 
         # Conditionally run the command based on the value of wildcards.subpool
-        if [[ "{wildcards.plate}" == "igvf_b01" ]]; then
+        if [[ "{wildcards.plate}" == "igvf_b01" || "{wildcards.plate}" == "igvf_003" ]]; then
             cellbender remove-background \
                 --input ../../../{input.unfilt_adata} \
                 --output ../../../{output.unfilt_h5} \
