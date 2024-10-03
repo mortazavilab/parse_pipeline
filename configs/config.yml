@@ -66,19 +66,24 @@ klue:
   # version with all genotypes
   genotype_counts: pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
 
-scrublet:
-  adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
-  scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
-
-cellbender:
+cellbender:  
+  unfilt_h5: cellbender/{plate}/{subpool}/adata_denoised.h5
   filt_h5: cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
   filt_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
-  genotype_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised_with_klue.h5ad
-
-tissue:
-  adata: ./{plate}/{tissue}/adata.h5ad
+  metrics: cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
+  metrics_copy: pipeline_output_cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
 
 report:
   knee_df: pipeline_report/{plate}/{subpool}/knee_plot_df.csv
   report_df: pipeline_report/{plate}/{subpool}/report.csv
   cb_df: pipeline_report/{plate}/{subpool}/cellbender_settings.csv
+  
+plate:
+  adata: ./{plate}/adata.h5ad
+  adata_raw_counts: ./{plate}/adata_raw_counts.h5ad
+  adata_cb_counts: ./{plate}/adata_cellbender_counts.h5ad
+  
+tissue:
+  adata: ./{plate}/{tissue}/adata.h5ad
+  adata_raw_counts: ./{plate}/{tissue}/adata_raw_counts.h5ad
+  adata_cb_counts: ./{plate}/{tissue}/adata_cellbender_counts.h5ad

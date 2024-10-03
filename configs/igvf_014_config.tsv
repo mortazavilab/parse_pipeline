@@ -1,0 +1,9 @@
+fastq	fastq_r2	subpool	sample	plate	lane	run	platform	droplets_included	learning_rate	expected_cells
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13A_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13A_R2.fastq.gz	Subpool_UDI17	S1	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13B_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13B_R2.fastq.gz	Subpool_UDI18	S2	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13C_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13C_R2.fastq.gz	Subpool_UDI19	S3	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13D_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13D_R2.fastq.gz	Subpool_UDI20	S4	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13E_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13E_R2.fastq.gz	Subpool_UDI21	S5	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13F_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13F_R2.fastq.gz	Subpool_UDI22	S6	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13G_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13G_R2.fastq.gz	Subpool_UDI23	S7	igvf_014	L001	1	next	40000	0.00005	13000
+/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13H_R1.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_014/nextseq/014_13H_R2.fastq.gz	Subpool_UDI24	S8	igvf_014	L001	1	next	40000	0.00005	13000
