@@ -16,7 +16,7 @@ This workflow does the following:
 2. **Genetic demultiplexing** with [klue](https://github.com/Yenaled/klue): Optionally, quantify reads associated with distinct genotypes for each cell & merge with cellbender adata. Assign genotype with higher count number between 2 expected genotypes, `tie` otherwise.
 3. **Background removal** with [cellbender](https://cellbender.readthedocs.io/en/latest/index.html): Remove ambient RNA / PCR chimeras from data and filter cells/nuclei.
 4. **Add metadata and doublet scores** with [scanpy](https://scanpy.readthedocs.io/en/stable/): Merge [sample metadata](https://github.com/mortazavilab/parse_pipeline/blob/main/configs/sample_metadata.csv) with cellbender output by sample barcode-to-well mapping to create a cellbender-filtered adata complete with sample and subpool information. Perform doublet scoring within scanpy using [scrublet](https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html). 
-5. Merge samples across subpools by tissue for downstream analysis.
+5. **Merge** samples across subpools by tissue for downstream analysis.
 
 ## Input data
 Subpool FASTQ Files:
