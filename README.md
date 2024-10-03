@@ -116,28 +116,31 @@ Skip steps 1-5 below if you were following the setup instructions and are alread
 ```bash
  snakemake \
   -s snakemake/Snakefile.smk \
-  -j 100 \
+  -j 50 \
   --latency-wait 120 \
   --use-conda \
-  --cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00" -n
+  --cluster "sbatch -A {resources.account} --partition={resources.partition} --mem={resources.mem_gb}GB --gres={resources.gres} -c {resources.threads} --time=72:00:00" -n
  ```
-7. Actually run pipeline
+7. Actually run pipeline (no `-n` flag):
 ```bash
-snakemake \
--s snakemake/Snakefile.smk \
--j 100 \
---latency-wait 120 \
---use-conda \
---cluster "sbatch -A seyedam_lab --partition=highmem --mem={resources.mem_gb}GB -c {resources.threads} --time=72:00:00"
+ snakemake \
+  -s snakemake/Snakefile.smk \
+  -j 50 \
+  --latency-wait 120 \
+  --use-conda \
+  --cluster "sbatch -A {resources.account} --partition={resources.partition} --mem={resources.mem_gb}GB --gres={resources.gres} -c {resources.threads} --time=72:00:00" 
  ```
 
 ### Basic troubleshooting
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
 - AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, and **run**.
+- If your fastq or fastq_r2 paths are incorrect, the pipeline will run fine at first. Kallisto runs, symlinked files have the correct name while being wrong, but you get no cells and code downstream of kallisto will probably break.
+- If you put the wrong kit/chemistry in the snakemake file, you will get NAN barcodes and the pipeline fails due to an assert() call in the make cellbender adata rule.
 
 ### Known issues / Wishlist
 - Clean up extra files
 - klue reference generation runs twice for the F1 plates, in other words it makes both NODJ.idx file and a B6NODF1J.idx file, which for now are identical. And the same for all the other 6 non-B6J genotypes. The good news is that it only runs twice one time...reference generation isn't repeated after the first pipeline run.
 - Integrate report code
 - Integrate experimentSpecs and analysisSpecs to replace manual metadata curation
+- Support human genome
 - Support custom humanized loci for Model AD
