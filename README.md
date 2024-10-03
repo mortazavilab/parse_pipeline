@@ -1,17 +1,8 @@
-# Parse Biosciences Split-seq pre-processing workflow for local machine with GPU
-## NOTES 8/5/24
-- Saving unfiltered adata with NO modifications after kallisto run, using hopefully clearer file names. This will be in the input into cellbender.
-- Since cellbender will do some filtering automatically, we can just merge in the klue results for those filtered cells. Also merge in the metadata
-- Combined all the little python scripts into one big utils.py file.
-- Transferring full fastq to test integration of cellbender
-
-## 8/8/24
-- Running igvf003 nova FULL on Watson starting at 10am. I expect to be very very slow -- confused why it's trying to regenerate the files that I created on HPC :( May need to actually split in 2 parts
-
+# Parse Biosciences Split-seq pre-processing workflow for HPC cluster
 ## Background: Combinatorial barcoding for snRNA-seq
 Combinatorial or split-pool barcoding appends a unique **set** of barcodes to single cells or nuclei during multiple "rounds". These reactions are confined to each individual fixed and permeabilized cell, bypassing the need for physical barriers between cells such as microwells or nanodroplets.
 
-This workflow is designed to pre-process data from the [Parse Biosciences](https://www.parsebiosciences.com/) Evercode whole-transcriptome (“WT”) 100k and 1M barcoding kits. This split-pool method may differ from others such as [SHARE-seq](https://www.sciencedirect.com/science/article/pii/S0092867420312538?via%3Dihub) due to using of both oligo-dT and random hexamer primers during the first round of reverse transcription-based barcoding. The goal in using both primers is to span the entire transcript for more full-length coverage and to avoid polyA-biased reads. After all 3 round of barcoding, aliquots of cells are lysed and libraries are prepared from barcoded cDNA. At the end of short-read library prep, a final Illumina barcode is added to identify these lysed aliquots, or "subpools", and libraries are sequenced and demultiplexed as subpools containing a mix of all the samples on the plate.
+This workflow is designed to pre-process mouse data from the [Parse Biosciences](https://www.parsebiosciences.com/) Evercode whole-transcriptome (“WT”) mini, 100k, and 1M barcoding kits. Versions 1, 2, and 3 of the barcoding chemistry are all supported. As of October 2024, genome and annotation is fixed at mm39 and vM32. This split-pool method may differ from others such as [SHARE-seq](https://www.sciencedirect.com/science/article/pii/S0092867420312538?via%3Dihub) due to using of both oligo-dT and random hexamer primers during the first round of reverse transcription-based barcoding. The goal in using both primers is to span the entire transcript for more full-length coverage and to avoid polyA-biased reads. After all 3 round of barcoding, aliquots of cells are lysed and libraries are prepared from barcoded cDNA. At the end of short-read library prep, a final Illumina barcode is added to identify these lysed aliquots, or "subpools", and libraries are sequenced and demultiplexed as subpools containing a mix of all the samples on the plate.
 
 ## Workflow overview
 
