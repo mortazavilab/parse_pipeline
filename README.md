@@ -10,15 +10,14 @@ The main deviation from the official company pipeline is the mapping/quantificat
 
 This workflow does the following:
 
-1. **[kb-count](https://github.com/pachterlab/kb_python)**: Associate reads with their cells/nuclei of origin
-2. **kb-count**: Collapse duplicated reads according to unique molecular identifiers (UMIs)
-3. **kb-count**: Collapse reads from oligo-dT and random hexamer primers in the same well (`counts_unfiltered_modified`)
-4. **kb-count**: Generate an unfiltered cell x gene adata for each subpool
-5. (HOPEFULLY) **[cellbender](https://cellbender.readthedocs.io/en/latest/index.html)**: Remove ambient RNA / PCR chimeras from data and filter cells/nuclei
-6. **scanpy**: Merge [sample metadata](https://github.com/mortazavilab/parse_pipeline/blob/main/configs/sample_metadata.csv) with cellbender output by sample barcode-to-well mapping to create a cellbender-filtered adata complete with sample and subpool information
-7. **[klue](https://github.com/Yenaled/klue)**: Quantify reads associated with distinct genotypes for each cell & merge with cellbender adata. Assign genotype with higher count number between 2 expected genotypes, `tie` otherwise 
-8. **[scrublet](https://github.com/swolock/scrublet)**: Generate doublet scores 
-9. Merge samples across subpools by genotype & tissue of origin
+1. **[kb-count](https://github.com/pachterlab/kb_python)**: Associate reads with their cells/nuclei of origin.
+2. **kb-count**: Collapse duplicated reads according to unique molecular identifiers (UMIs).
+3. **kb-count**: Collapse reads from oligo-dT and random hexamer primers in the same well (`counts_unfiltered_modified`).
+4. **kb-count**: Generate an unfiltered cell x gene adata for each subpool.
+5.  **[klue](https://github.com/Yenaled/klue)**: Optionally, quantify reads associated with distinct genotypes for each cell & merge with cellbender adata. Assign genotype with higher count number between 2 expected genotypes, `tie` otherwise.
+6. **[cellbender](https://cellbender.readthedocs.io/en/latest/index.html)**: Remove ambient RNA / PCR chimeras from data and filter cells/nuclei.
+7. **[scanpy](https://scanpy.readthedocs.io/en/stable/)**: Merge [sample metadata](https://github.com/mortazavilab/parse_pipeline/blob/main/configs/sample_metadata.csv) with cellbender output by sample barcode-to-well mapping to create a cellbender-filtered adata complete with sample and subpool information. Perform doublet scoring within scanpy using [scrublet](https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html). 
+8. Merge samples across subpools by tissue.
 
 ## Input data
 Subpool FASTQ Files:
@@ -35,10 +34,10 @@ etc.
 Read name is not used directly in the pipeline, can be formatted however. Just need to specify the relevant information in the fastq config file.
 
 ## Setup instructions
-Note: Written for and tested on the Mortazavi lab's Watson server. Follow these steps if you are using this workflow for the first time.
+Note: Written for and tested on UCI's HPC. Follow these steps if you are using this workflow for the first time.
 
 ### Clone this repository
-Clone this repo. The kallisto output in particular is very large for a full 1M cell (Mega kit) experiment (~**350GB** with all unfiltered bus files).
+Clone this repo.
 ```bash
 git clone -b cellbender https://github.com/mortazavilab/parse_pipeline.git
 ```
