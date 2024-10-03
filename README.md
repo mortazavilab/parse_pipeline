@@ -8,6 +8,8 @@ This workflow is designed to pre-process mouse data from the [Parse Biosciences]
 
 The main deviation from the official company pipeline is the mapping/quantification software and custom handling of sample merging to produce Python [anndata](https://anndata.readthedocs.io/en/latest/) objects grouped by tissue for downstream processing with [scanpy](https://scanpy.readthedocs.io/en/stable/). This workflow is based on the [kb-python](https://www.kallistobus.tools/kb_usage/kb_count/) (kallisto/bustools) suite, the official snRNA-seq tools for IGVF, and also includes optional code in place for genetic demultiplexing of individuals from sample barcoding wells loaded with 2 individuals with distinct genotypes.
 
+<img src="https://github.com/mortazavilab/parse_pipeline/blob/cellbender_hpc/uci_parse_workflow.png" width="422" height="451">
+
 This workflow does the following:
 
 1. **[kb-count](https://github.com/pachterlab/kb_python)**: Associate reads with their cells/nuclei of origin.
