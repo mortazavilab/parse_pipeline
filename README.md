@@ -45,13 +45,23 @@ git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
 2. Start tmux session via `tmux new -s mysession`, or whatever you want to name it. When you need to reconnect, type `tmux a -t mysession` ([tmux cheatsheet](https://tmuxcheatsheet.com/)) from the **same login node** as when you started the session. This is so if your internet goes out or you have to close your laptop, ongoing processes won't be terminated. 
 3. Start interactive session: `srun -A SEYEDAM_LAB --cpus-per-task=1 --mem 32G --pty bash -i`. This is so you don't clog up the login node. We shouldn't need a lot since we are just installing packages and running snakemake, which will launch more computationally-intensive jobs for you.
 
-### Create a conda environment called snakemake
+### Create a conda environment called snakemake using python 3.9
 Required packages: `snakemake`, `pandas`, `numpy`, `anndata`, `scanpy`, `scrublet`, `kb-python`, and if you have genetically multiplexed samples, `klue`.
 1. `conda install -n base -c conda-forge mamba`
-2. `mamba create -n snakemake -c conda-forge -c bioconda -c anaconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9 pytables`
+2. `mamba create -n snakemake -c conda-forge -c bioconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9`
 3. `conda activate snakemake`
-4.  Pip install [other necessary packages](https://cellbender.readthedocs.io/en/latest/installation/index.html) for cellbender: `pip install torch`, and `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
+4.  Pip install [other necessary packages](https://cellbender.readthedocs.io/en/latest/installation/index.html) for cellbender: `pip install torch==1.13.1`, and `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
 
+### Create a conda environment called cellbender using python 3.7
+Tried multiple times to get CellBender working in the main snakemake environment but to no avail; it's a [known version issue regarding saving the checkpoint file](https://github.com/broadinstitute/CellBender/issues/371). The checkpoint is very convenient in case the command fails due to lack of memory or job timeout, so I think the up-front effort in creating a second conda environment is worth it. Following the [installation instructions for CellBender](https://cellbender.readthedocs.io/en/latest/installation/index.html):
+
+1. `mamba create -n cellbender python=3.7`
+3. `conda activate cellbender`
+4. `mamba install -c anaconda pytables`
+5. `pip install torch==1.13.1
+6. `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
+
+### Install klue
 Klue installation instructions:
 1. `git clone https://github.com/Yenaled/klue`
 2. `cd klue`
