@@ -133,7 +133,7 @@ Skip steps 1-4 below if you were following the setup instructions and are alread
 
 ### Basic troubleshooting
 - FileNotFoundError/No such file or directory: Check your current directory (`pwd`). Make sure the 3 required input files exist and in the correct locations: fastq config e.g. `igvf_###_config.tsv` is in `parse_pipeline/configs`, `sample_metadata.csv` is in `parse_pipeline/configs`, and `Snakemake_###.smk` is in `parse_pipeline/snakemake`. Make sure the fastq config file is spelled correctly in your Snakemake smk file.
-- AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, and **run**.
+- AttributeError: Make sure the columns in `igvf_###_config.tsv` exactly match **fastq**, **fastq_r2**, **subpool**, **plate**, **lane**, **run**, **droplets_included**, **learning_rate**, and **expected_cells**.
 - If your fastq or fastq_r2 paths are incorrect, the pipeline will run fine at first. Kallisto runs, symlinked files have the correct name while being wrong, but you get no cells and code downstream of kallisto will probably break.
 - If you put the wrong kit/chemistry in the snakemake file, you will get NAN barcodes and the pipeline fails due to an assert() call in the make cellbender adata rule.
 
