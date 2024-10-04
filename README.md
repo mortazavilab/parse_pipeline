@@ -47,7 +47,7 @@ git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
 
 ### Create a conda environment called snakemake using python 3.9
 1. `conda install -n base -c conda-forge mamba`
-2. `mamba create -n snakemake -c conda-forge -c bioconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9`
+2. `mamba create -n snakemake -c conda-forge -c bioconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9 scikit-image==0.24.0`
 3. `pip install --no-cache-dir -U git+https://github.com/broadinstitute/CellBender.git@04c2f5b460721fd55cf62a4cd23617b2555d69b8` for the latest CellBender version (3.2.0).
 
 ### Create a conda environment called cellbender using python 3.7
