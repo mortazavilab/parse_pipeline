@@ -50,7 +50,7 @@ git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
 2. `mamba create -n snakemake -c conda-forge -c bioconda snakemake==7.32 python==3.9 scanpy==1.10.2 pandas==2.2.2 anndata==0.10.9`
 
 ### Create a conda environment called cellbender using python 3.7
-Tried multiple times to get CellBender working in the main snakemake environment but to no avail; it's a [known version issue regarding saving the checkpoint file](https://github.com/broadinstitute/CellBender/issues/371). The checkpoint is very convenient in case the command fails due to lack of memory or job timeout, so I think the up-front effort in creating a second conda environment is worth it. Following the [installation instructions for CellBender](https://cellbender.readthedocs.io/en/latest/installation/index.html):
+Tried multiple times to get CellBender working in the main snakemake environment with python 3.9 but to no avail; it's a [known version issue regarding saving the checkpoint file](https://github.com/broadinstitute/CellBender/issues/371). The checkpoint is very convenient in case the command fails due to lack of memory or job timeout, so I think the up-front effort in creating a second conda environment is worth it. Following the [installation instructions for CellBender](https://cellbender.readthedocs.io/en/latest/installation/index.html):
 
 1. `mamba create -n cellbender python=3.7`
 3. `mamba activate cellbender`
