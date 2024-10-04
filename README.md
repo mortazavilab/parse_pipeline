@@ -104,7 +104,7 @@ Test installation by typing `klue` in the terminal, should see version and usage
 - **chemistry**: all IGVF and ModelAD experiments are v2 so far, v3 coming soon 
 
 ## Run pipeline
-Skip steps 1-5 below if you were following the setup instructions and are already in an interactive tmux session.
+Skip steps 1-4 below if you were following the setup instructions and are already in an interactive tmux session.
 
 1. Pay attention to your login node, or ssh to your favorite, e.g. `ssh login-i15`
 2. Change directories to your pipeline directory, e.g. `cd /share/crsp/lab/seyedam/erebboah/parse_pipeline`. You MUST be in the `parse_pipeline` directory, not in a sub-directory like `parse_pipeline/configs`, `parse_pipeline/snakemake`, or it will not run.
