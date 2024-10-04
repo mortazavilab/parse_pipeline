@@ -109,7 +109,7 @@ Test installation by typing `klue` in the terminal, should see version and usage
 - **config_tsv**: Path to the fastq config file which has the paths to your read1 and read2 input fastqs and the plate, lane, run, and sequencing platform.
 - **sample_csv**: Path to the sample metadata. I typically update the [Google spreadsheet](https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=2080239896), download the tab, and upload it to my configs folder. Each row represents a well in the sample barcoding plate with metadata information for that sample, some of which is repeated across all the samples on the plate, such as experiment name, kit, and tissue.
 - **kit**: either WT (48 wells), WT_mini (12 wells), or WT_mega (96 wells)
-- **chemistry**: all IGVF and ModelAD experiments are v2 so far, v3 coming soon 
+- **chemistry**: either v1, v2, or v3 
 
 ## Run pipeline
 Skip steps 1-4 below if you were following the setup instructions and are already in an interactive tmux session.
