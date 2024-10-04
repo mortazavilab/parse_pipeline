@@ -644,6 +644,22 @@ def get_genotypes():
 
     return g
 
+def get_f1_founder_genotype_dict():
+    d = {'B6129S1F1J':'129S1J',
+    'B6AF1J':'AJ',
+    'B6PWKF1J':'PWKJ',
+    'B6NODF1J':'NODJ',
+    'B6WSBF1J':'WSBJ',
+    'B6CASTF1J':'CASTJ',
+    'B6NZOF1J':'NZOJ'}
+
+    # make sure all keys are f1 genotypes
+    # and all items (sans B6J) are founder genotypes
+    assert set(list(d.keys())) == set(get_f1_genotypes())
+    assert set(list(d.values())) == set(get_founder_genotypes())-set(['B6J'])
+
+    return d
+
 def is_dummy(fname):
     """
     Check if a file is a dummy file (ie whether is empty)
