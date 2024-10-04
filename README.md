@@ -70,8 +70,8 @@ Klue installation instructions:
 
 If step 7 does not work, follow these steps:
 1. `cd src` (within the build folder)
-2. `pwd` and copy the path, for example mine is `/share/crsp/lab/seyedam/erebboah/parse_pipeline/klue/build/src`
-3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>:$PATH"`. For example I added `export PATH="/share/crsp/lab/seyedam/erebboah/parse_pipeline/klue/build/src:$PATH"`
+2. `pwd` and copy the path, for example mine is `/dfs5/bio/erebboah/klue/build/src`
+3. Then edit your `~/.bashrc` by adding this line to the bottom of the file: `export PATH="<your path>:$PATH"`. For example I added `export PATH="/dfs5/bio/erebboah/klue/build/src:$PATH`
 4. `source ~/.bashrc`
 
 Test installation by typing `klue` in the terminal, should see version and usage information.
