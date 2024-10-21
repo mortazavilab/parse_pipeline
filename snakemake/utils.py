@@ -878,55 +878,54 @@ def add_meta_filter(filt_h5,
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
-#         genotype_list_founders = ['AJ', 'WSBJ', '129S1J', 'NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
-#         genotype_list_f1s = ['B6AF1J', 'B6129S1F1J', 'B6NZOF1J', 'B6WSBF1J', 'B6NODF1J', 'B6PWKF1J', 'B6CASTF1J']
+        genotype_list_founders = ['AJ', 'WSBJ', '129S1J', 'NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
+        genotype_list_f1s = ['B6AF1J', 'B6129S1F1J', 'B6NZOF1J', 'B6WSBF1J', 'B6NODF1J', 'B6PWKF1J', 'B6CASTF1J']
 
-#         # Check if any genotypes from each list are present in adata.obs['genotype'] and set ms1 and ms2 accordingly
-#         if any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_founders):
-#             ms1 = ['B6J', 'AJ', 'WSBJ', '129S1J']
-#             ms2 = ['NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
-#         elif any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_f1s):
-#             ms1 = ['B6J', 'B6AF1J', 'B6WSBF1J', 'B6129S1F1J']
-#             ms2 = ['B6NODF1J', 'B6PWKF1J', 'B6NZOF1J', 'B6CASTF1J']
+        if any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_founders):
+            ms1 = ['B6J', 'AJ', 'WSBJ', '129S1J']
+            ms2 = ['NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
+        elif any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_f1s):
+            ms1 = ['B6J', 'B6AF1J', 'B6WSBF1J', 'B6129S1F1J']
+            ms2 = ['B6NODF1J', 'B6PWKF1J', 'B6NZOF1J', 'B6CASTF1J']
 
-#         def update_mouse_tissue_id(row):
-#             if row['well_type'] == "Multiplexed" and row['Genotype'] != "tie":
-#                 if row['Genotype'] in ms1:
-#                     return row['Multiplexed_sample1']
-#                 elif row['Genotype'] in ms2:
-#                     return row['Multiplexed_sample2']
-#             return row['Mouse_Tissue_ID']
+        def update_mouse_tissue_id(row):
+            if row['well_type'] == "Multiplexed" and row['Genotype'] != "tie":
+                if row['Genotype'] in ms1:
+                    return row['Multiplexed_sample1']
+                elif row['Genotype'] in ms2:
+                    return row['Multiplexed_sample2']
+            return row['Mouse_Tissue_ID']
         
-#         obs = adata.obs
-#         obs['Mouse_Tissue_ID'] = obs.apply(update_mouse_tissue_id, axis=1)
-#         adata.obs['Mouse_Tissue_ID'] = obs['Mouse_Tissue_ID']
+        obs = adata.obs
+        obs['Mouse_Tissue_ID'] = obs.apply(update_mouse_tissue_id, axis=1)
+        adata.obs['Mouse_Tissue_ID'] = obs['Mouse_Tissue_ID']
         
-#         # Update other sample-specific metadata columns
-#         multiplexed_obs = adata.obs[(adata.obs['well_type'] == "Multiplexed") & (adata.obs['Genotype'] != "tie")]
+        # Update other sample-specific metadata columns
+        multiplexed_obs = adata.obs[(adata.obs['well_type'] == "Multiplexed") & (adata.obs['Genotype'] != "tie")]
 
-#         sample_df_unique = sample_df.drop_duplicates(subset=['Mouse_Tissue_ID', \
-#                                                              'Tissue_weight_mg', \
-#                                                              'ZT', \
-#                                                              'Dissection_time', \
-#                                                              'Dissection_date', \
-#                                                              'Estrus_cycle', \
-#                                                              'Body_weight_g', \
-#                                                              'Age_days', \
-#                                                              'DOB'])
+        sample_df_unique = sample_df.drop_duplicates(subset=['Mouse_Tissue_ID', \
+                                                             'Tissue_weight_mg', \
+                                                             'ZT', \
+                                                             'Dissection_time', \
+                                                             'Dissection_date', \
+                                                             'Estrus_cycle', \
+                                                             'Body_weight_g', \
+                                                             'Age_days', \
+                                                             'DOB'])
         
-#         merged = multiplexed_obs[['Mouse_Tissue_ID']].merge(sample_df_unique[['Mouse_Tissue_ID', \
-#                                                                               'Tissue_weight_mg', \
-#                                                                               'ZT', \
-#                                                                               'Dissection_time',\
-#                                                                               'Dissection_date', \
-#                                                                               'Estrus_cycle', \
-#                                                                               'Body_weight_g', \
-#                                                                               'Age_days', \
-#                                                                               'DOB']],
-#                                                             on='Mouse_Tissue_ID', how='left')
+        merged = multiplexed_obs[['Mouse_Tissue_ID']].merge(sample_df_unique[['Mouse_Tissue_ID', \
+                                                                              'Tissue_weight_mg', \
+                                                                              'ZT', \
+                                                                              'Dissection_time',\
+                                                                              'Dissection_date', \
+                                                                              'Estrus_cycle', \
+                                                                              'Body_weight_g', \
+                                                                              'Age_days', \
+                                                                              'DOB']],
+                                                            on='Mouse_Tissue_ID', how='left')
         
-#         merged.set_index(multiplexed_obs.index)
-#         adata.obs.update(merged.set_index(multiplexed_obs.index))
+        merged.set_index(multiplexed_obs.index)
+        adata.obs.update(merged.set_index(multiplexed_obs.index))
         
         
     ############# 7. Clean up obs #############
