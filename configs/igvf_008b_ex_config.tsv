@@ -1,3 +1,3 @@
 fastq	fastq_r2	subpool	sample	plate	lane	run	platform	droplets_included	learning_rate	expected_cells
-/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L001_R1_001.fastq.gz	/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L001_R1_001.fastq.gz	Subpool_EX	S1	igvf_008b	L001	1	next	40000	0.00005	13000
-/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L002_R1_001.fastq.gz	/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L002_R1_001.fastq.gz	Subpool_EX	S1	igvf_008b	L002	1	next	40000	0.00005	13000
+/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L001_R1_001.fastq.gz	/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L001_R2_001.fastq.gz	Subpool_EX	S1	igvf_008b	L001	1	next	40000	0.00005	13000
+/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L002_R1_001.fastq.gz	/dfs9/seyedam-lab/share/IGVF/igvf_ex/nextseq/008B_13A_S1_L002_R2_001.fastq.gz	Subpool_EX	S1	igvf_008b	L002	1	next	40000	0.00005	13000
