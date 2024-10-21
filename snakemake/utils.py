@@ -792,25 +792,43 @@ def add_meta_filter(filt_h5,
     ############# 3. Add raw counts as a layer #############
     # store raw data as a layer
     adata_raw = sc.read_h5ad(unfilt_adata)
+    sc.pp.calculate_qc_metrics(adata_raw, percent_top=None, log1p=False, inplace=True)
+    
     adata_raw.var_names = adata_raw.var['gene_id']   
     adata_raw_filtered = adata_raw[adata_raw.obs['bc'].isin(adata.obs['bc']), :].copy()
     adata_raw_filtered = adata_raw_filtered[adata.obs['bc'], :].copy()
     
     adata.layers['raw_counts'] = adata_raw_filtered.X.copy()
+    
    
     ############# 4. Run scrublet within scanpy for each bc1_well #############
     # https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html
     # using raw counts
     print('Running scrublet...')
-    
-    adata_raw_filtered.obs['bc1_well'] = adata.obs['bc1_well']
-    adata_raw_filtered.obs['bc1_well'] = adata_raw_filtered.obs['bc1_well'].astype(str)
-    
-    sc.pp.scrublet(adata_raw_filtered, batch_key="bc1_well", n_prin_comps=30)
-    adata.obs['doublet_score'] = adata_raw_filtered.obs['doublet_score']
-    adata.obs['predicted_doublet'] = adata_raw_filtered.obs['predicted_doublet']
 
+    valid_cells = adata_raw_filtered.obs[adata_raw_filtered.obs['total_counts'] >= 200]
+    well_counts = valid_cells['bc1_well'].value_counts()
 
+    # Initialize the doublet score and prediction with default values (0 and False)
+    adata_raw_filtered.obs['doublet_score'] = 0
+    adata_raw_filtered.obs['predicted_doublet'] = False
+
+    # Iterate through each well in the dataset
+    for well in adata_raw_filtered.obs['bc1_well'].unique():
+        if well_counts.get(well, 0) >= 50:  # Run scrublet if ≥ 50 cells have total_counts ≥ 100 in that well
+            # Run scrublet on the cells in this well
+            subset = adata_raw_filtered[adata_raw_filtered.obs['bc1_well'] == well]
+            sc.pp.scrublet(subset, n_prin_comps=30)
+
+            # Update doublet score and prediction for the cells in this well
+            adata_raw_filtered.obs.loc[adata_raw_filtered.obs['bc1_well'] == well, 'doublet_score'] = subset.obs['doublet_score']
+            adata_raw_filtered.obs.loc[adata_raw_filtered.obs['bc1_well'] == well, 'predicted_doublet'] = subset.obs['predicted_doublet']
+        else:
+            # If fewer than 50 cells, leave the initialized values (0 and False) unchanged
+            adata_raw_filtered.obs.loc[adata_raw_filtered.obs['bc1_well'] == well, 'doublet_score'] = 0
+            adata_raw_filtered.obs.loc[adata_raw_filtered.obs['bc1_well'] == well, 'predicted_doublet'] = False
+
+            
     ############# 5. Create new cell IDs #############
     adata.obs['cellID'] = adata.obs['bc1_well']+'_'+\
         adata.obs['bc2_well']+'_'+\
