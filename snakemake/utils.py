@@ -873,10 +873,10 @@ def add_meta_filter(filt_h5,
             if col in adata.obs.columns:
                 adata.obs.rename(columns={col: col + '_klue_counts'}, inplace=True)
         
-#         inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
-#         adata.obs.Genotype = adata.obs.Genotype.astype('str')
-#         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
-#         adata.obs.drop('new_genotype', axis=1, inplace=True)  
+        inds = adata.obs.loc[adata.obs.well_type=='Multiplexed'].index
+        adata.obs.Genotype = adata.obs.Genotype.astype('str')
+        adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
+        adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
 #         genotype_list_founders = ['AJ', 'WSBJ', '129S1J', 'NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
 #         genotype_list_f1s = ['B6AF1J', 'B6129S1F1J', 'B6NZOF1J', 'B6WSBF1J', 'B6NODF1J', 'B6PWKF1J', 'B6CASTF1J']
@@ -929,35 +929,35 @@ def add_meta_filter(filt_h5,
 #         adata.obs.update(merged.set_index(multiplexed_obs.index))
         
         
-#     ############# 7. Clean up obs #############
-#     adata.obs['lab_sample_id'] = adata.obs['Mouse_Tissue_ID']
+     ############# 7. Clean up obs #############
+     adata.obs['lab_sample_id'] = adata.obs['Mouse_Tissue_ID']
 
-#     adata.obs.drop(columns=['mult_genotype_1', 'mult_genotype_2', 'mult_genotype'], inplace=True)
-#     adata.var = adata.var.drop(columns=['feature_type', 'genome'])
+    adata.obs.drop(columns=['mult_genotype_1', 'mult_genotype_2', 'mult_genotype'], inplace=True)
+    adata.var = adata.var.drop(columns=['feature_type', 'genome'])
 
     
-#     if wc.plate == 'igvf_b01':
-#         adata.obs['subpool_type'] = np.where(adata.obs['subpool'].isin(['Subpool_7', 'Subpool_EX']), 'EX', 'NO')
-#     else:
-#         adata.obs['subpool_type'] = np.where(adata.obs['subpool'] == 'Subpool_EX', 'EX', 'NO')
+    if wc.plate == 'igvf_b01':
+        adata.obs['subpool_type'] = np.where(adata.obs['subpool'].isin(['Subpool_7', 'Subpool_EX']), 'EX', 'NO')
+    else:
+        adata.obs['subpool_type'] = np.where(adata.obs['subpool'] == 'Subpool_EX', 'EX', 'NO')
 
-#     # add accessions if the file exists
-#     file_path = f"configs/{wc.plate.upper()}_barcode_sample_map.tsv"
-#     if os.path.exists(file_path):
-#         acc_map = pd.read_csv(file_path, sep="\t")
-#         acc_map = acc_map[acc_map['parse_barcode_type'] == "T"]
+    # add accessions if the file exists
+    file_path = f"configs/{wc.plate.upper()}_barcode_sample_map.tsv"
+    if os.path.exists(file_path):
+        acc_map = pd.read_csv(file_path, sep="\t")
+        acc_map = acc_map[acc_map['parse_barcode_type'] == "T"]
 
-#         acc_map = acc_map.drop(columns=['barcode', 'seqspec_region_id', 'parse_barcode_type'])
-#         adata_obs_df = adata.obs.reset_index()
-#         merged_df = adata_obs_df.merge(acc_map, left_on='bc1_well', right_on='well', how='left')
-#         merged_df.set_index('cellID', inplace=True)
+        acc_map = acc_map.drop(columns=['barcode', 'seqspec_region_id', 'parse_barcode_type'])
+        adata_obs_df = adata.obs.reset_index()
+        merged_df = adata_obs_df.merge(acc_map, left_on='bc1_well', right_on='well', how='left')
+        merged_df.set_index('cellID', inplace=True)
 
-#         # Handle potential multiple values in 'sample' per well by collapsing them, comma-separated
-#         merged_df['sample'] = merged_df.groupby('cellID')['sample'].transform(lambda x: ','.join(x.dropna().unique()))
+        # Handle potential multiple values in 'sample' per well by collapsing them, comma-separated
+        merged_df['sample'] = merged_df.groupby('cellID')['sample'].transform(lambda x: ','.join(x.dropna().unique()))
 
-#         adata.obs['sample'] = merged_df['sample']
-#     else:
-#         adata.obs['sample'] = "NA"
+        adata.obs['sample'] = merged_df['sample']
+    else:
+        adata.obs['sample'] = "NA"
         
 
     # make all object columns string columns
@@ -965,35 +965,35 @@ def add_meta_filter(filt_h5,
         if pd.api.types.is_object_dtype(adata.obs[c].dtype):
             adata.obs[c] = adata.obs[c].fillna('NA')
             
-#     keys = ["lab_sample_id","sample","plate",\
-#             "subpool","SampleType","Tissue","Sex",\
-#             "Age","Genotype","subpool_type","Protocol","Chemistry",\
-#             "bc","bc1_sequence","bc2_sequence","bc3_sequence","bc1_well","bc2_well","bc3_well",\
-#             "Row","Column","well_type",\
-#             "Mouse_Tissue_ID","Multiplexed_sample1", "Multiplexed_sample2","DOB",\
-#             "Age_days","Body_weight_g","Estrus_cycle",\
-#             "Dissection_date","Dissection_time","ZT",\
-#             "Dissector","Tissue_weight_mg",\
-#             "Notes","n_genes_by_counts_raw","total_counts_raw","total_counts_mt_raw",\
-#             "pct_counts_mt_raw","n_genes_by_counts_cb","total_counts_cb","total_counts_mt_cb",\
-#             "pct_counts_mt_cb","doublet_score","predicted_doublet","background_fraction",\
-#             "cell_probability","cell_size","droplet_efficiency"]
+    keys = ["lab_sample_id","sample","plate",\
+            "subpool","SampleType","Tissue","Sex",\
+            "Age","Genotype","subpool_type","Protocol","Chemistry",\
+            "bc","bc1_sequence","bc2_sequence","bc3_sequence","bc1_well","bc2_well","bc3_well",\
+            "Row","Column","well_type",\
+            "Mouse_Tissue_ID","Multiplexed_sample1", "Multiplexed_sample2","DOB",\
+            "Age_days","Body_weight_g","Estrus_cycle",\
+            "Dissection_date","Dissection_time","ZT",\
+            "Dissector","Tissue_weight_mg",\
+            "Notes","n_genes_by_counts_raw","total_counts_raw","total_counts_mt_raw",\
+            "pct_counts_mt_raw","n_genes_by_counts_cb","total_counts_cb","total_counts_mt_cb",\
+            "pct_counts_mt_cb","doublet_score","predicted_doublet","background_fraction",\
+            "cell_probability","cell_size","droplet_efficiency"]
         
-#     if not is_dummy(genotypes):
-#         adata.obs = adata.obs[keys]
-#         print(adata.obs.head())
-#         print(adata.var.head())
-#         print(f'Saving file {ofile}')
-#         adata.write_h5ad(ofile)
-#     else:
-#         # for non-multiplexed experiments, remove the irrelevant multiplexed obs columns
-#         keys = [key for key in keys if key not in ["Multiplexed_sample1", "Multiplexed_sample2"]]
+    if not is_dummy(genotypes):
+        adata.obs = adata.obs[keys]
+        print(adata.obs.head())
+        print(adata.var.head())
+        print(f'Saving file {ofile}')
+        adata.write_h5ad(ofile)
+    else:
+        # for non-multiplexed experiments, remove the irrelevant multiplexed obs columns
+        keys = [key for key in keys if key not in ["Multiplexed_sample1", "Multiplexed_sample2"]]
 
-#         adata.obs.drop(columns=['Multiplexed_sample1', 'Multiplexed_sample2'], inplace=True)
+        adata.obs.drop(columns=['Multiplexed_sample1', 'Multiplexed_sample2'], inplace=True)
         
-#         adata.obs = adata.obs[keys]
-#         print(adata.obs.head())
-#         print(adata.var.head())
+        adata.obs = adata.obs[keys]
+        print(adata.obs.head())
+        print(adata.var.head())
         
         print(f'Saving file {ofile}')
         adata.write_h5ad(ofile)
