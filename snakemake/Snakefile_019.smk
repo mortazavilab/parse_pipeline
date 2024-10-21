@@ -133,7 +133,7 @@ rule kallisto_ind:
     resources:
         mem_gb = 64,
         threads = 12,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     conda:
@@ -212,9 +212,9 @@ rule kallisto:
     conda:
         'envs/kb_env.yaml'    
     resources:
-        mem_gb = 250,
+        mem_gb = 64,
         threads = 12,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     output:
@@ -250,9 +250,9 @@ rule kallisto:
         
 rule make_unfilt_adata:
     resources:
-        mem_gb = 128,
+        mem_gb = 64,
         threads = 4,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     input:
@@ -301,8 +301,8 @@ rule klue_fa:
         'envs/kb_env.yaml'  
     resources:
         threads = 32,
-        mem_gb = 128,
-        partition = 'highmem',
+        mem_gb = 64,
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     output:
@@ -329,8 +329,8 @@ rule klue_ind:
         'envs/kb_env.yaml'  
     resources:
         threads = 32,
-        mem_gb = 128,
-        partition = 'highmem',
+        mem_gb = 64,
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     output:
@@ -358,7 +358,7 @@ rule klue:
     resources:
         mem_gb = 64,
         threads = 24,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     conda:
@@ -395,9 +395,9 @@ rule klue:
 # add metadata
 rule make_adata_klue:
     resources:
-        mem_gb = 128,
+        mem_gb = 64,
         threads = 4,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     input:
@@ -506,9 +506,9 @@ rule copy_cellbender_metrics:
 
 rule make_filt_adata:
     resources:
-        mem_gb = 128,
+        mem_gb = 64,
         threads = 4,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     input:

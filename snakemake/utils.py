@@ -878,9 +878,16 @@ def add_meta_filter(filt_h5,
         adata.obs.loc[inds, 'Genotype'] = adata.obs.loc[inds, 'new_genotype']
         adata.obs.drop('new_genotype', axis=1, inplace=True)  
         
-        # Update mouse_tissue_id based on chosen genotype from klue 
-        ms1 = ['B6J','AJ','WSBJ','129S1J']
-        ms2 = ['NODJ','PWKJ','NZOJ','CASTJ']
+        genotype_list_founders = ['AJ', 'WSBJ', '129S1J', 'NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
+        genotype_list_f1s = ['B6AF1J', 'B6129S1F1J', 'B6NZOF1J', 'B6WSBF1J', 'B6NODF1J', 'B6PWKF1J', 'B6CASTF1J']
+
+        # Check if any genotypes from each list are present in adata.obs['genotype'] and set ms1 and ms2 accordingly
+        if any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_founders):
+            ms1 = ['B6J', 'AJ', 'WSBJ', '129S1J']
+            ms2 = ['NODJ', 'PWKJ', 'NZOJ', 'CASTJ']
+        elif any(genotype in adata.obs['Genotype'].values for genotype in genotype_list_f1s):
+            ms1 = ['B6J', 'B6AF1J', 'B6WSBF1J', 'B6129S1F1J']
+            ms2 = ['B6NODF1J', 'B6PWKF1J', 'B6NZOF1J', 'B6CASTF1J']
 
         def update_mouse_tissue_id(row):
             if row['well_type'] == "Multiplexed" and row['Genotype'] != "tie":
