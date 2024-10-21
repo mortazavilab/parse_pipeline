@@ -929,8 +929,8 @@ def add_meta_filter(filt_h5,
 #         adata.obs.update(merged.set_index(multiplexed_obs.index))
         
         
-     ############# 7. Clean up obs #############
-     adata.obs['lab_sample_id'] = adata.obs['Mouse_Tissue_ID']
+    ############# 7. Clean up obs #############
+    adata.obs['lab_sample_id'] = adata.obs['Mouse_Tissue_ID']
 
     adata.obs.drop(columns=['mult_genotype_1', 'mult_genotype_2', 'mult_genotype'], inplace=True)
     adata.var = adata.var.drop(columns=['feature_type', 'genome'])
