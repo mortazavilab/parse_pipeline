@@ -507,24 +507,28 @@ def get_genotype_counts(files, ofile):
     the genotype counts together for each cell and output
     as a tsv.
     """
-    # If we have no genetic demultiplexing
+    # If we have no genetic demultiplexing or no valid files
     if not files:
         touch_dummy(ofile)
-    # Otherwise, merge and output merged summary
     else:
+        df = None 
         for i, f in enumerate(files):
-            # Exclude specific genotype combinations
             if all(exclude not in f for exclude in ["WSBJ_CASTJ", "AJ_129S1J", "PWKJ_CASTJ"]):
                 adata = sc.read_h5ad(f)
-                if i == 0:
+                if df is None:  # First valid file
                     df = adata.to_df()
                 else:
                     df = df.merge(adata.to_df(),
                                   how='outer',
                                   left_index=True,
                                   right_index=True)
-        df.fillna(0, inplace=True)
-        df.to_csv(ofile, index=True, sep='\t')
+        
+        if df is not None:  # Only process if df was created
+            df.fillna(0, inplace=True)
+            df.to_csv(ofile, index=True, sep='\t')
+        else:
+            touch_dummy(ofile)
+
 
 
 def rename_klue_genotype_cols(adata):
