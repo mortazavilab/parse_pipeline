@@ -244,9 +244,11 @@ def get_df_info(wc, df, col):
     assert len(temp.index) == 1
     return temp[col].values[0]
 
-def parse_sample_df(fname):
+def parse_sample_df(fname, wc):
     df = pd.read_csv(fname)
     df.rename({'Experiment': 'plate'}, axis=1, inplace=True)
+    
+    df = df[df['plate'] == wc.plate]
 
     # add multiplexed genotypes if relevant
     g_cols = ['mult_genotype_1', 'mult_genotype_2']
@@ -257,7 +259,7 @@ def parse_sample_df(fname):
 
     # add a multiplexed genotype column
     inds = df.loc[df.well_type=='Multiplexed'].index
-    df['mult_genotype'] = '' # maybe change to this but needs to be tested
+    df['mult_genotype'] = np.nan
     df.loc[inds, 'mult_genotype'] = df.loc[inds, g_cols[0]].astype(str)+'_'+\
                                    df.loc[inds, g_cols[1]].astype(str)
 
