@@ -244,12 +244,10 @@ def get_df_info(wc, df, col):
     assert len(temp.index) == 1
     return temp[col].values[0]
 
-def parse_sample_df(fname, wc):
+def parse_sample_df(fname):
     df = pd.read_csv(fname)
     df.rename({'Experiment': 'plate'}, axis=1, inplace=True)
     
-    df = df[df['plate'] == wc.plate]
-
     # add multiplexed genotypes if relevant
     g_cols = ['mult_genotype_1', 'mult_genotype_2']
     df[g_cols] = df.Genotype.str.split('/', expand=True)
