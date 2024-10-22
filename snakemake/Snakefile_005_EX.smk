@@ -536,9 +536,9 @@ rule make_tissue_adata:
     input:
         adatas = lambda wc:get_tissue_adatas(df, sample_df, wc, config['cellbender']['filt_adata'])
     resources:
-        mem_gb = 256,
+        mem_gb = 128,
         threads = 2,
-        partition = 'highmem',
+        partition = 'standard',
         account = 'seyedam_lab',
         gres = 'gpu:0'
     output:
