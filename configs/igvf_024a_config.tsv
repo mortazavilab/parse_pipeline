@@ -1,0 +1,3 @@
+fastq	fastq_r2	subpool	plate	lane	run	platform	droplets_included	learning_rate	expected_cells
+/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_024/igvf_024a/fastq/24A_67C_S1_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_024/igvf_024a/fastq/24A_67C_S1_R2_001.fastq.gz	Subpool_UDI35	igvf_024a	L001	1	next	200000	0.00005	67000
+/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_024/igvf_024a/fastq/24A_67D_S2_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_024/igvf_024a/fastq/24A_67D_S2_R2_001.fastq.gz	Subpool_UDI36	igvf_024a	L001	1	next	200000	0.00005	67000
