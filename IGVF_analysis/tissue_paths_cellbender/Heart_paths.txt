@@ -1,0 +1,3 @@
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_012/Heart
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_004/Heart
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_003/Heart

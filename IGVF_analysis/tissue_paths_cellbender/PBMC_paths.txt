@@ -1,0 +1,2 @@
+/share/crsp/lab/seyedam/share/igvf_pipeline/igvf_013/PBMC
+/share/crsp/lab/seyedam/share/igvf_pipeline/igvf_014/PBMC

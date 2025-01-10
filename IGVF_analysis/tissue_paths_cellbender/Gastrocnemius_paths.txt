@@ -1,0 +1,3 @@
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_010/Gastrocnemius
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_012/Gastrocnemius
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_011/Gastrocnemius

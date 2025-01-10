@@ -1,0 +1,4 @@
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_008b/Adrenal
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_012/Adrenal
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_009/Adrenal
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_008/Adrenal
