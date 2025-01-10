@@ -1,0 +1,44 @@
+﻿leiden,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+0,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"Liver sinusoidal endothelial cell. Flt1+, Lyve1+"
+1,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+2,cholangiocyte,CL:1000488,cholangiocyte,CL:0000066,epithelial cell,"Epcam+, Spp1+, Sox9+"
+3,low quality,NA,low quality,NA,low quality,
+4,Kupffer cell,CL:0000091,Kupffer cell,CL:0000738,leukocyte,"Adgre1+, C1qa+, Cd163+"
+5,T cell,CL:0000084,T cell,CL:0000738,leukocyte,"Il7r+,Themis+"
+6,Kupffer cell,CL:0000091,Kupffer cell,CL:0000738,leukocyte,"Adgre1+, C1qa+, Cd163+"
+7,low quality,NA,low quality,NA,low quality,
+8,hepatic stellate cell,CL:0000632,hepatic stellate cell,CL:0000057,fibroblast,Activated - Acta2+
+9,low quality,NA,low quality,NA,low quality,
+10,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"Liver sinusoidal endothelial cell. Flt1+, Lyve1+"
+11,low quality,NA,low quality,NA,low quality,
+12,low quality,NA,low quality,NA,low quality,
+13,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"Liver sinusoidal endothelial cell. Flt1+, Lyve1+"
+14,low quality,NA,low quality,NA,low quality,
+15,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"Liver sinusoidal endothelial cell. Flt1+, Lyve1+"
+16,low quality,NA,low quality,NA,low quality,
+17,endothelial cell of hepatic portal vein,CL:0009094,endothelial cell of hepatic portal vein,CL:0000115,endothelial cell,"Vwf+, Rspo3-"
+18,low quality,NA,low quality,NA,low quality,
+19,low quality,NA,low quality,NA,low quality,
+20,low quality,NA,low quality,NA,low quality,
+21,B cell,CL:0000236,B cell,CL:0000738,leukocyte,"Bcl11a+, Pax5+"
+22,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"Liver sinusoidal endothelial cell. Flt1+, Lyve1+"
+23,low quality,NA,low quality,NA,low quality,
+24,low quality,NA,low quality,NA,low quality,
+25,low quality,NA,low quality,NA,low quality,
+26,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+27,low quality,NA,low quality,NA,low quality,
+28,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+29,low quality,NA,low quality,NA,low quality,
+30,cycling,NA,cycling,NA,cycling,"Mix of endo / Kupffer markers. ""general"" cycling"
+31,endothelial cell of central vein of liver,CL:4033061,endothelial cell of central vein of liver,CL:0000115,endothelial cell,"Vwf+, Rspo3+"
+32,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,Igfbp5+
+33,low quality,NA,low quality,NA,low quality,
+34,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+35,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,Cd163-
+36,low quality,NA,low quality,NA,low quality,
+37,low quality,NA,low quality,NA,low quality,
+38,dendritic cell,CL:0000451,dendritic cell,CL:0000738,leukocyte,"or NK or ""plasma"""
+39,Kupffer cell,CL:0000091,Kupffer cell,CL:0000738,leukocyte,"Adgre1+, C1qa+, Cd163+"
+40,Kupffer cell,CL:0000091,Kupffer cell,CL:0000738,leukocyte,"Adgre1+, C1qa+, Cd163+"
+41,low quality,NA,low quality,NA,low quality,Mixed markers
+42,cholangiocyte,CL:1000488,cholangiocyte,CL:0000066,epithelial cell,"Epcam+, Spp1+, Sox9+"

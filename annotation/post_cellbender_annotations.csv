@@ -1,0 +1,493 @@
+﻿tissue,leiden,leiden_R,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+Heart,0,0,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Heart,1,1,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Heart,2,2,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,3,3,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+Heart,4,4,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+Heart,5,5,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,6,6,atrial cardiac myocyte,CL:0002129,atrial cardiac myocyte,CL:0000746,cardiac myocyte,"Myl7+, Myl4+"
+Heart,7,7,low quality,NA,low quality,NA,low quality,Mixed markers
+Heart,8,8,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Pdgfrb+
+Heart,9,9,epicardial cell,CL:0011019,epicardial cell,CL:0000066,epithelial cell,Wt1+
+Heart,10,10,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Heart,11,11,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,F13a1+
+Heart,12,12,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+Heart,13,13,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,Myh11+
+Heart,14,14,low quality,NA,low quality,NA,low quality,Mixed markers
+Heart,15,15,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,16,16,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,17,17,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,18,18,endocardial cell,CL:0002350,endocardial cell,CL:0000115,endothelial cell,Sox17+
+Heart,19,19,ventricular cardiac myocyte,CL:2000046,ventricular cardiac myocyte,CL:0000746,cardiac myocyte,Gata4+
+Heart,20,20,low quality,NA,low quality,NA,low quality,"Mixed CM/fibro markers, doublet-high"
+Heart,21,21,lymphatic endothelial cell,CL:0002138,lymphatic endothelial cell,CL:0000115,endothelial cell,Lyve1+
+Heart,22,22,low quality,NA,low quality,NA,low quality,Mixed markers
+Heart,23,23,low quality,NA,low quality,NA,low quality,Mixed markers
+Heart,24,24,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,Adipoq+
+Heart,25,25,B cell,CL:0000236,B cell,CL:0000738,leukocyte,Bcl11a+
+Heart,26,26,T cell,CL:0000084,T cell,CL:0000738,leukocyte,Themis+
+Heart,27,27,low quality,NA,low quality,NA,low quality,Mixed markers
+Heart,28,28,Schwann cell,CL:0002573,Schwann cell,CL:0002573,Schwann cell,"Scn7a+, Ncam1+, Slc35f1+…nonmyelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
+Heart,29,29,low quality,NA,low quality,NA,low quality,Snap25+
+Heart,30,30,low quality,NA,low quality,NA,low quality,Cycling cells from various celltypes. Mixed markers
+Heart,31,31,low quality,NA,low quality,NA,low quality,Alb+
+Heart,32,32,low quality,NA,low quality,NA,low quality,Mixed markers
+Gastrocnemius,0,0,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,1,1,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,2,2,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,3,3,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,4,4,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,5,5,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,6,6,type IIa myonucleus,CL:0002214,type IIa myonucleus,CL:0000188,skeletal muscle cell,Myh2+
+Gastrocnemius,7,7,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,8,8,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,9,9,type IIx myonucleus,CL:0002212,type II myonucleus,CL:0000188,skeletal muscle cell,Myh1+
+Gastrocnemius,10,10,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,"Pdgfra+, Cd34+"
+Gastrocnemius,11,11,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,12,12,myotendinous junction myonucleus,CL:0000188,skeletal muscle cell,CL:0000188,skeletal muscle cell,Col22a1+
+Gastrocnemius,13,13,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,"Flt1+, Pecam1+"
+Gastrocnemius,14,14_0,type IIx myonucleus,CL:0002212,type II myonucleus,CL:0000188,skeletal muscle cell,Myh1+
+Gastrocnemius,14,14_1,type IIa myonucleus,CL:0002214,type IIa myonucleus,CL:0000188,skeletal muscle cell,Myh2+
+Gastrocnemius,14,14_2,type IIx myonucleus,CL:0002212,type II myonucleus,CL:0000188,skeletal muscle cell,Myh1+
+Gastrocnemius,14,14_3,type IIx myonucleus,CL:0002212,type II myonucleus,CL:0000188,skeletal muscle cell,Myh1+
+Gastrocnemius,14,14_4,type IIa myonucleus,CL:0002214,type IIa myonucleus,CL:0000188,skeletal muscle cell,Myh2+
+Gastrocnemius,14,14_5,type IIa myonucleus,CL:0002214,type IIa myonucleus,CL:0000188,skeletal muscle cell,Myh2+
+Gastrocnemius,14,14_6,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,15,15,type I myonucleus,CL:0002211,type I myonucleus,CL:0000188,skeletal muscle cell,Myh7+
+Gastrocnemius,16,16,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,"Pdgfra+, Cd34+"
+Gastrocnemius,17,17,low quality,NA,low quality,NA,low quality,Mixed markers
+Gastrocnemius,18,18_0,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,18,18_1,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,18,18_2,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,18,18_3,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,18,18_4,type IIx myonucleus,CL:0002212,type II myonucleus,CL:0000188,skeletal muscle cell,Myh1+
+Gastrocnemius,18,18_5,type IIa myonucleus,CL:0002214,type IIa myonucleus,CL:0000188,skeletal muscle cell,Myh2+
+Gastrocnemius,19,19,neuromuscular junction myonucleus,CL:0000188,skeletal muscle cell,CL:0000188,skeletal muscle cell,Etv5+
+Gastrocnemius,20,20,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,Myh11+
+Gastrocnemius,21,21,type IIb myonucleus,CL:0002215,type IIb myonucleus,CL:0000188,skeletal muscle cell,Myh4+
+Gastrocnemius,22,22,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,Myh11+
+Gastrocnemius,23,23,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,CL:0009099,fibro/adipogenic progenitor cell,"Pdgfra+, Cd34+"
+Gastrocnemius,24,24,skeletal muscle satellite cell,CL:0000594,skeletal muscle satellite cell,CL:0000188,skeletal muscle cell,Pax7+
+Gastrocnemius,25,25,tendon cell,CL:0000388,tendon cell,CL:0000388,tendon cell,Dcn+
+Gastrocnemius,26,26,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,"Flt1+, Pecam1+"
+Gastrocnemius,27,27,low quality,NA,low quality,NA,low quality,"High mitochondria, low gene exp"
+Gastrocnemius,28,28,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,"Flt1+, Pecam1+"
+Gastrocnemius,29,29,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,"F13a1+, Ikzf1+"
+Gastrocnemius,30,30,myelinating Schwann cell,CL:0000218,myelinating Schwann cell,CL:0002573,Schwann cell,"Mpz+, Pmp22+, Prx+...myelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
+Gastrocnemius,31,31,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,Adipoq+
+Gastrocnemius,32,32,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Bnc2+  https://pubmed.ncbi.nlm.nih.gov/36088459/
+Gastrocnemius,33,33,non-myelinating Schwann cell,CL:0002376,non-myelinating Schwann cell,CL:0002573,Schwann cell,"Scn7a+, Ncam1+, Slc35f1+…nonmyelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
+Gastrocnemius,34,34,low quality,NA,low quality,NA,low quality,Bleedthrough
+Gastrocnemius,35,35,lymphatic endothelial cell,CL:0002138,lymphatic endothelial cell,CL:0000115,endothelial cell,Lyve1+
+Adrenal,0,0,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+Adrenal,1,1,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,2,2,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,3,3,low quality,NA,low quality,NA,low quality,"Low expression, high doublet, mixed markers"
+Adrenal,4,4_0,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,4,4_1,zona glomerulosa,CL:0002099,zona glomerulosa,CL:0002097,cortical cell of adrenal gland,
+Adrenal,4,4_2,zona glomerulosa,CL:0002099,zona glomerulosa,CL:0002097,cortical cell of adrenal gland,
+Adrenal,5,5,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,6,6,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,7,7,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,8,8,epiniphrine secreting chromaffin cell,CL:0002082,epiniphrine secreting chromaffin cell,CL:0000336,adrenal medulla chromaffin cell,Pnmt+
+Adrenal,9,9,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,10,10,x-zone zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,11,11,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,12,12,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,13,13,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,14,14_0,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,14,14_1,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,14,14_2,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,
+Adrenal,14,14_3,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,14,14_4,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,
+Adrenal,15,15,norepinephrine secreting chromaffin cell,CL:0002083,norepinephrine secreting chromaffin cell,CL:0000336,adrenal medulla chromaffin cell,
+Adrenal,16,16,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,17,17,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,18,18,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,
+Adrenal,19,19,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,20,20_0,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,20,20_1,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,20,20_2,x-zone zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,20,20_3,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,21,21,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+Adrenal,22,22,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,
+Adrenal,23,23_0,zona glomerulosa,CL:0002099,zona glomerulosa,CL:0002097,cortical cell of adrenal gland,
+Adrenal,23,23_1,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,24,24_0,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,24,24_1,zona glomerulosa,CL:0002099,zona glomerulosa,CL:0002097,cortical cell of adrenal gland,
+Adrenal,24,24_2,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,25,25,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,26,26,low quality,NA,low quality,NA,low quality,
+Adrenal,27,27,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+Adrenal,28,28,Sox10+ progenitor cell,CL:0011026,progenitor cell,CL:0011026,progenitor cell,
+Adrenal,29,29,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,30,30,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,31,31,norepinephrine secreting chromaffin cell,CL:0002083,norepinephrine secreting chromaffin cell,CL:0000336,adrenal medulla chromaffin cell,
+Adrenal,32,32,low quality,NA,low quality,NA,low quality,Cycling cells from various celltypes. Mixed markers
+Adrenal,33,33,epiniphrine secreting chromaffin cell,CL:0002082,epiniphrine secreting chromaffin cell,CL:0000336,adrenal medulla chromaffin cell,Pnmt+
+Adrenal,34,34,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+Adrenal,35,35,low quality,NA,low quality,NA,low quality,
+Adrenal,36,36,x-zone zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,37,37,zona fasciculata,CL:0002136,zona fasciculata,CL:0002097,cortical cell of adrenal gland,
+Adrenal,38,38,low quality,NA,low quality,NA,low quality,
+Adrenal,39,39,hepatoblast,CL:0005026,hepatoblast,CL:0005026,hepatoblast,
+Adrenal,40,40,low quality,NA,low quality,NA,low quality,Bleedthrough
+CortexHippocampus,0,0,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,Gfap+
+CortexHippocampus,1,1,medium spiny neuron,CL:1001474,medium spiny neuron,CL:0000540,neuron,"Drd1+, Drd2+"
+CortexHippocampus,2,2,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,3,3,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mog+, Mag+"
+CortexHippocampus,4,4,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,5,5,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,6,6,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,7,7,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,8,8,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,9,9,low quality,NA,low quality,NA,low quality,Low expression
+CortexHippocampus,10,10,microglial cell,CL:0000129,microglial cell,CL:0000738,leukocyte,Cx3cr1+
+CortexHippocampus,11,11,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,12,12,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,"Gad1+, Gad2+, but can't tell if a particular neurotransmitter is enriched"
+CortexHippocampus,13,13,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,Gfap+
+CortexHippocampus,14,14,dentate gyrus granule cell,CL:2000089,dentate gyrus granule cell,CL:0000540,neuron,Prox1+
+CortexHippocampus,15,15,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,Pdgfra+
+CortexHippocampus,16,16,Pvalb+ GABAergic cortical interneuron,CL:4023018,Pvalb+ GABAergic cortical interneuron,CL:0000540,neuron,Pvalb+
+CortexHippocampus,17,17,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,
+CortexHippocampus,18,18,Sst+ GABAergic cortical interneuron,CL:4023017,Sst+ GABAergic cortical interneuron,CL:0000540,neuron,Sst+
+CortexHippocampus,19,19,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,20,20,hippocampal CA1 neuron,CL:4023060,hippocampal CA1-3 neuron,CL:0000540,neuron,
+CortexHippocampus,21,21,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,22,22,Vip+ GABAergic cortical interneuron,CL:4023016,Vip+ GABAergic cortical interneuron,CL:0000540,neuron,Vip+
+CortexHippocampus,23,23,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mog+, Mag+"
+CortexHippocampus,24,24,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mog+, Mag+"
+CortexHippocampus,25,25,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+CortexHippocampus,26,26,vascular leptomeningeal cell,CL:4023051,vascular leptomeningeal cell,CL:0000057,fibroblast,Dcn+
+CortexHippocampus,27,27,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,"Gad1+, Gad2+, but can't tell if a particular neurotransmitter is enriched"
+CortexHippocampus,28,28,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,29,29,hippocampal CA3 neuron,CL:4023060,hippocampal CA1-3 neuron,CL:0000540,neuron,
+CortexHippocampus,30,30,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,31,31,neuroblast,CL:0000031,neuroblast,CL:0000540,neuron,"Igfbpl1+, suggested neuroblast marker in adult brain https://www.nature.com/articles/s41467-022-35341-y. Also Gad1/2+ and Meis2+ and predicted to be SZNBL from Linnarson atlas"
+CortexHippocampus,32,32,Lamp5+ GABAergic cortical interneuron,CL:4023011,Lamp5+ GABAergic cortical interneuron,CL:0000540,neuron,Lamp5+
+CortexHippocampus,33,33,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,34,34,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Vtn+
+CortexHippocampus,35,35,Car3+ glutamatergic neuron,CL:4030068,Car3+ glutamatergic neuron,CL:0000540,neuron,Car3+
+CortexHippocampus,36,36,arachnoid barrier cell,CL:4023097,arachnoid barrier cell,CL:0000057,fibroblast,"Specific type of Slc47a1+ VLMC.https://www.cell.com/cell/pdf/S0092-8674(18)30789-X.pdf,  http://mousebrain.org/celltypes/ABC.html, https://www.nature.com/articles/s41586-018-0654-5"
+CortexHippocampus,37,37,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,38,38,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,39,39,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,40,40,committed oligodendrocyte precursor,CL:4023059,committed oligodendrocyte precursor,CL:0000128,oligodendrocyte,"Pdgfra-, Cspg4-. Some Mag/Mog"
+CortexHippocampus,41,41,choroid plexus epithelial cell,CL:0000706,choroid plexus epithelial cell,CL:0000066,epithelial cell,Trpm3/Enpp2/Ttr+
+CortexHippocampus,42,42,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,43,43,ependymal cell,CL:0000065,ependymal cell,CL:0000066,epithelial cell,"Tmem212+, Dnah6+"
+CortexHippocampus,44,44,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,45,45,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,46,46,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,47,47,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,48,48,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,49,49,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,50,50,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,51,51,Cajal-Retzius cell,CL:0000695,Cajal-Retzius cell,CL:0000540,neuron,Reln+
+CortexHippocampus,52,52,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+CortexHippocampus,53,53,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+CortexHippocampus,54,54,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+PBMC,0,0,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,1,1,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,2,2,classical monocyte,CL:0000860,classical monocyte,CL:0000542,lymphocyte,"Ccr2+, Ly6c2+"
+PBMC,3,3,NK cell,CL:0000623,NK cell,CL:0000542,lymphocyte,
+PBMC,4,4_0,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,4,4_1,cytotoxic T cell,CL:0000910,cytotoxic T cell,CL:0000236,lymphocyte,Cd8a+
+PBMC,5,5,non-classical monocyte,CL:0000875,non-classical monocyte,CL:0000542,lymphocyte,Ly6c2-
+PBMC,6,6,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,7,7,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,8,8,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,9,9,B cell,CL:0000236,B cell,CL:0000236,lymphocyte,
+PBMC,10,10,Treg cell,CL:0000815,Treg cell,CL:0000236,lymphocyte,
+PBMC,11,11,erythrocyte,CL:0000232,erythrocyte,CL:0000232,erythrocyte,Hba-1 etc. AJ specific…
+PBMC,12,12,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,13,13,dendritic cell,CL:0000451,dendritic cell,CL:0000234,phagocyte,
+PBMC,14,14,cytotoxic T cell,CL:0000910,cytotoxic T cell,CL:0000236,lymphocyte,Cd8a+
+PBMC,15,15,macrophage,CL:0000235,macrophage,CL:0000236,lymphocyte,Mrc1+
+PBMC,16,16_0,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,16,16_1,cytotoxic T cell,CL:0000910,cytotoxic T cell,CL:0000236,lymphocyte,Cd8a+
+PBMC,16,16_2,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,17,17,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,18,18,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,19,19,erythrocyte,CL:0000232,erythrocyte,CL:0000232,erythrocyte,
+PBMC,20,20_0,cytotoxic T cell,CL:0000910,cytotoxic T cell,CL:0000236,lymphocyte,Cd8a+
+PBMC,20,20_1,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,20,20_2,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,20,20_3,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,20,20_4,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,20,20_5,helper T cell,CL:0000912,helper T cell,CL:0000542,lymphocyte,Cd4+
+PBMC,20,20_6,cytotoxic T cell,CL:0000910,cytotoxic T cell,CL:0000236,lymphocyte,Cd8a+
+PBMC,20,20_7,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,21,21,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,22,22,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,23,23,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,24,24,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high"
+PBMC,25,25,non-classical monocyte,CL:0000875,non-classical monocyte,CL:0000542,lymphocyte,Ly6c2-
+PBMC,26,26,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,27,27,neutrophil,CL:0000775,neutrophil,CL:0000094,granulocyte,
+PBMC,28,28,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,29,29,basophil,CL:0000767,,CL:0000094,granulocyte,
+PBMC,30,30,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,31,31,platelet,CL:0000233,platelet,CL:0000233,platelet,Pf4+
+PBMC,32,32,B cell,CL:0000236,B cell,CL:0000542,lymphocyte,Pax5+
+PBMC,33,33,neutrophil,CL:0000775,neutrophil,CL:0000094,granulocyte,
+GonadsFemale,0,0,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+GonadsFemale,1,1,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+GonadsFemale,2,2,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,3,3,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high; 003-specific"
+GonadsFemale,4,4,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,5,5,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+GonadsFemale,6,6,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,7,7,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,8,8,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,9,9,ciliated epithelial cell,CL:0000067,ciliated epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,10,10,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,11,11,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,12,12,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,13,13,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,14,14,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,15,15,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,16,16,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,17,17,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+GonadsFemale,18,18,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,19,19,ciliated epithelial cell,CL:0000067,ciliated epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,20,20,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+GonadsFemale,21,21,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,22,22,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,23,23,luteal cell,CL:0000175,luteal cell,CL:0000151,secretory cell,AJ specific?? But there ARE reps...
+GonadsFemale,24,24,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+GonadsFemale,25,25,low quality,NA,low quality,NA,low quality,Mixed markers
+GonadsFemale,26,26,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,
+GonadsFemale,27,27,lymphatic endothelial cell,CL:0002138,lymphatic endothelial cell,CL:0000115,endothelial cell,Lyve1+
+GonadsFemale,28,28,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+GonadsFemale,29,29_0,low quality,NA,low quality,NA,low quality,
+GonadsFemale,29,29_1,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,
+GonadsFemale,29,29_2,low quality,NA,low quality,NA,low quality,
+GonadsFemale,29,29_3,low quality,NA,low quality,NA,low quality,
+GonadsFemale,30,30,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,
+GonadsFemale,31,31,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,32,32,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+GonadsFemale,33,33,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,34,34,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,35,35,low quality,NA,low quality,NA,low quality,"Mixed markers, doublet-high; brain bleedthrough (007)"
+GonadsFemale,36,36,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsFemale,37,37,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,
+GonadsFemale,38,38,luteal cell,CL:0000175,luteal cell,CL:0000151,secretory cell,
+GonadsFemale,39,39,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,
+GonadsMale,0,0,low quality,NA,low quality,NA,low quality,
+GonadsMale,1,1,low quality,NA,low quality,NA,low quality,
+GonadsMale,2,2,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,3,3,Sertoli cell,CL:0000216,Sertoli cell,CL:0000151,secretory cell,
+GonadsMale,4,4,sperm,CL:0000019,sperm,CL:0000586,germ cell,
+GonadsMale,5,5,Leydig cell,CL:0000178,Leydig cell,CL:0000151,secretory cell,
+GonadsMale,6,6,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,7,7,principal cell corpus,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,8,8,low quality,NA,low quality,NA,low quality,
+GonadsMale,9,9,low quality,NA,low quality,NA,low quality,
+GonadsMale,10,10,principal cell caput,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,11,11,Sertoli cell,CL:0000216,Sertoli cell,CL:0000151,secretory cell,
+GonadsMale,12,12,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+GonadsMale,13,13,principal cell cauda,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,14,14,low quality,NA,low quality,NA,low quality,
+GonadsMale,15,15_0,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,15,15_1,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,15,15_2,spermatocyte,CL:0000017,spermatocyte,CL:0000586,germ cell,
+GonadsMale,16,16,spermatogonium,CL:0000020,spermatogonium,CL:0000586,germ cell,
+GonadsMale,17,17,low quality,NA,low quality,NA,low quality,
+GonadsMale,18,18,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+GonadsMale,19,19,basal cell,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,20,20,principal cell cauda,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,21,21_0,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,21,21_1,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,21,21_2,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,21,21_3,spermatocyte,CL:0000017,spermatocyte,CL:0000586,germ cell,
+GonadsMale,21,21_4,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,22,22,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,23,23,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,24,24,spermatid,CL:0000018,spermatid,CL:0000586,germ cell,
+GonadsMale,25,25,spermatocyte,CL:0000017,spermatocyte,CL:0000586,germ cell,
+GonadsMale,26,26,Sertoli cell,CL:0000216,Sertoli cell,CL:0000151,secretory cell,
+GonadsMale,27,27,principal cell corpus,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,28,28,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+GonadsMale,29,29,low quality,NA,low quality,NA,low quality,
+GonadsMale,30,30,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,
+GonadsMale,31,31,spermatocyte,CL:0000017,spermatocyte,CL:0000586,germ cell,
+GonadsMale,32,32,sperm,CL:0000019,sperm,CL:0000586,germ cell,
+GonadsMale,33,33,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,
+GonadsMale,34,34,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+GonadsMale,35,35,sperm,CL:0000019,sperm,CL:0000586,germ cell,
+GonadsMale,36,36,clear cell,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,37,37,efferent duct cell,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,38,38,principal cell corpus,CL:1001590,epididymis glandular cell,CL:1001590,epididymis glandular cell,
+GonadsMale,39,39,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+GonadsMale,40,40,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,
+GonadsMale,41,41,low quality,NA,low quality,NA,low quality,
+GonadsMale,42,42,low quality,NA,low quality,NA,low quality,
+GonadsMale,43,43,low quality,NA,low quality,NA,low quality,
+GonadsMale,44,44,low quality,NA,low quality,NA,low quality,
+Liver,0,0,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,1,1,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,2,2,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"LSEC. Flt1+, Lyve1+"
+Liver,3,3,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,4,4,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,5,5,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,6,6,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,7,7,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,8,8,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,9,9,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,10,10,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,11,11,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Liver,12,12,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,13,13,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,14,14,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,15,15,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,16,16,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,17,17,low quality,NA,low quality,NA,low quality,
+Liver,18,18,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,19,19,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,20,20,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,21,21,low quality,NA,low quality,NA,low quality,
+Liver,22,22,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,23,23,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,24,24,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,25,25,Kupffer cell,CL:0000091,Kupffer cell,CL:0000738,leukocyte,"Adgre1+, C1qa+, Cd163+"
+Liver,26,26,low quality,NA,low quality,NA,low quality,
+Liver,27,27,low quality,NA,low quality,NA,low quality,
+Liver,28,28,cholangiocyte,CL:1000488,cholangiocyte,CL:0000066,epithelial cell,"Epcam+, Spp1+, Sox9+"
+Liver,29,29,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,30,30,low quality,NA,low quality,NA,low quality,
+Liver,31,31,low quality,NA,low quality,NA,low quality,
+Liver,32,32,low quality,NA,low quality,NA,low quality,
+Liver,33,33,low quality,NA,low quality,NA,low quality,
+Liver,34,34,T cell,CL:0000084,T cell,CL:0000738,leukocyte,"Il7r+,Themis+"
+Liver,35,35,low quality,NA,low quality,NA,low quality,
+Liver,36,36,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"LSEC. Flt1+, Lyve1+"
+Liver,37,37,hepatic stellate cell,CL:0000632,hepatic stellate cell,CL:0000057,fibroblast,
+Liver,38,38,endothelial cell of hepatic sinusoid,CL:1000398,endothelial cell of hepatic sinusoid,CL:0000115,endothelial cell,"LSEC. Flt1+, Lyve1+"
+Liver,39,39,low quality,NA,low quality,NA,low quality,
+Liver,40,40,low quality,NA,low quality,NA,low quality,
+Liver,41,41,low quality,NA,low quality,NA,low quality,
+Liver,42,42,hepatocyte,CL:0000182,hepatocyte,CL:0000182,hepatocyte,
+Liver,43,43,B cell,CL:0000236,B cell,CL:0000738,leukocyte,"Bcl11a+, Pax5+"
+Liver,44,44,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Liver,45,45,low quality,NA,low quality,NA,low quality,
+Liver,46,46,endothelial cell of hepatic portal vein,CL:0009094,endothelial cell of hepatic portal vein,CL:0000115,endothelial cell,"Vwf+, Rspo3-"
+Liver,47,47,dendritic cell,CL:0000451,dendritic cell,CL:0000738,leukocyte,
+Liver,48,48,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,Igfbp5+
+Liver,49,49,endothelial cell of hepatic central vein,CL:4033061,endothelial cell of hepatic central vein,CL:0000115,endothelial cell,"Vwf+, Rspo3+"
+Liver,50,50,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+Liver,51,51,low quality,NA,low quality,NA,low quality,
+Liver,52,52,low quality,NA,low quality,NA,low quality,
+Kidney,0,0,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,1,1,loop of Henle thick ascending limb epithelial cell,CL:1001106,loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,
+Kidney,2,2,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,3,3,low quality,NA,low quality,NA,low quality,
+Kidney,4,4,low quality,NA,low quality,NA,low quality,
+Kidney,5,5,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,6,6,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+Kidney,7,7,loop of Henle thick ascending limb epithelial cell,CL:1001106,loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,
+Kidney,8,8,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,9,9,low quality,NA,low quality,NA,low quality,
+Kidney,10,10,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,11,11,distal convoluted tubule epithelial cell,CL:1000849,distal convoluted tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,12,12,low quality,NA,low quality,NA,low quality,
+Kidney,13,13,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,
+Kidney,14,14,collecting duct principal cell,CL:1001431,collecting duct principal cell,CL:0000066,epithelial cell,
+Kidney,15,15,low quality,NA,low quality,NA,low quality,
+Kidney,16,16_0,loop of Henle thin descending limb epithelial cell,CL:1001111,loop of Henle thin descending limb epithelial cell,CL:0000066,epithelial cell,
+Kidney,16,16_1,loop of Henle thin ascending limb epithelial cell,CL:1001107,loop of Henle thin ascending limb epithelial cell,CL:0000066,epithelial cell,
+Kidney,16,16_2,loop of Henle thin ascending limb epithelial cell,CL:1001107,loop of Henle thin ascending limb epithelial cell,CL:0000066,epithelial cell,
+Kidney,17,17,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,18,18,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,19,19,low quality,NA,low quality,NA,low quality,
+Kidney,20,20,connecting tubule epithelial cell,CL:1000768,connecting tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,21,21,collecting duct alpha-intercalated cell,CL:4030015,collecting duct alpha-intercalated cell,CL:0000066,epithelial cell,
+Kidney,22,22,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+Kidney,23,23,low quality,NA,low quality,NA,low quality,
+Kidney,24,24,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,25,25,collecting duct beta-intercalated cell,CL:4030005,collecting duct beta-intercalated cell,CL:0000066,epithelial cell,
+Kidney,26,26,low quality,NA,low quality,NA,low quality,
+Kidney,27,27,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,28,28,low quality,NA,low quality,NA,low quality,
+Kidney,29,29,low quality,NA,low quality,NA,low quality,
+Kidney,30,30,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,31,31,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+Kidney,32,32,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,33,33,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,34,34,low quality,NA,low quality,NA,low quality,
+Kidney,35,35,podocyte,CL:0000653,podocyte,CL:0000066,epithelial cell,
+Kidney,36,36,collecting duct principal cell,CL:1001431,collecting duct principal cell,CL:0000066,epithelial cell,
+Kidney,37,37,Ncam1+ epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+Kidney,38,38,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,
+Kidney,39,39,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,
+Kidney,40,40,interstitial myofibroblast,CL:1000691,interstitial myofibroblast,CL:0000186,myofibroblast cell,
+Kidney,41,41,low quality,NA,low quality,NA,low quality,
+Kidney,42,42,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,43,43,Megf11+ epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+Kidney,44,44,low quality,NA,low quality,NA,low quality,
+Kidney,45,45_0,low quality,NA,low quality,NA,low quality,
+Kidney,45,45_1,adipocyte,CL:0000136,adipocyte,CL:0000136,adipocyte,
+Kidney,46,46,low quality,NA,low quality,NA,low quality,
+Kidney,47,47,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,
+Kidney,48,48,low quality,NA,low quality,NA,low quality,
+Kidney,49,49,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,50,50,low quality,NA,low quality,NA,low quality,
+Kidney,51,51,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,52,52,proximal tubule epithelial cell,CL:0002306,proximal tubule epithelial cell,CL:0000066,epithelial cell,
+Kidney,53,53,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,0,0,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,1,1,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,2,2,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,
+DiencephalonPituitary,3,3,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+DiencephalonPituitary,4,4,somatotroph,CL:0002312,somatotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,5,5,lactotroph,CL:0002311,lactotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,6,6,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,
+DiencephalonPituitary,7,7,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,
+DiencephalonPituitary,8,8,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+DiencephalonPituitary,9,9,low quality,NA,low quality,NA,low quality,mito high
+DiencephalonPituitary,10,10,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,11,11,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,12,12,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,13,13,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+DiencephalonPituitary,14,14,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,
+DiencephalonPituitary,15,15,cholinergic neuron,CL:0000108,cholinergic neuron,CL:0000540,neuron,
+DiencephalonPituitary,16,16,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,17,17,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,18,18,pituitary progenitor cell,CL:0011026,progenitor cell,CL:0011026,progenitor cell,
+DiencephalonPituitary,19,19,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,20,20,microglial cell,CL:0000129,microglial cell,CL:0000738,leukocyte,
+DiencephalonPituitary,21,21,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,22,22,melanotroph,CL:0000440,melanotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,23,23,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,24,24,vascular leptomeningeal cell,CL:4023051,vascular leptomeningeal cell,CL:0000057,fibroblast,
+DiencephalonPituitary,25,25,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+DiencephalonPituitary,26,26,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,27,27_0,corticotroph,CL:0002309,corticotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,27,27_1,thyrotroph,CL:0000476,thyrotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,28,28,ependymal cell,CL:0000065,ependymal cell,CL:0000066,epithelial cell,
+DiencephalonPituitary,29,29,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,
+DiencephalonPituitary,30,30,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,31,31,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,32,32,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,33,33,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,34,34,neuron,CL:0000540,neuron,CL:0000540,neuron,"Can't tell what kind of neuron, even gaba or glut"
+DiencephalonPituitary,35,35,gonadotroph,CL:0000437,gonadotroph,CL:0000165,neuroendocrine cell,
+DiencephalonPituitary,36,36,tanycyte,CL:0002085,tanycyte,CL:0000127,astrocyte,
+DiencephalonPituitary,37,37,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,38,38,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,
+DiencephalonPituitary,39,39,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,40,40,arachnoid barrier cell,CL:4023097,arachnoid barrier cell,CL:0000057,fibroblast,"Specific type of Slc47a1+ VLMC.https://www.cell.com/cell/pdf/S0092-8674(18)30789-X.pdf,  http://mousebrain.org/celltypes/ABC.html, https://www.nature.com/articles/s41586-018-0654-5"
+DiencephalonPituitary,41,41,dopaminergic neuron,CL:0000700,dopaminergic neuron,CL:0000540,neuron,"Slc6a3+, En+"
+DiencephalonPituitary,42,42,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,43,43,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,44,44,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,45,45,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,
+DiencephalonPituitary,46,46,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+DiencephalonPituitary,47,47,choroid plexus epithelial cell,CL:0000706,choroid plexus epithelial cell,CL:0000066,epithelial cell,Trpm3/Enpp2/Ttr+
+DiencephalonPituitary,48,48,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+DiencephalonPituitary,49,49,hypendymal cell,CL:4023181,hypendymal cell,CL:0000066,epithelial cell,"Spp2+, Sspo+"
+DiencephalonPituitary,50,50,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,51,51,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,52,52,low quality,NA,low quality,NA,low quality,
+DiencephalonPituitary,53,53,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,
+DiencephalonPituitary,54,54,low quality,NA,low quality,NA,low quality,
