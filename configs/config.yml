@@ -1,8 +1,4 @@
 ref:
-  # TODO - what's going on here
-  bc1_map: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1_RT_replace.txt
-  barcodes: /share/crsp/lab/seyedam/share/igvf_splitseq/ref/r1r2r3.txt
-
   annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz
   annot: ref/gencode.vM32.gtf.gz
   fa_link: https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
@@ -30,7 +26,7 @@ ref:
     na: ref/kallisto/c57bl6j.nascent.fasta
     c1: ref/kallisto/c57bl6j.c1
     c2: ref/kallisto/c57bl6j.c2
-
+    
   klue:
     fa: ref/klue/{mult_genotype_1}_{mult_genotype_2}.fa
     t2g: ref/klue/{mult_genotype_1}_{mult_genotype_2}.t2g
@@ -38,7 +34,6 @@ ref:
     temp: ref/klue/{mult_genotype_1}_{mult_genotype_2}
 
 raw:
-  # fastq: fastq/{plate}_{subpool}_{lane}_{read}_001.fastq.gz
   fastq_r1: fastq/{plate}_{subpool}_{run}_{lane}_R1_001.fastq.gz
   fastq_r2: fastq/{plate}_{subpool}_{run}_{lane}_R2_001.fastq.gz
 
@@ -52,10 +47,12 @@ kallisto:
   bus: kallisto/{plate}/{subpool}/output.bus
   bus_modified_unfilt: kallisto/{plate}/{subpool}/output_modified.unfiltered.bus
   bus_unfilt: kallisto/{plate}/{subpool}/output.unfiltered.bus
+  run_info: kallisto/{plate}/{subpool}/run_info.json
+  bc_info: kallisto/{plate}/{subpool}/inspect.json
 
-  filt_adata: kallisto/{plate}/{subpool}/filtered/adata.h5ad
-  genotype_adata: kallisto/{plate}/{subpool}/adata.h5ad
-
+  filt_adata: pipeline_output_kallisto/{plate}/{subpool}/filtered_adata.h5ad
+  unfilt_adata: pipeline_output_kallisto/{plate}/{subpool}/unfiltered_adata.h5ad
+  
 klue:
   cgb: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.barcodes.txt
   cggn: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/counts_unfiltered_modified/cells_x_genes.genes.names.txt
@@ -65,17 +62,28 @@ klue:
   bus: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.bus
   bus_modified_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output_modified.unfiltered.bus
   bus_unfilt: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/output.unfiltered.bus
-
-  filt_adata: klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/filtered/adata.h5ad
-
-
+  unfilt_adata: pipeline_output_klue/{plate}/{subpool}/{mult_genotype_1}_{mult_genotype_2}/unfiltered_adata.h5ad
   # version with all genotypes
-  genotype_counts: klue/{plate}/{subpool}/genotype_counts.tsv
+  genotype_counts: pipeline_output_klue/{plate}/{subpool}/genotype_counts.tsv
 
-scrublet:
-  # TODO sample will be combo of {tissue}_{genotype}_{sex}_{age}_{mouse_id}
-  adata: scrublet/{plate}/{sample}/{subpool}/adata.h5ad
-  scrub_adata: scrublet/{plate}/{sample}/{subpool}/scrubbed_adata.h5ad
+cellbender:  
+  unfilt_h5: cellbender/{plate}/{subpool}/adata_denoised.h5
+  filt_h5: cellbender/{plate}/{subpool}/adata_denoised_filtered.h5
+  filt_adata: pipeline_output_cellbender/{plate}/{subpool}/filtered_adata_denoised.h5ad
+  metrics: cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
+  metrics_copy: pipeline_output_cellbender/{plate}/{subpool}/adata_denoised_metrics.csv
 
+report:
+  knee_df: pipeline_report/{plate}/{subpool}/knee_plot_df.csv
+  report_df: pipeline_report/{plate}/{subpool}/report.csv
+  cb_df: pipeline_report/{plate}/{subpool}/cellbender_settings.csv
+  
+plate:
+  adata: ./{plate}/adata.h5ad
+  adata_raw_counts: ./{plate}/adata_raw_counts.h5ad
+  adata_cb_counts: ./{plate}/adata_cellbender_counts.h5ad
+  
 tissue:
   adata: ./{plate}/{tissue}/adata.h5ad
+  adata_raw_counts: ./{plate}/{tissue}/adata_raw_counts.h5ad
+  adata_cb_counts: ./{plate}/{tissue}/adata_cellbender_counts.h5ad

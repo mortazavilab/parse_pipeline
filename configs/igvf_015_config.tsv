@@ -1,9 +1,9 @@
-fastq	fastq_r2	subpool	plate	lane	run	platform
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L001_R2_001.fastq.gz	67C	igvf_015	L001	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L002_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67C_S1_L002_R2_001.fastq.gz	67C	igvf_015	L002	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L001_R2_001.fastq.gz	67D	igvf_015	L001	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L002_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67D_S2_L002_R2_001.fastq.gz	67D	igvf_015	L002	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67E_S1_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67E_S1_L001_R2_001.fastq.gz	67E	igvf_015	L001	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67E_S1_L002_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67E_S1_L002_R2_001.fastq.gz	67E	igvf_015	L002	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67F_S2_L001_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67F_S2_L001_R2_001.fastq.gz	67F	igvf_015	L001	1	next
-/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67F_S2_L002_R1_001.fastq.gz	/share/crsp/lab/seyedam/share/igvf_splitseq/igvf_015/fastq/015_67F_S2_L002_R2_001.fastq.gz	67F	igvf_015	L002	1	next
+fastq	fastq_r2	subpool	plate	lane	run	platform	droplets_included
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67C_S1_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67C_S1_L001_R2_001.fastq.gz	Subpool_UDI25	igvf_015	L001	1	next	200000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67C_S1_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67C_S1_L002_R2_001.fastq.gz	Subpool_UDI25	igvf_015	L002	1	next	200000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67D_S2_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67D_S2_L001_R2_001.fastq.gz	Subpool_UDI26	igvf_015	L001	1	next	200000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67D_S2_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67D_S2_L002_R2_001.fastq.gz	Subpool_UDI26	igvf_015	L002	1	next	200000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67E_S1_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67E_S1_L001_R2_001.fastq.gz	Subpool_UDI27	igvf_015	L001	1	next	150000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67E_S1_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67E_S1_L002_R2_001.fastq.gz	Subpool_UDI27	igvf_015	L002	1	next	150000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67F_S2_L001_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67F_S2_L001_R2_001.fastq.gz	Subpool_UDI28	igvf_015	L001	1	next	200000
+/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67F_S2_L002_R1_001.fastq.gz	/dfs7/samlab/seyedam/IGVF/igvf_015/nextseq/015_67F_S2_L002_R2_001.fastq.gz	Subpool_UDI28	igvf_015	L002	1	next	200000
