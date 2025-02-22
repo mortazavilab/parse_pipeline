@@ -676,31 +676,78 @@ def touch_dummy(ofile):
     """
     open(ofile, 'a').close()
     
-def assign_demux_genotype(df):
-    """
-    Assigns a cell the genotype w/ the maximum of counts
-    between the two genotypes that were loaded in the well
-    the cell is from.
+    
+## OLD 
+# def assign_demux_genotype(df):
+#     """
+#     Assigns a cell the genotype w/ the maximum of counts
+#     between the two genotypes that were loaded in the well
+#     the cell is from.
 
-    Parameters:
-        df (pandas DataFrame): DF of obs table for each cell w/
-            klue counts for each genotype and multiplexed genotype
-            columns
-    """
+#     Parameters:
+#         df (pandas DataFrame): DF of obs table for each cell w/
+#             klue counts for each genotype and multiplexed genotype
+#             columns
+#     """
+#     genotype_cols = get_genotypes()    
+#     genotype_cols = [c for c in genotype_cols if c in df.columns.tolist()]
+
+#     # restrict to nuclei w/ genetic multiplexing
+#     df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
+
+#     # fill nans once again
+#     df[genotype_cols] = df[genotype_cols].fillna(0)
+
+#     # loop through each multiplexed genotype combo
+#     # use those genotypes to determine which, between the two, has the highest counts
+#     keep_cols = ['mult_genotype',
+#                  'mult_genotype_1',
+#                  'mult_genotype_2']+genotype_cols
+#     df = df[keep_cols]
+#     temp2 = pd.DataFrame()
+#     for g in df.mult_genotype.unique().tolist():
+#         # print(g)
+#         temp = df.loc[df.mult_genotype==g].copy(deep=True)
+
+#         g1 = temp.mult_genotype_1.unique().tolist()
+#         assert len(g1) == 1
+#         g1 = g1[0]
+
+#         g2 = temp.mult_genotype_2.unique().tolist()
+#         assert len(g2) == 1
+#         g2 = g2[0]
+
+#         # find the best match and report ties if the values are the same
+#         temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
+#         temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
+
+#         temp2 = pd.concat([temp2, temp], axis=0)
+
+#     df = df.merge(temp2['new_genotype'], how='left',
+#                   left_index=True, right_index=True)
+#     df = df[['new_genotype']]
+
+#     assert len(df.loc[df.new_genotype.isnull()].index) == 0
+
+#     return df
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.mixture import GaussianMixture
+
+## NEW KLUE -- Ryan's function
+def assign_demux_genotype(df):
+
     genotype_cols = get_genotypes()    
     genotype_cols = [c for c in genotype_cols if c in df.columns.tolist()]
 
-    # restrict to nuclei w/ genetic multiplexing
     df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
-
-    # fill nans once again
     df[genotype_cols] = df[genotype_cols].fillna(0)
-
-    # loop through each multiplexed genotype combo
-    # use those genotypes to determine which, between the two, has the highest counts
     keep_cols = ['mult_genotype',
-                 'mult_genotype_1',
-                 'mult_genotype_2']+genotype_cols
+                     'mult_genotype_1',
+                     'mult_genotype_2']+genotype_cols
     df = df[keep_cols]
     temp2 = pd.DataFrame()
     for g in df.mult_genotype.unique().tolist():
@@ -715,18 +762,31 @@ def assign_demux_genotype(df):
         assert len(g2) == 1
         g2 = g2[0]
 
-        # find the best match and report ties if the values are the same
-        temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
-        temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
+        ratio_values = temp[g1] / (temp[g1] + temp[g2])
+
+        X = ratio_values.values.reshape(-1, 1)
+        gmm = GaussianMixture(n_components=2, random_state=42)
+        gmm.fit(X)
+        labels = gmm.predict(X)
+        cluster_means = gmm.means_.flatten()
+        sorted_indices = np.argsort(cluster_means)  # Sort clusters by mean ratio
+
+        # Map labels to genotypes
+        label_map = {sorted_indices[0]: g2, sorted_indices[1]: g1}
+        pred_temp = np.vectorize(label_map.get)(labels)
+
+
+        temp['new_genotype'] = pred_temp    
+        # temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
 
         temp2 = pd.concat([temp2, temp], axis=0)
 
+    
     df = df.merge(temp2['new_genotype'], how='left',
                   left_index=True, right_index=True)
     df = df[['new_genotype']]
 
     assert len(df.loc[df.new_genotype.isnull()].index) == 0
-
     return df
 
 
@@ -989,20 +1049,29 @@ def add_meta_filter(filt_h5,
     for c in adata.obs.columns:
         if pd.api.types.is_object_dtype(adata.obs[c].dtype):
             adata.obs[c] = adata.obs[c].fillna('NA')
-            
-    keys = ["lab_sample_id","sample","plate",\
-            "subpool","SampleType","Tissue","Sex",\
-            "Age","Genotype","subpool_type","Protocol","Chemistry",\
-            "bc","bc1_sequence","bc2_sequence","bc3_sequence","bc1_well","bc2_well","bc3_well",\
-            "Row","Column","well_type",\
-            "Mouse_Tissue_ID","Multiplexed_sample1", "Multiplexed_sample2","DOB",\
-            "Age_days","Body_weight_g","Estrus_cycle",\
-            "Dissection_date","Dissection_time","ZT",\
-            "Dissector","Tissue_weight_mg",\
-            "Notes","n_genes_by_counts_raw","total_counts_raw","total_counts_mt_raw",\
-            "pct_counts_mt_raw","n_genes_by_counts_cb","total_counts_cb","total_counts_mt_cb",\
-            "pct_counts_mt_cb","doublet_score","predicted_doublet","background_fraction",\
-            "cell_probability","cell_size","droplet_efficiency"]
+    
+    klue_columns = [col for col in adata.obs.columns if col.endswith('_klue_counts')]
+
+    # Define the base keys list
+    keys_base = [
+        "lab_sample_id", "sample", "plate", "subpool", "SampleType", "Tissue", "Sex",
+        "Age", "Genotype", "subpool_type", "Protocol", "Chemistry", "bc", "bc1_sequence",
+        "bc2_sequence", "bc3_sequence", "bc1_well", "bc2_well", "bc3_well", "Row", "Column",
+        "well_type", "DOB", "Age_days", "Body_weight_g", "Estrus_cycle", "Dissection_date",
+        "Dissection_time", "ZT", "Dissector", "Tissue_weight_mg", "Mouse_Tissue_ID", 
+        "Multiplexed_sample1", "Multiplexed_sample2"
+    ]
+
+    # Append the '_klue_counts' columns after the base keys
+    keys = keys_base + klue_columns
+
+    # Add the remaining keys at the end
+    keys += [
+        "Notes", "n_genes_by_counts_raw", "total_counts_raw", "total_counts_mt_raw",
+        "pct_counts_mt_raw", "n_genes_by_counts_cb", "total_counts_cb", "total_counts_mt_cb",
+        "pct_counts_mt_cb", "doublet_score", "predicted_doublet", "background_fraction",
+        "cell_probability", "cell_size", "droplet_efficiency"
+    ]
         
     if not is_dummy(genotypes):
         adata.obs = adata.obs[keys]
