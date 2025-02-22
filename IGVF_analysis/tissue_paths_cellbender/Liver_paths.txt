@@ -1,0 +1,2 @@
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_004/Liver
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_005/Liver

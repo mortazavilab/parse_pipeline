@@ -1,0 +1,49 @@
+﻿leiden,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+0,low quality,NA,low quality,NA,low quality,"Myh4+, Ttn+ also low-quality"
+1,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mog+, Mag+"
+2,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,Gfap+
+3,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+4,medium spiny neuron,CL:1001474,medium spiny neuron,CL:0000540,neuron,"Drd1+, Drd2+"
+5,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+6,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+7,low quality,NA,low quality,NA,low quality,"Gad1+, Gad2+, but can't tell if a particular neurotransmitter is enriched….Meis2?"
+8,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+9,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+10,microglial cell,CL:0000129,microglial cell,CL:0000738,leukocyte,Cx3cr1+
+11,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,Slc1a2+
+12,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,"Gad1+, Gad2+, but can't tell if a particular neurotransmitter is enriched"
+13,Pvalb+ GABAergic cortical interneuron,CL:4023018,Pvalb+ GABAergic cortical interneuron,CL:0000540,neuron,Pvalb+
+14,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,Pdgfra+
+15,dentate gyrus granule cell,CL:2000089,dentate gyrus granule cell,CL:0000540,neuron,Prox1+
+16,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+17,Sst+ GABAergic cortical interneuron,CL:4023017,Sst+ GABAergic cortical interneuron,CL:0000540,neuron,Sst+
+18,hippocampal CA1 neuron,CL:4023060,hippocampal CA1-3 neuron,CL:0000540,neuron,Slc17a7+
+19,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+20,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+21,Vip+ GABAergic cortical interneuron,CL:4023016,Vip+ GABAergic cortical interneuron,CL:0000540,neuron,Vip+
+22,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+23,vascular leptomeningeal cell,CL:4023051,vascular leptomeningeal cell,CL:0000057,fibroblast,Dcn+
+24,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+25,hippocampal CA3 neuron,CL:4023060,hippocampal CA1-3 neuron,CL:0000540,neuron,Slc17a7+
+26,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Vtn+
+27,Meis2+ GABAergic cortical interneuron,CL:4023065,Meis2+ GABAergic cortical interneuron,CL:0000540,neuron,Meis2+
+28,Lamp5+ GABAergic cortical interneuron,CL:4023011,Lamp5+ GABAergic cortical interneuron,CL:0000540,neuron,Lamp5+
+29,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+30,early dentate gyrus granule cell,CL:2000089,dentate gyrus granule cell,CL:0000540,neuron,"Dcx+, Prox1+"
+31,low quality,NA,low quality,NA,low quality,"Myh4+, Ttn+ also low-quality"
+32,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Car3+
+33,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+34,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,"Bnc2+, Fbxl7+….looks fairly heterogeneous, 2 sub-clusters, not embedded in any larger cluster"
+35,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Kl+, Ttr+, Clic6+, Folr1+…"
+36,low quality,NA,low quality,NA,low quality,Flt1+
+37,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+38,commited oligodendrocyte precursor cell,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mog+, Mag+, partially Pdgfra+"
+39,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,"Gad1+, Gad2+, but can't tell if a particular neurotransmitter is enriched"
+40,low quality,NA,low quality,NA,low quality,
+41,ependymal cell,CL:0000065,ependymal cell,CL:0000066,epithelial cell,"Tmem212+, Dnah6+"
+42,low quality,NA,low quality,NA,low quality,
+43,low quality,NA,low quality,NA,low quality,
+44,microglial cell,CL:0000129,microglial cell,CL:0000738,leukocyte,Cx3cr1+
+45,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,Slc17a7+
+46,myelin-forming oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Top markers are Plp1, Mbp"
+47,Cajal-Retzius cell,CL:0000695,Cajal-Retzius cell,CL:0000540,neuron,Reln+

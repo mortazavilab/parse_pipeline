@@ -1,0 +1,56 @@
+﻿leiden_R,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+0,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,"Female-specific. Markers: Ghr, Aadat, Framd1b, Lrp2, Slc7a12, Slc6a18, Slc27a2, Napsa, Xist"
+1,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific
+2,kidney loop of Henle thick ascending limb epithelial cell,CL:1001106,kidney loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,"Umod+, Slc12a1+, Enox1+"
+3,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,"Flt1+, Kdr-specific"
+4,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,
+5,kidney loop of Henle thick ascending limb epithelial cell,CL:1001106,kidney loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,"Umod+, Slc12a1+, Enox1+"
+6,kidney distal convoluted tubule epithelial cell,CL:1000849,kidney distal convoluted tubule epithelial cell,CL:0000066,epithelial cell,
+7,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,"Female-specific. Markers: Ghr, Aadat, Framd1b, Lrp2, Slc7a12, Slc6a18, Slc27a2, Napsa, Xist"
+8,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific
+9,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,"Pdgfra+, Pdgfrb+. Markers: Zeb2, Lbd2, Pde3a, Cald1, Cfn, Lama2, Sox5, Meis2"
+10,low quality,NA,low quality,NA,low quality,"Doublet-high. Igfbp7, Cald1,  many same as 9"
+11,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,
+12,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+13,kidney collecting duct principal cell,CL:1001431,kidney collecting duct principal cell,CL:0000066,epithelial cell,
+14_0,kidney loop of Henle thin descending limb epithelial cell,CL:1001111,kidney loop of Henle thin descending limb epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Myo9a, Cobll1, Sema5a, Sorcs3, Pax2"
+14_1,kidney loop of Henle thin ascending limb epithelial cell,CL:1001107,kidney loop of Henle thin ascending limb epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Myo9a, Cobll1, Sema5a, Sorcs3, Pax2"
+14_2,kidney loop of Henle thin ascending limb epithelial cell,CL:1001107,kidney loop of Henle thin ascending limb epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Myo9a, Cobll1, Sema5a, Sorcs3, Pax2"
+14_3,kidney loop of Henle thin ascending limb epithelial cell,CL:1001107,kidney loop of Henle thin ascending limb epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Myo9a, Cobll1, Sema5a, Sorcs3, Pax2"
+14_4,kidney loop of Henle thin descending limb epithelial cell,CL:1001111,kidney loop of Henle thin descending limb epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Myo9a, Cobll1, Sema5a, Sorcs3, Pax2"
+15,kidney connecting tubule epithelial cell,CL:1000768,kidney connecting tubule epithelial cell,CL:0000066,epithelial cell,
+16,kidney collecting duct beta-intercalated cell,CL:4030005,kidney collecting duct beta-intercalated cell,CL:0000066,epithelial cell,"Atp6v0d2+, Atp6v1c2+, Slc26a4+"
+17,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,Cd74+
+18,kidney collecting duct alpha-intercalated cell,CL:4030015,kidney collecting duct alpha-intercalated cell,CL:0000066,epithelial cell,"Atp6v0d2+, Atp6v1c2+, Adgrf5+, Slc4a1+"
+19,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific CAST
+20,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific CAST
+21,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,
+22,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,WSBJ
+23,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,"Myh11+, Pdgfrb+. Also contains Juxtaglomerular Ren1+ cells"
+24,low quality,NA,low quality,NA,low quality,"Doublet-high, male-only"
+25,kidney loop of Henle thick ascending limb epithelial cell,CL:1001106,kidney loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,
+26,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+27,low quality,NA,low quality,NA,low quality,
+28,low quality,NA,low quality,NA,low quality,Seems like doublet because no specific markers
+29,kidney collecting duct principal cell,CL:1001431,kidney collecting duct principal cell,CL:0000066,epithelial cell,
+30,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,
+31,podocyte,CL:0000653,podocyte,CL:0000066,epithelial cell,"Wt1+, Nphs1+, Nphs2+"
+32,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,WSBJ
+33,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Female-specific PWK
+34,low quality,NA,low quality,NA,low quality,Seems like doublet because no specific markers
+35,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Pdgfra+
+36,low quality,NA,low quality,NA,low quality,CASTJ
+37,podocyte,CL:0000653,podocyte,CL:0000066,epithelial cell,"Wt1+, Nphs1+, Nphs2+"
+38,Ncam1+ epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Has all genos and sexes. Specific markers: Ncam1, Cp, Col18a1. Cp is renal corpsucle marker in Ransick et al 2019"
+39,kidney interstitial myofibroblast,CL:1000691,kidney interstitial myofibroblast,CL:0000186,myofibroblast cell,"Specific markers: Zfpm2, Gpc6, Adamts2"
+40,low quality,NA,low quality,NA,low quality,"PWKJ, but doublet-high"
+41,kidney loop of Henle thick ascending limb epithelial cell,CL:1001106,kidney loop of Henle thick ascending limb epithelial cell,CL:0000066,epithelial cell,"PWKJ. Umod+, Slc12a1+, Enox1+"
+42,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific AJ
+43,Megf11+ epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Prox1+ but Flt1-. Ascendng thin limb? Specific markers: Atp10b, Srgap3, Megf9, Ndrg4,  Ccdc3, Uaca, Pdgfa"
+44,fat cell,CL:0000136,fat cell,CL:0000136,fat cell,"Adipoq+, Pnpla2+"
+45,kidney collecting duct principal cell,CL:1001431,kidney collecting duct principal cell,CL:0000066,epithelial cell,
+46,kidney distal convoluted tubule epithelial cell,CL:1000849,kidney distal convoluted tubule epithelial cell,CL:0000066,epithelial cell,
+47,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Female-specific PWKJ
+48,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Male-specific WSBJ
+49,epithelial cell of proximal tubule,CL:0002306,epithelial cell of proximal tubule,CL:0000066,epithelial cell,Female-specific CASTJ
+50,kidney loop of Henle thin descending limb epithelial cell,CL:1001111,kidney loop of Henle thin descending limb epithelial cell,CL:0000066,epithelial cell,

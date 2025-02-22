@@ -1,0 +1,51 @@
+﻿leiden_R,subtype,CL_ID,celltype,general_CL_ID,general_celltype,
+0,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+1,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,
+2,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+3,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+4,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+5,somatotrope,CL:0002312,somatotrope,CL:0000165,neuroendocrine cell,
+6,lactotrope,CL:0002311,lactotrope,CL:0000165,neuroendocrine cell,
+7,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,"Synpo2+, Ptpn3+"
+8,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+9,low quality,NA,low quality,NA,low quality,
+10,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,
+11,glutamatergic neuron,CL:0000679,glutamatergic neuron,CL:0000540,neuron,"Synpo2+, Ptpn3+"
+12,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,CL:0002453,oligodendrocyte precursor cell,Pdgfra+
+13,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+14,vascular leptomeningeal cell,CL:4023051,vascular leptomeningeal cell,CL:0000057,fibroblast,Dcn+
+15,cholinergic neuron,CL:0000108,cholinergic neuron,CL:0000540,neuron,http://mousebrain.org/celltypes/DECHO2.html
+16,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+17,low quality,NA,low quality,NA,low quality,
+18,microglial cell,CL:0000129,microglial cell,CL:0000738,leukocyte,Cx3cr1+
+19,pituitary progenitor cell,CL:0011026,progenitor cell,CL:0011026,progenitor cell,"Sox2+ (barely), Rbpms+ (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9712314/)"
+20,melanotrope,CL:0000440,melanotrope,CL:0000165,neuroendocrine cell,
+21,low quality,NA,low quality,NA,low quality,
+22,ependymal cell,CL:0000065,ependymal cell,CL:0000066,epithelial cell,"Tmem212+, Dnah6+"
+23_0,gonadotrope,CL:0000437,gonadotrope,CL:0000165,neuroendocrine cell,
+23_1,thyrotrope,CL:0000476,thyrotrope,CL:0000165,neuroendocrine cell,
+24,low quality,NA,low quality,NA,low quality,no specific markers. Markers that are called are shared across multiple celltypes
+25,low quality,NA,low quality,NA,low quality,
+26,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Vtn+
+27,low quality,NA,low quality,NA,low quality,
+28,low quality,NA,low quality,NA,low quality,
+29,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+30,astrocyte,CL:0000127,astrocyte,CL:0000127,astrocyte,
+31,neuron,CL:0000540,neuron,CL:0000540,neuron,"Can't tell what kind of neuron, even gaba or glut"
+32,low quality,NA,low quality,NA,low quality,
+33,tanycyte,CL:0002085,tanycyte,CL:0000127,astrocyte,"Col25a1+, Scn7a+"
+34,corticotrope,CL:0002309,corticotrope,CL:0000165,neuroendocrine cell,"Crhr1+, Tbx19+"
+35,vascular leptomeningeal cell,CL:4023051,vascular leptomeningeal cell,CL:0000057,fibroblast,http://mousebrain.org/celltypes/ABC.html
+36,dopaminergic neuron,CL:0000700,dopaminergic neuron,CL:0000540,neuron,Slc6a3+
+37,low quality,NA,low quality,NA,low quality,mixed markers
+38,low quality,NA,low quality,NA,low quality,mixed markers
+39,low quality,NA,low quality,NA,low quality,mixed markers
+40,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+41,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+42,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Kl+, Ttr+, http://mousebrain.org/celltypes/CHOR.html"
+43,hypendymal cell,CL:4023181,hypendymal cell,CL:0000066,epithelial cell,"Spp2+, Sspo+"
+44,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,Reln+…
+45,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+46,GABAergic interneuron,CL:0011005,GABAergic interneuron,CL:0000540,neuron,
+47,mature oligodendrocyte,CL:0000128,oligodendrocyte,CL:0000128,oligodendrocyte,"Mbp+, Plp1+"
+48,low quality,NA,low quality,NA,low quality,liver bleedthrough

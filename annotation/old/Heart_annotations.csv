@@ -1,0 +1,33 @@
+﻿leiden,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+0,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+1,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+2,ventricular cardiac muscle cell,CL:2000046,ventricular cardiac muscle cell,CL:0000746,cardiac muscle cell,Gata4+
+3,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+4,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+5,ventricular cardiac muscle cell,CL:2000046,ventricular cardiac muscle cell,CL:0000746,cardiac muscle cell,Gata4+
+6,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Pdgfrb+
+7,ventricular cardiac muscle cell,CL:2000046,ventricular cardiac muscle cell,CL:0000746,cardiac muscle cell,Gata4+
+8,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+9,regular atrial cardiac myocyte,CL:0002129,regular atrial cardiac myocyte,CL:0000746,cardiac muscle cell,"Myl7+, Myl4+"
+10,mesothelial cell of epicardium,CL:0011019,mesothelial cell of epicardium,CL:0000066,epithelial cell,Wt1+
+11,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,F13a1+
+12,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+13,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,"F13a1+, also has some endothelial markers"
+14,ventricular cardiac muscle cell,CL:2000046,ventricular cardiac muscle cell,CL:0000746,cardiac muscle cell,Gata4+
+15,endocardial cell,CL:0002350,endocardial cell,CL:0000115,endothelial cell,Sox17+
+16,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,Pdgfrb+
+17,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,Myh11+
+18,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,"Gata4+, also has endothelial markers…Flt1+"
+19,endothelial cell of lymphatic vessel,CL:0002138,endothelial cell of lymphatic vessel,CL:0000115,endothelial cell,
+20,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,Myh11+
+21,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+
+22,fat cell,CL:0000136,fat cell,CL:0000136,fat cell,Adipoq+
+23,B cell,CL:0000236,B cell,CL:0000738,leukocyte,Bcl11a+
+24,Schwann cell,CL:0002573,Schwann cell,CL:0002573,Schwann cell,"Scn7a+, Ncam1+, Slc35f1+…nonmyelinating Schwann https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9060899/"
+25,low quality,NA,low quality,NA,low quality,Alb+
+26,T cell,CL:0000084,T cell,CL:0000738,leukocyte,Themis+
+27,cycling,NA,cycling,NA,cycling,"Top2a+, Mki67+…endothelial?"
+28,low quality,NA,low quality,NA,low quality,Snap25+
+29,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,Flt1+
+30,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Not sure. Muc16+, Klf5+, Cdh+. EMT…?"
+31,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,Dcn+

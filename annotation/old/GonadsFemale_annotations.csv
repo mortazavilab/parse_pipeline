@@ -1,0 +1,38 @@
+﻿leiden,subtype,CL_ID,celltype,general_CL_ID,general_celltype,notes
+0,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+1,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+2,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,"Atretic -- ovarian follicle that began to mature but did not become the dominant follicle and has involuted, Ghr+"
+3,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,WSB specific
+4,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+5,luteal cell,CL:0000175,luteal cell,CL:0000151,secretory cell,AJ specific?? But there ARE reps...
+6,ciliated epithelial cell,CL:0000067,ciliated epithelial cell,CL:0000066,epithelial cell,
+7,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,Preantral/cumulus -- Kctd14+
+8,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,Ovgp1+
+9,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,CAST specific
+10,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,Antral/mural - resting - Mro+
+11,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,"Cycling - Top2a+,Mki67+"
+12,ciliated epithelial cell,CL:0000067,ciliated epithelial cell,CL:0000066,epithelial cell,
+13,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Ovgp1+. Distal, Wt1+"
+14,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,
+15,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+16,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,CAST specific
+17,epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,
+18,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,PWK specific
+19,stromal cell,CL:0000499,stromal cell,CL:0000499,stromal cell,
+20,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,
+21,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,PWK specific
+22,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,"Ovgp1+. Proximal, Pax2+"
+23,low quality,NA,low quality,NA,low quality,Mixed markers
+24,granulosa cell,CL:0000501,granulosa cell,CL:0000151,secretory cell,PWK specific
+25,low quality,NA,low quality,NA,low quality,No specific markers
+26,endothelial cell,CL:0000115,endothelial cell,CL:0000115,endothelial cell,
+27,macrophage,CL:0000235,macrophage,CL:0000738,leukocyte,
+28,endothelial cell of lymphatic vessel,CL:0002138,endothelial cell of lymphatic vessel,CL:0000115,endothelial cell,
+29,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,CAST specific
+30,secretory epithelial cell,CL:0000066,epithelial cell,CL:0000066,epithelial cell,Ovgp1+
+31,pericyte,CL:0000669,pericyte,CL:0000669,pericyte,
+32,smooth muscle cell,CL:0000192,smooth muscle cell,CL:0000192,smooth muscle cell,
+33,ciliated epithelial cell,CL:0000067,ciliated epithelial cell,CL:0000066,epithelial cell,CAST specific
+34,theca cell,CL:0000503,theca cell,CL:0000151,secretory cell,
+35,fibroblast,CL:0000057,fibroblast,CL:0000057,fibroblast,
+36,fat cell,CL:0000136,fat cell,CL:0000136,fat cell,

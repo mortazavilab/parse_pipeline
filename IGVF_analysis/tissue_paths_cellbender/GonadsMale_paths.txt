@@ -1,0 +1,3 @@
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_008b/GonadsMale
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_007/GonadsMale
+/share/crsp/lab/seyedam/share/share/igvf_pipeline/igvf_008/GonadsMale
