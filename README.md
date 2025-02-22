@@ -38,7 +38,7 @@ Note: Written for and tested on UCI's HPC. Follow these steps if you are using t
 ### Clone this repository
 Clone this branch.
 ```bash
-git clone -b cellbender_hpc https://github.com/mortazavilab/parse_pipeline.git
+git clone https://github.com/mortazavilab/parse_pipeline.git
 ```
 ### Set up an interactive tmux session on HPC
 1. Remember your login node or choose your favorite out of i15, i16, i17. You can switch login nodes via ssh, e.g. `ssh login-i15`
