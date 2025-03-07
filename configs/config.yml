@@ -1,7 +1,7 @@
 ref:
-  annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M32/gencode.vM32.chr_patch_hapl_scaff.annotation.gtf.gz
-  annot: ref/gencode.vM32.gtf.gz
-  fa_link: https://hgdownload.soe.ucsc.edu/goldenPath/mm39/bigZips/mm39.fa.gz
+  annot_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M36/gencode.vM36.chr_patch_hapl_scaff.annotation.gtf.gz
+  annot: ref/gencode.vM36.gtf.gz
+  fa_link: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M36/GRCm39.genome.fa.gz
   fa: ref/mm39.fa.gz
 
   genome:
@@ -13,7 +13,7 @@ ref:
       CASTJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029237265.1/download?include_annotation_type=GENOME_FASTA&filename=
       AJ: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255665.1/download?include_annotation_type=GENOME_FASTA&filename=
       129S1J: https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCA_029255695.1/download?include_annotation_type=GENOME_FASTA&filename=
-      B6J: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M33/GRCm39.primary_assembly.genome.fa.gz
+      B6J: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M36/GRCm39.genome.fa.gz
     zip: ./{genotype}.zip
     dir: ./{genotype}
     fa: ref/genomes/{genotype}.fa.gz

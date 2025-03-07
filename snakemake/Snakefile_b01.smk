@@ -68,7 +68,8 @@ rule curl_fa:
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     params:
         link = lambda wc: get_fa_link(wc, config),
     output:
@@ -94,7 +95,8 @@ rule fa_ref_fmt:
         mem_gb =16,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     output:
         fa = "ref/genomes/{genotype}.fa.gz"
     shell:
@@ -110,7 +112,8 @@ rule dl:
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0' 
+        gres = 'gpu:0',
+        time = '4:00:00'
     shell:
         "wget -O {output.out} {params.link}"
 
@@ -135,7 +138,8 @@ rule kallisto_ind:
         threads = 12,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     conda:
         'envs/kb_env.yaml' 
     output:
@@ -171,7 +175,8 @@ rule symlink_fastq_r1:
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     output:
         fastq = config['raw']['fastq_r1']
     shell:
@@ -187,7 +192,8 @@ rule symlink_fastq_r2:
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0' 
+        gres = 'gpu:0',
+        time = '1:00:00'
     output:
         fastq = config['raw']['fastq_r2']
     shell:
@@ -216,7 +222,8 @@ rule kallisto:
         threads = 12,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     output:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
@@ -254,7 +261,8 @@ rule make_unfilt_adata:
         threads = 4,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     input:
         mtx = config['kallisto']['mtx'],
         cgb = config['kallisto']['cgb'],
@@ -304,7 +312,8 @@ rule klue_fa:
         mem_gb = 128,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     output:
         fa = config['ref']['klue']['fa'],
         t2g = config['ref']['klue']['t2g']
@@ -332,7 +341,8 @@ rule klue_ind:
         mem_gb = 128,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     output:
         ind = config['ref']['klue']['ind']
     shell:
@@ -360,7 +370,8 @@ rule klue:
         threads = 24,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '4:00:00'
     conda:
         'envs/kb_env.yaml'  
     output:
@@ -399,7 +410,8 @@ rule make_adata_klue:
         threads = 4,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     input:
         mtx = config['klue']['mtx'],
         cgb = config['klue']['cgb'],
@@ -428,7 +440,8 @@ rule klue_get_genotype_counts:
         threads = 2,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     output:
         ofile = config['klue']['genotype_counts']
     run:
@@ -449,9 +462,10 @@ rule cellbender:
     resources:
         mem_gb = 128,
         threads = 8,
-        partition = 'gpu',
+        partition = 'free-gpu', #'gpu'
         account = 'seyedam_lab_gpu',
-        gres = 'gpu:1'
+        gres = 'gpu:1',
+        time = '8:00:00'
     output:
         filt_h5 = config['cellbender']['filt_h5'],
         unfilt_h5 = config['cellbender']['unfilt_h5'],
@@ -461,8 +475,10 @@ rule cellbender:
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
         
+        #module load singularity/3.11.3 # does not work, unfortunately
+        
         source ~/miniconda3/bin/activate cellbender
-
+        
         # Conditionally run the command based on the value of wildcards.subpool
         if [[ "{wildcards.plate}" == "igvf_b01" || "{wildcards.plate}" == "igvf_003" ]]; then
             cellbender remove-background \
@@ -490,7 +506,8 @@ rule copy_cellbender_metrics:
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     output:
         metrics_copy = config['cellbender']['metrics_copy']
     shell:
@@ -510,7 +527,8 @@ rule make_filt_adata:
         threads = 4,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '1:00:00'
     input:
         filt_h5 = config['cellbender']['filt_h5'],
         unfilt_adata = config['kallisto']['unfilt_adata'],
@@ -540,7 +558,8 @@ rule make_tissue_adata:
         threads = 2,
         partition = 'highmem',
         account = 'seyedam_lab',
-        gres = 'gpu:0'
+        gres = 'gpu:0',
+        time = '2:00:00'
     output:
         adata = config['tissue']['adata']
     run:
