@@ -108,7 +108,7 @@ rule fa_ref_fmt:
 
 rule dl:
     resources:
-        mem_gb = 16,
+        mem_gb = 4,
         threads = 1,
         partition = 'standard',
         account = 'seyedam_lab',
@@ -136,7 +136,7 @@ rule kallisto_ind:
     resources:
         mem_gb = 64,
         threads = 12,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '4:00:00'
@@ -218,9 +218,9 @@ rule kallisto:
     conda:
         'envs/kb_env.yaml'    
     resources:
-        mem_gb = 64,
+        mem_gb = 250,
         threads = 12,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '4:00:00'
@@ -257,9 +257,9 @@ rule kallisto:
         
 rule make_unfilt_adata:
     resources:
-        mem_gb = 64,
+        mem_gb = 128,
         threads = 4,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '1:00:00'
@@ -309,8 +309,8 @@ rule klue_fa:
         'envs/kb_env.yaml'  
     resources:
         threads = 32,
-        mem_gb = 64,
-        partition = 'standard',
+        mem_gb = 128,
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '4:00:00'
@@ -338,8 +338,8 @@ rule klue_ind:
         'envs/kb_env.yaml'  
     resources:
         threads = 32,
-        mem_gb = 64,
-        partition = 'standard',
+        mem_gb = 128,
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '4:00:00'
@@ -368,7 +368,7 @@ rule klue:
     resources:
         mem_gb = 64,
         threads = 24,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '4:00:00'
@@ -406,9 +406,9 @@ rule klue:
 # add metadata
 rule make_adata_klue:
     resources:
-        mem_gb = 64,
+        mem_gb = 128,
         threads = 4,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '1:00:00'
@@ -462,7 +462,7 @@ rule cellbender:
     resources:
         mem_gb = 128,
         threads = 8,
-        partition = 'gpu',
+        partition = 'free-gpu', #'gpu'
         account = 'seyedam_lab_gpu',
         gres = 'gpu:1',
         time = '8:00:00'
@@ -475,8 +475,10 @@ rule cellbender:
         mkdir -p $(dirname {output.filt_h5})
         cd $(dirname {output.filt_h5})
         
+        #module load singularity/3.11.3 # does not work, unfortunately
+        
         source ~/miniconda3/bin/activate cellbender
-
+        
         # Conditionally run the command based on the value of wildcards.subpool
         if [[ "{wildcards.plate}" == "igvf_b01" || "{wildcards.plate}" == "igvf_003" ]]; then
             cellbender remove-background \
@@ -521,9 +523,9 @@ rule copy_cellbender_metrics:
 
 rule make_filt_adata:
     resources:
-        mem_gb = 64,
+        mem_gb = 128,
         threads = 4,
-        partition = 'standard',
+        partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
         time = '1:00:00'
