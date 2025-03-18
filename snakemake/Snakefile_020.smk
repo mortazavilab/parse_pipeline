@@ -139,7 +139,7 @@ rule kallisto_ind:
         partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
-        time = '4:00:00'
+        time = '6:00:00'
     conda:
         'envs/kb_env.yaml' 
     output:
