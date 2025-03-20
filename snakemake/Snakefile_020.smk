@@ -223,7 +223,7 @@ rule kallisto:
         partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
-        time = '4:00:00'
+        time = '6:00:00'
     output:
         config['kallisto']['cgb'],
         config['kallisto']['cggn'],
@@ -262,7 +262,7 @@ rule make_unfilt_adata:
         partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
-        time = '1:00:00'
+        time = '2:00:00'
     input:
         mtx = config['kallisto']['mtx'],
         cgb = config['kallisto']['cgb'],
@@ -371,7 +371,7 @@ rule klue:
         partition = 'highmem',
         account = 'seyedam_lab',
         gres = 'gpu:0',
-        time = '4:00:00'
+        time = '6:00:00'
     conda:
         'envs/kb_env.yaml'  
     output:
@@ -463,7 +463,7 @@ rule cellbender:
         mem_gb = 128,
         threads = 8,
         partition = 'free-gpu', #'gpu'
-        account = 'seyedam_lab', #'seyedam_lab_gpu'
+        account = 'seyedam_lab_gpu',
         gres = 'gpu:1',
         time = '8:00:00'
     output:
