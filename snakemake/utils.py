@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import scipy.sparse as sp
 from snakemake.io import expand
 import anndata
 import scanpy as sc
@@ -1127,7 +1128,7 @@ def concat_adatas(adatas, ofile):
     print(adatas)
     
     for i, f in enumerate(adatas):
-        temp = sc.read(f, backed = 'r')
+        temp = sc.read_h5ad(f)
         
         temp.var.drop(columns=['ambient_expression', 'cellbender_analyzed'], inplace=True)
         
@@ -1151,4 +1152,52 @@ def concat_adatas(adatas, ofile):
     combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
     adata.var = combined_var
     
+    adata.write(ofile)
+
+    
+def concat_large_adatas(adatas, ofile):
+    obs_list = []
+    X_list = []
+    raw_list = []
+    cb_list = []
+    var = None
+
+    for i, f in enumerate(adatas):
+        print(f"Reading {f}")
+        temp = sc.read_h5ad(f, backed='r')
+
+        # Stream and convert to sparse if needed
+        X = temp.X[:]
+        raw = temp.layers['raw_counts'][:]
+        cb = temp.layers['cellbender_counts'][:]
+
+        if not sp.issparse(X): X = sp.csr_matrix(X)
+        if not sp.issparse(raw): raw = sp.csr_matrix(raw)
+        if not sp.issparse(cb): cb = sp.csr_matrix(cb)
+
+        X_list.append(X)
+        raw_list.append(raw)
+        cb_list.append(cb)
+
+        # Stream obs and fix index
+        obs = temp.obs.copy()
+        obs.reset_index(inplace=True)
+        obs.set_index('cellID', inplace=True)
+        obs_list.append(obs)
+
+        if var is None:
+            var = temp.var.drop(columns=['ambient_expression', 'cellbender_analyzed'], errors='ignore').copy()
+
+    print("Concatenating all layers and obs...")
+    X_all = sp.vstack(X_list)
+    raw_all = sp.vstack(raw_list)
+    cb_all = sp.vstack(cb_list)
+    obs_all = pd.concat(obs_list)
+
+    print("Building final AnnData object...")
+    adata = ad.AnnData(X=X_all, obs=obs_all, var=var)
+    adata.layers['raw_counts'] = raw_all
+    adata.layers['cellbender_counts'] = cb_all
+
+    print(f"Writing to {ofile}...")
     adata.write(ofile)
