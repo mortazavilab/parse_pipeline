@@ -1127,7 +1127,7 @@ def concat_adatas(adatas, ofile):
     print(adatas)
     
     for i, f in enumerate(adatas):
-        temp = sc.read_h5ad(f)
+        temp = sc.read(f, backed = 'r')
         
         temp.var.drop(columns=['ambient_expression', 'cellbender_analyzed'], inplace=True)
         
@@ -1152,41 +1152,3 @@ def concat_adatas(adatas, ofile):
     adata.var = combined_var
     
     adata.write(ofile)
-
-def concat_adatas_raw_counts(adatas, ofile): 
-    adata = None  # Initialize adata
-
-    for i, f in enumerate(adatas):
-        temp = sc.read_h5ad(f)
-        del temp.layers['cellbender_counts']    
-        temp.X = temp.layers['raw_counts'].copy()
-        
-        if adata is None:
-            adata = temp
-        else:
-            adata = anndata.concat([adata, temp], join='outer', label = None, index_unique=None)
-
-    adata.var = temp.var[['gene_id', 'gene_name', 'mt']]
-    
-    # Final save
-    adata.write_h5ad(ofile)
-        
-        
-def concat_adatas_cb_counts(adatas, ofile, temp_dir="cb_temp_files"):
-    adata = None  # Initialize adata
-
-    for i, f in enumerate(adatas):
-        print(f)
-        temp = sc.read_h5ad(f)
-        del temp.layers['raw_counts']
-        temp.X = temp.layers['cellbender_counts']
-
-        if adata is None:
-            adata = temp
-        else:
-            adata = anndata.concat([adata, temp], join='outer', label = None, index_unique=None)
-            
-    adata.var = temp.var[['gene_id', 'gene_name', 'mt']]
-    
-    # Final save
-    adata.write_h5ad(ofile)
