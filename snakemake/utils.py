@@ -1163,7 +1163,7 @@ def concat_large_adatas(adatas, ofile):
     var = None
 
     for i, f in enumerate(adatas):
-        print(f"Reading {f}")
+        print(f"Reading {f}", flush = True)
         temp = sc.read_h5ad(f, backed='r')
 
         # Stream and convert to sparse if needed
@@ -1195,7 +1195,7 @@ def concat_large_adatas(adatas, ofile):
     obs_all = pd.concat(obs_list)
 
     print("Building final AnnData object...")
-    adata = ad.AnnData(X=X_all, obs=obs_all, var=var)
+    adata = anndata.AnnData(X=X_all, obs=obs_all, var=var)
     adata.layers['raw_counts'] = raw_all
     adata.layers['cellbender_counts'] = cb_all
 
