@@ -1123,36 +1123,37 @@ def get_tissue_adatas(df, sample_df, wc, cfg_entry):
     return files
 
 
-def concat_adatas(adatas, ofile):
-    var_dfs = []
-    print(adatas)
+## OLD concat function
+# def concat_adatas(adatas, ofile):
+#     var_dfs = []
+#     print(adatas)
     
-    for i, f in enumerate(adatas):
-        temp = sc.read_h5ad(f)
+#     for i, f in enumerate(adatas):
+#         temp = sc.read_h5ad(f)
         
-        temp.var.drop(columns=['ambient_expression', 'cellbender_analyzed'], inplace=True)
+#         temp.var.drop(columns=['ambient_expression', 'cellbender_analyzed'], inplace=True)
         
-        var_dfs.append(temp.var)
+#         var_dfs.append(temp.var)
         
-        if i == 0:
-            # Initialize the combined adata object
-            adata = temp
-        else:
-            # Concatenate obs and X
-            temp.obs.reset_index(inplace=True)
-            temp.obs.set_index('cellID', inplace=True)
-            adata = anndata.concat([adata, temp],
-                                   join='outer',
-                                   index_unique=None)
-            adata.obs.reset_index(inplace=True)
-            adata.obs.set_index('cellID', inplace=True)
+#         if i == 0:
+#             # Initialize the combined adata object
+#             adata = temp
+#         else:
+#             # Concatenate obs and X
+#             temp.obs.reset_index(inplace=True)
+#             temp.obs.set_index('cellID', inplace=True)
+#             adata = anndata.concat([adata, temp],
+#                                    join='outer',
+#                                    index_unique=None)
+#             adata.obs.reset_index(inplace=True)
+#             adata.obs.set_index('cellID', inplace=True)
     
-    # Concatenate all var DataFrames and drop duplicates
-    combined_var = pd.concat(var_dfs, axis=1, join='outer')
-    combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
-    adata.var = combined_var
+#     # Concatenate all var DataFrames and drop duplicates
+#     combined_var = pd.concat(var_dfs, axis=1, join='outer')
+#     combined_var = combined_var.loc[:, ~combined_var.columns.duplicated()]
+#     adata.var = combined_var
     
-    adata.write(ofile)
+#     adata.write(ofile)
 
     
 def concat_large_adatas(adatas, ofile):
