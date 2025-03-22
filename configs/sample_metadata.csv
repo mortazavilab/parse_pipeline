@@ -1888,7 +1888,7 @@ GH_M4_08,igvf_020,H12,Multiplexed,Adrenal,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,229
 190_B6NZOF1J_10F_01,igvf_021,H7,Single,DiencephalonPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Female,PNM_02,NA,6/13/23,65,25.3,Diestrus,8/17/23,14:10 ,ZT7.5,HL,93
 185_B6NZOF1J_10M_01,igvf_021,H8,Single,DiencephalonPituitary,B6NZOF1J,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,NA,6/13/23,65,33.2,NA,8/17/23,14:37 ,ZT8,HL,95
 AB_F1_01,igvf_021,A9,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,698_B6J_10F_01,164_B6NODF1J_10F_01,A,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-AB_F3_01,igvf_021,B9,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,705_B6J_10M_01,165_B6NODF1J_10M_01,B,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F3_01,igvf_021,B9,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,702_B6J_10F_01,170_B6NODF1J_10F_01,B,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_F1_01,igvf_021,C9,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,128_B6AF1J_10F_01,210_B6PWKF1J_10F_01,C,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_F3_01,igvf_021,D9,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,132_B6AF1J_10F_01,216_B6PWKF1J_10F_01,D,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 EF_F1_01,igvf_021,E9,Multiplexed,DiencephalonPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,144_B6129S1F1J_10F_01,194_B6CASTF1J_10F_01,E,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -1896,7 +1896,7 @@ EF_F3_01,igvf_021,F9,Multiplexed,DiencephalonPituitary,B6129S1F1J/B6CASTF1J,Pars
 GH_F1_01,igvf_021,G9,Multiplexed,DiencephalonPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,228_B6WSBF1J_10F_01,178_B6NZOF1J_10F_01,G,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_F3_01,igvf_021,H9,Multiplexed,DiencephalonPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,234_B6WSBF1J_10F_01,188_B6NZOF1J_10F_01,H,9,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 AB_M1_01,igvf_021,A10,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,701_B6J_10M_01,159_B6NODF1J_10M_01,A,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-AB_M3_01,igvf_021,B10,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,706_B6J_10F_01,172_B6NODF1J_10F_01,B,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_M3_01,igvf_021,B10,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,705_B6J_10M_01,165_B6NODF1J_10M_01,B,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_M1_01,igvf_021,C10,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,127_B6AF1J_10M_01,207_B6PWKF1J_10M_01,C,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_M3_01,igvf_021,D10,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,131_B6AF1J_10M_01,215_B6PWKF1J_10M_01,D,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 EF_M1_01,igvf_021,E10,Multiplexed,DiencephalonPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,143_B6129S1F1J_10M_01,191_B6CASTF1J_10M_01,E,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -1904,7 +1904,7 @@ EF_M3_01,igvf_021,F10,Multiplexed,DiencephalonPituitary,B6129S1F1J/B6CASTF1J,Par
 GH_M1_01,igvf_021,G10,Multiplexed,DiencephalonPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,223_B6WSBF1J_10M_01,175_B6NZOF1J_10M_01,G,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 GH_M3_01,igvf_021,H10,Multiplexed,DiencephalonPituitary,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,227_B6WSBF1J_10M_01,181_B6NZOF1J_10M_01,H,10,Nuclei,Male,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 AB_F2_01,igvf_021,A11,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,700_B6J_10F_01,166_B6NODF1J_10F_01,A,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-AB_F4_01,igvf_021,B11,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,707_B6J_10M_01,167_B6NODF1J_10M_01,B,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+AB_F4_01,igvf_021,B11,Multiplexed,DiencephalonPituitary,B6J/B6NODF1J,Parse_WT_Mega,v2,706_B6J_10F_01,172_B6NODF1J_10F_01,B,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_F2_01,igvf_021,C11,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,130_B6AF1J_10F_01,212_B6PWKF1J_10F_01,C,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 CD_F4_01,igvf_021,D11,Multiplexed,DiencephalonPituitary,B6AF1J/B6PWKF1J,Parse_WT_Mega,v2,138_B6AF1J_10F_01,218_B6PWKF1J_10F_01,D,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 EF_F2_01,igvf_021,E11,Multiplexed,DiencephalonPituitary,B6129S1F1J/B6CASTF1J,Parse_WT_Mega,v2,150_B6129S1F1J_10F_01,196_B6CASTF1J_10F_01,E,11,Nuclei,Female,PNM_02,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -2224,7 +2224,7 @@ GH_M4_25,igvf_023,H12,Multiplexed,GonadsMale,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,
 284_CC002_10F_03,igvf_024a,G2,Single,CortexHippocampus,CC002,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Female,PNM_02,,2/17/24,72,21.1,NA,4/29/24,13:10 ,ZT6.5,HL,109
 287_CC002_10M_03,igvf_024a,H2,Single,CortexHippocampus,CC002,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,,3/12/24,72,29.2,NA,5/23/24,11:48 ,ZT5.5,HL,123
 288_CC003_10F_03,igvf_024a,A3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,,2/5/24,73,21.5,NA,4/18/24,9:25 ,ZT3,HL,121
-289_CC003_10M_03,igvf_024a,B3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Male,PNM_02,,12/15/23,-297,22.8,NA,2/21/23,10:01 ,ZT3.5,HL,111
+289_CC003_10M_03,igvf_024a,B3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Male,PNM_02,,12/15/23,68,22.8,NA,2/21/24,10:01 ,ZT3.5,HL,111
 290_CC003_10F_03,igvf_024a,C3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,,2/5/24,73,19.4,NA,4/18/24,10:17 ,ZT4,HL,128
 291_CC003_10M_03,igvf_024a,D3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Male,PNM_02,,12/15/23,68,26.0,NA,2/21/24,10:47 ,ZT4.5,HL,123
 292_CC003_10F_03,igvf_024a,E3,Single,CortexHippocampus,CC003,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,,2/9/24,69,20.9,NA,4/18/24,11:05 ,ZT4.5,HL,116
@@ -2287,7 +2287,7 @@ GH_M4_25,igvf_023,H12,Multiplexed,GonadsMale,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,
 363_CC010_10M_03,igvf_024a,F10,Single,CortexHippocampus,CC010,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,,8/21/23,72,32.9,NA,11/1/23,NA,NA,HL,130
 364_CC010_10F_03,igvf_024a,G10,Single,CortexHippocampus,CC010,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Female,PNM_02,,8/21/23,72,27.0,NA,11/1/23,NA,NA,HL,135
 365_CC010_10M_03,igvf_024a,H10,Single,CortexHippocampus,CC010,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,,8/21/23,72,32.3,NA,11/1/23,NA,NA,HL,172
-368_CC011_10F_03,igvf_024a,A11,Single,CortexHippocampus,CC011,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,,12/17/23,-299,25.1,NA,2/21/23,11:10 ,ZT4.5,HL,133
+368_CC011_10F_03,igvf_024a,A11,Single,CortexHippocampus,CC011,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,,12/17/23,66,25.1,NA,2/21/24,11:10 ,ZT4.5,HL,133
 369_CC011_10M_03,igvf_024a,B11,Single,CortexHippocampus,CC011,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Male,PNM_02,,1/6/24,67,28.5,NA,3/13/24,9:23 ,ZT3,HL,127
 370_CC011_10F_03,igvf_024a,C11,Single,CortexHippocampus,CC011,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,,12/17/23,66,23.8,NA,2/21/24,12:00 ,ZT5.5,HL,124
 371_CC011_10M_03,igvf_024a,D11,Single,CortexHippocampus,CC011,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Male,PNM_02,,1/6/24,67,20.0,NA,3/13/24,10:20 ,ZT4,HL,113
@@ -2495,3 +2495,291 @@ GH_M4_25,igvf_023,H12,Multiplexed,GonadsMale,B6WSBF1J/B6NZOF1J,Parse_WT_Mega,v2,
 625_B6J_10M_03,igvf_024c,F12,Single,CortexHippocampus,B6J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,,3/26/24,72,25.4,NA,6/6/24,11:37 ,ZT5,HL,137
 624_B6J_10F_03,igvf_024c,G12,Single,CortexHippocampus,B6J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Female,PNM_02,,3/26/24,72,20.6,NA,6/6/24,10:55 ,ZT4.5,HL,133
 627_B6J_10M_03,igvf_024c,H12,Single,CortexHippocampus,B6J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,,3/26/24,72,25.4,NA,6/6/24,12:37 ,ZT6,HL,137
+268_CC001_10F_33,igvf_025a,A1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,A,1,Nuclei,Female,PNM_02,,12/15/23,68,18.7,NA,2/21/24,9:38 ,ZT3,HL,117
+269_CC001_10M_33,igvf_025a,B1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,B,1,Nuclei,Male,PNM_02,,12/25/23,70,21.1,NA,3/4/24,9:31 ,ZT3,HL,124
+270_CC001_10F_33,igvf_025a,C1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,C,1,Nuclei,Female,PNM_02,,12/15/23,68,17.8,NA,2/21/24,10:25 ,ZT4,HL,115
+271_CC001_10M_33,igvf_025a,D1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,D,1,Nuclei,Male,PNM_02,,12/26/23,69,20.0,NA,3/4/24,10:38 ,ZT4,HL,120
+272_CC001_10F_33,igvf_025a,E1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,E,1,Nuclei,Female,PNM_02,,12/26/23,71,18.5,NA,3/6/24,11:31 ,ZT5,HL,119
+273_CC001_10M_33,igvf_025a,F1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,F,1,Nuclei,Male,PNM_02,,12/25/23,70,22.4,NA,3/4/24,11:29 ,ZT5,HL,136
+274_CC001_10F_33,igvf_025a,G1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,G,1,Nuclei,Female,PNM_02,,12/26/23,71,16.6,NA,3/6/24,12:14 ,ZT5.5,HL,116
+275_CC001_10M_33,igvf_025a,H1,Single,Gastrocnemius,CC001,Parse_WT_Mega,v2,NA,NA,H,1,Nuclei,Male,PNM_02,,12/25/23,70,23.0,NA,3/4/24,13:11 ,ZT6.5,HL,140
+278_CC002_10F_33,igvf_025a,A2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,A,2,Nuclei,Female,PNM_02,,2/17/24,72,22.2,NA,4/29/24,9:31 ,ZT3,HL,119
+279_CC002_10M_33,igvf_025a,B2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,B,2,Nuclei,Male,PNM_02,,3/2/24,72,26.7,NA,5/13/24,12:45 ,ZT6.5,HL,164
+280_CC002_10F_33,igvf_025a,C2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,C,2,Nuclei,Female,PNM_02,,2/14/24,75,21.2,NA,4/29/24,10:21 ,ZT4,HL,139
+283_CC002_10M_33,igvf_025a,D2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,D,2,Nuclei,Male,PNM_02,,3/12/24,72,27.3,NA,5/23/24,9:25 ,ZT3,HL,183
+282_CC002_10F_33,igvf_025a,E2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,E,2,Nuclei,Female,PNM_02,,2/17/24,72,20.1,NA,4/29/24,11:12 ,ZT4.5,HL,109
+285_CC002_10M_33,igvf_025a,F2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,F,2,Nuclei,Male,PNM_02,,3/12/24,72,27.1,NA,5/23/24,11:07 ,ZT4.5,HL,143
+284_CC002_10F_33,igvf_025a,G2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Female,PNM_02,,2/17/24,72,21.1,NA,4/29/24,13:10 ,ZT6.5,HL,129
+287_CC002_10M_33,igvf_025a,H2,Single,Gastrocnemius,CC002,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,,3/12/24,72,29.2,NA,5/23/24,11:48 ,ZT5.5,HL,139
+288_CC003_10F_33,igvf_025a,A3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,,2/5/24,73,21.5,NA,4/18/24,9:25 ,ZT3,HL,137
+289_CC003_10M_33,igvf_025a,B3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Male,PNM_02,,12/15/23,68,22.8,NA,2/21/24,10:01 ,ZT3.5,HL,136
+290_CC003_10F_33,igvf_025a,C3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,,2/5/24,73,19.4,NA,4/18/24,10:17 ,ZT4,HL,111
+291_CC003_10M_33,igvf_025a,D3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Male,PNM_02,,12/15/23,68,26.0,NA,2/21/24,10:47 ,ZT4.5,HL,171
+292_CC003_10F_33,igvf_025a,E3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,,2/9/24,69,20.9,NA,4/18/24,11:05 ,ZT4.5,HL,134
+293_CC003_10M_33,igvf_025a,F3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,F,3,Nuclei,Male,PNM_02,,1/6/24,72,26.1,NA,3/18/24,9:32 ,ZT3,HL,168
+294_CC003_10F_33,igvf_025a,G3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,G,3,Nuclei,Female,PNM_02,,2/9/24,69,19.9,NA,4/18/24,11:50 ,ZT5.5,HL,129
+295_CC003_10M_33,igvf_025a,H3,Single,Gastrocnemius,CC003,Parse_WT_Mega,v2,NA,NA,H,3,Nuclei,Male,PNM_02,,1/6/24,72,24.8,NA,3/18/24,11:03 ,ZT4.5,HL,152
+298_CC004_10F_33,igvf_025a,A4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,A,4,Nuclei,Female,PNM_02,,3/29/24,69,22.5,NA,6/6/24,9:34 ,ZT3,HL,123
+299_CC004_10M_33,igvf_025a,B4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,B,4,Nuclei,Male,PNM_02,,1/30/24,71,28.0,NA,4/10/24,9:25 ,ZT3,HL,139
+300_CC004_10F_33,igvf_025a,C4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,C,4,Nuclei,Female,PNM_02,,3/28/24,70,21.1,NA,6/6/24,10:34 ,ZT4,HL,122
+301_CC004_10M_33,igvf_025a,D4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,D,4,Nuclei,Male,PNM_02,,1/30/24,71,30.2,NA,4/10/24,11:25 ,ZT5,HL,170
+302_CC004_10F_33,igvf_025a,E4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,E,4,Nuclei,Female,PNM_02,,3/29/24,69,20.0,NA,6/6/24,11:15 ,ZT5,HL,126
+303_CC004_10M_33,igvf_025a,F4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,F,4,Nuclei,Male,PNM_02,,1/30/24,71,30.3,NA,4/10/24,12:10 ,ZT5.5,HL,155
+304_CC004_10F_33,igvf_025a,G4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,G,4,Nuclei,Female,PNM_02,,3/28/24,70,23.0,NA,6/6/24,12:58 ,ZT6.5,HL,134
+305_CC004_10M_33,igvf_025a,H4,Single,Gastrocnemius,CC004,Parse_WT_Mega,v2,NA,NA,H,4,Nuclei,Male,PNM_02,,1/30/24,71,29.2,NA,4/10/24,13:20 ,ZT7,HL,155
+308_CC005_10F_33,igvf_025a,A5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,A,5,Nuclei,Female,PNM_02,,2/10/24,68,17.8,NA,4/18/24,9:55 ,ZT3.5,HL,102
+309_CC005_10M_33,igvf_025a,B5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,B,5,Nuclei,Male,PNM_02,,1/12/24,68,23.6,NA,3/20/24,9:50 ,ZT3.5,HL,137
+310_CC005_10F_33,igvf_025a,C5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,C,5,Nuclei,Female,PNM_02,,2/10/24,68,17.8,NA,4/18/24,10:42 ,ZT4,HL,108
+311_CC005_10M_33,igvf_025a,D5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,D,5,Nuclei,Male,PNM_02,,1/12/24,68,21.8,NA,3/20/24,10:38 ,ZT4,HL,121
+312_CC005_10F_33,igvf_025a,E5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,E,5,Nuclei,Female,PNM_02,,2/10/24,68,18.4,NA,4/18/24,11:25 ,ZT5,HL,107
+313_CC005_10M_33,igvf_025a,F5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,F,5,Nuclei,Male,PNM_02,,1/12/24,68,20.8,NA,3/20/24,11:31 ,ZT5,HL,122
+314_CC005_10F_33,igvf_025a,G5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,G,5,Nuclei,Female,PNM_02,,3/24/24,71,17.1,NA,6/3/24,12:46 ,ZT6.5,HL,110
+315_CC005_10M_33,igvf_025a,H5,Single,Gastrocnemius,CC005,Parse_WT_Mega,v2,NA,NA,H,5,Nuclei,Male,PNM_02,,NA,NA,22.6,NA,4/25/24,NA,NA,HL,NA
+318_CC006_10F_33,igvf_025a,A6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,A,6,Nuclei,Female,PNM_02,,12/31/23,71,19.7,NA,3/11/24,9:40 ,ZT3,HL,111
+319_CC006_10M_33,igvf_025a,B6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,B,6,Nuclei,Male,PNM_02,,2/3/24,72,21.4,NA,4/15/24,9:50 ,ZT3.5,HL,121
+320_CC006_10F_33,igvf_025a,C6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,C,6,Nuclei,Female,PNM_02,,12/31/23,71,19.6,NA,3/11/24,10:26 ,ZT4,HL,124
+321_CC006_10M_33,igvf_025a,D6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,D,6,Nuclei,Male,PNM_02,,2/3/24,72,19.9,NA,4/15/24,10:32 ,ZT4,HL,109
+322_CC006_10F_33,igvf_025a,E6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,E,6,Nuclei,Female,PNM_02,,12/31/23,71,16.1,NA,3/11/24,11:10 ,ZT4.5,HL,92
+323_CC006_10M_33,igvf_025a,F6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,F,6,Nuclei,Male,PNM_02,,2/3/24,72,22.0,NA,4/15/24,12:02 ,ZT5.5,HL,116
+324_CC006_10F_33,igvf_025a,G6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,G,6,Nuclei,Female,PNM_02,,1/2/24,69,19.9,NA,3/11/24,12:00 ,ZT5.5,HL,103
+325_CC006_10M_33,igvf_025a,H6,Single,Gastrocnemius,CC006,Parse_WT_Mega,v2,NA,NA,H,6,Nuclei,Male,PNM_02,,2/3/24,72,21.7,NA,4/15/24,13:23 ,ZT7,HL,113
+328_CC007_10F_33,igvf_025a,A7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,A,7,Nuclei,Female,PNM_02,,3/27/24,68,26.0,NA,6/3/24,9:33 ,ZT3,HL,114
+329_CC007_10M_33,igvf_025a,B7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,B,7,Nuclei,Male,PNM_02,,3/8/24,69,31.4,NA,5/16/24,11:55 ,ZT5.5,HL,150
+330_CC007_10F_33,igvf_025a,C7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,C,7,Nuclei,Female,PNM_02,,3/27/24,68,27.5,NA,6/3/24,10:00 ,ZT3.5,HL,117
+331_CC007_10M_33,igvf_025a,D7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,D,7,Nuclei,Male,PNM_02,,3/8/24,69,29.2,NA,5/16/24,12:42 ,ZT6,HL,155
+332_CC007_10F_33,igvf_025a,E7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,E,7,Nuclei,Female,PNM_02,,3/29/24,66,23.1,NA,6/3/24,11:10 ,ZT4.5,HL,121
+333_CC007_10M_33,igvf_025a,F7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,F,7,Nuclei,Male,PNM_02,,3/19/24,72,28.9,NA,5/30/24,9:58 ,ZT3.5,HL,155
+334_CC007_10F_33,igvf_025a,G7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,G,7,Nuclei,Female,PNM_02,,3/27/24,68,21.0,NA,6/3/24,12:19 ,ZT6,HL,122
+335_CC007_10M_33,igvf_025a,H7,Single,Gastrocnemius,CC007,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Male,PNM_02,,3/21/24,70,29.0,NA,5/30/24,10:40 ,ZT4,HL,137
+338_CC008_10F_33,igvf_025a,A8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,A,8,Nuclei,Female,PNM_02,,12/30/99,0,0.0,NA,12/30/99,0:00 ,#NUM!,HL,151
+341_CC008_10M_33,igvf_025a,B8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,B,8,Nuclei,Male,PNM_02,,8/19/23,67,28.0,NA,10/25/23,11:35 ,ZT5,HL,199
+342_CC008_10F_33,igvf_025a,C8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,C,8,Nuclei,Female,PNM_02,,9/11/23,70,24.0,NA,11/20/23,10:42 ,ZT4,HL,137
+709_CC008_10M_33,igvf_025a,D8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,D,8,Nuclei,Male,PNM_02,,1/3/24,70,31.6,NA,3/13/24,12:13 ,ZT5.5,HL,214
+344_CC008_10F_33,igvf_025a,E8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,E,8,Nuclei,Female,PNM_02,,9/11/23,70,25.2,NA,11/20/23,11:28 ,ZT5,HL,157
+711_CC008_10M_33,igvf_025a,F8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,F,8,Nuclei,Male,PNM_02,,1/6/24,67,29.4,NA,3/13/24,13:03 ,ZT6.5,HL,168
+346_CC008_10F_33,igvf_025a,G8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,G,8,Nuclei,Female,PNM_02,,9/11/23,70,22.5,NA,11/20/23,12:12 ,ZT5.5,HL,133
+745_CC008_10M_33,igvf_025a,H8,Single,Gastrocnemius,CC008,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,,1/31/24,70,29.8,NA,4/10/24,10:09 ,ZT3.5,HL,187
+348_CC009_10F_33,igvf_025a,A9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,A,9,Nuclei,Female,PNM_02,,9/24/23,73,31.9,NA,12/6/23,10:04 ,ZT3.5,HL,133
+349_CC009_10M_33,igvf_025a,B9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,B,9,Nuclei,Male,PNM_02,,NA,NA,26.8,NA,2/5/24,11:09 ,ZT4.5,HL,156
+350_CC009_10F_33,igvf_025a,C9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,C,9,Nuclei,Female,PNM_02,,9/24/23,73,26.0,NA,12/6/23,10:56 ,ZT4.5,HL,144
+351_CC009_10M_33,igvf_025a,D9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,D,9,Nuclei,Male,PNM_02,,NA,NA,29.6,NA,2/5/24,13:37 ,ZT7,HL,200
+352_CC009_10F_33,igvf_025a,E9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,E,9,Nuclei,Female,PNM_02,,9/27/23,70,29.7,NA,12/6/23,11:53 ,ZT5.5,HL,138
+355_CC009_10M_33,igvf_025a,F9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,F,9,Nuclei,Male,PNM_02,,12/21/23,69,24.4,NA,2/28/24,9:39 ,ZT3,HL,NA
+354_CC009_10F_33,igvf_025a,G9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,G,9,Nuclei,Female,PNM_02,,9/29/23,68,24.7,NA,12/6/23,13:22 ,ZT7,HL,134
+357_CC009_10M_33,igvf_025a,H9,Single,Gastrocnemius,CC009,Parse_WT_Mega,v2,NA,NA,H,9,Nuclei,Male,PNM_02,,12/23/23,67,23.5,NA,2/28/24,10:16 ,ZT4,HL,NA
+358_CC010_10F_33,igvf_025a,A10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,A,10,Nuclei,Female,PNM_02,,8/21/23,72,22.7,NA,11/1/23,NA,NA,HL,127
+359_CC010_10M_33,igvf_025a,B10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,B,10,Nuclei,Male,PNM_02,,8/21/23,72,33.5,NA,11/1/23,NA,NA,HL,157
+360_CC010_10F_33,igvf_025a,C10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,C,10,Nuclei,Female,PNM_02,,8/21/23,72,24.3,NA,11/1/23,NA,NA,HL,125
+361_CC010_10M_33,igvf_025a,D10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,D,10,Nuclei,Male,PNM_02,,8/21/23,72,32.3,NA,11/1/23,NA,NA,HL,167
+362_CC010_10F_33,igvf_025a,E10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,E,10,Nuclei,Female,PNM_02,,8/21/23,72,24.8,NA,11/1/23,NA,NA,HL,122
+363_CC010_10M_33,igvf_025a,F10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,,8/21/23,72,32.9,NA,11/1/23,NA,NA,HL,177
+364_CC010_10F_33,igvf_025a,G10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Female,PNM_02,,8/21/23,72,27.0,NA,11/1/23,NA,NA,HL,119
+365_CC010_10M_33,igvf_025a,H10,Single,Gastrocnemius,CC010,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,,8/21/23,72,32.3,NA,11/1/23,NA,NA,HL,174
+368_CC011_10F_33,igvf_025a,A11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,,12/17/23,66,25.1,NA,2/21/24,11:10 ,ZT4.5,HL,137
+369_CC011_10M_33,igvf_025a,B11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Male,PNM_02,,1/6/24,67,28.5,NA,3/13/24,9:23 ,ZT3,HL,149
+370_CC011_10F_33,igvf_025a,C11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,,12/17/23,66,23.8,NA,2/21/24,12:00 ,ZT5.5,HL,142
+371_CC011_10M_33,igvf_025a,D11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Male,PNM_02,,1/6/24,67,20.0,NA,3/13/24,10:20 ,ZT4,HL,150
+372_CC011_10F_33,igvf_025a,E11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,E,11,Nuclei,Female,PNM_02,,12/17/23,66,23.3,NA,2/21/24,13:46 ,ZT7.5,HL,143
+373_CC011_10M_33,igvf_025a,F11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,F,11,Nuclei,Male,PNM_02,,1/6/24,67,28.3,NA,3/13/24,11:05 ,ZT4.5,HL,145
+374_CC011_10F_33,igvf_025a,G11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,G,11,Nuclei,Female,PNM_02,,1/7/24,71,24.0,NA,3/18/24,9:58 ,ZT3.5,HL,138
+375_CC011_10M_33,igvf_025a,H11,Single,Gastrocnemius,CC011,Parse_WT_Mega,v2,NA,NA,H,11,Nuclei,Male,PNM_02,,1/3/24,70,27.5,NA,3/13/24,13:26 ,ZT7,HL,152
+598_B6J_10F_33,igvf_025a,A12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,A,12,Nuclei,Female,PNM_02,,NA,NA,22.0,NA,10/4/23,14:13 ,ZT7.5,HL,133
+599_B6J_10M_33,igvf_025a,B12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,B,12,Nuclei,Male,PNM_02,,NA,NA,24.2,NA,10/4/23,15:00 ,ZT8.5,HL,177
+600_B6J_10F_33,igvf_025a,C12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,C,12,Nuclei,Female,PNM_02,,NA,NA,19.9,NA,10/4/23,14:36 ,ZT8,HL,140
+601_B6J_10M_33,igvf_025a,D12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,D,12,Nuclei,Male,PNM_02,,NA,NA,22.9,NA,10/4/23,15:24 ,ZT9,HL,174
+602_B6J_10F_33,igvf_025a,E12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,E,12,Nuclei,Female,PNM_02,,NA,NA,18.6,NA,10/11/23,9:57 ,ZT3.5,HL,168
+603_B6J_10M_33,igvf_025a,F12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,,NA,NA,24.3,NA,10/4/23,15:48 ,ZT9.5,HL,171
+604_B6J_10F_33,igvf_025a,G12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Female,PNM_02,,NA,NA,19.2,NA,10/11/23,10:40 ,ZT4,HL,180
+605_B6J_10M_33,igvf_025a,H12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,,NA,NA,0.0,NA,10/9/23,10:00 ,ZT3.5,HL,247
+378_CC012_10F_33,igvf_025b,A1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,A,1,Nuclei,Female,PNM_02,,3/9/24,68,17.9,NA,5/16/24,10:49 ,ZT4.5,HL,127
+379_CC012_10M_33,igvf_025b,B1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,B,1,Nuclei,Male,PNM_02,,1/10/24,70,20.5,NA,3/20/24,12:19 ,ZT6,HL,136
+380_CC012_10F_33,igvf_025b,C1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,C,1,Nuclei,Female,PNM_02,,3/4/24,73,19.0,NA,5/16/24,11:33 ,ZT5,HL,137
+381_CC012_10M_33,igvf_025b,D1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,D,1,Nuclei,Male,PNM_02,,1/10/24,70,21.1,NA,3/20/24,13:11 ,ZT6.5,HL,144
+382_CC012_10F_33,igvf_025b,E1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,E,1,Nuclei,Female,PNM_02,,3/15/24,69,20.0,NA,5/23/24,10:18 ,ZT4,HL,137
+383_CC012_10M_33,igvf_025b,F1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,F,1,Nuclei,Male,PNM_02,,NA,NA,19.9,NA,4/25/24,NA,NA,HL,155
+384_CC012_10F_33,igvf_025b,G1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,G,1,Nuclei,Female,PNM_02,,3/12/24,72,18.8,NA,5/23/24,13:07 ,ZT6.5,HL,104
+385_CC012_10M_33,igvf_025b,H1,Single,Gastrocnemius,CC012,Parse_WT_Mega,v2,NA,NA,H,1,Nuclei,Male,PNM_02,,NA,NA,20.3,NA,4/25/24,NA,NA,HL,142
+388_CC013_10F_33,igvf_025b,A2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,A,2,Nuclei,Female,PNM_02,,1/2/24,71,25.6,NA,3/13/24,9:50 ,ZT3.5,HL,141
+389_CC013_10M_33,igvf_025b,B2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,B,2,Nuclei,Male,PNM_02,,2/17/24,72,32.4,NA,4/29/24,11:59 ,ZT5.5,HL,187
+390_CC013_10F_33,igvf_025b,C2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,C,2,Nuclei,Female,PNM_02,,1/2/24,71,26.9,NA,3/13/24,10:43 ,ZT4,HL,161
+391_CC013_10M_33,igvf_025b,D2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,D,2,Nuclei,Male,PNM_02,,3/2/24,72,28.6,NA,5/13/24,10:10 ,ZT3.5,HL,183
+394_CC013_10F_33,igvf_025b,E2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,E,2,Nuclei,Female,PNM_02,,3/2/24,72,21.1,NA,5/13/24,11:41 ,ZT5,HL,122
+393_CC013_10M_33,igvf_025b,F2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,F,2,Nuclei,Male,PNM_02,,3/2/24,72,25.7,NA,5/13/24,10:33 ,ZT4,HL,159
+396_CC013_10F_33,igvf_025b,G2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Female,PNM_02,,3/4/24,70,21.7,NA,5/13/24,12:21 ,ZT6,HL,135
+395_CC013_10M_33,igvf_025b,H2,Single,Gastrocnemius,CC013,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,,3/2/24,72,25.8,NA,5/13/24,11:13 ,ZT4.5,HL,169
+398_CC015_10F_33,igvf_025b,A3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,,3/17/24,74,12.4,NA,5/30/24,9:33 ,ZT3,HL,77
+399_CC015_10M_33,igvf_025b,B3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Male,PNM_02,,12/26/23,71,16.2,NA,3/6/24,9:56 ,ZT3.5,HL,92
+400_CC015_10F_33,igvf_025b,C3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,,3/17/24,74,15.0,NA,5/30/24,10:18 ,ZT4,HL,90
+401_CC015_10M_33,igvf_025b,D3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Male,PNM_02,,12/26/23,71,19.9,NA,3/6/24,10:46 ,ZT4.5,HL,121
+402_CC015_10F_33,igvf_025b,E3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,,3/22/24,69,11.9,NA,5/30/24,11:04 ,ZT4.5,HL,77
+403_CC015_10M_33,igvf_025b,F3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,F,3,Nuclei,Male,PNM_02,,1/7/24,71,14.5,NA,3/18/24,10:41 ,ZT4,HL,95
+404_CC015_10F_33,igvf_025b,G3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,G,3,Nuclei,Female,PNM_02,,3/17/24,74,14.0,NA,5/30/24,12:06 ,ZT5.5,HL,89
+405_CC015_10M_33,igvf_025b,H3,Single,Gastrocnemius,CC015,Parse_WT_Mega,v2,NA,NA,H,3,Nuclei,Male,PNM_02,,1/7/24,71,16.7,NA,3/18/24,11:23 ,ZT5,HL,99
+408_CC017_10F_33,igvf_025b,A4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,A,4,Nuclei,Female,PNM_02,,12/28/23,69,17.5,NA,3/6/24,9:29 ,ZT3,HL,118
+409_CC017_10M_33,igvf_025b,B4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,B,4,Nuclei,Male,PNM_02,,12/22/23,68,21.3,NA,2/28/24,11:00 ,ZT4.5,HL,163
+410_CC017_10F_33,igvf_025b,C4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,C,4,Nuclei,Female,PNM_02,,12/30/23,67,16.7,NA,3/6/24,10:20 ,ZT4,HL,118
+411_CC017_10M_33,igvf_025b,D4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,D,4,Nuclei,Male,PNM_02,,NA,NA,22.8,NA,2/28/24,12:08 ,ZT5.5,HL,155
+412_CC017_10F_33,igvf_025b,E4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,E,4,Nuclei,Female,PNM_02,,3/4/24,70,16.6,NA,5/13/24,10:54 ,ZT4.5,HL,142
+413_CC017_10M_33,igvf_025b,F4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,F,4,Nuclei,Male,PNM_02,,12/22/23,68,22.2,NA,2/28/24,12:52 ,ZT6.5,HL,170
+414_CC017_10F_33,igvf_025b,G4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,G,4,Nuclei,Female,PNM_02,,3/4/24,70,16.1,NA,5/13/24,12:01 ,ZT5.5,HL,114
+417_CC017_10M_33,igvf_025b,H4,Single,Gastrocnemius,CC017,Parse_WT_Mega,v2,NA,NA,H,4,Nuclei,Male,PNM_02,,3/4/24,70,20.5,NA,5/13/24,9:45 ,ZT3.5,HL,141
+418_CC018_10F_33,igvf_025b,A5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,A,5,Nuclei,Female,PNM_02,,8/20/23,64,17.1,NA,10/23/23,9:54 ,ZT3.5,HL,139
+419_CC018_10M_33,igvf_025b,B5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,B,5,Nuclei,Male,PNM_02,,8/20/23,64,22.2,NA,10/23/23,10:25 ,ZT4,HL,157
+420_CC018_10F_33,igvf_025b,C5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,C,5,Nuclei,Female,PNM_02,,8/20/23,64,16.0,NA,10/23/23,10:50 ,ZT4.5,HL,126
+421_CC018_10M_33,igvf_025b,D5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,D,5,Nuclei,Male,PNM_02,,8/20/23,64,20.7,NA,10/23/23,11:15 ,ZT5,HL,162
+422_CC018_10F_33,igvf_025b,E5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,E,5,Nuclei,Female,PNM_02,,8/20/23,64,17.1,NA,10/23/23,11:40 ,ZT5,HL,160
+425_CC018_10M_33,igvf_025b,F5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,F,5,Nuclei,Male,PNM_02,,11/25/23,72,26.2,NA,2/5/24,12:28 ,ZT6,HL,157
+424_CC018_10F_33,igvf_025b,G5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,G,5,Nuclei,Female,PNM_02,,11/25/23,72,16.7,NA,2/5/24,12:04 ,ZT5.5,HL,118
+427_CC018_10M_33,igvf_025b,H5,Single,Gastrocnemius,CC018,Parse_WT_Mega,v2,NA,NA,H,5,Nuclei,Male,PNM_02,,11/27/23,70,19.9,NA,2/5/24,14:00 ,ZT7.5,HL,134
+428_CC024_10F_33,igvf_025b,A6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,A,6,Nuclei,Female,PNM_02,,2/1/24,69,17.8,NA,4/10/24,11:47 ,ZT5.5,HL,128
+429_CC024_10M_33,igvf_025b,B6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,B,6,Nuclei,Male,PNM_02,,NA,NA,26.1,NA,5/2/24,9:24 ,ZT3,HL,145
+430_CC024_10F_33,igvf_025b,C6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,C,6,Nuclei,Female,PNM_02,,2/1/24,69,18.4,NA,4/10/24,12:36 ,ZT6,HL,136
+431_CC024_10M_33,igvf_025b,D6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,D,6,Nuclei,Male,PNM_02,,NA,NA,26.7,NA,5/2/24,10:12 ,ZT3.5,HL,144
+432_CC024_10F_33,igvf_025b,E6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,E,6,Nuclei,Female,PNM_02,,2/3/24,72,18.7,NA,4/15/24,10:13 ,ZT3.5,HL,149
+433_CC024_10M_33,igvf_025b,F6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,F,6,Nuclei,Male,PNM_02,,NA,NA,23.8,NA,5/2/24,10:54 ,ZT4.5,HL,140
+434_CC024_10F_33,igvf_025b,G6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,G,6,Nuclei,Female,PNM_02,,2/3/24,72,19.9,NA,4/15/24,11:15 ,ZT5,HL,139
+435_CC024_10M_33,igvf_025b,H6,Single,Gastrocnemius,CC024,Parse_WT_Mega,v2,NA,NA,H,6,Nuclei,Male,PNM_02,,NA,NA,24.5,NA,5/2/24,12:43 ,ZT6,HL,136
+438_CC025_10F_33,igvf_025b,A7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,A,7,Nuclei,Female,PNM_02,,1/22/24,70,22.9,NA,4/1/24,11:53 ,ZT5.5,HL,110
+439_CC025_10M_33,igvf_025b,B7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,B,7,Nuclei,Male,PNM_02,,1/21/24,71,21.4,NA,4/1/24,10:15 ,ZT4,HL,89
+440_CC025_10F_33,igvf_025b,C7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,C,7,Nuclei,Female,PNM_02,,1/21/24,71,17.1,NA,4/1/24,12:37 ,ZT6,HL,106
+441_CC025_10M_33,igvf_025b,D7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,D,7,Nuclei,Male,PNM_02,,1/22/24,70,24.1,NA,4/1/24,11:04 ,ZT4.5,HL,113
+444_CC025_10F_33,igvf_025b,E7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,E,7,Nuclei,Female,PNM_02,,1/29/24,72,21.1,NA,4/10/24,10:35 ,ZT4,HL,140
+445_CC025_10M_33,igvf_025b,F7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,F,7,Nuclei,Male,PNM_02,,3/18/24,73,19.1,NA,5/30/24,11:48 ,ZT5.5,HL,81
+446_CC025_10F_33,igvf_025b,G7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,G,7,Nuclei,Female,PNM_02,,1/29/24,72,21.1,NA,4/10/24,10:58 ,ZT4.5,HL,109
+447_CC025_10M_34,igvf_025b,H7,Single,Gastrocnemius,CC025,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Male,PNM_02,,NA,NA,0.0,NA,NA,NA,NA,HL,NA
+448_CC028_10F_33,igvf_025b,A8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,A,8,Nuclei,Female,PNM_02,,9/27/23,70,24.2,NA,12/6/23,9:35 ,ZT3,HL,152
+449_CC028_10M_33,igvf_025b,B8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,B,8,Nuclei,Male,PNM_02,,12/22/23,68,32.5,NA,2/28/24,11:25 ,ZT5,HL,155
+450_CC028_10F_33,igvf_025b,C8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,C,8,Nuclei,Female,PNM_02,,9/27/23,70,21.9,NA,12/6/23,10:30 ,ZT4,HL,155
+451_CC028_10M_33,igvf_025b,D8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,D,8,Nuclei,Male,PNM_02,,12/22/23,68,30.1,NA,2/28/24,12:29 ,ZT6,HL,195
+452_CC028_10F_33,igvf_025b,E8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,E,8,Nuclei,Female,PNM_02,,9/27/23,70,23.9,NA,12/6/23,11:25 ,ZT5,HL,152
+453_CC028_10M_33,igvf_025b,F8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,F,8,Nuclei,Male,PNM_02,,3/4/24,73,28.7,NA,5/16/24,10:01 ,ZT3.5,HL,164
+454_CC028_10F_33,igvf_025b,G8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,G,8,Nuclei,Female,PNM_02,,9/27/23,70,23.9,NA,12/6/23,13:00 ,ZT6.5,HL,164
+455_CC028_10M_33,igvf_025b,H8,Single,Gastrocnemius,CC028,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,,3/4/24,73,28.3,NA,5/16/24,11:10 ,ZT4.5,HL,162
+458_CC029_10F_33,igvf_025b,A9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,A,9,Nuclei,Female,PNM_02,,9/11/23,70,16.3,NA,11/20/23,10:15 ,ZT4,HL,112
+459_CC029_10M_33,igvf_025b,B9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,B,9,Nuclei,Male,PNM_02,,8/17/23,67,22.0,NA,10/23/23,12:10 ,ZT5.5,HL,140
+460_CC029_10F_33,igvf_025b,C9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,C,9,Nuclei,Female,PNM_02,,9/11/23,70,17.6,NA,11/20/23,11:06 ,ZT4.5,HL,103
+465_CC029_10M_33,igvf_025b,D9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,D,9,Nuclei,Male,PNM_02,,9/23/23,67,18.2,NA,11/29/23,10:30 ,ZT4,HL,126
+462_CC029_10F_33,igvf_025b,E9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,E,9,Nuclei,Female,PNM_02,,9/11/23,70,15.1,NA,11/20/23,11:51 ,ZT5.5,HL,114
+467_CC029_10M_33,igvf_025b,F9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,F,9,Nuclei,Male,PNM_02,,9/23/23,67,18.4,NA,11/29/23,11:15 ,ZT5,HL,130
+464_CC029_10F_33,igvf_025b,G9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,G,9,Nuclei,Female,PNM_02,,9/11/23,70,16.3,NA,11/20/23,13:53 ,ZT7.5,HL,107
+713_CC029_10M_33,igvf_025b,H9,Single,Gastrocnemius,CC029,Parse_WT_Mega,v2,NA,NA,H,9,Nuclei,Male,PNM_02,,12/17/23,66,17.2,NA,2/21/24,13:03 ,ZT6.5,HL,117
+468_CC030_10F_33,igvf_025b,A10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,A,10,Nuclei,Female,PNM_02,,8/12/23,67,20.1,NA,10/18/23,10:00 ,ZT3.5,HL,132
+469_CC030_10M_33,igvf_025b,B10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,B,10,Nuclei,Male,PNM_02,,12/9/23,67,17.0,NA,2/14/24,9:31 ,ZT3,HL,117
+470_CC030_10F_33,igvf_025b,C10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,C,10,Nuclei,Female,PNM_02,,8/12/23,67,18.4,NA,10/18/23,11:05 ,ZT4.5,HL,126
+471_CC030_10M_33,igvf_025b,D10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,D,10,Nuclei,Male,PNM_02,,12/9/23,67,20.2,NA,2/14/24,10:18 ,ZT4,HL,146
+472_CC030_10F_33,igvf_025b,E10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,E,10,Nuclei,Female,PNM_02,,8/12/23,67,19.0,NA,10/18/23,12:00 ,ZT5.5,HL,131
+473_CC030_10M_33,igvf_025b,F10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,,12/6/23,70,19.4,NA,2/14/24,11:01 ,ZT4.5,HL,138
+474_CC030_10F_33,igvf_025b,G10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Female,PNM_02,,8/12/23,67,18.6,NA,10/18/23,13:43 ,ZT7,HL,132
+475_CC030_10M_33,igvf_025b,H10,Single,Gastrocnemius,CC030,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,,12/6/23,70,20.5,NA,2/14/24,11:40 ,ZT5,HL,132
+478_CC032_10F_33,igvf_025b,A11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,,1/20/24,72,25.8,NA,4/1/24,9:50 ,ZT3.5,HL,150
+479_CC032_10M_33,igvf_025b,B11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Male,PNM_02,,3/4/24,73,30.5,NA,5/16/24,10:21 ,ZT4,HL,165
+480_CC032_10F_33,igvf_025b,C11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,,1/20/24,72,20.3,NA,4/1/24,10:38 ,ZT4,HL,127
+481_CC032_10M_33,igvf_025b,D11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Male,PNM_02,,NA,NA,33.4,NA,NA,12:20 ,ZT6,HL,180
+482_CC032_10F_33,igvf_025b,E11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,E,11,Nuclei,Female,PNM_02,,1/20/24,72,25.5,NA,4/1/24,11:26 ,ZT5,HL,138
+483_CC032_10M_33,igvf_025b,F11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,F,11,Nuclei,Male,PNM_02,,3/27/24,68,27.5,NA,6/3/24,10:00 ,ZT3.5,HL,139
+484_CC032_10F_33,igvf_025b,G11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,G,11,Nuclei,Female,PNM_02,,1/20/24,72,20.7,NA,4/1/24,12:15 ,ZT6,HL,125
+485_CC032_10M_33,igvf_025b,H11,Single,Gastrocnemius,CC032,Parse_WT_Mega,v2,NA,NA,H,11,Nuclei,Male,PNM_02,,3/27/24,68,25.7,NA,6/3/24,10:46 ,ZT4.5,HL,153
+608_B6J_10F_33,igvf_025b,A12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,A,12,Nuclei,Female,PNM_02,,12/19/23,71,20.5,NA,2/28/24,13:12 ,ZT6.5,HL,144
+609_B6J_10M_33,igvf_025b,B12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,B,12,Nuclei,Male,PNM_02,,12/19/23,71,27.6,NA,2/28/24,13:33 ,ZT7,HL,195
+610_B6J_10F_33,igvf_025b,C12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,C,12,Nuclei,Female,PNM_02,,12/26/23,69,17.5,NA,3/4/24,9:54 ,ZT3.5,HL,117
+611_B6J_10M_33,igvf_025b,D12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,D,12,Nuclei,Male,PNM_02,,12/26/23,69,24.9,NA,3/4/24,10:15 ,ZT4,HL,195
+612_B6J_10F_33,igvf_025b,E12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,E,12,Nuclei,Female,PNM_02,,12/26/23,71,20.3,NA,3/6/24,12:55 ,ZT6.5,HL,157
+613_B6J_10M_33,igvf_025b,F12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,,12/26/23,71,23.4,NA,3/6/24,13:16 ,ZT7,HL,167
+616_B6J_10F_33,igvf_025b,G12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Female,PNM_02,,1/2/24,71,18.5,NA,3/13/24,11:27 ,ZT5,HL,139
+617_B6J_10M_33,igvf_025b,H12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,,1/2/24,71,26.8,NA,3/13/24,11:49 ,ZT5.5,HL,178
+492_CC036_10F_33,igvf_025c,A1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,A,1,Nuclei,Female,PNM_02,,12/9/23,67,12.8,NA,2/14/24,9:55 ,ZT3.5,HL,114
+493_CC036_10M_33,igvf_025c,B1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,B,1,Nuclei,Male,PNM_02,,11/29/23,70,19.6,NA,2/7/24,11:27 ,ZT5,HL,128
+494_CC036_10F_33,igvf_025c,C1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,C,1,Nuclei,Female,PNM_02,,12/7/23,69,18.3,NA,2/14/24,10:41 ,ZT4,HL,111
+495_CC036_10M_33,igvf_025c,D1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,D,1,Nuclei,Male,PNM_02,,11/29/23,70,20.9,NA,2/7/24,11:46 ,ZT5.5,HL,117
+496_CC036_10F_33,igvf_025c,E1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,E,1,Nuclei,Female,PNM_02,,12/7/23,69,19.0,NA,2/14/24,11:21 ,ZT5,HL,113
+497_CC036_10M_33,igvf_025c,F1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,F,1,Nuclei,Male,PNM_02,,11/29/23,70,21.2,NA,2/7/24,12:07 ,ZT5.5,HL,137
+720_CC036_10F_33,igvf_025c,G1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,G,1,Nuclei,Female,PNM_02,,2/5/24,73,19.1,NA,4/18/24,13:06 ,ZT6.5,HL,146
+715_CC036_10M_33,igvf_025c,H1,Single,Gastrocnemius,CC036,Parse_WT_Mega,v2,NA,NA,H,1,Nuclei,Male,PNM_02,,11/29/23,70,19.7,NA,2/7/24,13:34 ,ZT7,HL,118
+498_CC037_10F_33,igvf_025c,A2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,A,2,Nuclei,Female,PNM_02,,NA,NA,20.9,NA,11/13/23,9:56 ,ZT3.5,HL,157
+499_CC037_10M_33,igvf_025c,B2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,B,2,Nuclei,Male,PNM_02,,12/26/23,71,22.4,NA,3/6/24,11:10 ,ZT4.5,HL,130
+500_CC037_10F_33,igvf_025c,C2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,C,2,Nuclei,Female,PNM_02,,NA,NA,20.9,NA,11/13/23,11:20 ,ZT5,HL,156
+501_CC037_10M_33,igvf_025c,D2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,D,2,Nuclei,Male,PNM_02,,12/26/23,71,21.3,NA,3/6/24,11:54 ,ZT5.5,HL,167
+502_CC037_10F_33,igvf_025c,E2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,E,2,Nuclei,Female,PNM_02,,NA,NA,23.9,NA,11/13/23,12:35 ,ZT6,HL,157
+505_CC037_10M_33,igvf_025c,F2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,F,2,Nuclei,Male,PNM_02,,1/12/24,68,24.1,NA,3/20/24,9:25 ,ZT3,HL,179
+504_CC037_10F_33,igvf_025c,G2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,G,2,Nuclei,Female,PNM_02,,NA,NA,21.0,NA,11/13/23,14:57 ,ZT8.5,HL,147
+507_CC037_10M_33,igvf_025c,H2,Single,Gastrocnemius,CC037,Parse_WT_Mega,v2,NA,NA,H,2,Nuclei,Male,PNM_02,,1/12/24,68,23.7,NA,3/20/24,11:06 ,ZT4.5,HL,150
+508_CC038_10F_33,igvf_025c,A3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,A,3,Nuclei,Female,PNM_02,,9/21/23,69,16.8,NA,11/29/23,10:00 ,ZT3.5,HL,130
+509_CC038_10M_33,igvf_025c,B3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,B,3,Nuclei,Male,PNM_02,,9/21/23,69,23.6,NA,11/29/23,13:50 ,ZT7.5,HL,128
+510_CC038_10F_33,igvf_025c,C3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,C,3,Nuclei,Female,PNM_02,,9/21/23,69,15.6,NA,11/29/23,10:55 ,ZT4.5,HL,113
+513_CC038_10M_33,igvf_025c,D3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,D,3,Nuclei,Male,PNM_02,,12/22/23,68,23.7,NA,2/28/24,9:53 ,ZT3.5,HL,129
+512_CC038_10F_33,igvf_025c,E3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,E,3,Nuclei,Female,PNM_02,,9/18/23,72,17.3,NA,11/29/23,13:40 ,ZT7,HL,130
+515_CC038_10M_33,igvf_025c,F3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,F,3,Nuclei,Male,PNM_02,,12/22/23,68,26.2,NA,2/28/24,10:38 ,ZT4,HL,146
+514_CC038_10F_33,igvf_025c,G3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,G,3,Nuclei,Female,PNM_02,,11/28/23,71,14.5,NA,2/7/24,13:11 ,ZT6.5,HL,102
+517_CC038_10M_33,igvf_025c,H3,Single,Gastrocnemius,CC038,Parse_WT_Mega,v2,NA,NA,H,3,Nuclei,Male,PNM_02,,NA,NA,25.2,NA,2/28/24,11:47 ,ZT5.5,HL,152
+518_CC041_10F_33,igvf_025c,A4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,A,4,Nuclei,Female,PNM_02,,1/3/24,68,14.5,NA,3/11/24,10:03 ,ZT3.5,HL,139
+719_CC041_10M_33,igvf_025c,B4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,B,4,Nuclei,Male,PNM_02,,2/4/24,71,21.5,NA,4/15/24,10:55 ,ZT4.5,HL,145
+520_CC041_10F_33,igvf_025c,C4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,C,4,Nuclei,Female,PNM_02,,1/3/24,68,19.7,NA,3/11/24,10:49 ,ZT4.5,HL,136
+721_CC041_10M_33,igvf_025c,D4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,D,4,Nuclei,Male,PNM_02,,2/4/24,71,27.4,NA,4/15/24,11:37 ,ZT5,HL,174
+522_CC041_10F_33,igvf_025c,E4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,E,4,Nuclei,Female,PNM_02,,1/3/24,68,18.7,NA,3/11/24,11:35 ,ZT5,HL,150
+723_CC041_10M_33,igvf_025c,F4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,F,4,Nuclei,Male,PNM_02,,2/4/24,71,25.9,NA,4/15/24,12:29 ,ZT6,HL,201
+524_CC041_10F_33,igvf_025c,G4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,G,4,Nuclei,Female,PNM_02,,1/3/24,68,19.1,NA,3/11/24,12:23 ,ZT6,HL,123
+727_CC041_10M_33,igvf_025c,H4,Single,Gastrocnemius,CC041,Parse_WT_Mega,v2,NA,NA,H,4,Nuclei,Male,PNM_02,,3/16/24,68,23.5,NA,5/23/24,10:42 ,ZT4,HL,146
+528_CC043_10F_33,igvf_025c,A5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,A,5,Nuclei,Female,PNM_02,,12/17/23,66,16.6,NA,2/21/24,11:35 ,ZT5,HL,111
+529_CC043_10M_33,igvf_025c,B5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,B,5,Nuclei,Male,PNM_02,,12/30/99,0,21.5,NA,12/30/99,9:51 ,ZT3.5,HL,137
+530_CC043_10F_33,igvf_025c,C5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,C,5,Nuclei,Female,PNM_02,,12/17/23,66,15.0,NA,2/21/24,12:20 ,ZT6,HL,128
+531_CC043_10M_33,igvf_025c,D5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,D,5,Nuclei,Male,PNM_02,,NA,NA,18.5,NA,5/2/24,10:33 ,ZT4,HL,119
+534_CC043_10F_33,igvf_025c,E5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,E,5,Nuclei,Female,PNM_02,,1/8/24,70,15.5,NA,3/18/24,10:18 ,ZT4,HL,100
+533_CC043_10M_33,igvf_025c,F5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,F,5,Nuclei,Male,PNM_02,,NA,NA,19.4,NA,5/2/24,11:14 ,ZT4.5,HL,119
+536_CC043_10F_33,igvf_025c,G5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,G,5,Nuclei,Female,PNM_02,,1/8/24,70,14.2,NA,3/18/24,12:30 ,ZT6,HL,94
+535_CC043_10M_33,igvf_025c,H5,Single,Gastrocnemius,CC043,Parse_WT_Mega,v2,NA,NA,H,5,Nuclei,Male,PNM_02,,NA,NA,0.0,NA,5/2/24,13:04 ,ZT6.5,HL,126
+538_CC057_10F_33,igvf_025c,A6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,A,6,Nuclei,Female,PNM_02,,NA,NA,21.8,NA,10/9/23,11:13 ,ZT4.5,HL,189
+729_CC057_10M_33,igvf_025c,B6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,B,6,Nuclei,Male,PNM_02,,12/14/23,55,30.5,NA,2/7/24,10:05 ,ZT3.5,HL,182
+540_CC057_10F_33,igvf_025c,C6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,C,6,Nuclei,Female,PNM_02,,NA,NA,25.2,NA,10/9/23,11:46 ,ZT5.5,HL,208
+731_CC057_10M_33,igvf_025c,D6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,D,6,Nuclei,Male,PNM_02,,11/28/23,71,31.2,NA,2/7/24,11:00 ,ZT4.5,HL,180
+542_CC057_10F_33,igvf_025c,E6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,E,6,Nuclei,Female,PNM_02,,NA,NA,22.5,NA,10/9/23,12:16 ,ZT6,HL,202
+733_CC057_10M_33,igvf_025c,F6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,F,6,Nuclei,Male,PNM_02,,11/28/23,71,31.2,NA,2/7/24,12:30 ,ZT6,HL,217
+544_CC057_10F_33,igvf_025c,G6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,G,6,Nuclei,Female,PNM_02,,NA,NA,21.6,NA,10/9/23,12:50 ,ZT6.5,HL,206
+735_CC057_10M_33,igvf_025c,H6,Single,Gastrocnemius,CC057,Parse_WT_Mega,v2,NA,NA,H,6,Nuclei,Male,PNM_02,,12/2/23,74,30.0,NA,2/14/24,13:02 ,ZT6.5,HL,188
+548_CC060_10F_33,igvf_025c,A7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,A,7,Nuclei,Female,PNM_02,,NA,NA,16.7,NA,4/25/24,NA,NA,HL,122
+549_CC060_10M_33,igvf_025c,B7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,B,7,Nuclei,Male,PNM_02,,2/14/24,75,23.8,NA,4/29/24,9:57 ,ZT3.5,HL,138
+550_CC060_10F_33,igvf_025c,C7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,C,7,Nuclei,Female,PNM_02,,NA,NA,17.3,NA,4/25/24,NA,NA,HL,116
+551_CC060_10M_33,igvf_025c,D7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,D,7,Nuclei,Male,PNM_02,,2/14/24,75,24.0,NA,4/29/24,10:46 ,ZT4.5,HL,134
+552_CC060_10F_33,igvf_025c,E7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,E,7,Nuclei,Female,PNM_02,,NA,NA,19.0,NA,4/25/24,NA,NA,HL,100
+553_CC060_10M_33,igvf_025c,F7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,F,7,Nuclei,Male,PNM_02,,2/14/24,75,23.1,NA,4/29/24,11:36 ,ZT5,HL,135
+554_CC060_10F_33,igvf_025c,G7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,G,7,Nuclei,Female,PNM_02,,NA,NA,18.6,NA,4/25/24,NA,NA,HL,118
+555_CC060_10M_33,igvf_025c,H7,Single,Gastrocnemius,CC060,Parse_WT_Mega,v2,NA,NA,H,7,Nuclei,Male,PNM_02,,2/17/24,72,23.3,NA,4/29/24,12:17 ,ZT6,HL,164
+708_CC062_10F_33,igvf_025c,A8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,A,8,Nuclei,Female,PNM_02,,NA,NA,19.9,NA,4/25/24,NA,NA,HL,127
+559_CC062_10M_33,igvf_025c,B8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,B,8,Nuclei,Male,PNM_02,,8/16/23,68,25.1,NA,10/23/23,13:40 ,ZT7,HL,183
+710_CC062_10F_33,igvf_025c,C8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,C,8,Nuclei,Female,PNM_02,,NA,NA,19.5,NA,4/25/24,NA,NA,HL,138
+563_CC062_10M_33,igvf_025c,D8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,D,8,Nuclei,Male,PNM_02,,NA,NA,27.5,NA,12/30/99,NA,NA,HL,NA
+712_CC062_10F_33,igvf_025c,E8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,E,8,Nuclei,Female,PNM_02,,3/9/24,68,21.2,NA,5/16/24,9:38 ,ZT3,HL,151
+565_CC062_10M_33,igvf_025c,F8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,F,8,Nuclei,Male,PNM_02,,NA,NA,27.7,NA,12/30/99,NA,NA,HL,NA
+714_CC062_10F_33,igvf_025c,G8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,G,8,Nuclei,Female,PNM_02,,3/9/24,68,20.0,NA,5/16/24,12:05 ,ZT5.5,HL,162
+567_CC062_10M_33,igvf_025c,H8,Single,Gastrocnemius,CC062,Parse_WT_Mega,v2,NA,NA,H,8,Nuclei,Male,PNM_02,,NA,NA,27.3,NA,12/30/99,NA,NA,HL,NA
+568_CC065_10F_33,igvf_025c,A9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,A,9,Nuclei,Female,PNM_02,,8/14/23,72,22.8,NA,10/25/23,10:58 ,ZT4.5,HL,152
+569_CC065_10M_33,igvf_025c,B9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,B,9,Nuclei,Male,PNM_02,,12/28/23,67,30.1,NA,3/4/24,11:03 ,ZT4.5,HL,173
+570_CC065_10F_33,igvf_025c,C9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,C,9,Nuclei,Female,PNM_02,,8/13/23,73,22.7,NA,10/25/23,11:59 ,ZT5.5,HL,149
+573_CC065_10M_33,igvf_025c,D9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,D,9,Nuclei,Male,PNM_02,,1/9/24,71,25.1,NA,3/20/24,10:15 ,ZT4,HL,147
+572_CC065_10F_33,igvf_025c,E9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,E,9,Nuclei,Female,PNM_02,,8/14/23,72,18.7,NA,10/25/23,13:05 ,ZT6.5,HL,141
+575_CC065_10M_33,igvf_025c,F9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,F,9,Nuclei,Male,PNM_02,,1/9/24,71,27.3,NA,3/20/24,12:45 ,ZT6.5,HL,117
+574_CC065_10F_33,igvf_025c,G9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,G,9,Nuclei,Female,PNM_02,,9/14/23,67,24.0,NA,11/20/23,13:27 ,ZT7,HL,143
+577_CC065_10M_33,igvf_025c,H9,Single,Gastrocnemius,CC065,Parse_WT_Mega,v2,NA,NA,H,9,Nuclei,Male,PNM_02,,1/9/24,71,27.1,NA,3/20/24,13:35 ,ZT7,HL,140
+578_CC071_10F_33,igvf_025c,A10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,A,10,Nuclei,Female,PNM_02,,9/23/23,67,13.8,NA,11/29/23,12:08 ,ZT5.5,HL,111
+579_CC071_10M_33,igvf_025c,B10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,B,10,Nuclei,Male,PNM_02,,12/10/23,66,17.0,NA,2/14/24,12:00 ,ZT5.5,HL,122
+580_CC071_10F_33,igvf_025c,C10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,C,10,Nuclei,Female,PNM_02,,9/23/23,67,14.3,NA,11/29/23,13:19 ,ZT7,HL,117
+581_CC071_10M_33,igvf_025c,D10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,D,10,Nuclei,Male,PNM_02,,12/10/23,66,16.7,NA,2/14/24,13:25 ,ZT7,HL,126
+584_CC071_10F_33,igvf_025c,E10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,E,10,Nuclei,Female,PNM_02,,11/30/23,67,14.4,NA,2/5/24,9:35 ,ZT3,HL,99
+583_CC071_10M_33,igvf_025c,F10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,F,10,Nuclei,Male,PNM_02,,3/17/24,67,20.4,NA,5/23/24,9:54 ,ZT3.5,HL,122
+586_CC071_10F_33,igvf_025c,G10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,G,10,Nuclei,Female,PNM_02,,11/30/23,67,13.2,NA,2/5/24,9:56 ,ZT3.5,HL,98
+585_CC071_10M_33,igvf_025c,H10,Single,Gastrocnemius,CC071,Parse_WT_Mega,v2,NA,NA,H,10,Nuclei,Male,PNM_02,,3/17/24,67,21.6,NA,5/23/24,11:27 ,ZT5,HL,134
+588_CC074_10F_33,igvf_025c,A11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,A,11,Nuclei,Female,PNM_02,,11/27/23,70,16.3,NA,2/5/24,10:19 ,ZT4,HL,95
+589_CC074_10M_33,igvf_025c,B11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,B,11,Nuclei,Male,PNM_02,,8/10/23,69,21.4,NA,10/18/23,10:32 ,ZT4,HL,117
+590_CC074_10F_33,igvf_025c,C11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,C,11,Nuclei,Female,PNM_02,,11/27/23,70,14.0,NA,2/5/24,10:43 ,ZT4,HL,84
+591_CC074_10M_33,igvf_025c,D11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,D,11,Nuclei,Male,PNM_02,,8/10/23,69,20.5,NA,10/18/23,11:32 ,ZT5,HL,135
+592_CC074_10F_33,igvf_025c,E11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,E,11,Nuclei,Female,PNM_02,,12/25/23,70,19.0,NA,3/4/24,11:52 ,ZT5.5,HL,111
+593_CC074_10M_33,igvf_025c,F11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,F,11,Nuclei,Male,PNM_02,,8/10/23,69,20.4,NA,10/18/23,12:30 ,ZT6,HL,141
+594_CC074_10F_33,igvf_025c,G11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,G,11,Nuclei,Female,PNM_02,,12/25/23,70,14.6,NA,3/4/24,12:50 ,ZT6.5,HL,94
+739_CC074_10M_33,igvf_025c,H11,Single,Gastrocnemius,CC074,Parse_WT_Mega,v2,NA,NA,H,11,Nuclei,Male,PNM_02,,12/16/23,67,22.3,NA,2/21/24,13:22 ,ZT7,HL,129
+618_B6J_10F_33,igvf_025c,A12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,A,12,Nuclei,Female,PNM_02,,3/12/24,72,21.2,NA,5/23/24,12:11 ,ZT5.5,HL,136
+621_B6J_10M_33,igvf_025c,B12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,B,12,Nuclei,Male,PNM_02,,3/19/24,72,24.2,NA,5/30/24,13:04 ,ZT6.5,HL,178
+620_B6J_10F_33,igvf_025c,C12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,C,12,Nuclei,Female,PNM_02,,3/19/24,72,18.6,NA,5/30/24,11:27 ,ZT5,HL,133
+623_B6J_10M_33,igvf_025c,D12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,D,12,Nuclei,Male,PNM_02,,3/26/24,72,24.9,NA,6/6/24,10:14 ,ZT3.5,HL,168
+622_B6J_10F_33,igvf_025c,E12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,E,12,Nuclei,Female,PNM_02,,3/26/24,72,19.4,NA,6/6/24,9:55 ,ZT3.5,HL,132
+625_B6J_10M_33,igvf_025c,F12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,F,12,Nuclei,Male,PNM_02,,3/26/24,72,25.4,NA,6/6/24,11:37 ,ZT5,HL,174
+624_B6J_10F_33,igvf_025c,G12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,G,12,Nuclei,Female,PNM_02,,3/26/24,72,20.6,NA,6/6/24,10:55 ,ZT4.5,HL,131
+627_B6J_10M_33,igvf_025c,H12,Single,Gastrocnemius,B6J,Parse_WT_Mega,v2,NA,NA,H,12,Nuclei,Male,PNM_02,,3/26/24,72,25.4,NA,6/6/24,12:37 ,ZT6,HL,167
