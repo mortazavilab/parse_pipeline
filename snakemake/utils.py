@@ -8,6 +8,10 @@ import shutil
 import os
 import json
 from cellbender.remove_background.downstream import anndata_from_h5
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.mixture import GaussianMixture
 
 ############################################################################################################
 ############################################## Barcode parsing #############################################
@@ -677,83 +681,22 @@ def touch_dummy(ofile):
     """
     open(ofile, 'a').close()
     
-    
-## OLD 
-# def assign_demux_genotype(df):
-#     """
-#     Assigns a cell the genotype w/ the maximum of counts
-#     between the two genotypes that were loaded in the well
-#     the cell is from.
 
-#     Parameters:
-#         df (pandas DataFrame): DF of obs table for each cell w/
-#             klue counts for each genotype and multiplexed genotype
-#             columns
-#     """
-#     genotype_cols = get_genotypes()    
-#     genotype_cols = [c for c in genotype_cols if c in df.columns.tolist()]
-
-#     # restrict to nuclei w/ genetic multiplexing
-#     df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
-
-#     # fill nans once again
-#     df[genotype_cols] = df[genotype_cols].fillna(0)
-
-#     # loop through each multiplexed genotype combo
-#     # use those genotypes to determine which, between the two, has the highest counts
-#     keep_cols = ['mult_genotype',
-#                  'mult_genotype_1',
-#                  'mult_genotype_2']+genotype_cols
-#     df = df[keep_cols]
-#     temp2 = pd.DataFrame()
-#     for g in df.mult_genotype.unique().tolist():
-#         # print(g)
-#         temp = df.loc[df.mult_genotype==g].copy(deep=True)
-
-#         g1 = temp.mult_genotype_1.unique().tolist()
-#         assert len(g1) == 1
-#         g1 = g1[0]
-
-#         g2 = temp.mult_genotype_2.unique().tolist()
-#         assert len(g2) == 1
-#         g2 = g2[0]
-
-#         # find the best match and report ties if the values are the same
-#         temp['new_genotype'] = temp[[g1,g2]].idxmax(axis=1)
-#         temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
-
-#         temp2 = pd.concat([temp2, temp], axis=0)
-
-#     df = df.merge(temp2['new_genotype'], how='left',
-#                   left_index=True, right_index=True)
-#     df = df[['new_genotype']]
-
-#     assert len(df.loc[df.new_genotype.isnull()].index) == 0
-
-#     return df
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.mixture import GaussianMixture
-
-## NEW KLUE -- Ryan's function
+## NEW KLUE -- Ryan's function, Liz edits to handle cases with 0 counts
 def assign_demux_genotype(df):
-
     genotype_cols = get_genotypes()    
     genotype_cols = [c for c in genotype_cols if c in df.columns.tolist()]
 
-    df = df.loc[df.well_type=='Multiplexed'].copy(deep=True)
+    df = df.loc[df.well_type == 'Multiplexed'].copy(deep=True)
     df[genotype_cols] = df[genotype_cols].fillna(0)
-    keep_cols = ['mult_genotype',
-                     'mult_genotype_1',
-                     'mult_genotype_2']+genotype_cols
+    
+    keep_cols = ['mult_genotype', 'mult_genotype_1', 'mult_genotype_2'] + genotype_cols
     df = df[keep_cols]
+    
     temp2 = pd.DataFrame()
+    
     for g in df.mult_genotype.unique().tolist():
-        # print(g)
-        temp = df.loc[df.mult_genotype==g].copy(deep=True)
+        temp = df.loc[df.mult_genotype == g].copy(deep=True)
 
         g1 = temp.mult_genotype_1.unique().tolist()
         assert len(g1) == 1
@@ -763,31 +706,38 @@ def assign_demux_genotype(df):
         assert len(g2) == 1
         g2 = g2[0]
 
-        ratio_values = temp[g1] / (temp[g1] + temp[g2])
+        # Identify rows where both g1 and g2 are zero
+        zero_mask = (temp[g1] == 0) & (temp[g2] == 0)
 
-        X = ratio_values.values.reshape(-1, 1)
-        gmm = GaussianMixture(n_components=2, random_state=42)
-        gmm.fit(X)
-        labels = gmm.predict(X)
-        cluster_means = gmm.means_.flatten()
-        sorted_indices = np.argsort(cluster_means)  # Sort clusters by mean ratio
+        # Initialize pred_temp with 'tie' where both are zero, otherwise NaN
+        pred_temp = pd.Series(data=np.nan, index=temp.index, dtype=object)
+        pred_temp.loc[zero_mask] = 'tie'
 
-        # Map labels to genotypes
-        label_map = {sorted_indices[0]: g2, sorted_indices[1]: g1}
-        pred_temp = np.vectorize(label_map.get)(labels)
+        # Now handle the remaining rows with GMM
+        temp_nonzero = temp.loc[~zero_mask].copy()
+        if len(temp_nonzero) > 0:
+            ratio_values = temp_nonzero[g1] / (temp_nonzero[g1] + temp_nonzero[g2])
+            X = ratio_values.values.reshape(-1, 1)
 
+            gmm = GaussianMixture(n_components=2, random_state=42)
+            gmm.fit(X)
+            labels = gmm.predict(X)
 
-        temp['new_genotype'] = pred_temp    
-        # temp.loc[temp[g1]==temp[g2], 'new_genotype'] = 'tie'
+            cluster_means = gmm.means_.flatten()
+            sorted_indices = np.argsort(cluster_means)
 
+            label_map = {sorted_indices[0]: g2, sorted_indices[1]: g1}
+            pred_labels = np.vectorize(label_map.get)(labels)
+
+            pred_temp.loc[temp_nonzero.index] = pred_labels
+
+        temp['new_genotype'] = pred_temp
         temp2 = pd.concat([temp2, temp], axis=0)
 
-    
-    df = df.merge(temp2['new_genotype'], how='left',
-                  left_index=True, right_index=True)
+    df = df.merge(temp2['new_genotype'], how='left', left_index=True, right_index=True)
     df = df[['new_genotype']]
 
-    assert len(df.loc[df.new_genotype.isnull()].index) == 0
+    assert df['new_genotype'].isnull().sum() == 0
     return df
 
 
