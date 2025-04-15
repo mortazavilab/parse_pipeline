@@ -463,7 +463,7 @@ rule cellbender:
         mem_gb = 128,
         threads = 8,
         partition = 'free-gpu', #'gpu'
-        account = 'seyedam_lab',
+        account = 'seyedam_lab_gpu',
         gres = 'gpu:1',
         time = '8:00:00'
     output:
